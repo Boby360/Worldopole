@@ -135,7 +135,7 @@ include_once('core/process/data.loader.php');
 						<h2><?= $locales->FOOTER_TITLE ?></h2>
 						<p><?= $locales->FOOTER_SUB ?></p>
 						<?= $locales->FOOTER_VISUAL_CONTENT ?>
-						<p>Made in Brussels<br/>Based on <a href="https://github.com/brusselopole">Brusselopole</a> by <a href="http://56k.be/" target="_blank">56k</a> &amp; <a href="http://vandereecken.me" target="_blank">Nithou</a></p>
+						<p><?= $locales->FOOTER_MADE_BY ?></p>
 						<h3>Pokémon™</h3>
 						<?= $locales->FOOTER_POKEMON_CONTENT ?>
 					</div>
@@ -247,6 +247,15 @@ include_once('core/process/data.loader.php');
 					<script src="<?php auto_ver('core/js/trainer.content.js') ?>"></script>
 					<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 					<script src="core/js/trainer.graph.js.php"></script>
+
+					<?php
+					break;
+					
+				case 'nests':
+					?>
+
+					<script src="core/js/nests.maps.js.php"></script>
+					<script src="https://maps.googleapis.com/maps/api/js?key=<?= $config->system->GMaps_Key ?>&libraries=visualization&callback=initMap"></script>
 
 					<?php
 					break;
