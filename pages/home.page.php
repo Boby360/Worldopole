@@ -92,7 +92,7 @@
 		foreach ($recents as $key => $pokemon) {
 			$id = $pokemon->id;
 			$uid = $pokemon->uid;
-			if ($pokemon->iv->available) {
+			if ($pokemon->encdetails->available) {
 				$move1 = $pokemon->encdetails->move1;
 				$move2 = $pokemon->encdetails->move2; ?>
 			<div class="col-md-1 col-xs-4 pokemon-single" data-pokeid="<?= $id ?>" data-pokeuid="<?= $uid ?>" title="<?= $pokemon->encdetails->iv ?>% - <?= $move->$move1->name; ?> / <?= $move->$move2->name; ?>">
