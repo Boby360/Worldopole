@@ -14,102 +14,97 @@ var gymRanks = [
 ];
 
 $(function () {
-
 	$.getJSON("core/json/variables.json", function(variables) {
 		var pokeimg_suffix = variables['system']['pokeimg_suffix'];
 
 		$('.gymLoader').hide();
+
 		var page = 0;
-		var teamSelector = ''; //''=all;0=neutral;1=Blue;2=Red;3=Yellow
+		var teamSelector = ''; //''=all; 0=neutral; 1=Blue; 2=Red; 3=Yellow
 		var rankingFilter = 0; //0=Level & Gyms; 1=Level; 2=Gyms
 
 		$('input#name').filter(':visible').val(gymName);
-		loadGyms(page, $('input#name').filter(':visible').val(), null, null, pokeimg_suffix, true);
 
-		page++;
 		$('#loadMoreButton').click(function () {
 			loadGyms(page, $('input#name').filter(':visible').val(), teamSelector, rankingFilter, pokeimg_suffix, true);
 			page++;
-		});
-		$("#searchGyms").submit(function ( event ) {
+		}).trigger('click');
+
+		$('#searchGyms').submit(function ( event ) {
 			page = 0;
-			$('#gymsContainer tr:not(.gymsTemplate)').remove();
-			loadGyms(page, $('input#name').filter(':visible').val(), teamSelector, rankingFilter, pokeimg_suffix, true);
-			page++;
+			$('#gymsContainer').empty();
+			$('#loadMoreButton').trigger('click');
 			event.preventDefault();
 		});
-		$(".teamSelectorItems").click(function ( event ) {
-			switch ($(this).attr("id")) {
-				case "NeutralTeamsFilter":
+
+		$('.teamSelectorItems').click(function ( event ) {
+			switch ($(this).attr('id')) {
+				case 'NeutralTeamsFilter':
 					teamSelector=0;
 					break;
-				case "BlueTeamFilter":
+				case 'BlueTeamFilter':
 					teamSelector=1;
 					break;
-				case "RedTeamFilter":
+				case 'RedTeamFilter':
 					teamSelector=2;
 					break;
-				case "YellowFilter":
+				case 'YellowFilter':
 					teamSelector=3;
 					break;
 				default:
 					teamSelector='';
 			}
-			$("#teamSelectorText").html($(this).html());
+			$('#teamSelectorText').html($(this).html());
 			event.preventDefault();
-			$("#searchGyms").submit();
+			$('#searchGyms').submit();
 
 		});
-		$(".rankingOrderItems").click(function ( event ) {
-			switch ($(this).attr("id")) {
-				case "changedFirst":
+		$('.rankingOrderItems').click(function ( event ) {
+			switch ($(this).attr('id')) {
+				case 'changedFirst':
 					rankingFilter=0;
 					break;
-				case "nameFirst":
+				case 'nameFirst':
 					rankingFilter=1;
 					break;
-				case "prestigeFirst":
+				case 'prestigeFirst':
 					rankingFilter=2;
 					break;
 				default:
 					rankingFilter=0;
 			}
-			$("#rankingOrderText").html($(this).html());
+			$('#rankingOrderText').html($(this).html());
 			event.preventDefault();
-			$("#searchGyms").submit();
-
+			$('#searchGyms').submit();
 		});
 		window.onpopstate = function() {
-			if (window.history.state && "gym" === window.history.state.page) {
-				$('#gymsContainer').empty();
+			if (window.history.state && 'gymhistory' === window.history.state.page) {
 				$('input#name').filter(':visible').val(window.history.state.name);
-				loadGyms(0, $('input#name').filter(':visible').val(), teamSelector, rankingFilter, pokeimg_suffix, false);
+				page = 0;
+				$('#gymsContainer').empty();
+				loadGyms(page, $('input#name').filter(':visible').val(), teamSelector, rankingFilter, pokeimg_suffix, false);
+				page++;
 			} else {
 				window.history.back();
 			}
 		};
-
 	});
 });
 
 function loadGyms(page, name, teamSelector, rankingFilter, pokeimg_suffix, stayOnPage) {
 	$('.gymLoader').show();
-
 	if (stayOnPage) {
 		// build a state for this name
-		var state = {name: name, page: 'Gym History'};
-		window.history.pushState(state, 'Gym History', 'gymhistory?name=' + name);
+		var state = {name: name, page: 'gymhistory'};
+		window.history.pushState(state, 'gymhistory', 'gymhistory?name=' + name);
 	}
 	$.ajax({
 		'async': true,
-		'type': "GET",
+		'type': 'GET',
 		'global': false,
 		'dataType': 'json',
-		'url': "core/process/aru.php",
+		'url': 'core/process/aru.php',
 		'data': {
-			'request': '',
-			'target': 'arrange_url',
-			'method': 'method_target',
 			'type' : 'gyms',
 			'page' : page,
 			'name' : name,
@@ -125,26 +120,22 @@ function loadGyms(page, name, teamSelector, rankingFilter, pokeimg_suffix, stayO
 		if (internalIndex < 10) {
 			$('#loadMoreButton').hide();
 		} else {
-			$('#loadMoreButton').removeClass('hidden');
-			$('#loadMoreButton').show();
+			$('#loadMoreButton').removeClass('hidden').show();
 		}
 		$('.gymLoader').hide();
 	});
 }
 
 function loadGymHistory(page, gym_id, pokeimg_suffix) {
-	$('.gymLoader').show();
-
+	$('#gymHistory_'+gym_id).addClass('active').show();
+	$('#gymHistory_'+gym_id).find('.gymHistoryLoader').show();
 	$.ajax({
 		'async': true,
-		'type': "GET",
+		'type': 'GET',
 		'global': false,
 		'dataType': 'json',
-		'url': "core/process/aru.php",
+		'url': 'core/process/aru.php',
 		'data': {
-			'request': '',
-			'target': 'arrange_url',
-			'method': 'method_target',
 			'type' : 'gymhistory',
 			'page' : page,
 			'gym_id' : gym_id
@@ -155,14 +146,12 @@ function loadGymHistory(page, gym_id, pokeimg_suffix) {
 			internalIndex++
 			printGymHistory(gym_id, entry, pokeimg_suffix, data.locale);
 		});
-		$('#gymHistory_'+gym_id).addClass('active').show();
 		if (internalIndex < 10) {
 			$('#gymHistory_'+gym_id).find('.loadMoreButtonHistory').hide();
 		} else {
-			$('#gymHistory_'+gym_id).find('.loadMoreButtonHistory').removeClass('hidden');
-			$('#gymHistory_'+gym_id).find('.loadMoreButtonHistory').data('page', page+1).show();
+			$('#gymHistory_'+gym_id).find('.loadMoreButtonHistory').removeClass('hidden').data('page', page+1).show();
 		}
-		$('.gymLoader').hide();
+		$('#gymHistory_'+gym_id).find('.gymHistoryLoader').hide();
 	});
 }
 
@@ -193,14 +182,21 @@ function printGymHistory(gym_id, entry, pokeimg_suffix, locale) {
 	$('#gymHistory_'+gym_id).find('tbody').append(gymHistory);
 }
 
+function hideGymHistoryTables(gymHistoryTables) {
+	gymHistoryTables.removeClass('active').hide();
+	gymHistoryTables.find('tbody tr').remove();
+	gymHistoryTables.find('.loadMoreButtonHistory').hide();
+	gymHistoryTables.find('.gymHistoryLoader').hide();
+}
+
 function printGym(gym, pokeimg_suffix, locale) {
 	var gymLevel = gymRanks.find(r => r.prestigeMin <= gym.gym_points && r.prestigeMax > gym.gym_points) || { level : 10 };
 	var gymsInfos = $('<tr>',{id: 'gymInfos_'+gym.gym_id}).css('cursor', 'pointer').css('border-bottom', '2px solid '+(gym.team_id=='3'?'#ffbe08':gym.team_id=='2'?'#ff7676':gym.team_id=='1'?'#00aaff':'#ddd')).click(function() {
 		if (!$('#gymHistory_'+gym.gym_id).hasClass('active')) {
-			$('#gymsContainer').find('.gymhistory').removeClass('active').hide().find('tbody tr').remove();
+			hideGymHistoryTables($('#gymsContainer').find('.gymhistory'));
 			loadGymHistory(0, gym.gym_id, pokeimg_suffix);
 		} else {
-			$('#gymHistory_'+gym.gym_id).removeClass('active').hide().find('tbody tr').remove();
+			hideGymHistoryTables($('#gymHistory_'+gym.gym_id));
 		}
 	});
 	gymsInfos.append($('<td>',{text: gym.last_modified}));
@@ -214,7 +210,7 @@ function printGym(gym, pokeimg_suffix, locale) {
 	var historyTable = $('<table>',{class: 'table'});
 	historyTable.append('<thead><tr><th style="min-width:7em">Time</th><th>Level</th><th>Prestige</th><th>Pokémon</th></tr></thead>');
 	historyTable.append('<tbody></tbody>');
-	historyTable.append('<tfoot><tr class="loadMore text-center"><td colspan="4"><button class="loadMoreButtonHistory btn btn-default btn-sm hidden">Load more</button></td></tr></tfoot>');
+	historyTable.append('<tfoot><tr class="loadMore text-center"><td colspan="4"><button class="loadMoreButtonHistory btn btn-default btn-sm hidden">Load more</button></td></tr><tr class="gymHistoryLoader"><td colspan="4"><div class="loader"></div></td></tr></tfoot>');
 	historyTable.find('.loadMoreButtonHistory').data('page', 0).click(function() {
 		loadGymHistory($(this).data('page'), gym.gym_id, pokeimg_suffix);
 	});
