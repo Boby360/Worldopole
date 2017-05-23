@@ -143,26 +143,27 @@ function printTrainer(trainer, trainerIndex,pokeimg_suffix,iv_numbers, locale) {
 	trainersInfos.append($('<td>',{id : 'trainerLevel_'+trainer.name, text : trainer.level}));
 	trainersInfos.append($('<td>',{id : 'trainerGyms_'+trainer.name, text : trainer.gyms}));
 	trainersInfos.append($('<td>',{id : 'trainerLastSeen_'+trainer.name, text : trainer.last_seen}));
+	trainersInfos.append($('<td>',{id : 'trainerShowAll_'+trainer.name}).append('<input type="checkbox" id="showAll">'));
 	$('#trainersContainer').append(trainersInfos);
 	var trainersPokemonsRow = $('<tr>',{id: 'trainerPokemons_'+trainer.name});
-	var trainersPokemons = $('<td>',{colspan : 6});
+	var trainersPokemons = $('<td>',{colspan : 7});
 	var trainersPokemonsContainer = $('<div>',{class : ""});
 	for (var pokeIndex = 0; pokeIndex<trainer.pokemons.length; pokeIndex++) {
 		var pokemon = trainer.pokemons[pokeIndex];
 		trainersPokemonsContainer.append(printPokemon(pokemon,pokeimg_suffix,iv_numbers, locale));
 	}
-
+	trainersInfos.find('#showAll').click(function() {
+		trainersPokemonsContainer.find('div.pokemon-single.unseen').fadeToggle();
+	});
 	trainersPokemons.append(trainersPokemonsContainer);
 	trainersPokemonsRow.append(trainersPokemons);
 	$('#trainersContainer').append(trainersPokemonsRow);
 }
 
 function printPokemon(pokemon,pokeimg_suffix,iv_numbers,locale){
-	var trainerPokemon = $('<div>',{id : 'trainerPokemon_'+pokemon.pokemon_uid, class: "col-md-1 col-xs-4 pokemon-single", style: "text-align: center" });
-	var gymClass = "";
-	if ((pokemon.gym_id===null)) {
-		gymClass = "unseen";
-	}
+	var gymClass = pokemon.gym_id === null ? ' unseen' : '';
+	var trainerPokemon = $('<div>',{id : 'trainerPokemon_'+pokemon.pokemon_uid, class: 'col-md-1 col-xs-4 pokemon-single'+gymClass, style: 'text-align: center' });
+	if (gymClass) trainerPokemon.hide();
 	trainerPokemon.append(
 		$('<a>',
 			{href : 'pokemon/'+pokemon.pokemon_id}
@@ -252,5 +253,12 @@ function printPokemon(pokemon,pokeimg_suffix,iv_numbers,locale){
 	else {
 		trainerPokemon.append($('<small>',{text: pokemon.last_scanned + " " + locale.days}));
 	}
+
+	var gym_name = pokemon.gym_name || ' ';
+	if (gym_name.length > 17) gym_name = gym_name.substr(0,17) + '…';
+
+	trainerPokemon.append($('<br>'));
+	trainerPokemon.append($('<small>',{text: gym_name}).css({ 'word-break': 'break-all', 'color': '#777', 'font-style': 'italic' }));
+
 	return trainerPokemon;
 }
