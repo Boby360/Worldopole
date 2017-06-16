@@ -79,7 +79,7 @@ ON gym_middle.gym_id = gym_after.gym_id AND gym_middle.team_id = gym_after.team_
 JOIN gymdetails AS gym_details
 ON gym_after.gym_id = gym_details.gym_id
 GROUP BY gym_after.gym_id, gym_after.last_modified, gym_after.pokemon_uids, gym_before.pokemon_uids)
-AS gym_shaving GROUP BY last_modified_start);
+AS gym_shaving GROUP BY gym_shaving.last_modified_start);
 
 
 Use the following SQL-Statement to create the event to update the gymshaving table:
@@ -102,7 +102,7 @@ DO BEGIN
   JOIN gymdetails AS gym_details
   ON gym_after.gym_id = gym_details.gym_id
   GROUP BY gym_after.gym_id, gym_after.last_modified, gym_after.pokemon_uids, gym_before.pokemon_uids)
-  AS gym_shaving GROUP BY last_modified_start);
+  AS gym_shaving GROUP BY gym_shaving.last_modified_start);
 END
 //
 DELIMITER ;
