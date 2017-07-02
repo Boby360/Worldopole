@@ -2,7 +2,7 @@
         <div class="row">
                 <div class="col-md-12 text-center">
                         <h1>
-                                <strong>Telegram</strong> Benachrichtigungen<br><small>Seltene Pokémon, wechselnde Arenen sowie aktive Lockmodule direkt auf's Handy</small>
+                                <strong>Telegram</strong> Benachrichtigungen<br><small>Seltene Pokémon, aktuelle Raids, wechselnde Arenen sowie aktive Lockmodule direkt auf's Handy</small>
                         </h1>
 
                         <br>
@@ -15,13 +15,19 @@
 
 <div class="row">
 
-            <div class="col-md-12 col-sm-12 col-xs-12 big-data">
+            <div class="col-md-6 col-sm-6 col-xs-6 big-data">
                 <a href="https://t.me/pogochemnitzalerts" target="_blank">
                     <img src="/core/img/telegramicon.png" alt="Telegram Pokémon Alarm Channel" width="50" class="big-icon">
                     <p><big><strong>@PoGoChemnitzAlerts</strong></big><br>Pokémon</p>
                 </a>
             </div>
 
+            <div class="col-md-6 col-sm-6 col-xs-6 big-data">
+                <a href="https://t.me/joinchat/C0877UOy3DPmRDL98ouWVg" target="_blank">
+                    <img src="/core/img/telegramicon.png" alt="Telegram Raids Channel" width="50" class="big-icon">
+                    <p><big><strong>PoGo Chemnitz Raids</strong></big><br>Raids</p>
+                </a>
+            </div>
 </div>
 
 <div class="row">
@@ -168,6 +174,9 @@
         </div>
 
         <br>
+
+        <h3><a href="https://t.me/joinchat/C0877UOy3DPmRDL98ouWVg">PoGo Chemnitz Raids</a></h3>
+        <p>Dieser Channel dient zur Koordination von gemeinsamen Raids. Später werden hier auch Raid-Benachrichtigungen auftauchen.</p>
 
         <h3><a href="https://t.me/pogochemnitzgyms">@PoGoChemnitzGyms</a></h3>
         <p>Dieser Channel benachrichtigt dich wenn Arenen besiegt wurden und nun von einem anderen Team kontrolliert werden.<br>Es werden dir das besiegte als auch das neue Team angezeigt sowie natürlich die Position der Arena.</p>
