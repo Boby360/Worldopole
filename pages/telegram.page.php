@@ -22,7 +22,7 @@
                 </a>
             </div>
 
-            <div class="col-md-6 col-sm-6 col-xs-6 big-data">
+            <div class="col-md-6 col-sm-6 col-xs-6 big-data" style="border-left:1px lightgray solid;">
                 <a href="https://t.me/joinchat/C0877UOy3DPmRDL98ouWVg" target="_blank">
                     <img src="/core/img/telegramicon.png" alt="Telegram Raids Channel" width="50" class="big-icon">
                     <p><big><strong>PoGo Chemnitz Raids</strong></big><br>Raids</p>
