@@ -629,3 +629,28 @@ pokestops
 	text-decoration: none;
 	color: inherit;
 }
+
+
+/****************
+raids styles
+****************/
+
+#raidsContainer .pokemon-single img {
+	height: 4em;
+}
+
+#raidsContainer .pokemon-details {
+	line-height: 2em;
+}
+#raidsContainer td:last-child {
+	min-width: 175px;
+}
+
+@media (max-width: 768px) {
+	#raidsContainer .pokemon-single img {
+		height: 3em;
+	}
+	#raidsContainer td:last-child {
+		display: none;
+	}
+}
