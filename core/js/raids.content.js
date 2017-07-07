@@ -26,7 +26,7 @@ function loadRaids(page, pokeimg_suffix) {
 		var internalIndex = 0;
 		$.each(data.raids, function (gym_id, raid) {
 			internalIndex++;
-			printRaid(raid, pokeimg_suffix, data.locale);
+			printRaid(raid, pokeimg_suffix);
 		});
 		if(internalIndex < 10){
 			$('#loadMoreButton').hide();
@@ -39,9 +39,9 @@ function loadRaids(page, pokeimg_suffix) {
 	});
 };
 
-function printRaid(raid, pokeimg_suffix, locale) {
+function printRaid(raid, pokeimg_suffix) {
 	var now = new Date();
-	var raidStart = new Date(raid.battle);
+	var raidStart = new Date(raid.start);
 	var raidEnd = new Date(raid.end);
 
 	var raidInfos = $('<tr>',{id: 'raidInfos_'+raid.gym_id}).css('border-bottom','2px solid '+(raid.level>2?'#fad94c':'#e872b7'));
@@ -50,7 +50,7 @@ function printRaid(raid, pokeimg_suffix, locale) {
 	raidInfos.append($('<td>',{id: 'raidRemaining_'+raid.gym_id, class: 'pokemon-remaining'}).append($('<span>',{class: (raidStart < now ? 'current' : 'upcoming')})));
 	raidInfos.append($('<td>',{id: 'raidGym_'+raid.gym_id}).append($('<a>',{href: '/map/?lat=' + raid.latitude + '&lng=' + raid.longitude, text: raid.name})));
 
-	var details;
+	var details = '';
 	var raidPokemon = $('<div>',{class: 'pokemon-single'});
 	if (raid.pokemon_id > 0) {
 		raidPokemon.append(
