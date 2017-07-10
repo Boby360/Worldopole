@@ -343,7 +343,7 @@ switch ($request) {
 
 
 		foreach ($teams as $team_name => $team_id) {
-			$req	= "SELECT COUNT(DISTINCT(gym_id)) AS total, ROUND(AVG(total_gym_cp),0) AS average_points FROM gym WHERE team_id = '".$team_id."'";
+			$req	= "SELECT COUNT(DISTINCT(gym_id)) AS total, ROUND(AVG(total_cp),0) AS average_points FROM gym WHERE team_id = '".$team_id."'";
 			$result	= $mysqli->query($req);
 			$data	= $result->fetch_object();
 
@@ -432,7 +432,7 @@ switch ($request) {
 	case 'gym_defenders':
 		$gym_id = $mysqli->real_escape_string($_GET['gym_id']);
 		$req	= "SELECT gymdetails.name AS name, gymdetails.description AS description, gymdetails.url AS url, gym.team_id AS team,
-					(CONVERT_TZ(gym.last_scanned, '+00:00', '".$time_offset."')) AS last_scanned, gym.guard_pokemon_id AS guard_pokemon_id, gym.total_gym_cp AS total_gym_cp, gym.slots_available AS slots_available
+					(CONVERT_TZ(gym.last_scanned, '+00:00', '".$time_offset."')) AS last_scanned, gym.guard_pokemon_id AS guard_pokemon_id, gym.total_cp AS total_cp, gym.slots_available AS slots_available
 					FROM gymdetails
 					LEFT JOIN gym ON gym.gym_id = gymdetails.gym_id
 					WHERE gym.gym_id='".$gym_id."'";
@@ -448,7 +448,7 @@ switch ($request) {
 			} else {
 				$gymData['gymDetails']['gymInfos']['url'] = $data->url;
 			}
-			$gymData['gymDetails']['gymInfos']['points'] = $data->total_gym_cp;
+			$gymData['gymDetails']['gymInfos']['points'] = $data->total_cp;
 			$gymData['gymDetails']['gymInfos']['level'] = (6 - $data->slots_available);
 			$gymData['gymDetails']['gymInfos']['last_scanned'] = $data->last_scanned;
 			$gymData['gymDetails']['gymInfos']['team'] = $data->team;
@@ -525,7 +525,7 @@ switch ($request) {
 
 		// check whether we could retrieve gym infos, otherwise use basic gym info
 		if (!$gymData['gymDetails']['gymInfos']) {
-			$req = "SELECT gym_id, team_id, guard_pokemon_id, latitude, longitude, (CONVERT_TZ(last_scanned, '+00:00', '".$time_offset."')) AS last_scanned, total_gym_cp, slots_available
+			$req = "SELECT gym_id, team_id, guard_pokemon_id, latitude, longitude, (CONVERT_TZ(last_scanned, '+00:00', '".$time_offset."')) AS last_scanned, total_cp, slots_available
 				FROM gym WHERE gym_id='".$gym_id."'";
 			$result = $mysqli->query($req);
 			$data = $result->fetch_object();
@@ -533,7 +533,7 @@ switch ($request) {
 			$gymData['gymDetails']['gymInfos']['name'] = $locales->NOT_AVAILABLE;
 			$gymData['gymDetails']['gymInfos']['description'] = $locales->NOT_AVAILABLE;
 			$gymData['gymDetails']['gymInfos']['url'] = 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Solid_grey.svg/200px-Solid_grey.svg.png';
-			$gymData['gymDetails']['gymInfos']['points'] = $data->total_gym_cp;
+			$gymData['gymDetails']['gymInfos']['points'] = $data->total_cp;
 			$gymData['gymDetails']['gymInfos']['level'] = (6 - $data->slots_available);
 			$gymData['gymDetails']['gymInfos']['last_scanned'] = $data->last_scanned;
 			$gymData['gymDetails']['gymInfos']['team'] = $data->team_id;
