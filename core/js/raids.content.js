@@ -25,17 +25,26 @@ function loadRaids(page, pokeimg_suffix, location_url) {
 		}
 	}).done(function (data) {
 		var internalIndex = 0;
+		if (data.raids.length == 0) {
+			var raidInfos = $('<tr>');
+			raidInfos.append($('<td>',{colspan: 6, text: data.locale.noraids})).css('text-align', 'center');
+			$('#raidsContainer').append(raidInfos);
+		}
 		$.each(data.raids, function (gym_id, raid) {
 			internalIndex++;
 			printRaid(raid, pokeimg_suffix, location_url);
 		});
-		if(internalIndex < 10){
+		if (internalIndex < 10) {
 			$('#loadMoreButton').hide();
-		}
-		else{
+		} else {
 			$('#loadMoreButton').removeClass('hidden');
 			$('#loadMoreButton').show();
 		}
+	}).fail(function() {
+		var raidInfos = $('<tr>');
+		raidInfos.append($('<td>',{colspan: 6, text: 'ERROR'})).css('text-align', 'center');
+		$('#raidsContainer').append(raidInfos);
+	}).always(function() {
 		$('.raidsLoader').hide();
 	});
 };

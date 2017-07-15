@@ -999,6 +999,7 @@ case 'raids':
 		$json = array();
 		$json['raids'] = $raids;
 		$locale = array();
+		$locale['noraids'] = $locales->RAIDS_NONE;
 		$json['locale'] = $locale;
 
 		header('Content-Type: application/json');
