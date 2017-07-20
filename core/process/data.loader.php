@@ -450,8 +450,10 @@ else {
 			$recent->uid = $data->encounter_id;
 			$recent->last_seen = strtotime($data->disappear_time_real);
 
-			$recent->$location_link = str_replace('{latitude}', $data->latitude, $config->system->location_url);
-			$recent->$location_link = str_replace('{longitude}', $data->longitude, $recent->$location_link);
+			$location_link = $config->system->location_url;
+			$location_link = str_replace('{latitude}', $data->latitude, $location_link);
+			$location_link = str_replace('{longitude}', $data->longitude, $location_link);
+			$recent->location_link = $location_link;
 
 			if ($config->system->recents_encounter_details) {
 				$recent->encdetails = new stdClass();

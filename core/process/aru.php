@@ -177,7 +177,8 @@ switch ($request) {
 			if ($last_uid_param != $pokeuid) {
 				$last_seen = strtotime($data->disappear_time_real);
 
-				$location_link = str_replace('{latitude}', $data->latitude, $config->system->location_url);
+				$location_link = $config->system->location_url;
+				$location_link = str_replace('{latitude}', $data->latitude, $location_link);
 				$location_link = str_replace('{longitude}', $data->longitude, $location_link);
 
 				$encdetails = new stdClass();
