@@ -177,9 +177,8 @@ switch ($request) {
 			if ($last_uid_param != $pokeuid) {
 				$last_seen = strtotime($data->disappear_time_real);
 
-				$last_location = new stdClass();
-				$last_location->latitude = $data->latitude;
-				$last_location->longitude = $data->longitude;
+				$location_link = str_replace('{latitude}', $data->latitude, $config->system->location_url);
+				$location_link = str_replace('{longitude}', $data->longitude, $location_link);
 
 				$encdetails = new stdClass();
 				$encdetails->available = false;
@@ -209,7 +208,7 @@ switch ($request) {
 				$html .= '
 				<a href="pokemon/'.$pokeid.'"><img src="core/pokemons/'.$pokeid.$config->system->pokeimg_suffix.'" alt="'.$pokemons->pokemon->$pokeid->name.'" class="img-responsive"></a>
 				<a href="pokemon/'.$pokeid.'"><p class="pkmn-name">'.$pokemons->pokemon->$pokeid->name.'</p></a>
-				<a href="https://maps.google.com/?q='.$last_location->latitude.','.$last_location->longitude.'&ll='.$last_location->latitude.','.$last_location->longitude.'&z=16" target="_blank">
+				<a href="'.$location_link.'" target="_blank">
 					<small class="pokemon-timer">00:00:00</small>
 				</a>';
 				if ($config->system->recents_encounter_details) {
