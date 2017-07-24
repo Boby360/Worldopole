@@ -15,15 +15,15 @@
 
 <div class="row">
 
-            <div class="col-md-6 col-sm-6 col-xs-6 big-data">
+            <div class="col-md-6 col-sm-6 col-xs-12 big-data">
                 <a href="https://t.me/pogochemnitzalerts" target="_blank">
                     <img src="/core/img/telegramicon.png" alt="Telegram Pokémon Alarm Channel" width="50" class="big-icon">
                     <p><big><strong>@PoGoChemnitzAlerts</strong></big><br>Pokémon</p>
                 </a>
             </div>
 
-            <div class="col-md-6 col-sm-6 col-xs-6 big-data" style="border-left:1px lightgray solid;">
-                <a href="https://t.me/joinchat/C0877UOy3DPmRDL98ouWVg" target="_blank">
+            <div class="col-md-6 col-sm-6 col-xs-12 big-data" style="border-left:1px lightgray solid;">
+                <a href="https://t.me/joinchat/AAAAAEMvWIK6llgPkas5MA" target="_blank">
                     <img src="/core/img/telegramicon.png" alt="Telegram Raids Channel" width="50" class="big-icon">
                     <p><big><strong>PoGo Chemnitz Raids</strong></big><br>Raids</p>
                 </a>
@@ -82,6 +82,13 @@
                 </a>
             </div>
 
+            <div class="col-md-6 col-sm-6 col-xs-12 big-data">
+                <a href="https://t.me/joinchat/AAAAAESFjhm6eRJzvZuaWg" target="_blank">
+                    <img src="/core/img/telegramicon.png" alt="Telegram Legendary Alarm Channel" width="50" class="big-icon">
+                    <p><big><strong>PoGo Chemnitz Legendaries</strong></big><br>Legendary Raid Bosses</p>
+                </a>
+            </div>
+
 </div>
 
 <div class="row" style="text-align:center">
@@ -97,86 +104,88 @@
         <p>Verpasse nie mehr ein seltenes Pokémon. Dieser Channel informiert dich sofort, wenn eines in Chemnitz auftaucht.<br>Dir werden sowohl IV-Wert, das Moveset, sowie natürlich genauer Spawnpoint und Verweildauer angezeigt.</p>
         <h3>Aktuell sind folgende Pokémon auf unserer Watch-List:</h3>
         <div>
-            <img src="core/pokemons/3_go.png" width=60>
-            <img src="core/pokemons/6_go.png" width=60>
-            <img src="core/pokemons/9_go.png" width=60>
-            <img src="core/pokemons/59_go.png" width=60>
-            <img src="core/pokemons/65_go.png" width=60>
-            <img src="core/pokemons/68_go.png" width=60>
-            <img src="core/pokemons/76_go.png" width=60>
-            <img src="core/pokemons/83_go.png" width=60>
-            <img src="core/pokemons/89_go.png" width=60>
-            <img src="core/pokemons/103_go.png" width=60>
-            <img src="core/pokemons/112_go.png" width=60>
-            <img src="core/pokemons/113_go.png" width=60>
-            <img src="core/pokemons/114_go.png" width=60>
-            <img src="core/pokemons/115_go.png" width=60>
-            <img src="core/pokemons/128_go.png" width=60>
-            <img src="core/pokemons/130_go.png" width=60>
-            <img src="core/pokemons/131_go.png" width=60>
-            <img src="core/pokemons/134_go.png" width=60>
-            <img src="core/pokemons/135_go.png" width=60>
-            <img src="core/pokemons/136_go.png" width=60>
-            <img src="core/pokemons/142_go.png" width=60>
-            <img src="core/pokemons/143_go.png" width=60>
-            <img src="core/pokemons/144_go.png" width=60>
-            <img src="core/pokemons/145_go.png" width=60>
-            <img src="core/pokemons/146_go.png" width=60>
-            <img src="core/pokemons/147_go.png" width=60>
-            <img src="core/pokemons/148_go.png" width=60>
-            <img src="core/pokemons/149_go.png" width=60>
-            <img src="core/pokemons/150_go.png" width=60>
-            <img src="core/pokemons/151_go.png" width=60>
-            <img src="core/pokemons/154_go.png" width=60>
-            <img src="core/pokemons/157_go.png" width=60>
-            <img src="core/pokemons/160_go.png" width=60>
-            <img src="core/pokemons/172_go.png" width=60>
-            <img src="core/pokemons/173_go.png" width=60>
-            <img src="core/pokemons/174_go.png" width=60>
-            <img src="core/pokemons/175_go.png" width=60>
-            <img src="core/pokemons/176_go.png" width=60>
-            <img src="core/pokemons/179_go.png" width=60>
-            <img src="core/pokemons/180_go.png" width=60>
-            <img src="core/pokemons/181_go.png" width=60>
-            <img src="core/pokemons/182_go.png" width=60>
-            <img src="core/pokemons/186_go.png" width=60>
-            <img src="core/pokemons/192_go.png" width=60>
-            <img src="core/pokemons/196_go.png" width=60>
-            <img src="core/pokemons/197_go.png" width=60>
-            <img src="core/pokemons/199_go.png" width=60>
-            <img src="core/pokemons/201_go.png" width=60>
-            <img src="core/pokemons/208_go.png" width=60>
-            <img src="core/pokemons/212_go.png" width=60>
-            <img src="core/pokemons/214_go.png" width=60>
-            <img src="core/pokemons/219_go.png" width=60>
-            <img src="core/pokemons/222_go.png" width=60>
-            <img src="core/pokemons/225_go.png" width=60>
-            <img src="core/pokemons/230_go.png" width=60>
-            <img src="core/pokemons/232_go.png" width=60>
-            <img src="core/pokemons/233_go.png" width=60>
-            <img src="core/pokemons/235_go.png" width=60>
-            <img src="core/pokemons/236_go.png" width=60>
-            <img src="core/pokemons/237_go.png" width=60>
-            <img src="core/pokemons/238_go.png" width=60>
-            <img src="core/pokemons/239_go.png" width=60>
-            <img src="core/pokemons/240_go.png" width=60>
-            <img src="core/pokemons/241_go.png" width=60>
-            <img src="core/pokemons/242_go.png" width=60>
-            <img src="core/pokemons/243_go.png" width=60>
-            <img src="core/pokemons/244_go.png" width=60>
-            <img src="core/pokemons/245_go.png" width=60>
-            <img src="core/pokemons/246_go.png" width=60>
-            <img src="core/pokemons/247_go.png" width=60>
-            <img src="core/pokemons/248_go.png" width=60>
-            <img src="core/pokemons/249_go.png" width=60>
-            <img src="core/pokemons/250_go.png" width=60>
-            <img src="core/pokemons/251_go.png" width=60>
+            <img src="core/pokemons/3_flat.png" width=60>
+            <img src="core/pokemons/6_flat.png" width=60>
+            <img src="core/pokemons/9_flat.png" width=60>
+            <img src="core/pokemons/59_flat.png" width=60>
+            <img src="core/pokemons/65_flat.png" width=60>
+            <img src="core/pokemons/68_flat.png" width=60>
+            <img src="core/pokemons/76_flat.png" width=60>
+            <img src="core/pokemons/83_flat.png" width=60>
+            <img src="core/pokemons/89_flat.png" width=60>
+            <img src="core/pokemons/103_flat.png" width=60>
+            <img src="core/pokemons/112_flat.png" width=60>
+            <img src="core/pokemons/113_flat.png" width=60>
+            <img src="core/pokemons/114_flat.png" width=60>
+            <img src="core/pokemons/115_flat.png" width=60>
+            <img src="core/pokemons/128_flat.png" width=60>
+            <img src="core/pokemons/130_flat.png" width=60>
+            <img src="core/pokemons/131_flat.png" width=60>
+            <img src="core/pokemons/134_flat.png" width=60>
+            <img src="core/pokemons/135_flat.png" width=60>
+            <img src="core/pokemons/136_flat.png" width=60>
+            <img src="core/pokemons/142_flat.png" width=60>
+            <img src="core/pokemons/143_flat.png" width=60>
+            <img src="core/pokemons/144_flat.png" width=60>
+            <img src="core/pokemons/145_flat.png" width=60>
+            <img src="core/pokemons/146_flat.png" width=60>
+            <img src="core/pokemons/147_flat.png" width=60>
+            <img src="core/pokemons/148_flat.png" width=60>
+            <img src="core/pokemons/149_flat.png" width=60>
+            <img src="core/pokemons/150_flat.png" width=60>
+            <img src="core/pokemons/151_flat.png" width=60>
+            <img src="core/pokemons/154_flat.png" width=60>
+            <img src="core/pokemons/157_flat.png" width=60>
+            <img src="core/pokemons/160_flat.png" width=60>
+            <img src="core/pokemons/172_flat.png" width=60>
+            <img src="core/pokemons/173_flat.png" width=60>
+            <img src="core/pokemons/174_flat.png" width=60>
+            <img src="core/pokemons/175_flat.png" width=60>
+            <img src="core/pokemons/176_flat.png" width=60>
+            <img src="core/pokemons/179_flat.png" width=60>
+            <img src="core/pokemons/180_flat.png" width=60>
+            <img src="core/pokemons/181_flat.png" width=60>
+            <img src="core/pokemons/182_flat.png" width=60>
+            <img src="core/pokemons/186_flat.png" width=60>
+            <img src="core/pokemons/192_flat.png" width=60>
+            <img src="core/pokemons/196_flat.png" width=60>
+            <img src="core/pokemons/197_flat.png" width=60>
+            <img src="core/pokemons/199_flat.png" width=60>
+            <img src="core/pokemons/201_flat.png" width=60>
+            <img src="core/pokemons/208_flat.png" width=60>
+            <img src="core/pokemons/212_flat.png" width=60>
+            <img src="core/pokemons/214_flat.png" width=60>
+            <img src="core/pokemons/219_flat.png" width=60>
+            <img src="core/pokemons/222_flat.png" width=60>
+            <img src="core/pokemons/225_flat.png" width=60>
+            <img src="core/pokemons/230_flat.png" width=60>
+            <img src="core/pokemons/232_flat.png" width=60>
+            <img src="core/pokemons/233_flat.png" width=60>
+            <img src="core/pokemons/235_flat.png" width=60>
+            <img src="core/pokemons/236_flat.png" width=60>
+            <img src="core/pokemons/237_flat.png" width=60>
+            <img src="core/pokemons/238_flat.png" width=60>
+            <img src="core/pokemons/239_flat.png" width=60>
+            <img src="core/pokemons/240_flat.png" width=60>
+            <img src="core/pokemons/241_flat.png" width=60>
+            <img src="core/pokemons/242_flat.png" width=60>
+            <img src="core/pokemons/243_flat.png" width=60>
+            <img src="core/pokemons/244_flat.png" width=60>
+            <img src="core/pokemons/245_flat.png" width=60>
+            <img src="core/pokemons/246_flat.png" width=60>
+            <img src="core/pokemons/247_flat.png" width=60>
+            <img src="core/pokemons/248_flat.png" width=60>
+            <img src="core/pokemons/249_flat.png" width=60>
+            <img src="core/pokemons/250_flat.png" width=60>
+            <img src="core/pokemons/251_flat.png" width=60>
         </div>
 
         <br>
 
-        <h3><a href="https://t.me/joinchat/C0877UOy3DPmRDL98ouWVg">PoGo Chemnitz Raids</a></h3>
-        <p>Dieser Channel dient zur Koordination von gemeinsamen Raids. Später werden hier auch Raid-Benachrichtigungen auftauchen.</p>
+        <h3><a href="https://t.me/joinchat/AAAAAEMvWIK6llgPkas5MA">PoGo Chemnitz Raids</a></h3>
+        <p>Dieser Channel zeigt dir aktuelle Raids inklusive der Bosse mit Stärke, Ort und Restzeit.</p>
+
+        <br>
 
         <h3><a href="https://t.me/pogochemnitzgyms">@PoGoChemnitzGyms</a></h3>
         <p>Dieser Channel benachrichtigt dich wenn Arenen besiegt wurden und nun von einem anderen Team kontrolliert werden.<br>Es werden dir das besiegte als auch das neue Team angezeigt sowie natürlich die Position der Arena.</p>
@@ -207,46 +216,51 @@
         <p>Der Keepers Channel ist auf eine Auswahl von Pokémon beschränkt, welche sich gut für Arenen oder Kämpfe eignen.<br>Dir werden sowohl IV-Wert, das Moveset, sowie natürlich genauer Spawnpoint und Verweildauer angezeigt.</p>
         <h3>Aktuell sind folgende Pokémon auf dieser Liste:</h3>
         <div>
-            <img src="core/pokemons/68_go.png" width=60>
-            <img src="core/pokemons/76_go.png" width=60>
-            <img src="core/pokemons/103_go.png" width=60>
-            <img src="core/pokemons/112_go.png" width=60>
-            <img src="core/pokemons/113_go.png" width=60>
-            <img src="core/pokemons/130_go.png" width=60>
-            <img src="core/pokemons/131_go.png" width=60>
-            <img src="core/pokemons/134_go.png" width=60>
-            <img src="core/pokemons/135_go.png" width=60>
-            <img src="core/pokemons/136_go.png" width=60>
-            <img src="core/pokemons/143_go.png" width=60>
-            <img src="core/pokemons/144_go.png" width=60>
-            <img src="core/pokemons/145_go.png" width=60>
-            <img src="core/pokemons/146_go.png" width=60>
-            <img src="core/pokemons/147_go.png" width=60>
-            <img src="core/pokemons/148_go.png" width=60>
-            <img src="core/pokemons/149_go.png" width=60>
-            <img src="core/pokemons/150_go.png" width=60>
-            <img src="core/pokemons/151_go.png" width=60>
-            <img src="core/pokemons/154_go.png" width=60>
-            <img src="core/pokemons/157_go.png" width=60>
-            <img src="core/pokemons/160_go.png" width=60>
-            <img src="core/pokemons/179_go.png" width=60>
-            <img src="core/pokemons/180_go.png" width=60>
-            <img src="core/pokemons/181_go.png" width=60>
-            <img src="core/pokemons/196_go.png" width=60>
-            <img src="core/pokemons/197_go.png" width=60>
-            <img src="core/pokemons/201_go.png" width=60>
-            <img src="core/pokemons/212_go.png" width=60>
-            <img src="core/pokemons/230_go.png" width=60>
-            <img src="core/pokemons/242_go.png" width=60>
-            <img src="core/pokemons/243_go.png" width=60>
-            <img src="core/pokemons/244_go.png" width=60>
-            <img src="core/pokemons/245_go.png" width=60>
-            <img src="core/pokemons/246_go.png" width=60>
-            <img src="core/pokemons/247_go.png" width=60>
-            <img src="core/pokemons/248_go.png" width=60>
-            <img src="core/pokemons/249_go.png" width=60>
-            <img src="core/pokemons/250_go.png" width=60>
-            <img src="core/pokemons/251_go.png" width=60>
+            <img src="core/pokemons/68_flat.png" width=60>
+            <img src="core/pokemons/76_flat.png" width=60>
+            <img src="core/pokemons/103_flat.png" width=60>
+            <img src="core/pokemons/112_flat.png" width=60>
+            <img src="core/pokemons/113_flat.png" width=60>
+            <img src="core/pokemons/130_flat.png" width=60>
+            <img src="core/pokemons/131_flat.png" width=60>
+            <img src="core/pokemons/134_flat.png" width=60>
+            <img src="core/pokemons/135_flat.png" width=60>
+            <img src="core/pokemons/136_flat.png" width=60>
+            <img src="core/pokemons/143_flat.png" width=60>
+            <img src="core/pokemons/144_flat.png" width=60>
+            <img src="core/pokemons/145_flat.png" width=60>
+            <img src="core/pokemons/146_flat.png" width=60>
+            <img src="core/pokemons/147_flat.png" width=60>
+            <img src="core/pokemons/148_flat.png" width=60>
+            <img src="core/pokemons/149_flat.png" width=60>
+            <img src="core/pokemons/150_flat.png" width=60>
+            <img src="core/pokemons/151_flat.png" width=60>
+            <img src="core/pokemons/154_flat.png" width=60>
+            <img src="core/pokemons/157_flat.png" width=60>
+            <img src="core/pokemons/160_flat.png" width=60>
+            <img src="core/pokemons/179_flat.png" width=60>
+            <img src="core/pokemons/180_flat.png" width=60>
+            <img src="core/pokemons/181_flat.png" width=60>
+            <img src="core/pokemons/196_flat.png" width=60>
+            <img src="core/pokemons/197_flat.png" width=60>
+            <img src="core/pokemons/201_flat.png" width=60>
+            <img src="core/pokemons/212_flat.png" width=60>
+            <img src="core/pokemons/230_flat.png" width=60>
+            <img src="core/pokemons/242_flat.png" width=60>
+            <img src="core/pokemons/243_flat.png" width=60>
+            <img src="core/pokemons/244_flat.png" width=60>
+            <img src="core/pokemons/245_flat.png" width=60>
+            <img src="core/pokemons/246_flat.png" width=60>
+            <img src="core/pokemons/247_flat.png" width=60>
+            <img src="core/pokemons/248_flat.png" width=60>
+            <img src="core/pokemons/249_flat.png" width=60>
+            <img src="core/pokemons/250_flat.png" width=60>
+            <img src="core/pokemons/251_flat.png" width=60>
         </div>
+
+        <br>
+
+        <h3><a href="https://t.me/joinchat/AAAAAESFjhm6eRJzvZuaWg">PoGo Chemnitz Legendaries</a></h3>
+        <p>Im Legendary Channel werden dir ausschließlich Legendary Pokémon angezeigt.<br>Da diese aktuell nur als Raid-Bosse auftauchen, werden dir auch nur Raids dargestellt.</p>
 
 </div>

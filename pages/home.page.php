@@ -6,17 +6,17 @@
 				<br>
 				<small><?= sprintf($locales->SITE_CLAIM, $config->infos->city); ?></small>
 			</h1>
-			<!--<br>-->
+			<br>
+			<!--
 			<h4 style="color:rgb(210,118,118)">HINWEIS: Zur Zeit laufen die Scanner nicht, da ein notwendiger Zugangspunkt nicht verfügbar ist. Wir rechnen mit einer Wiederaufnahme in wenigen Stunden.</h4>
 			<br>
+			-->
 			<h4 style="color:rgb(210,118,118)">HINWEIS: Aufgrund neuer Anti-Bot-Maßnahmen von Niantic können aktuell nicht alle seltenen Pokémon gefunden werden. Außerdem können wir euch leider für die meisten Pokémon keine IVs bereitstellen.</h4>
 			<br>
-			<!--<h4 style="color:rgb(62,150,62)">HINWEIS: Wir haben es geschafft! Für die meisten Pokémon werden nun wieder die IV-Werte / Movesets und jetzt sogar WP-Werte für Level 30+ Spieler ausgelesen und angezeigt.</h4>
-			<br>-->
 			<h4>Bei Fragen oder Anregungen schreib einfach eine Email an <a href="mailto:help@pogochemnitz.ovh">help@pogochemnitz.ovh</a><br>oder komme in unsere neue <a href="https://t.me/joinchat/AAAAAEJgykPimJ0T20yqnA" target="_blank">PoGo Chemnitz Talk</a> Telegram Gruppe</h4>
 			<br>
-			<!--<h2 style="line-height:.7em"><small><font style="color:rgb(210,118,118)">NEU!</font> Es wird nun auch der westliche Teil von Chemnitz (Siegmar, Reichenbrand, Rabenstein) sowie der Nordosten (Ebersdorf, Lichtenwalde) mit abgedeckt.</small></h2>
-			<br>-->
+			<h4>Zur Abstimmung von gemeinsamen Raids haben wir die <a href="https://t.me/joinchat/C0877UOy3DPmRDL98ouWVg" target="_blank">PoGo Chemnitz Raid Talk</a> Telegram Gruppe eingerichtet.</h4>
+			<br>
 			<h3>Probiere auch unsere <a href="/PoGoChemnitz.v1.0.3.apk">Android App</a></h3>
 			<br>
 			<h3 style="line-height:.8em"><small style="font-size:.65em">Da der Betrieb diese Seite leider auch finanzielle Belastungen erzeugt (Serverkosten, Domain, API-Zugriff, Wartung, etc.), würden wir uns über deine Unterstützung durch eine kleine Spende freuen.</small></h3>
