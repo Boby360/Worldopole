@@ -250,8 +250,10 @@ function printPokemon(pokemon,pokeimg_suffix,iv_numbers,locale){
 	} else {
 		trainerPokemon.append($('<small>',{text: pokemon.last_scanned + " " + locale.days}));
 	}
-	var diff = (new Date() - new Date(pokemon.deployment_time.replace(/-/g, '/'))) / 1000;
-	trainerPokemon.append($('<br>'));
-	trainerPokemon.append($('<small>',{text: Math.abs(parseInt(diff / 3600)) + 'h ' + Math.abs(parseInt((diff / 60) % 60)) + 'm'}));
+	if (pokemon.deployment_time) {
+		var diff = (new Date() - new Date(pokemon.deployment_time.replace(/-/g, '/'))) / 1000;
+		trainerPokemon.append($('<br>'));
+		trainerPokemon.append($('<small>',{text: Math.abs(parseInt(diff / 3600)) + 'h ' + Math.abs(parseInt((diff / 60) % 60)) + 'm'}));
+	}
 	return trainerPokemon;
 }
