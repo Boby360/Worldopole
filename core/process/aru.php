@@ -554,17 +554,18 @@ switch ($request) {
 	case 'trainer':
 		$name = "";
 		$page = "0";
-		$where = "";
-		$order="";
-		$team=0;
-		$ranking=0;
+		$where = " HAVING DATEDIFF(UTC_TIMESTAMP(), last_seen) < 90";
+		$order = " ";
+		$team = 0;
+		$ranking = 0;
+
 		if (isset($_GET['name'])) {
 			$trainer_name = mysqli_real_escape_string($mysqli, $_GET['name']);
-			$where = " HAVING name LIKE '%".$trainer_name."%'";
+			$where .= " AND name LIKE '%".$trainer_name."%'";
 		}
-		if (isset($_GET['team']) && $_GET['team']!=0) {
+		if (isset($_GET['team']) && $_GET['team'] != 0) {
 			$team = mysqli_real_escape_string($mysqli, $_GET['team']);
-			$where .= ($where==""?" HAVING":"AND ")." team = ".$team;
+			$where .= " AND team = ".$team;
 		}
 		if (isset($_GET['page'])) {
 			$page = mysqli_real_escape_string($mysqli, $_GET['page']);
@@ -575,13 +576,13 @@ switch ($request) {
 
 		switch ($ranking) {
 			case 1:
-				$order=" ORDER BY active DESC ";
+				$order = " ORDER BY active DESC ";
 				break;
 			case 2:
-				$order=" ORDER BY maxCp DESC ";
+				$order = " ORDER BY maxCp DESC ";
 				break;
 			default:
-				$order=" ORDER BY level DESC, active DESC ";
+				$order = " ORDER BY level DESC, active DESC ";
 		}
 
 		$limit = " LIMIT ".($page*10).",10 ";
