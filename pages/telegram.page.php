@@ -16,6 +16,23 @@
 <div class="row">
 
             <div class="col-md-6 col-sm-6 col-xs-12 big-data">
+                <a href="https://t.me/joinchat/AAAAAEJgykPimJ0T20yqnA" target="_blank">
+                    <img src="/core/img/telegramicon.png" alt="Telegram Talk Gruppe" width="50" class="big-icon">
+                    <p><big><strong>PoGo Chemnitz Talk</strong></big><br>Talk</p>
+                </a>
+            </div>
+
+            <div class="col-md-6 col-sm-6 col-xs-12 big-data" style="border-left:1px lightgray solid;">
+                <a href="https://t.me/joinchat/C0877UOy3DPmRDL98ouWVg" target="_blank">
+                    <img src="/core/img/telegramicon.png" alt="Telegram Raid Talk Gruppe" width="50" class="big-icon">
+                    <p><big><strong>PoGo Chemnitz Raid Talk</strong></big><br>Raid Talk</p>
+                </a>
+            </div>
+</div>
+
+<div class="row">
+
+            <div class="col-md-6 col-sm-6 col-xs-12 big-data">
                 <a href="https://t.me/pogochemnitzalerts" target="_blank">
                     <img src="/core/img/telegramicon.png" alt="Telegram Pokémon Alarm Channel" width="50" class="big-icon">
                     <p><big><strong>@PoGoChemnitzAlerts</strong></big><br>Pokémon</p>
