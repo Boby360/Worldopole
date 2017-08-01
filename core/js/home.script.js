@@ -118,3 +118,22 @@ function formatDuration(remainingTime)
 	var output = (countdown<0?"- ":"")+hours + ":" + minutes + ":" + seconds;
 	return output;
 }
+
+$(function () {
+	$('#i_submit1').click(function() {
+		$('#i_what1,#i_lat1,#i_lon1,#i_end1').val('');
+		alert('Danke!');
+	});
+	$('#i_submit2').click(function() {
+		$('#i_what2,#i_lat2,#i_lon2,#i_end2').val('');
+		alert('Danke!');
+	});
+	$('#i_submit3').click(function() {
+		$('#i_what3,#i_lat3,#i_lon3,#i_team3,#i_pkm3').val('');
+		alert('Danke!');
+	});
+	$('#i_submit4').click(function() {
+		$('#i_what4,#i_lat4,#i_lon4,#i_end4').val('');
+		alert('Danke!');
+	});
+});

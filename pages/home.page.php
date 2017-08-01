@@ -7,25 +7,11 @@
 				<small><?= sprintf($locales->SITE_CLAIM, $config->infos->city); ?></small>
 			</h1>
 			<br>
-			<!--
-			<h4 style="color:rgb(210,118,118)">HINWEIS: Zur Zeit laufen die Scanner nicht, da ein notwendiger Zugangspunkt nicht verfügbar ist. Wir rechnen mit einer Wiederaufnahme in wenigen Stunden.</h4>
-			<br>
-			-->
-			<h4 style="color:rgb(210,118,118)">HINWEIS: Aufgrund neuer Anti-Bot-Maßnahmen von Niantic können aktuell nicht alle seltenen Pokémon gefunden werden. Außerdem können wir euch leider für die meisten Pokémon keine IVs bereitstellen.</h4>
-			<br>
 			<h4>Bei Fragen oder Anregungen schreib einfach eine Email an <a href="mailto:help@pogochemnitz.ovh">help@pogochemnitz.ovh</a><br>oder komme in unsere neue <a href="https://t.me/joinchat/AAAAAEJgykPimJ0T20yqnA" target="_blank">PoGo Chemnitz Talk</a> Telegram Gruppe</h4>
 			<br>
 			<h4>Zur Abstimmung von gemeinsamen Raids haben wir die <a href="https://t.me/joinchat/C0877UOy3DPmRDL98ouWVg" target="_blank">PoGo Chemnitz Raid Talk</a> Telegram Gruppe eingerichtet.</h4>
 			<br>
 			<h3>Probiere auch unsere <a href="/PoGoChemnitz.v1.0.3.apk">Android App</a></h3>
-			<br>
-			<h3 style="line-height:.8em"><small style="font-size:.65em">Da der Betrieb diese Seite leider auch finanzielle Belastungen erzeugt (Serverkosten, Domain, API-Zugriff, Wartung, etc.), würden wir uns über deine Unterstützung durch eine kleine Spende freuen.</small></h3>
-			<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-				<input type="hidden" name="cmd" value="_s-xclick">
-				<input type="hidden" name="hosted_button_id" value="AA8JKSAFM4D6Q">
-				<input type="image" src="https://www.paypalobjects.com/de_DE/DE/i/btn/x-click-butcc-donate.gif" border="0" name="submit" alt="Jetzt einfach, schnell und sicher online bezahlen – mit PayPal.">
-				<img alt="" border="0" src="https://www.paypalobjects.com/de_DE/i/scr/pixel.gif" width="1" height="1">
-			</form>
 		</div>
 	</div>
 </header>
@@ -200,6 +186,34 @@
 			} ?>
 </div>
 
+<div class="row">
+	<div class="col-md-12 text-center">
+        <h3>Neues Pokémon hinzufügen</h3>
+        <input type="text" id="i_what1" placeholder="Pokémon Name">
+        <input type="text" id="i_lat1" placeholder="Latitude"> <input type="text" id="i_lon1" placeholder="Longitude">
+        <input type="text" id="i_end1" placeholder="Ca. Zeit">
+        <input type="button" id="i_submit1" value="Eintragen">
+        <br>
+        <h3>Neuen Raid hinzufügen</h3>
+        <input type="text" id="i_what2" placeholder="Raidboss Name">
+        <input type="text" id="i_lat2" placeholder="Latitude"> <input type="text" id="i_lon2" placeholder="Longitude">
+        <input type="text" id="i_end2" placeholder="Endzeit">
+        <input type="button" id="i_submit2" value="Eintragen">
+        <br>
+        <h3>Arena aktualisieren</h3>
+        <input type="text" id="i_what3" placeholder="Arena Name">
+        <input type="text" id="i_lat3" placeholder="Latitude"> <input type="text" id="i_lon3" placeholder="Longitude">
+        <input type="text" id="i_team3" placeholder="Team">
+        <input type="text" id="i_pkm3" placeholder="Trainer + Pokémon">
+        <input type="button" id="i_submit3" value="Eintragen">
+        <br>
+        <h3>Pokéstop aktualisieren</h3>
+        <input type="text" id="i_what4" placeholder="Pokéstop Name">
+        <input type="text" id="i_lat4" placeholder="Latitude"> <input type="text" id="i_lon4" placeholder="Longitude">
+        <input type="text" id="i_end4" placeholder="Endzeit Lockmodul?">
+        <input type="button" id="i_submit4" value="Eintragen">
+    </div>
+</div>
 
 <script>
 	document.addEventListener('DOMContentLoaded', function() {
