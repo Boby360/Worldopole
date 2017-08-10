@@ -1,20 +1,15 @@
 <?php
-
 include_once('config.php');
 include_once('functions.php');
 include_once('core/process/data.loader.php');
-
 ?>
-
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-
 		<?php include_once('core/inc/meta.inc.php') ?>
-
 		<!-- Bootstrap -->
 		<link href="core/css/bootstrap.min.css" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Lato:400,300,700" rel="stylesheet" type="text/css">
@@ -23,17 +18,18 @@ include_once('core/process/data.loader.php');
 		<?php if ($page == "pokemon") { ?>
 		<link href="<?php auto_ver('core/css/jQRangeSlider-bootstrap.min.css'); ?>" rel="stylesheet">
 		<?php } ?>
-	</head>
-	<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
-		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-		<script>(adsbygoogle = window.adsbygoogle || []).push({ google_ad_client: "ca-pub-5312537636379418", enable_page_level_ads: true });</script>
 		<?php
 		// Google Analytics
 		if (is_file("analyticstracking.php")) {
 			include_once("analyticstracking.php");
 		}
+		// Google Adsense
+		if (is_file("adsense.php")) {
+			include_once("adsense.php");
+		}
 		?>
-
+	</head>
+	<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 		<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="container">
 				<!-- Brand and toggle get grouped for better mobile display -->
