@@ -689,7 +689,7 @@ switch ($request) {
 
 		$limit = " LIMIT ".($page * 10).",10";
 
-		$req = "SELECT gymdetails.gym_id, name, team_id, total_cp, (CONVERT_TZ(last_modified, '+00:00', '".$time_offset."')) as last_modified
+		$req = "SELECT gymdetails.gym_id, name, team_id, total_cp, (6 - slots_available) as pokemon_count, (CONVERT_TZ(last_modified, '+00:00', '".$time_offset."')) as last_modified
 				FROM gymdetails
 				LEFT JOIN gym
 				ON gymdetails.gym_id = gym.gym_id
