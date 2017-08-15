@@ -755,7 +755,8 @@ switch ($request) {
 					$pkm_uids = explode(',', $data->pokemon_uids);
 					$pkm_req = "SELECT DISTINCT pokemon_uid, pokemon_id, cp, trainer_name
 								FROM gympokemon
-								WHERE pokemon_uid IN ('". implode("','", $pkm_uids) ."')";
+								WHERE pokemon_uid IN ('".implode("','", $pkm_uids)."')
+								ORDER BY FIND_IN_SET(pokemon_uid, '".implode("','", $pkm_uids)."')";
 					$pkm_result = $mysqli->query($pkm_req);
 					while ($pkm_result && $pkm_data = $pkm_result->fetch_object()) {
 						$pkm[$pkm_data->pokemon_uid] = $pkm_data;
@@ -854,7 +855,8 @@ switch ($request) {
 
 			$pkm_req = "SELECT pokemon_uid, pokemon_id, cp, trainer_name
 						FROM gympokemon
-						WHERE pokemon_uid IN ('".implode("','", $all_pokemon)."')";
+						WHERE pokemon_uid IN ('".implode("','", $all_pokemon)."')
+						ORDER BY FIND_IN_SET(pokemon_uid, '".implode("','", $all_pokemon)."')";
 
 			$pkm_result = $mysqli->query($pkm_req);
 			while ($pkm_result && $pkm_data = $pkm_result->fetch_object()) {
