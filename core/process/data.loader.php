@@ -191,7 +191,7 @@ if (!empty($page)) {
 
 				$req = "SELECT (CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) AS distime, pokemon_id, disappear_time, latitude, longitude,
 						cp, individual_attack, individual_defense, individual_stamina,
-						ROUND(SUM(100*(individual_attack+individual_defense+individual_stamina)/45),1) AS IV, move_1, move_2
+						ROUND(SUM(100*(individual_attack+individual_defense+individual_stamina)/45),1) AS IV, move_1, move_2, form
 						FROM pokemon
 						WHERE pokemon_id = '".$pokemon_id."' AND move_1 IS NOT NULL AND move_1 <> '0'
 						GROUP BY encounter_id
@@ -322,7 +322,7 @@ if (!empty($page)) {
 
 				// Gym owned and average points
 
-				$req 	= "SELECT COUNT(DISTINCT(gym_id)) AS total, ROUND(AVG(gym_points),0) AS average_points FROM gym WHERE team_id = '".$team_values->id."'";
+				$req 	= "SELECT COUNT(DISTINCT(gym_id)) AS total, ROUND(AVG(total_cp),0) AS average_points FROM gym WHERE team_id = '".$team_values->id."'";
 				$result = $mysqli->query($req);
 				$data	= $result->fetch_object();
 
@@ -448,9 +448,10 @@ else {
 			$recent->uid = $data->encounter_id;
 			$recent->last_seen = strtotime($data->disappear_time_real);
 
-			$recent->last_location = new stdClass();
-			$recent->last_location->latitude = $data->latitude;
-			$recent->last_location->longitude = $data->longitude;
+			$location_link = isset($config->system->location_url) ? $config->system->location_url : 'https://maps.google.com/?q={latitude},{longitude}&ll={latitude},{longitude}&z=16';
+			$location_link = str_replace('{latitude}', $data->latitude, $location_link);
+			$location_link = str_replace('{longitude}', $data->longitude, $location_link);
+			$recent->location_link = $location_link;
 
 			if ($config->system->recents_show_iv) {
 				$recent->iv = new stdClass();
