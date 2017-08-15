@@ -610,7 +610,7 @@ switch ($request) {
 			}
 			$req = "(SELECT DISTINCT gympokemon.pokemon_id, gympokemon.pokemon_uid, gympokemon.cp, DATEDIFF(UTC_TIMESTAMP(), gympokemon.last_seen) AS last_scanned, gympokemon.trainer_name, gympokemon.iv_defense, gympokemon.iv_stamina, gympokemon.iv_attack, TRUNCATE(gympokemon.cp_multiplier,6) as cp_multiplier, gympokemon.num_upgrades, filtered_gymmember.gym_id, filtered_gymmember.deployment_time as deployment_time, filtered_gymmember.name as gym_name, '1' AS active
 					FROM gympokemon INNER JOIN
-					(SELECT * FROM gymmember
+					(SELECT gymmember.pokemon_uid, gymmember.gym_id, gymdetails.name, gymmember.deployment_time FROM gymmember
 					LEFT JOIN gymdetails ON gymmember.gym_id = gymdetails.gym_id
 					GROUP BY gymmember.pokemon_uid, gymmember.gym_id HAVING gymmember.gym_id <> '') AS filtered_gymmember
 					ON gympokemon.pokemon_uid = filtered_gymmember.pokemon_uid
