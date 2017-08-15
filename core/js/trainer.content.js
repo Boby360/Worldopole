@@ -264,7 +264,7 @@ function printPokemon(pokemon,pokeimg_suffix,iv_numbers,locale){
 	if (pokemon.deployment_time) {
 		var diff = (new Date() - new Date(pokemon.deployment_time.replace(/-/g, '/'))) / 1000;
 		trainerPokemon.append($('<br>'));
-		trainerPokemon.append($('<small>',{text: Math.abs(parseInt(diff / 3600)) + 'h ' + Math.abs(parseInt((diff / 60) % 60)) + 'm'}));
+		trainerPokemon.append($('<small>',{text: parseInt(diff / 3600) + 'h ' + parseInt((diff / 60) % 60) + 'm'}));
 	}
 
 	var gym_name = pokemon.gym_name || ' ';
