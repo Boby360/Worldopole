@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS `gymhistory` (
   `gym_id` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `team_id` smallint(6) NOT NULL,
   `guard_pokemon_id` smallint(6) NOT NULL,
-  `gym_points` int(11) NOT NULL DEFAULT '0',
+  `total_cp` int(11) NOT NULL DEFAULT '0',
   `last_modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `last_updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `pokemon_uids` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -17,17 +17,17 @@ CREATE TABLE IF NOT EXISTS `gymhistory` (
   PRIMARY KEY (`id`),
   KEY `gym_id` (`gym_id`),
   KEY `team_id` (`team_id`),
-  KEY `gym_points` (`gym_points`),
+  KEY `total_cp` (`total_cp`),
   KEY `last_modified` (`last_modified`),
   KEY `last_updated` (`last_updated`),
-  KEY `combined` (`gym_id`, `team_id`, `gym_points`, `last_updated`, `pokemon_count`)
+  KEY `combined` (`gym_id`, `team_id`, `total_cp`, `last_updated`, `pokemon_count`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Add inital dataset for table `gymhistory`
 --
 INSERT INTO `gymhistory` (
-  SELECT NULL, g.gym_id, g.team_id, g.guard_pokemon_id, g.gym_points, g.last_modified, g.last_modified as last_updated,
+  SELECT NULL, g.gym_id, g.team_id, g.guard_pokemon_id, g.total_cp, g.last_modified, g.last_modified as last_updated,
   (SELECT GROUP_CONCAT(DISTINCT pokemon_uid SEPARATOR ',') FROM gymmember AS gm WHERE gm.gym_id = g.gym_id GROUP BY gym_id) AS pokemon_uids,
   (SELECT COUNT(DISTINCT pokemon_uid) FROM gymmember AS gm WHERE gm.gym_id = g.gym_id) AS pokemon_count
   FROM gym AS g
@@ -44,7 +44,7 @@ DELIMITER //
 CREATE EVENT IF NOT EXISTS `gymhistory_update`
 ON SCHEDULE EVERY 15 SECOND
 DO BEGIN
-  INSERT INTO gymhistory (SELECT NULL, g.gym_id, g.team_id, g.guard_pokemon_id, g.gym_points, g.last_modified, g.last_modified as last_updated, (SELECT GROUP_CONCAT(DISTINCT pokemon_uid SEPARATOR ',') FROM gymmember AS gm WHERE gm.gym_id = g.gym_id GROUP BY gym_id) AS pokemon_uids, (SELECT COUNT(DISTINCT pokemon_uid) FROM gymmember AS gm WHERE gm.gym_id = g.gym_id) AS pokemon_count FROM gym AS g WHERE g.last_modified > (SELECT MAX(last_modified) FROM gymhistory));
+  INSERT INTO gymhistory (SELECT NULL, g.gym_id, g.team_id, g.guard_pokemon_id, g.total_cp, g.last_modified, g.last_modified as last_updated, (SELECT GROUP_CONCAT(DISTINCT pokemon_uid SEPARATOR ',') FROM gymmember AS gm WHERE gm.gym_id = g.gym_id GROUP BY gym_id) AS pokemon_uids, (SELECT COUNT(DISTINCT pokemon_uid) FROM gymmember AS gm WHERE gm.gym_id = g.gym_id) AS pokemon_count FROM gym AS g WHERE g.last_modified > (SELECT MAX(last_modified) FROM gymhistory));
   UPDATE gymhistory AS gh
   JOIN (SELECT gym_id, MAX(last_modified) as max_last_modified FROM gymhistory GROUP BY gym_id)
   AS gg ON gh.gym_id = gg.gym_id AND gh.last_modified = gg.max_last_modified
@@ -70,12 +70,12 @@ Use the following SQL-Statement to create the new table for gymshaving:
 --
 
 DROP TABLE IF EXISTS `gymshaving`;
-CREATE TABLE `gymshaving` AS (SELECT gym_id, name, team_id, MAX(last_modified_end) as last_modified_end, MAX(gym_points_end) AS gym_points_end, MIN(last_modified_start) AS last_modified_start, MAX(gym_points_start) AS gym_points_start, pokemon_uids_end, pokemon_uids_start FROM (SELECT gym_after.gym_id, gym_details.name, gym_after.team_id, MAX(gym_after.last_modified) AS last_modified_end, MAX(gym_after.gym_points) AS gym_points_end, MIN(gym_before.last_modified) AS last_modified_start, MAX(gym_before.gym_points) AS gym_points_start, gym_after.pokemon_uids AS pokemon_uids_end, gym_before.pokemon_uids AS pokemon_uids_start
-FROM (SELECT * FROM gymhistory WHERE gym_points > 4000 AND team_id > 0) AS gym_middle
+CREATE TABLE `gymshaving` AS (SELECT gym_id, name, team_id, MAX(last_modified_end) as last_modified_end, MAX(total_cp_end) AS total_cp_end, MIN(last_modified_start) AS last_modified_start, MAX(total_cp_start) AS total_cp_start, pokemon_uids_end, pokemon_uids_start FROM (SELECT gym_after.gym_id, gym_details.name, gym_after.team_id, MAX(gym_after.last_modified) AS last_modified_end, MAX(gym_after.total_cp) AS total_cp_end, gym_after.pokemon_count AS pokemon_count_end, MIN(gym_before.last_modified) AS last_modified_start, MAX(gym_before.total_cp) AS total_cp_start, gym_before.pokemon_count AS pokemon_count_start, gym_after.pokemon_uids AS pokemon_uids_end, gym_before.pokemon_uids AS pokemon_uids_start
+FROM (SELECT * FROM gymhistory WHERE pokemon_count > 1 AND team_id > 0) AS gym_middle
 JOIN gymhistory AS gym_before
-ON gym_middle.gym_id = gym_before.gym_id AND gym_middle.team_id = gym_before.team_id AND (gym_before.gym_points-gym_middle.gym_points) >= 1000 AND gym_middle.last_modified > gym_before.last_modified AND gym_middle.last_modified < (gym_before.last_modified + INTERVAL 5 MINUTE) AND gym_middle.pokemon_count = gym_before.pokemon_count-1
+ON gym_middle.gym_id = gym_before.gym_id AND gym_middle.team_id = gym_before.team_id AND gym_middle.last_modified > gym_before.last_modified AND gym_middle.last_modified < (gym_before.last_modified + INTERVAL 5 MINUTE) AND gym_middle.pokemon_count = gym_before.pokemon_count-1
 JOIN gymhistory AS gym_after
-ON gym_middle.gym_id = gym_after.gym_id AND gym_middle.team_id = gym_after.team_id AND (gym_after.gym_points-gym_middle.gym_points) >= 1000 AND gym_middle.last_modified < gym_after.last_modified AND gym_middle.last_modified > (gym_after.last_modified - INTERVAL 8 MINUTE) AND gym_middle.pokemon_count = gym_after.pokemon_count-1
+ON gym_middle.gym_id = gym_after.gym_id AND gym_middle.team_id = gym_after.team_id AND gym_middle.last_modified < gym_after.last_modified AND gym_middle.last_modified > (gym_after.last_modified - INTERVAL 8 MINUTE) AND gym_middle.pokemon_count = gym_after.pokemon_count-1
 JOIN gymdetails AS gym_details
 ON gym_after.gym_id = gym_details.gym_id
 GROUP BY gym_after.gym_id, gym_after.last_modified, gym_after.pokemon_uids, gym_before.pokemon_uids)
@@ -93,12 +93,12 @@ DELIMITER //
 CREATE EVENT IF NOT EXISTS `gymshaving_update`
 ON SCHEDULE EVERY 30 MINUTE
 DO BEGIN
-  INSERT INTO gymshaving (SELECT gym_id, name, team_id, MAX(last_modified_end) as last_modified_end, MAX(gym_points_end) AS gym_points_end, MIN(last_modified_start) AS last_modified_start, MAX(gym_points_start) AS gym_points_start, pokemon_uids_end, pokemon_uids_start FROM (SELECT gym_after.gym_id, gym_details.name, gym_after.team_id, MAX(gym_after.last_modified) AS last_modified_end, MAX(gym_after.gym_points) AS gym_points_end, MIN(gym_before.last_modified) AS last_modified_start, MAX(gym_before.gym_points) AS gym_points_start, gym_after.pokemon_uids AS pokemon_uids_end, gym_before.pokemon_uids AS pokemon_uids_start
-  FROM (SELECT * FROM gymhistory WHERE gym_points > 4000 AND team_id > 0 AND last_modified > (SELECT MAX(last_modified_end) FROM gymshaving)) AS gym_middle
+  INSERT INTO gymshaving (SELECT gym_id, name, team_id, MAX(last_modified_end) as last_modified_end, MAX(total_cp_end) AS total_cp_end, pokemon_count_end, MIN(last_modified_start) AS last_modified_start, MAX(total_cp_start) AS total_cp_start, pokemon_count_start, pokemon_uids_end, pokemon_uids_start FROM (SELECT gym_after.gym_id, gym_details.name, gym_after.team_id, MAX(gym_after.last_modified) AS last_modified_end, MAX(gym_after.total_cp) AS total_cp_end, gym_after.pokemon_count AS pokemon_count_end, MIN(gym_before.last_modified) AS last_modified_start, MAX(gym_before.total_cp) AS total_cp_start, gym_before.pokemon_count AS pokemon_count_start, gym_after.pokemon_uids AS pokemon_uids_end, gym_before.pokemon_uids AS pokemon_uids_start
+  FROM (SELECT * FROM gymhistory WHERE pokemon_count > 1 AND team_id > 0 AND last_modified > (SELECT MAX(last_modified_end) FROM gymshaving)) AS gym_middle
   JOIN gymhistory AS gym_before
-  ON gym_middle.gym_id = gym_before.gym_id AND gym_middle.team_id = gym_before.team_id AND (gym_before.gym_points-gym_middle.gym_points) >= 1000 AND gym_middle.last_modified > gym_before.last_modified AND gym_middle.last_modified < (gym_before.last_modified + INTERVAL 5 MINUTE) AND gym_middle.pokemon_count = gym_before.pokemon_count-1
+  ON gym_middle.gym_id = gym_before.gym_id AND gym_middle.team_id = gym_before.team_id AND gym_middle.last_modified > gym_before.last_modified AND gym_middle.last_modified < (gym_before.last_modified + INTERVAL 5 MINUTE) AND gym_middle.pokemon_count = gym_before.pokemon_count-1
   JOIN gymhistory AS gym_after
-  ON gym_middle.gym_id = gym_after.gym_id AND gym_middle.team_id = gym_after.team_id AND (gym_after.gym_points-gym_middle.gym_points) >= 1000 AND gym_middle.last_modified < gym_after.last_modified AND gym_middle.last_modified > (gym_after.last_modified - INTERVAL 8 MINUTE) AND gym_middle.pokemon_count = gym_after.pokemon_count-1
+  ON gym_middle.gym_id = gym_after.gym_id AND gym_middle.team_id = gym_after.team_id AND gym_middle.last_modified < gym_after.last_modified AND gym_middle.last_modified > (gym_after.last_modified - INTERVAL 8 MINUTE) AND gym_middle.pokemon_count = gym_after.pokemon_count-1
   JOIN gymdetails AS gym_details
   ON gym_after.gym_id = gym_details.gym_id
   GROUP BY gym_after.gym_id, gym_after.last_modified, gym_after.pokemon_uids, gym_before.pokemon_uids)
