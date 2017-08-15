@@ -107,7 +107,7 @@ $(function () {
 				case 'nameFirst':
 					rankingFilter=1;
 					break;
-				case 'prestigeFirst':
+				case 'totalcpFirst':
 					rankingFilter=2;
 					break;
 				default:
@@ -280,8 +280,8 @@ function printGymHistory(gym_id, entry, pokeimg_suffix, locale) {
 	var gymHistory = $('<tr>').css('border-bottom', '2px solid '+(entry.team_id=='3'?'#ffbe08':entry.team_id=='2'?'#ff7676':entry.team_id=='1'?'#00aaff':'#ddd'));
 	gymHistory.append($('<td>',{text: entry.last_modified}));
 	gymHistory.append($('<td>',{text: entry.pokemon_count, class: 'level'}).prepend($('<img />', {src:'core/img/map_'+(entry.team_id=='1'?'blue':entry.team_id=='2'?'red':entry.team_id=='3'?'yellow':'white')+'.png'})));
-	gymHistory.append($('<td>',{text: parseInt(entry.gym_points).toLocaleString('de-DE'), class: entry.class}).append(
-		entry.gym_points_diff !== 0 ? $('<span class="small"> ('+(entry.gym_points_diff > 0 ? '+' : '')+entry.gym_points_diff+')</span>') : null
+	gymHistory.append($('<td>',{text: parseInt(entry.total_cp).toLocaleString('de-DE'), class: entry.class}).append(
+		entry.total_cp_diff !== 0 ? $('<span class="small"> ('+(entry.total_cp_diff > 0 ? '+' : '')+entry.total_cp_diff+')</span>') : null
 	));
 	var gymPokemon = printPokemonList(entry.pokemon, pokeimg_suffix, false);
 	gymHistory.append($('<td>').append(gymPokemon));
@@ -308,12 +308,12 @@ function printGym(gym, pokeimg_suffix, locale) {
 	if (gym.name.length > 50) { gym.name = gym.name.substr(0, 50) + '…'; }
 	gymsInfos.append($('<td>',{text: gym.name}));
 	gymsInfos.append($('<td>',{text: gym.pokemon_count, class: 'level'}).prepend($('<img />', {src:'core/img/map_'+(gym.team_id=='1'?'blue':gym.team_id=='2'?'red':gym.team_id=='3'?'yellow':'white')+'.png'})));
-	gymsInfos.append($('<td>',{text: parseInt(gym.gym_points).toLocaleString('de-DE')}));
+	gymsInfos.append($('<td>',{text: parseInt(gym.total_cp).toLocaleString('de-DE')}));
 	var gymPokemon = printPokemonList(gym.pokemon, pokeimg_suffix, false);
 	gymsInfos.append($('<td>').append(gymPokemon));
 	$('#gymsContainer').append(gymsInfos);
 	var historyTable = $('<table>',{class: 'table'});
-	historyTable.append('<thead><tr><th style="min-width:7em">Time</th><th>Level</th><th>Prestige</th><th>Pokémon</th></tr></thead>');
+	historyTable.append('<thead><tr><th style="min-width:7em">Time</th><th>Level</th><th>Total CP</th><th>Pokémon</th></tr></thead>');
 	historyTable.append('<tbody></tbody>');
 	historyTable.append('<tfoot><tr class="loadMore text-center"><td colspan="4"><button class="loadMoreButtonHistory btn btn-default btn-sm hidden">Load more</button></td></tr><tr class="gymHistoryLoader"><td colspan="4"><div class="loader"></div></td></tr></tfoot>');
 	historyTable.find('.loadMoreButtonHistory').data('page', 0).click(function() {
@@ -331,8 +331,8 @@ function printGymShaver(gym, pokeimg_suffix, locale) {
 	var gymNameShort = gym.name.length > 50 ? gym.name.substr(0, 50) + '…' : gym.name;
 	gymsInfos.append($('<td>').append($('<a>', {class: 'no-link', href: 'gymhistory?name='+gym.name, text: gymNameShort})));
 	gymsInfos.append($('<td>',{text: gym.pokemon_count_end, class: 'level'}).prepend($('<img />', {src:'core/img/map_'+(gym.team_id=='1'?'blue':gym.team_id=='2'?'red':gym.team_id=='3'?'yellow':'white')+'.png'})));
-	gymsInfos.append($('<td>',{text: parseInt(gym.gym_points_end).toLocaleString('de-DE'), class: gym.class}).append(
-		gym.gym_points_diff !== 0 ? $('<span class="small"> ('+(gym.gym_points_diff > 0 ? '+' : '')+gym.gym_points_diff+')</span>') : null
+	gymsInfos.append($('<td>',{text: parseInt(gym.total_cp_end).toLocaleString('de-DE'), class: gym.class}).append(
+		gym.total_cp_diff !== 0 ? $('<span class="small"> ('+(gym.total_cp_diff > 0 ? '+' : '')+gym.total_cp_diff+')</span>') : null
 	));
 	var gymPokemon = printPokemonList(gym.pokemon, pokeimg_suffix, true);
 	gymsInfos.append($('<td>').append(gymPokemon));
