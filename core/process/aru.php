@@ -836,7 +836,7 @@ switch ($request) {
 
 		$entries = array();
 
-		$req = "SELECT gym_id, name, team_id, total_cp_end, total_cp_start, pokemon_uids_end, pokemon_uids_start, (CONVERT_TZ(last_modified_end, '+00:00', '".$time_offset."')) AS last_modified_end, (CONVERT_TZ(last_modified_start, '+00:00', '".$time_offset."')) AS last_modified_start FROM gymshaving".$where.$order.$limit;
+		$req = "SELECT gym_id, name, team_id, total_cp_end, total_cp_start, pokemon_count_end, pokemon_count_start, pokemon_uids_end, pokemon_uids_start, (CONVERT_TZ(last_modified_end, '+00:00', '".$time_offset."')) AS last_modified_end, (CONVERT_TZ(last_modified_start, '+00:00', '".$time_offset."')) AS last_modified_start FROM gymshaving".$where.$order.$limit;
 
 		$result = $mysqli->query($req);
 		while ($result && $data = $result->fetch_object()) {
