@@ -162,8 +162,8 @@ unset($pokemon_trans_array);
 // Merge the pokedex, pokemon translation and rarity file into a new array 
 ##########################################################################
 
-$pokedex_file 	= file_get_contents(SYS_PATH.'/core/json/pokedex.json');
-$pokemons 		= json_decode($pokedex_file);
+$pokedex_file = file_get_contents(SYS_PATH.'/core/json/pokedex.json');
+$pokemons = json_decode($pokedex_file);
 
 $pokedex_rarity_file = SYS_PATH.'/core/json/pokedex.rarity.json';
 $pokemons_rarity = json_decode(file_get_contents($pokedex_rarity_file));
@@ -173,14 +173,14 @@ $pokemon_counts = json_decode(file_get_contents($pokedex_counts_file));
 
 foreach ($pokemons->pokemon as $pokeid => $pokemon) {
 	// Merge name and description from translation files
-	$pokemon->name 			= $pokemon_trans->pokemon->$pokeid->name;
-	$pokemon->description 	= $pokemon_trans->pokemon->$pokeid->description;
+	$pokemon->name = $pokemon_trans->pokemon->$pokeid->name;
+	$pokemon->description = $pokemon_trans->pokemon->$pokeid->description;
 
 	// Replace quick and charge move with translation
-	$quick_move 			= $pokemon->quick_move;
-	$pokemon->quick_move 	= $pokemon_trans->quick_moves->$quick_move;
-	$charge_move 			= $pokemon->charge_move;
-	$pokemon->charge_move 	= $pokemon_trans->charge_moves->$charge_move;
+	$quick_move = $pokemon->quick_move;
+	$pokemon->quick_move = $pokemon_trans->quick_moves->$quick_move;
+	$charge_move = $pokemon->charge_move;
+	$pokemon->charge_move = $pokemon_trans->charge_moves->$charge_move;
 
 	// Replace types with translation
 	foreach ($pokemon->types as &$type) {
@@ -190,8 +190,8 @@ foreach ($pokemons->pokemon as $pokeid => $pokemon) {
 
 	// Resolve candy_id to candy_name
 	if (isset($pokemon->candy_id)) {
-		$candy_id 				= $pokemon->candy_id;
-		$pokemon->candy_name 	= $pokemon_trans->pokemon->$candy_id->name;
+		$candy_id = $pokemon->candy_id;
+		$pokemon->candy_name = $pokemon_trans->pokemon->$candy_id->name;
 		unset($pokemon->candy_id);
 	}
 	// Convert move numbers to names
@@ -236,8 +236,8 @@ $pokemons->total = $pokemon_counts->total;
 // Translate typecolors array keys as well
 $types_temp = new stdClass();
 foreach ($pokemons->typecolors as $type => $color) {
-	$type_trans 				= $pokemon_trans->types->$type;
-	$types_temp->$type_trans 	= $color;
+	$type_trans = $pokemon_trans->types->$type;
+	$types_temp->$type_trans = $color;
 }
 // Replace typecolors array with translated one
 $pokemons->typecolors = $types_temp;

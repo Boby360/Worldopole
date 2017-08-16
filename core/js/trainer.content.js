@@ -254,17 +254,13 @@ function printPokemon(pokemon,pokeimg_suffix,iv_numbers,locale){
 	//trainerPokemon.append($('<small>').append("L" + " " + pokemon_level));
 	//trainerPokemon.append($('<br>'));
 
-	if (pokemon.last_scanned === '0') {
-		trainerPokemon.append($('<small>',{text: locale.today}));
+	if (pokemon.deployment_time) {
+		var diff = (new Date() - new Date(pokemon.deployment_time.replace(/-/g, '/'))) / 1000;
+		trainerPokemon.append($('<small>',{text: parseInt(diff / 3600) + 'h ' + parseInt((diff / 60) % 60) + 'm'}));	
 	} else if (pokemon.last_scanned === '1') {
 		trainerPokemon.append($('<small>',{text: pokemon.last_scanned + " " + locale.day}));
 	} else {
 		trainerPokemon.append($('<small>',{text: pokemon.last_scanned + " " + locale.days}));
-	}
-	if (pokemon.deployment_time) {
-		var diff = (new Date() - new Date(pokemon.deployment_time.replace(/-/g, '/'))) / 1000;
-		trainerPokemon.append($('<br>'));
-		trainerPokemon.append($('<small>',{text: parseInt(diff / 3600) + 'h ' + parseInt((diff / 60) % 60) + 'm'}));
 	}
 
 	var gym_name = pokemon.gym_name || ' ';

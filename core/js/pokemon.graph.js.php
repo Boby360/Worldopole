@@ -31,8 +31,8 @@ $pokemon_id = $_GET['id'];
 
 # Polar Graph datas
 
-$pokemon_file	= file_get_contents(SYS_PATH.'/core/json/pokedex.json');
-$pokemons	= json_decode($pokemon_file);
+$pokemon_file = file_get_contents(SYS_PATH.'/core/json/pokedex.json');
+$pokemons = json_decode($pokemon_file);
 
 $atk		= $pokemons->pokemon->$pokemon_id->atk;
 $def		= $pokemons->pokemon->$pokemon_id->def;
@@ -41,7 +41,7 @@ $sta		= $pokemons->pokemon->$pokemon_id->sta;
 
 ?>
 
-var pokemon_id = '<?= (int)$pokemon_id ?>';
+var pokemon_id = '<?= (int) $pokemon_id ?>';
 
 Chart.defaults.global.legend.display = false;
 
