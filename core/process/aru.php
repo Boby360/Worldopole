@@ -612,7 +612,7 @@ switch ($request) {
 					FROM gympokemon INNER JOIN
 					(SELECT gymmember.pokemon_uid, gymmember.gym_id, gymdetails.name, gymmember.deployment_time FROM gymmember
 					LEFT JOIN gymdetails ON gymmember.gym_id = gymdetails.gym_id
-					GROUP BY gymmember.pokemon_uid, gymmember.gym_id HAVING gymmember.gym_id <> '') AS filtered_gymmember
+					GROUP BY gymmember.pokemon_uid, gymmember.gym_id, gymmember.deployment_time HAVING gymmember.gym_id <> '') AS filtered_gymmember
 					ON gympokemon.pokemon_uid = filtered_gymmember.pokemon_uid
 					WHERE gympokemon.trainer_name='".$trainer->name."'
 					ORDER BY gympokemon.cp DESC)";
