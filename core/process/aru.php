@@ -576,14 +576,16 @@ switch ($request) {
 
 		switch ($ranking) {
 			case 1:
-				$order = " ORDER BY active DESC ";
+				$order = " ORDER BY active DESC, level DESC";
 				break;
 			case 2:
-				$order = " ORDER BY maxCp DESC ";
+				$order = " ORDER BY maxCp DESC, level DESC";
 				break;
 			default:
-				$order = " ORDER BY level DESC, active DESC ";
+				$order = " ORDER BY level DESC, active DESC";
 		}
+
+		$order .= ", last_seen DESC, name ";
 
 		$limit = " LIMIT ".($page * 10).",10 ";
 
