@@ -567,6 +567,9 @@ switch ($request) {
 			$team = mysqli_real_escape_string($mysqli, $_GET['team']);
 			$where .= " AND team = ".$team;
 		}
+		if (!empty($config->system->trainer_blacklist)) {
+			$where .= " AND name NOT IN ('".implode("','", $config->system->trainer_blacklist)."')";
+		}
 		if (isset($_GET['page'])) {
 			$page = mysqli_real_escape_string($mysqli, $_GET['page']);
 		}
@@ -605,7 +608,10 @@ switch ($request) {
 			$trainers[$data->name] = $data;
 		}
 		foreach ($trainers as $trainer) {
-			$reqRanking = "SELECT COUNT(1) AS rank FROM trainer WHERE trainer.level >= ".$trainer->level;
+			$reqRanking = "SELECT COUNT(1) AS rank FROM trainer WHERE level = ".$trainer->level;
+			if (!empty($config->system->trainer_blacklist)) {
+				$reqRanking .= " AND name NOT IN ('".implode("','", $config->system->trainer_blacklist)."')";
+			}
 			$resultRanking = $mysqli->query($reqRanking);
 			while ($data = $resultRanking->fetch_object()) {
 				$trainer->rank = $data->rank;
