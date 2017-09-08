@@ -645,8 +645,8 @@ raids styles
 	font-size: 2em;
 	font-weight: bold;
 	position: absolute;
-	left: 23px;
-	top: 10px;
+	left: 22px;
+	top: 8px;
 }
 
 #raidsContainer .current, #raidsContainer .upcoming {
@@ -680,8 +680,8 @@ raids styles
 	}
 	#raidsContainer .pokemon-single span {
 		font-size: 1.5em;
-		left: 17px;
-		top: 8px;
+		left: 16px;
+		top: 6px;
 	}
 	#raidsContainer td:nth-child(6) {
 		display: none;
