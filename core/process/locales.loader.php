@@ -176,7 +176,6 @@ foreach ($pokemons->pokemon as $pokeid => $pokemon) {
 	$pokemon->id = $pokeid;
 	$pokemon->name = $pokemon_trans->pokemon->$pokeid->name;
 	$pokemon->description = $pokemon_trans->pokemon->$pokeid->description;
-
 	$pokemon->img = 'core/pokemons/'.$pokeid.$config->system->pokeimg_suffix;
 	if (intval($pokeid) > 251) {
 		$pokemon->img = 'core/pokemons/missing.png';

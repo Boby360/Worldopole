@@ -107,6 +107,7 @@ if (!empty($page)) {
 				exit();
 			}
 
+
 			$pokemon = new stdClass();
 			$pokemon = $pokemons->pokemon->$pokemon_id;
 
@@ -149,6 +150,7 @@ if (!empty($page)) {
 
 			if (isset($data)) {
 				$last_spawn = $data;
+
 				$pokemon->last_seen = strtotime($data->disappear_time_real);
 				$pokemon->last_position = new stdClass();
 				$pokemon->last_position->latitude = $data->latitude;
@@ -247,7 +249,7 @@ if (!empty($page)) {
 				$pokedex->$i = new stdClass();
 				$pokedex->$i->id = $i;
 				$pokedex->$i->permalink = 'pokemon/'.$i;
-				$pokedex->$i->img = 'core/pokemons/'.$i.$config->system->pokeimg_suffix;
+				$pokedex->$i->img = $pokemons->pokemon->$i->img;
 				if ($i > 251) {
 					$pokedex->$i->img = 'core/pokemons/missing.png';
 				}
