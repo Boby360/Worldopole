@@ -347,7 +347,7 @@ function updateLive(pokeimg_path) {
 
 function addPokemonMarker(pokemon, pokeimg_path, locale) {
 	var image = {
-		url: pokeimg_path.replace('{pokeid}', pokemon.pokemon_id),
+		url: pokemon.pokemon_id > 251 ? pokeimg_path.replace('_flat', '_shuffle').replace('{pokeid}', pokemon.pokemon_id) : pokeimg_path.replace('{pokeid}', pokemon.pokemon_id),
 		scaledSize: new google.maps.Size(32, 32),
 		origin: new google.maps.Point(0,0),
 		anchor: new google.maps.Point(16, 16),

@@ -251,9 +251,6 @@ if (!empty($page)) {
 				$pokedex->$i->id = $i;
 				$pokedex->$i->permalink = 'pokemon/'.$i;
 				$pokedex->$i->img = $pokemons->pokemon->$i->img;
-				if ($i > 251) {
-					$pokedex->$i->img = 'core/pokemons/missing.png';
-				}
 				$pokedex->$i->name = $pokemons->pokemon->$i->name;
 				$pokedex->$i->spawn = ($pokemons->pokemon->$i->spawn_count > 0) ? 1 : 0;
 				$pokedex->$i->spawn_count = $pokemons->pokemon->$i->spawn_count;

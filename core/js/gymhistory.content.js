@@ -267,7 +267,7 @@ function printPokemonList(pokemons, pokeimg_path, hide_unchanged) {
 	$.each(pokemons, function(idx, pokemon) {
 		if (!hide_unchanged || pokemon.class) {
 			var list = $('<li>', {class: pokemon.class});
-			list.append($('<a>', { class: 'no-link', href : 'pokemon/'+pokemon.pokemon_id }).append($('<img />', { src: pokeimg_path.replace('{pokeid}', pokemon.pokemon_id) }).css('height', '2em')));
+			list.append($('<a>', { class: 'no-link', href : 'pokemon/'+pokemon.pokemon_id }).append($('<img />', { src: pokemon.pokemon_id > 251 ? pokeimg_path.replace('_flat', '_shuffle').replace('{pokeid}', pokemon.pokemon_id) : pokeimg_path.replace('{pokeid}', pokemon.pokemon_id) }).css('height', '2em')));
 			list.append($('<br><span class="small">'+pokemon.cp+' CP</span>'));
 			list.append($('<br><span style="font-size:70%"><a href="trainer?name='+pokemon.trainer_name+'" class="no-link">'+pokemon.trainer_name+'</a></span>'));
 			gymPokemon.append(list);

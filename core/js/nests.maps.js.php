@@ -130,7 +130,7 @@ function initMap() {
 
 function getImage(data, pokeimg_path) {
 	var image = {
-		url: pokeimg_path.replace('{pokeid}', data.pid),
+		url: data.pid > 251 ? pokeimg_path.replace('_flat', '_shuffle').replace('{pokeid}', data.pid) : pokeimg_path.replace('{pokeid}', data.pid),
 		scaledSize: new google.maps.Size(32, 32),
 		origin: new google.maps.Point(0,0),
 		anchor: new google.maps.Point(16, 16),
