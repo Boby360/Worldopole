@@ -26,7 +26,7 @@ function initMap() {
 		var latitude = Number(variables.system.map_center_lat);
 		var longitude = Number(variables.system.map_center_long);
 		var zoom_level = Number(variables.system.zoom_level);
-		var pokeimg_suffix = variables.system.pokeimg_suffix;
+		var pokeimg_path = variables.system.pokeimg_path;
 
 		map = new google.maps.Map(document.getElementById('map'), {
 			center: {
@@ -98,7 +98,7 @@ function initMap() {
 				var marker = new google.maps.Marker({
 					position: new google.maps.LatLng(nestData[i].lat, nestData[i].lng),
 					map: map,
-					icon: getImage(nestData[i], pokeimg_suffix)
+					icon: getImage(nestData[i], pokeimg_path)
 				});
 
 				google.maps.event.addListener(marker, 'click', (function(marker, i) {
@@ -127,9 +127,9 @@ function initMap() {
 };
 
 
-function getImage(data, pokeimg_suffix) {
+function getImage(data, pokeimg_path) {
 	var image = {
-		url: 'core/pokemons/' + data.pid + pokeimg_suffix,
+		url: pokeimg_path.replace('{pokeid}', data.pid),
 		scaledSize: new google.maps.Size(32, 32),
 		origin: new google.maps.Point(0,0),
 		anchor: new google.maps.Point(16, 16),

@@ -181,7 +181,7 @@ for ($pokeid = 1; $pokeid <= $maxpid; $pokeid++) {
 	$pokemon->id = $pokeid;
 	$pokemon->name = $pokemon_trans->pokemon->$pokeid->name;
 	$pokemon->description = $pokemon_trans->pokemon->$pokeid->description;
-	$pokemon->img = 'core/pokemons/'.$pokeid.$config->system->pokeimg_suffix;
+	$pokemon->img = str_replace('{pokeid}', $pokeid, $config->system->pokeimg_path);
 
 	// Replace quick and charge move with translation
 	$quick_move = $pokemon->quick_move;
