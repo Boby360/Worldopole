@@ -1,32 +1,29 @@
 /** global: google */
 /** global: navigator */
 /** global: MarkerClusterer */
-
-function initMap()
-{
+function initMap() {
 	var pokestopOpts = {
-		'type': "GET",
+		'type': 'GET',
 		'global': false,
 		'dataType': 'json',
-		'url': "core/process/aru.php",
-		'data': { 'request': "", 'target': 'arrange_url', 'method': 'method_target', 'type' : 'pokestop' }
+		'url': 'core/process/aru.php',
+		'data': {
+			'type': 'pokestop'
+		}
 	};
 	var geoOpts = {
-		'type': "GET",
+		'type': 'GET',
 		'global': false,
 		'dataType': 'json',
-		'url': "core/process/aru.php",
+		'url': 'core/process/aru.php',
 		'data': {
-			'request': "",
-			'target': 'arrange_url',
-			'method': 'method_target',
 			'type': 'maps_localization_coordinates'
 		}
 	}
-	$.when($.ajax(pokestopOpts), $.ajax(geoOpts)).then(function (response1, response2) {
+	$.when($.ajax(pokestopOpts), $.ajax(geoOpts)).then(function(response1, response2) {
 		var pokestops = response1[0];
 		var coordinates = response2[0];
-		$.getJSON("core/json/variables.json", function (variables) {
+		$.getJSON('core/json/variables.json', function(variables) {
 			var latitude = Number(variables['system']['map_center_lat']);
 			var longitude = Number(variables['system']['map_center_long']);
 			var zoom_level = Number(variables['system']['zoom_level']);
@@ -51,16 +48,16 @@ function initMap()
 					]
 				}
 			});
-		
-			$.getJSON( 'core/json/pogostyle.json', function( data ) {
-				var styledMap_pogo = new google.maps.StyledMapType(data, {name: 'PoGo'});
+
+			$.getJSON('core/json/pogostyle.json', function(data) {
+				var styledMap_pogo = new google.maps.StyledMapType(data, { name: 'PoGo' });
 				map.mapTypes.set('pogo_style', styledMap_pogo);
 			});
-			$.getJSON( 'core/json/darkstyle.json', function( data ) {
-				var styledMap_dark = new google.maps.StyledMapType(data, {name: 'Dark'});
+			$.getJSON('core/json/darkstyle.json', function(data) {
+				var styledMap_dark = new google.maps.StyledMapType(data, { name: 'Dark' });
 				map.mapTypes.set('dark_style', styledMap_dark);
 			});
-			$.getJSON( 'core/json/defaultstyle.json', function( data ) {
+			$.getJSON('core/json/defaultstyle.json', function(data) {
 				map.set('styles', data);
 			});
 
@@ -80,38 +77,38 @@ function initMap()
 			}
 
 			var infowindow = new google.maps.InfoWindow();
-		
+
 			var markers = [];
-	
+
 			for (var i = 0; i < pokestops.length; i++) {
 				var marker = new google.maps.Marker({
 					position: new google.maps.LatLng(pokestops[i][2], pokestops[i][3]),
-					icon: 'core/img/'+pokestops[i][1]
+					icon: 'core/img/' + pokestops[i][1]
 				});
-	
-				google.maps.event.addListener(marker, 'click', (function (marker, i) {
-						return function () {
-							infowindow.setContent(pokestops[i][0]);
-							infowindow.open(map, marker);
-						}
+
+				google.maps.event.addListener(marker, 'click', (function(marker, i) {
+					return function() {
+						infowindow.setContent(pokestops[i][0]);
+						infowindow.open(map, marker);
+					}
 				})(marker, i));
 				if (pokestops[i][1].lastIndexOf('lured') !== -1) {
 					marker.setMap(map);
 					marker.setAnimation(google.maps.Animation.BOUNCE);
 				} else if (!cluster) {
 					marker.setMap(map);
-				} else {					
+				} else {
 					markers.push(marker);
 				}
 			}
-			
+
 			if (cluster) {
 				var clusterOptions = {
 					gridSize: cluster.grid || 80,
 					minimumClusterSize: cluster.minCluster || 4,
 					cssClass: 'pokeStopCluster'
 				}
-				var markerCluster = new MarkerClusterer(map, [], clusterOptions);			
+				var markerCluster = new MarkerClusterer(map, [], clusterOptions);
 				markerCluster.addMarkers(markers);
 			}
 		});

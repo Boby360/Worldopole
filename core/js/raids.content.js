@@ -1,5 +1,5 @@
 $(function() {
-	$.getJSON("core/json/variables.json", function(variables) {
+	$.getJSON('core/json/variables.json', function(variables) {
 		var pokeimg_path = variables['system']['pokeimg_path'];
 		var location_url = variables['system']['location_url'] || 'https://maps.google.com/?q={latitude},{longitude}&ll={latitude},{longitude}&z=16';
 		$('.raidsLoader').hide();
@@ -18,7 +18,7 @@ function loadRaids(page, pokeimg_path, location_url) {
 	$.ajax({
 		'type': 'GET',
 		'dataType': 'json',
-		'url': "core/process/aru.php",
+		'url': 'core/process/aru.php',
 		'data': {
 			'type': 'raids',
 			'page': page

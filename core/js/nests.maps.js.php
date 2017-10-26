@@ -23,7 +23,7 @@ var pokemon = {
 
 function initMap() {
 
-	$.getJSON("core/json/variables.json", function(variables) {
+	$.getJSON('core/json/variables.json', function(variables) {
 		var latitude = Number(variables.system.map_center_lat);
 		var longitude = Number(variables.system.map_center_long);
 		var zoom_level = Number(variables.system.zoom_level);
@@ -62,15 +62,11 @@ function initMap() {
 		});
 
 		$.ajax({
-			'async': true,
-			'type': "GET",
+			'type': 'GET',
 			'global': false,
 			'dataType': 'json',
-			'url': "core/process/aru.php",
+			'url': 'core/process/aru.php',
 			'data': {
-				'request': "",
-				'target': 'arrange_url',
-				'method': 'method_target',
 				'type': 'maps_localization_coordinates'
 			}
 		}).done(function(coordinates) {
@@ -93,7 +89,7 @@ function initMap() {
 		var infoWindow = new google.maps.InfoWindow({ pixelOffset: new google.maps.Size(0, 8), disableAutoPan: true });
 
 		// load data
-		$.getJSON("core/json/nests.stats.json", function(nestData) {
+		$.getJSON('core/json/nests.stats.json', function(nestData) {
 
 			for (var i = 0; i < nestData.length; i++) {
 				var marker = new google.maps.Marker({
@@ -123,12 +119,10 @@ function initMap() {
 						infoWindow.close();
 					}
 				});
-
 			}
 		});
 	});
 };
-
 
 function getImage(data, pokeimg_path) {
 	var image = {
@@ -141,7 +135,6 @@ function getImage(data, pokeimg_path) {
 	return image
 }
 
-
 function getInfo(data) {
 	var info = '<div id="content">' +
 		'<div id="bodyContent">' +
@@ -152,7 +145,6 @@ function getInfo(data) {
 		'</div>'
 	return info
 }
-
 
 Date.prototype.addDays = function(days) {
 	var d = new Date(this.valueOf());
