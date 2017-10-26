@@ -67,7 +67,7 @@ function printRaid(raid, pokeimg_path, location_url) {
 	if (raid.pokemon_id > 0) {
 		raidPokemon.append(
 			$('<a>', {href : 'pokemon/'+raid.pokemon_id}).append($('<img />',
-				{src: raid.pokemon_id > 251 ? pokeimg_path.replace('_flat', '_shuffle').replace('{pokeid}', raid.pokemon_id) : pokeimg_path.replace('{pokeid}', raid.pokemon_id})
+				{src: raid.pokemon_id > 251 ? pokeimg_path.replace('_flat', '_shuffle').replace('{pokeid}', raid.pokemon_id) : pokeimg_path.replace('{pokeid}', raid.pokemon_id)})
 			)
 		);
 		details = raid.cp + ' CP<br>' + raid.quick_move + ' / ' + raid.charge_move;
