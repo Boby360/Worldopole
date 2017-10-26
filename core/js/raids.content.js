@@ -1,19 +1,19 @@
 $(function () {
 	$.getJSON( "core/json/variables.json", function(variables) {
-		var pokeimg_suffix = variables['system']['pokeimg_suffix'];
+		var pokeimg_path = variables['system']['pokeimg_path'];
 		var location_url = variables['system']['location_url'] || 'https://maps.google.com/?q={latitude},{longitude}&ll={latitude},{longitude}&z=16';
 		$('.raidsLoader').hide();
 		var page = 0;
-		loadRaids(page, pokeimg_suffix, location_url);
+		loadRaids(page, pokeimg_path, location_url);
 		page++;
 		$('#loadMoreButton').click(function () {
-			loadRaids(page, pokeimg_suffix, location_url);
+			loadRaids(page, pokeimg_path, location_url);
 			page++;
 		});
 	});
 });
 
-function loadRaids(page, pokeimg_suffix, location_url) {
+function loadRaids(page, pokeimg_path, location_url) {
 	$('.raidsLoader').show();
 	$.ajax({
 		'type': 'GET',
@@ -32,7 +32,7 @@ function loadRaids(page, pokeimg_suffix, location_url) {
 		}
 		$.each(data.raids, function (gym_id, raid) {
 			internalIndex++;
-			printRaid(raid, pokeimg_suffix, location_url);
+			printRaid(raid, pokeimg_path, location_url);
 		});
 		if (internalIndex < 10) {
 			$('#loadMoreButton').hide();
@@ -49,7 +49,7 @@ function loadRaids(page, pokeimg_suffix, location_url) {
 	});
 };
 
-function printRaid(raid, pokeimg_suffix, location_url) {
+function printRaid(raid, pokeimg_path, location_url) {
 	var now = new Date();
 	var raidStart = new Date(raid.start.replace(/-/g, '/'));
 	var raidEnd = new Date(raid.end.replace(/-/g, '/'));
@@ -67,7 +67,7 @@ function printRaid(raid, pokeimg_suffix, location_url) {
 	if (raid.pokemon_id > 0) {
 		raidPokemon.append(
 			$('<a>', {href : 'pokemon/'+raid.pokemon_id}).append($('<img />',
-				{src: 'core/pokemons/'+raid.pokemon_id+pokeimg_suffix})
+				{src: pokeimg_path.replace('{pokeid}', raid.pokemon_id})
 			)
 		);
 		details = raid.cp + ' CP<br>' + raid.quick_move + ' / ' + raid.charge_move;

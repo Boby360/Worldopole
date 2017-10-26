@@ -30,7 +30,7 @@ function initMap() {
 		var latitude = Number(variables['system']['map_center_lat']);
 		var longitude = Number(variables['system']['map_center_long']);
 		var zoom_level = Number(variables['system']['zoom_level']);
-		var pokeimg_suffix = variables['system']['pokeimg_suffix'];
+		var pokeimg_path = variables['system']['pokeimg_path'];
 		var cluster = variables.system.cluster_pokemon;
 
 		map = new google.maps.Map(document.getElementById('map'), {
@@ -102,57 +102,54 @@ function initMap() {
 			});
 		}
 		initHeatmap();
-		initSelector(pokeimg_suffix);
-		
+		initSelector(pokeimg_path);
 	});
 }
 
-function initSelector(pokeimg_suffix){
-	$('#heatmapSelector').click(function(){
+function initSelector(pokeimg_path) {
+	$('#heatmapSelector').click(function() {
 		hideLive();
 		showHeatmap();
 		$('#heatmapSelector').addClass('active');
 		$('#liveSelector').removeClass('active');
 	});
-	$('#liveSelector').click(function(){
+	$('#liveSelector').click(function() {
 		hideHeatmap();
 		map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
-		initLive(pokeimg_suffix);
-		
-		
+		initLive(pokeimg_path);
 		$('#liveSelector').addClass('active');
 		$('#heatmapSelector').removeClass('active');
 	});
 }
 
-function initLive(pokeimg_suffix){
+function initLive(pokeimg_path){
 	showLive();
 	$("#liveFilterSelector").rangeSlider({
-		bounds:{
+		bounds: {
 			min: 0,
 			max: 100
 		},
-		defaultValues:{
+		defaultValues: {
 			min: ivMin,
 			max: ivMax
 		},
-		formatter:function(val) {
+		formatter: function(val) {
 			return "IV: "+Math.round(val)+"%";
 		}
 	});
 	
-	$("#liveFilterSelector").bind("valuesChanged",function(e, data){
+	$("#liveFilterSelector").bind("valuesChanged",function(e, data) {
 		clearTimeout(updateLiveTimeout);
-		removePokemonMarkerByIv(data.values.min,data.values.max);
+		removePokemonMarkerByIv(data.values.min, data.values.max);
 		ivMin = data.values.min;
 		ivMax = data.values.max;
-		updateLive(pokeimg_suffix);
+		updateLive(pokeimg_path);
 	});
-	updateLive(pokeimg_suffix);
+	updateLive(pokeimg_path);
 	
 }
 
-function initHeatmap(){
+function initHeatmap() {
 	$.ajax({
 		'async': true,
 		'type': "GET",
@@ -165,13 +162,13 @@ function initHeatmap(){
 			'method': 'method_target',
 			'type' : 'pokemon_slider_init'
 		}
-	}).done(function(bounds){
+	}).done(function(bounds) {
 		initHeatmapData(bounds);
 	});
 	
 }
 
-function initHeatmapData(bounds){
+function initHeatmapData(bounds) {
 	var boundMin = new Date(bounds.min.replace(/-/g, "/"));
 	var boundMax = new Date(bounds.max.replace(/-/g, "/"));
 	var selectorMax = boundMax;
@@ -180,7 +177,7 @@ function initHeatmapData(bounds){
 	// two weeks in millisec
 	var twoWeeks = 12096e5;
 	var maxMinus2Weeks = new Date(selectorMax.getTime() - twoWeeks);
-	if(selectorMin < maxMinus2Weeks){
+	if (selectorMin < maxMinus2Weeks) {
 		selectorMin = maxMinus2Weeks;
 	}
 
@@ -213,13 +210,13 @@ function initHeatmapData(bounds){
 				}
 				return result;
 			},
-			next: function(value){
+			next: function(value) {
 				var next = new Date(new Date(value).setTime(value.getTime() + twoWeeks));
 				migr_nr++;
 				migrations[next.getTime()] = migr_nr;
 				return next;
 			},
-			label: function(value){
+			label: function(value) {
 				if (isMobileDevice() && isTouchDevice()) {
 					return "#" + migrations[value.getTime()];
 				}
@@ -256,7 +253,7 @@ function createHeatmap() {
 	];
 	heatmap.set('gradient', gradient);
 	heatmap.setMap(map);
-	$("#timeSelector").bind("valuesChanged",function(){updateHeatmap()});
+	$("#timeSelector").bind("valuesChanged", function(){updateHeatmap()});
 	$("#timeSelector").dateRangeSlider("min"); // will trigger valuesChanged
 }
 
@@ -279,7 +276,7 @@ function updateHeatmap() {
 			'start' : Math.floor(dateMin.getTime()/1000),
 			'end' : Math.floor(dateMax.getTime()/1000)
 		}
-	}).done(function(points){
+	}).done(function(points) {
 		var googlePoints = [];
 		for (var i = 0; i < points.length; i++) {
 			googlePoints.push(new google.maps.LatLng(points[i].latitude,points[i].longitude))
@@ -314,7 +311,7 @@ function showLive() {
 	
 }
 
-function updateLive(pokeimg_suffix){
+function updateLive(pokeimg_path) {
 	$.ajax({
 		'async': true,
 		'type': "POST",
@@ -334,7 +331,7 @@ function updateLive(pokeimg_suffix){
 	}).done(function(pokemons){
 		var markers = [];
 		for (var i = 0; i < pokemons.points.length; i++) {
-			var marker = addPokemonMarker(pokemons.points[i],pokeimg_suffix, pokemons.locale);
+			var marker = addPokemonMarker(pokemons.points[i],pokeimg_path, pokemons.locale);
 			if (markerCluster) {
 				markers.push(marker);
 			} else {
@@ -344,13 +341,13 @@ function updateLive(pokeimg_suffix){
 		if (markerCluster) {
 			markerCluster.addMarkers(markers);
 		}
-		updateLiveTimeout=setTimeout(function(){ updateLive(pokeimg_suffix) },5000);
+		updateLiveTimeout=setTimeout(function(){ updateLive(pokeimg_path) },5000);
 	});
 }
 
-function addPokemonMarker(pokemon,pokeimg_suffix, locale) {
+function addPokemonMarker(pokemon, pokeimg_path, locale) {
 	var image = {
-		url:'core/pokemons/'+pokemon.pokemon_id+pokeimg_suffix,
+		url: pokeimg_path.replace('{pokeid}', pokemon.pokemon_id),
 		scaledSize: new google.maps.Size(32, 32),
 		origin: new google.maps.Point(0,0),
 		anchor: new google.maps.Point(16, 16),
