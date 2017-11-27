@@ -162,7 +162,7 @@ function printPokemon(pokemon, pokeimg_path, iv_numbers, locale) {
 	if (gymClass) trainerPokemon.hide();
 	trainerPokemon.append(
 		$('<a>', { href: 'pokemon/' + pokemon.pokemon_id }).append($('<img />', {
-			src: pokemon.pokemon_id > 251 ? pokeimg_path.replace('_flat', '_shuffle').replace('{pokeid}', pokemon.pokemon_id) : pokeimg_path.replace('{pokeid}', pokemon.pokemon_id),
+			src: pokeimg_path.replace('{pokeid}', pokemon.pokemon_id),
 			'class': 'img-responsive' + gymClass
 		}))
 	);
