@@ -185,9 +185,6 @@ for ($pokeid = 1; $pokeid <= $maxpid; $pokeid++) {
 	$pokemon->name = $pokemon_trans->pokemon->$pokeid->name;
 	$pokemon->description = $pokemon_trans->pokemon->$pokeid->description;
 	$pokemon->img = str_replace('{pokeid}', $pokeid, $config->system->pokeimg_path);
-	if (intval($pokeid) > 251) {
-		$pokemon->img = str_replace('_flat', '_shuffle', $pokemon->img);
-	}
 
 	// Replace quick and charge move with translation
 	$quick_move = $pokemon->quick_move;
