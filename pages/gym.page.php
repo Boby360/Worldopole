@@ -89,7 +89,7 @@
 			<div id="gymInfos">
 				<div id="circleImage"></div>
 				<div id="gymName"></div>
-				<div id="gymHistory"><a href="#">Show History</a></div>
+				<div id="gymHistoryLink"><a href="#">Show History</a></div>
 				<div id="gymPrestige">
 					<?= $locales->PRESTIGE ?>: <span id="gymPrestigeDisplay"></span>
 				</div>
