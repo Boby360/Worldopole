@@ -96,7 +96,7 @@
 		<div class="table-responsive">
 		<table class="table">
 			<tr>
-				<td class="col-md-8 col-xs-8"><strong><?= $locales->POKEMON_SEEN ?> :</strong></td>
+				<td class="col-md-8 col-xs-8"><strong><?= $locales->POKEMON_SEEN ?></strong></td>
 				<td class="col-md-4 col-xs-4">
 
 				<?php
@@ -114,11 +114,11 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="col-md-8 col-xs-8"><strong><?= $locales->POKEMON_AMOUNT ?> :</strong></td>
+				<td class="col-md-8 col-xs-8"><strong><?= $locales->POKEMON_AMOUNT ?></strong></td>
 				<td class="col-md-4 col-xs-4"><?= $pokemon->spawn_count ?> <?= $locales->SEEN ?></td>
 			</tr>
 			<tr>
-				<td class="col-md-8 col-xs-8"><strong><?= $locales->POKEMON_RATE ?> :</strong></td>
+				<td class="col-md-8 col-xs-8"><strong><?= $locales->POKEMON_RATE ?></strong></td>
 				<td class="col-md-4 col-xs-4"><?= $pokemon->spawns_per_day ?> / <?= $locales->DAY ?></td>
 			</tr>
 			<tr>
@@ -143,7 +143,7 @@
 		<div class="table-responsive">
 		<table class="table">
 			<tr>
-				<td class="col-md-8 col-xs-8"><strong><?= $locales->POKEMON_RAID_SEEN ?> :</strong></td>
+				<td class="col-md-8 col-xs-8"><strong><?= $locales->POKEMON_RAID_SEEN ?></strong></td>
 				<td class="col-md-4 col-xs-4">
 
                     <?php
@@ -161,15 +161,15 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="col-md-8 col-xs-8"><strong><?= $locales->POKEMON_RAID_AMOUNT ?> :</strong></td>
+				<td class="col-md-8 col-xs-8"><strong><?= $locales->POKEMON_RAID_AMOUNT ?></strong></td>
 				<td class="col-md-4 col-xs-4"><?= $pokemon->raid_count ?> <?= $locales->SEEN ?></td>
 			</tr>
 			<tr>
-				<td class="col-md-8 col-xs-8"><strong><?= $locales->POKEMON_QUICK ?> :</strong></td>
+				<td class="col-md-8 col-xs-8"><strong><?= $locales->POKEMON_QUICK ?></strong></td>
 				<td class="col-md-4 col-xs-4"><?= $pokemon->quick_move ?></td>
 			</tr>
 			<tr>
-				<td class="col-md-8 col-xs-8"><strong><?= $locales->POKEMON_SPECIAL ?> :</strong> </td>
+				<td class="col-md-8 col-xs-8"><strong><?= $locales->POKEMON_SPECIAL ?></strong> </td>
 				<td class="col-md-4 col-xs-4"><?= $pokemon->charge_move ?></td>
 			</tr>
 
@@ -194,11 +194,8 @@
 
 
 <div class="row" id="where">
-
 	<div class="col-md-12">
-
 		<h2 class="text-center sub-title"><?= $locales->POKEMON_WHERE ?> <?= $pokemon->name ?>?</h2>
-
 	</div>
 </div>
 <div class="row text-center subnav">
@@ -275,17 +272,17 @@
 
 	</div>
 
-	<!-- Tree -->
-	
-	<?php
-	$tree = array($pokemon->tree);
-	$depth = get_depth($tree);
-	?>
+</div>
 
-	<h3 class="col-md-12 text-center sub-title"><strong><?= $locales->POKEMON_EVOLUTIONS ?></strong></h3>
+<div class="row area" id="evolve">
+
+	<h2 class="text-center sub-title"><strong><?= $pokemon->name ?> </strong><?= $locales->POKEMON_EVOLUTIONS ?></h2>
+
 	<div class="col-md-12 flex-container-tree results">
 
 		<?php
+		$tree = array($pokemon->tree);
+		$depth = get_depth($tree);
 		$skip = false;
 		for ($i = 0; $i < $depth; $i++) {
 			$i_id = intval(($i + 1) / 2);
