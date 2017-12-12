@@ -295,7 +295,7 @@ function hideGymHistoryTables(gymHistoryTables) {
 	gymHistoryTables.find('.gymHistoryLoader').hide();
 }
 
-function printGym(gym, pokeimg_path) {
+function printGym(gym, pokeimg_path, hide_cp_changes) {
 	var gymsInfos = $('<tr>',{id: 'gymInfos_'+gym.gym_id}).css('cursor', 'pointer').css('border-bottom', '2px solid '+(gym.team_id=='3'?'#ffbe08':gym.team_id=='2'?'#ff7676':gym.team_id=='1'?'#00aaff':'#ddd')).click(function() {
 		if (!$('#gymHistory_'+gym.gym_id).hasClass('active')) {
 			hideGymHistoryTables($('#gymsContainer').find('.gymhistory'));
