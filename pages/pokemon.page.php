@@ -125,7 +125,7 @@
 				<td class="col-md-8 col-xs-8">
                     <?php
 					if (isset($pokemon->protected_gyms)) {
-						echo "<strong>".$locales->POKEMON_GYM.$pokemon->name."</strong> :";
+						echo "<strong>".$locales->POKEMON_GYM.$pokemon->name."</strong>";
 					} ?>
                 </td>
 				<td class="col-md-4 col-xs-4">
@@ -179,18 +179,16 @@
 </div>
 
 
-
 <div class="row area text-center subnav">
 	<div class="btn-group" role="group">
 		<a class="btn btn-default page-scroll" href="pokemon/<?= $pokemon->id ?>#where"><i class="fa fa-map-marker"></i> <?= $locales->POKEMON_MAP ?></a>
 		<a class="btn btn-default page-scroll" href="pokemon/<?= $pokemon->id ?>#stats"><i class="fa fa-pie-chart"></i> <?= $locales->POKEMON_STATS ?></a>
+		<a class="btn btn-default page-scroll" href="pokemon/<?= $pokemon->id ?>#evolve"><i class="fa fa-flash"></i> <?= $locales->POKEMON_EVOLUTIONS ?></a>
 		<a class="btn btn-default page-scroll" href="pokemon/<?= $pokemon->id ?>#family"><i class="fa fa-share-alt"></i> <?= $locales->POKEMON_FAMILY ?></a>
 		<a class="btn btn-default page-scroll" href="pokemon/<?= $pokemon->id ?>#top50"><i class="fa fa-list"></i> Top50</a>
 		<a class="btn btn-default page-scroll" href="pokemon/<?= $pokemon->id ?>#trainer"><i class="fa fa-users"></i> <?= $locales->TRAINERS ?></a>
 	</div>
 </div>
-
-
 
 
 <div class="row" id="where">
