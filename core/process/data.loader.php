@@ -6,6 +6,9 @@
 $variables = SYS_PATH.'/core/json/variables.json';
 $config = json_decode(file_get_contents($variables));
 
+$pokedex_tree_file = file_get_contents(SYS_PATH.'/core/json/pokedex.tree.json');
+$trees = json_decode($pokedex_tree_file);
+
 if (!defined('SYS_PATH')) {
 	echo 'Error: config.php does not exist or failed to load.<br>';
 	echo 'Check whether you renamed the config.example.php file!';
@@ -115,13 +118,19 @@ if (!empty($page)) {
 			// Some math
 			// ----------
 
-			$pokemon->max_cp_percent = percent(5441, $pokemon->max_cp);
-			$pokemon->max_hp_percent = percent(411, $pokemon->max_hp);
+			$pokemon->max_cp_percent = percent(4548, $pokemon->max_cp); //Slaking #289
+			$pokemon->max_hp_percent = percent(415, $pokemon->max_hp); //Blissey #242
+
+
+			// Set tree
+			// ----------
+
+			$candy_id = $pokemon->candy_id;
+			$pokemon->tree = $trees->$candy_id;
 
 
 			// Get Dabase results
 			//-------------------
-
 
 			// Total gym protected
 
@@ -150,8 +159,6 @@ if (!empty($page)) {
 			$data = $result->fetch_object();
 
 			if (isset($data)) {
-				$last_spawn = $data;
-
 				$pokemon->last_seen = strtotime($data->disappear_time_real);
 				$pokemon->last_position = new stdClass();
 				$pokemon->last_position->latitude = $data->latitude;

@@ -262,19 +262,19 @@ include_once('core/process/data.loader.php');
 					<?php
 					break;
 
-				case 'gymhistory':
-					?>
-
-					<script src="<?php auto_ver('core/js/gymhistory.content.js') ?>"></script>
-
-					<?php
-					break;
-
 				case 'raids':
 					?>
 
 					<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.min.js"></script>
 					<script src="<?php auto_ver('core/js/raids.content.js') ?>"></script>
+
+					<?php
+					break;
+
+				case 'gymhistory':
+					?>
+
+					<script src="<?php auto_ver('core/js/gymhistory.content.js') ?>"></script>
 
 					<?php
 					break;
