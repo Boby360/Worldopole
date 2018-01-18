@@ -591,18 +591,18 @@ switch ($request) {
 				$order = " ORDER BY level DESC, active DESC";
 		}
 
-		$order .= ", last_seen DESC, name ";
+		$order .= ", trainer.last_seen DESC, name ";
 
 		$limit = " LIMIT ".($page * 10).",10 ";
 
 
 		$req = "SELECT trainer.name, trainer.team, trainer.level, trainer.last_seen,
-		        count(gymmember.pokemon_uid) as active,
-                max(case when gymmember.pokemon_uid is null then 0 else gympokemon.cp end) as maxCp
-                FROM trainer
-                LEFT JOIN gympokemon ON trainer.name=gympokemon.trainer_name 
-                LEFT JOIN gymmember ON gympokemon.pokemon_uid=gymmember.pokemon_uid".$where."
-                GROUP BY trainer.name,trainer.team,trainer.level,trainer.last_seen".$order.$limit;
+				count(gymmember.pokemon_uid) as active,
+				max(case when gymmember.pokemon_uid is null then 0 else gympokemon.cp end) as maxCp
+				FROM trainer
+				LEFT JOIN gympokemon ON trainer.name=gympokemon.trainer_name
+				LEFT JOIN gymmember ON gympokemon.pokemon_uid=gymmember.pokemon_uid".$where."
+				GROUP BY trainer.name,trainer.team,trainer.level,trainer.last_seen".$order.$limit;
 
 		$result = $mysqli->query($req);
 		$trainers = array();
