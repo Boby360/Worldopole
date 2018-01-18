@@ -1774,5 +1774,61 @@
 		"duration": 1700,
 		"energy": 50,
 		"dps": 29.5
+	},
+	"285": {
+		"name": "Draco Meteor",
+		"type": "Dragon",
+		"damage": 150,
+		"duration": 3600,
+		"energy": 100,
+		"dps": 36.6
+	},
+	"286": {
+		"name": "Kismetwunsch",
+		"type": "Steel",
+		"damage": 80,
+		"duration": 1700,
+		"energy": 50,
+		"dps": 36.4
+	},
+	"287": {
+		"name": "Gähner",
+		"type": "Normal",
+		"damage": 0,
+		"duration": 1700,
+		"energy": 15,
+		"dps": 0
+	},
+	"288": {
+		"name": "Psyschub",
+		"type": "Psychic",
+		"damage": 70,
+		"duration": 4000,
+		"energy": 50,
+		"dps": 15.6
+	},
+	"289": {
+		"name": "Ursprungswoge",
+		"type": "Water",
+		"damage": 130,
+		"duration": 1700,
+		"energy": 100,
+		"dps": 59.1
+	},
+	"290": {
+		"name": "Abgrundsklinge",
+		"type": "Ground",
+		"damage": 130,
+		"duration": 1700,
+		"energy": 100,
+		"dps": 59.1
+	},
+	"291": {
+		"name": "Geschenk",
+		"type": "Normal",
+		"damage": 5,
+		"duration": 1300,
+		"energy": 20,
+		"dps": 3.8
 	}
 }
