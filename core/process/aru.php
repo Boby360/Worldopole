@@ -557,7 +557,7 @@ switch ($request) {
 	case 'trainer':
 		$name = "";
 		$page = "0";
-		$where = " HAVING DATEDIFF(UTC_TIMESTAMP(), last_seen) < 90";
+		$where = " WHERE DATEDIFF(UTC_TIMESTAMP(), last_seen) < 90";
 		$order = "";
 		$team = 0;
 		$ranking = 0;
@@ -596,13 +596,13 @@ switch ($request) {
 		$limit = " LIMIT ".($page * 10).",10 ";
 
 
-		$req = "SELECT trainer.*, COUNT(actives_pokemons.trainer_name) AS active, max(actives_pokemons.cp) AS maxCp
-				FROM trainer
-				LEFT JOIN (SELECT DISTINCT gympokemon.pokemon_id, gympokemon.pokemon_uid, gympokemon.trainer_name, gympokemon.cp, DATEDIFF(UTC_TIMESTAMP(), gympokemon.last_seen) AS last_scanned
-				FROM gympokemon
-				INNER JOIN (SELECT gymmember.pokemon_uid, gymmember.gym_id FROM gymmember GROUP BY gymmember.pokemon_uid, gymmember.gym_id HAVING gymmember.gym_id <> '') AS filtered_gymmember
-				ON gympokemon.pokemon_uid = filtered_gymmember.pokemon_uid) AS actives_pokemons ON actives_pokemons.trainer_name = trainer.name
-				GROUP BY trainer.name ".$where.$order.$limit;
+		$req = "SELECT trainer.name, trainer.team, trainer.level, trainer.last_seen,
+		        count(gymmember.pokemon_uid) as active,
+                max(case when gymmember.pokemon_uid is null then 0 else gympokemon.cp end) as maxCp
+                FROM trainer
+                LEFT JOIN gympokemon ON trainer.name=gympokemon.trainer_name 
+                LEFT JOIN gymmember ON gympokemon.pokemon_uid=gymmember.pokemon_uid".$where."
+                GROUP BY trainer.name,trainer.team,trainer.level,trainer.last_seen".$order.$limit;
 
 		$result = $mysqli->query($req);
 		$trainers = array();
@@ -619,14 +619,12 @@ switch ($request) {
 			while ($data = $resultRanking->fetch_object()) {
 				$trainer->rank = $data->rank;
 			}
-			$req = "(SELECT DISTINCT gympokemon.pokemon_id, gympokemon.pokemon_uid, gympokemon.cp, DATEDIFF(UTC_TIMESTAMP(), gympokemon.last_seen) AS last_scanned, gympokemon.trainer_name, gympokemon.iv_defense, gympokemon.iv_stamina, gympokemon.iv_attack, TRUNCATE(gympokemon.cp_multiplier,6) as cp_multiplier, gympokemon.num_upgrades, filtered_gymmember.gym_id, CONVERT_TZ(filtered_gymmember.deployment_time, '+00:00', '".$time_offset."') as deployment_time, filtered_gymmember.name as gym_name, '1' AS active
-					FROM gympokemon INNER JOIN
-					(SELECT gymmember.pokemon_uid, gymmember.gym_id, gymdetails.name, gymmember.deployment_time FROM gymmember
+			$req = "SELECT gympokemon.pokemon_id, gympokemon.pokemon_uid, gympokemon.cp, DATEDIFF(UTC_TIMESTAMP(), gympokemon.last_seen) AS last_scanned, gympokemon.trainer_name, gympokemon.iv_defense, gympokemon.iv_stamina, gympokemon.iv_attack, gymmember.gym_id, CONVERT_TZ(gymmember.deployment_time, '+00:00', '".$time_offset."') as deployment_time, gymdetails.name as gym_name, '1' AS active
+					FROM gympokemon
+					LEFT JOIN gymmember ON gympokemon.pokemon_uid = gymmember.pokemon_uid
 					LEFT JOIN gymdetails ON gymmember.gym_id = gymdetails.gym_id
-					GROUP BY gymmember.pokemon_uid, gymmember.gym_id, gymmember.deployment_time HAVING gymmember.gym_id <> '') AS filtered_gymmember
-					ON gympokemon.pokemon_uid = filtered_gymmember.pokemon_uid
-					WHERE gympokemon.trainer_name='".$trainer->name."'
-					ORDER BY gympokemon.cp DESC)";
+					WHERE gymmember.gym_id is not null AND gympokemon.trainer_name='".$trainer->name."'
+					ORDER BY gympokemon.cp DESC";
 
 			$resultPkms = $mysqli->query($req);
 			$trainer->pokemons = array();
@@ -638,12 +636,11 @@ switch ($request) {
 			}
 			$trainer->gyms = $active_gyms;
 
-			$req = "(SELECT DISTINCT gympokemon.pokemon_id, gympokemon.pokemon_uid, gympokemon.cp, DATEDIFF(UTC_TIMESTAMP(), gympokemon.last_seen) AS last_scanned, gympokemon.trainer_name, gympokemon.iv_defense, gympokemon.iv_stamina, gympokemon.iv_attack, TRUNCATE(gympokemon.cp_multiplier,6) as cp_multiplier, gympokemon.num_upgrades, null AS gym_id, CONVERT_TZ(filtered_gymmember.deployment_time, '+00:00', '".$time_offset."') as deployment_time, '0' AS active
-					FROM gympokemon LEFT JOIN
-					(SELECT * FROM gymmember HAVING gymmember.gym_id <> '') AS filtered_gymmember
-					ON gympokemon.pokemon_uid = filtered_gymmember.pokemon_uid
-					WHERE filtered_gymmember.pokemon_uid IS NULL AND gympokemon.trainer_name='".$trainer->name."'
-					ORDER BY gympokemon.cp DESC)";
+			$req = "SELECT DISTINCT gympokemon.pokemon_id, gympokemon.pokemon_uid, gympokemon.cp, DATEDIFF(UTC_TIMESTAMP(), gympokemon.last_seen) AS last_scanned, gympokemon.trainer_name, gympokemon.iv_defense, gympokemon.iv_stamina, gympokemon.iv_attack, null AS gym_id, CONVERT_TZ(gymmember.deployment_time, '+00:00', '".$time_offset."') as deployment_time, '0' AS active
+					FROM gympokemon 
+					LEFT JOIN gymmember ON gympokemon.pokemon_uid = gymmember.pokemon_uid
+					WHERE gymmember.pokemon_uid IS NULL AND gympokemon.trainer_name='".$trainer->name."'
+					ORDER BY gympokemon.cp DESC";
 
 			$resultPkms = $mysqli->query($req);
 			while ($resultPkms && $dataPkm = $resultPkms->fetch_object()) {
