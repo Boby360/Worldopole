@@ -595,7 +595,6 @@ switch ($request) {
 
 		$limit = " LIMIT ".($page * 10).",10 ";
 
-
 		$req = "SELECT trainer.name, trainer.team, trainer.level, trainer.last_seen,
 				count(gymmember.pokemon_uid) as active,
 				max(case when gymmember.pokemon_uid is null then 0 else gympokemon.cp end) as maxCp
@@ -619,7 +618,14 @@ switch ($request) {
 			while ($data = $resultRanking->fetch_object()) {
 				$trainer->rank = $data->rank;
 			}
-			$req = "SELECT gympokemon.pokemon_id, gympokemon.pokemon_uid, gympokemon.cp, DATEDIFF(UTC_TIMESTAMP(), gympokemon.last_seen) AS last_scanned, gympokemon.trainer_name, gympokemon.iv_defense, gympokemon.iv_stamina, gympokemon.iv_attack, gymmember.gym_id, CONVERT_TZ(gymmember.deployment_time, '+00:00', '".$time_offset."') as deployment_time, gymdetails.name as gym_name, '1' AS active
+			$req = "SELECT gympokemon.pokemon_id, gympokemon.pokemon_uid, gympokemon.cp,
+					DATEDIFF(UTC_TIMESTAMP(), gympokemon.last_seen) AS last_scanned,
+					gympokemon.trainer_name,
+					gympokemon.iv_defense, gympokemon.iv_stamina, gympokemon.iv_attack,
+					gymmember.gym_id,
+					CONVERT_TZ(gymmember.deployment_time, '+00:00', '".$time_offset."') as deployment_time,
+					gymdetails.name as gym_name,
+					'1' AS active
 					FROM gympokemon
 					LEFT JOIN gymmember ON gympokemon.pokemon_uid = gymmember.pokemon_uid
 					LEFT JOIN gymdetails ON gymmember.gym_id = gymdetails.gym_id
@@ -636,8 +642,14 @@ switch ($request) {
 			}
 			$trainer->gyms = $active_gyms;
 
-			$req = "SELECT DISTINCT gympokemon.pokemon_id, gympokemon.pokemon_uid, gympokemon.cp, DATEDIFF(UTC_TIMESTAMP(), gympokemon.last_seen) AS last_scanned, gympokemon.trainer_name, gympokemon.iv_defense, gympokemon.iv_stamina, gympokemon.iv_attack, null AS gym_id, CONVERT_TZ(gymmember.deployment_time, '+00:00', '".$time_offset."') as deployment_time, '0' AS active
-					FROM gympokemon 
+			$req = "SELECT DISTINCT gympokemon.pokemon_id, gympokemon.pokemon_uid, gympokemon.cp,
+					DATEDIFF(UTC_TIMESTAMP(), gympokemon.last_seen) AS last_scanned,
+					gympokemon.trainer_name,
+					gympokemon.iv_defense, gympokemon.iv_stamina, gympokemon.iv_attack,
+					null AS gym_id,
+					CONVERT_TZ(gymmember.deployment_time, '+00:00', '".$time_offset."') as deployment_time,
+					'0' AS active
+					FROM gympokemon
 					LEFT JOIN gymmember ON gympokemon.pokemon_uid = gymmember.pokemon_uid
 					WHERE gymmember.pokemon_uid IS NULL AND gympokemon.trainer_name='".$trainer->name."'
 					ORDER BY gympokemon.cp DESC";
