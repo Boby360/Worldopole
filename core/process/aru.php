@@ -557,7 +557,7 @@ switch ($request) {
 	case 'trainer':
 		$name = "";
 		$page = "0";
-		$where = " WHERE DATEDIFF(UTC_TIMESTAMP(), last_seen) < 90";
+		$where = " WHERE DATEDIFF(UTC_TIMESTAMP(), trainer.last_seen) < 90";
 		$order = "";
 		$team = 0;
 		$ranking = 0;
@@ -591,7 +591,7 @@ switch ($request) {
 				$order = " ORDER BY level DESC, active DESC";
 		}
 
-		$order .= ", trainer.last_seen DESC, name ";
+		$order .= ", last_seen DESC, name ";
 
 		$limit = " LIMIT ".($page * 10).",10 ";
 
@@ -602,7 +602,7 @@ switch ($request) {
 				FROM trainer
 				LEFT JOIN gympokemon ON trainer.name=gympokemon.trainer_name
 				LEFT JOIN gymmember ON gympokemon.pokemon_uid=gymmember.pokemon_uid".$where."
-				GROUP BY trainer.name,trainer.team,trainer.level,trainer.last_seen".$order.$limit;
+				GROUP BY trainer.name, trainer.team, trainer.level, trainer.last_seen".$order.$limit;
 
 		$result = $mysqli->query($req);
 		$trainers = array();
