@@ -59,5 +59,5 @@ if (!is_null($rm_pokemon_file)) {
 		unset($json[$pid]["rarity"]);
 		$json[$pid]["rarity"] = $rarity_string;
 	}
-	file_put_contents($rm_pokemon_file, json_encode($json));
+	file_put_contents($rm_pokemon_file, json_encode($json, JSON_PRETTY_PRINT));
 }
