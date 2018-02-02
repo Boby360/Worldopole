@@ -93,26 +93,29 @@
 
 		</div>
 
-<?php if ($config->system->captcha_support) { ?>
+<?php if (!$config->system->no_lures === true) { ?>
+
+	<?php if ($config->system->captcha_support) { ?>
 		<div class="row area">
-<?php } else { ?>
+	<?php } else { ?>
 		<div class="row">
-<?php } ?>
+	<?php } ?>
 
 			<div class="col-md-12">
 				<h2 class="sub-title"><strong><?= $locales->POKESTOPS ?></strong> <?= $locales->DASHBOARD_ACTIVITY ?></h2>
 			</div>
 
 			<div class="col-md-12">
-
 				<h4><?= $locales->DASHBOARD_LURES ?> <small><?= $locales->DASHBOARD_LAST7DAYS ?></small></h4>
 				<div style="height:30vh">
 					<canvas id="lures"></canvas>
 				</div>
 			</div>
 
-
 		</div>
+
+<?php } ?>
+
 
 <?php if ($config->system->captcha_support) { ?>
 		<div class="row">
@@ -122,7 +125,6 @@
 			</div>
 
 			<div class="col-md-12">
-
 				<h4><?= $locales->DASHBOARD_CAPTCHA ?> <small><?= $locales->DASHBOARD_LAST7DAYS ?></small></h4>
 				<div style="height:30vh">
 					<canvas id="captcha"></canvas>
@@ -132,7 +134,6 @@
 
 		</div>
 <?php } ?>
-
 
 	</div>
 

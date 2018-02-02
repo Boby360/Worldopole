@@ -1,9 +1,7 @@
-Use the following SQL-Statements to create the new table:
-=========================================================
+## Use the following SQL-Statements to create the new table:
 
---
--- Table structure for table `gymhistory`
---
+### Table structure for table `gymhistory`
+```sql
 CREATE TABLE IF NOT EXISTS `gymhistory` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `gym_id` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -22,24 +20,22 @@ CREATE TABLE IF NOT EXISTS `gymhistory` (
   KEY `last_updated` (`last_updated`),
   KEY `combined` (`gym_id`, `team_id`, `total_cp`, `last_updated`, `pokemon_count`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+```
 
---
--- Add inital dataset for table `gymhistory`
---
+### Add inital dataset for table `gymhistory`
+```sql
 INSERT INTO `gymhistory` (
   SELECT NULL, g.gym_id, g.team_id, g.guard_pokemon_id, g.total_cp, g.last_modified, g.last_modified as last_updated,
   (SELECT GROUP_CONCAT(DISTINCT pokemon_uid ORDER BY deployment_time SEPARATOR ',') FROM gymmember AS gm WHERE gm.gym_id = g.gym_id GROUP BY gym_id) AS pokemon_uids,
   (SELECT COUNT(DISTINCT pokemon_uid) FROM gymmember AS gm WHERE gm.gym_id = g.gym_id) AS pokemon_count
   FROM gym AS g
 );
+```
 
+## Use the following SQL-Statements to create the event to update the new table:
 
-Use the following SQL-Statements to create the event to update the new table:
-=============================================================================
-
---
--- Create event `gymhistory_update`
---
+### Create event `gymhistory_update`
+```sql
 DELIMITER //
 CREATE EVENT IF NOT EXISTS `gymhistory_update`
 ON SCHEDULE EVERY 15 SECOND
@@ -55,54 +51,9 @@ DO BEGIN
 END
 //
 DELIMITER ;
+```
 
---
--- Enable MySQL event scheduler
---
+### Enable MySQL event scheduler
+```sql
 SET GLOBAL event_scheduler = ON;
-
-
-Use the following SQL-Statement to create the new table for gymshaving:
-========================================================================
-
---
--- Create and fill table `gymshaving`
---
-
-DROP TABLE IF EXISTS `gymshaving`;
-CREATE TABLE `gymshaving` AS (SELECT gym_id, name, team_id, MAX(last_modified_end) as last_modified_end, MAX(total_cp_end) AS total_cp_end, pokemon_count_end, MIN(last_modified_start) AS last_modified_start, MAX(total_cp_start) AS total_cp_start, pokemon_count_start, pokemon_uids_end, pokemon_uids_start FROM (SELECT gym_after.gym_id, gym_details.name, gym_after.team_id, MAX(gym_after.last_modified) AS last_modified_end, MAX(gym_after.total_cp) AS total_cp_end, gym_after.pokemon_count AS pokemon_count_end, MIN(gym_before.last_modified) AS last_modified_start, MAX(gym_before.total_cp) AS total_cp_start, gym_before.pokemon_count AS pokemon_count_start, gym_after.pokemon_uids AS pokemon_uids_end, gym_before.pokemon_uids AS pokemon_uids_start
-FROM (SELECT gym_id, team_id, MIN(last_modified) as last_modified, pokemon_uids, pokemon_count FROM gymhistory WHERE pokemon_count = 5 AND team_id > 0 GROUP BY gym_id, pokemon_uids) AS gym_middle
-JOIN gymhistory AS gym_before
-ON gym_middle.gym_id = gym_before.gym_id AND gym_middle.team_id = gym_before.team_id AND gym_middle.last_modified > gym_before.last_modified AND gym_middle.last_modified < (gym_before.last_modified + INTERVAL 6 MINUTE) AND gym_before.pokemon_count = 6
-JOIN gymhistory AS gym_after
-ON gym_middle.gym_id = gym_after.gym_id AND gym_middle.team_id = gym_after.team_id AND gym_middle.last_modified < gym_after.last_modified AND gym_middle.last_modified > (gym_after.last_modified - INTERVAL 15 MINUTE) AND gym_after.pokemon_count = 6 AND gym_after.pokemon_uids <> gym_before.pokemon_uids
-JOIN gymdetails AS gym_details
-ON gym_after.gym_id = gym_details.gym_id
-GROUP BY gym_after.gym_id, gym_after.last_modified, gym_after.pokemon_uids, gym_before.pokemon_uids)
-AS gym_shaving GROUP BY gym_shaving.last_modified_start);
-
-
-Use the following SQL-Statement to create the event to update the gymshaving table:
-====================================================================================
-
---
--- Create event `gymshaving_update`
---
-
-DELIMITER //
-CREATE EVENT IF NOT EXISTS `gymshaving_update`
-ON SCHEDULE EVERY 30 MINUTE
-DO BEGIN
-  INSERT INTO gymshaving (SELECT gym_id, name, team_id, MAX(last_modified_end) as last_modified_end, MAX(total_cp_end) AS total_cp_end, pokemon_count_end, MIN(last_modified_start) AS last_modified_start, MAX(total_cp_start) AS total_cp_start, pokemon_count_start, pokemon_uids_end, pokemon_uids_start FROM (SELECT gym_after.gym_id, gym_details.name, gym_after.team_id, MAX(gym_after.last_modified) AS last_modified_end, MAX(gym_after.total_cp) AS total_cp_end, gym_after.pokemon_count AS pokemon_count_end, MIN(gym_before.last_modified) AS last_modified_start, MAX(gym_before.total_cp) AS total_cp_start, gym_before.pokemon_count AS pokemon_count_start, gym_after.pokemon_uids AS pokemon_uids_end, gym_before.pokemon_uids AS pokemon_uids_start
-  FROM (SELECT gym_id, team_id, MIN(last_modified) as last_modified, pokemon_uids, pokemon_count FROM gymhistory WHERE pokemon_count = 5 AND team_id > 0 AND last_modified > (SELECT MAX(last_modified_end) FROM gymshaving) GROUP BY gym_id, pokemon_uids) AS gym_middle
-  JOIN gymhistory AS gym_before
-  ON gym_middle.gym_id = gym_before.gym_id AND gym_middle.team_id = gym_before.team_id AND gym_middle.last_modified > gym_before.last_modified AND gym_middle.last_modified < (gym_before.last_modified + INTERVAL 6 MINUTE) AND gym_before.pokemon_count = 6
-  JOIN gymhistory AS gym_after
-  ON gym_middle.gym_id = gym_after.gym_id AND gym_middle.team_id = gym_after.team_id AND gym_middle.last_modified < gym_after.last_modified AND gym_middle.last_modified > (gym_after.last_modified - INTERVAL 15 MINUTE) AND gym_after.pokemon_count = 6 AND gym_after.pokemon_uids <> gym_before.pokemon_uids
-  JOIN gymdetails AS gym_details
-  ON gym_after.gym_id = gym_details.gym_id
-  GROUP BY gym_after.gym_id, gym_after.last_modified, gym_after.pokemon_uids, gym_before.pokemon_uids)
-  AS gym_shaving GROUP BY gym_shaving.last_modified_start);
-END
-//
-DELIMITER ;
+```

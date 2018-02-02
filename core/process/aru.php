@@ -79,6 +79,15 @@ switch ($request) {
 		$values[] = $data->total;
 
 
+		// Active Raids
+		// -----------
+
+		$req = "SELECT COUNT(*) AS total FROM raid WHERE start <= UTC_TIMESTAMP AND  end >= UTC_TIMESTAMP()";
+		$result = $mysqli->query($req);
+		$data = $result->fetch_object();
+
+		$values[] = $data->total;
+
 
 		// Team battle
 		// -----------
@@ -310,16 +319,19 @@ switch ($request) {
 			if ($data->lure_expiration >= $data->now) {
 				$icon = 'pokestap_lured.png';
 				$text = sprintf($locales->POKESTOPS_MAP_LURED, date('H:i:s', strtotime($data->lure_expiration_real)));
+				$lured = true;
 			} else {
 				$icon = 'pokestap.png';
 				$text = $locales->POKESTOPS_MAP_REGULAR;
+				$lured = false;
 			}
 
 			$pokestops[] = [
 				$text,
 				$icon,
 				$data->latitude,
-				$data->longitude
+				$data->longitude,
+				$lured
 			];
 		}
 
