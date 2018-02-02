@@ -82,7 +82,7 @@ switch ($request) {
 		// Active Raids
 		// -----------
 
-		$req = "SELECT COUNT(*) AS total FROM raid WHERE start <= UTC_TIMESTAMP AND  end >= UTC_TIMESTAMP()";
+		$req = "SELECT COUNT(*) AS total FROM raid WHERE start <= UTC_TIMESTAMP() AND end >= UTC_TIMESTAMP()";
 		$result = $mysqli->query($req);
 		$data = $result->fetch_object();
 
