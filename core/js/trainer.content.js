@@ -2,13 +2,13 @@
 $(function() {
 	function htmlspecialchars_decode(string) {
 		var escapeMap = {
-			"&": "&amp;",
-			"<": "&lt;",
-			">": "&gt;",
-			'"': '&quot;',
-			"'": '&#39;'
+			"amp": "&",
+			"lt": "<",
+			"gt": ">",
+			"quot": "\"",
+			"#39": "'"
 		};
-		return String(string).replace(/&(?!\w+;)|[<>"']/g, function (s) {
+		return String(string).replace(/&(amp|lt|gt|quot|#0?39);/gi, function (s) {
 			return escapeMap[s] || s;
 		});
 	}
