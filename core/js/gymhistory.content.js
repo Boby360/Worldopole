@@ -1,6 +1,19 @@
 /** global: gymName */
 
 $(function () {
+	function htmlspecialchars_decode(string) {
+		var escapeMap = {
+			"&": "&amp;",
+			"<": "&lt;",
+			">": "&gt;",
+			'"': '&quot;',
+			"'": '&#39;'
+		};
+		return String(string).replace(/&(?!\w+;)|[<>"']/g, function (s) {
+			return escapeMap[s] || s;
+		});
+	}
+
 	$.getJSON("core/json/variables.json", function(variables) {
 		var pokeimg_path = variables['system']['pokeimg_path'];
 		var hide_cp_changes = variables['system']['gymhistory_hide_cp_changes'];
@@ -17,7 +30,7 @@ $(function () {
 		var topShaverLoaded = false;
 		var gymShaverLoaded = false;
 
-		$('input#name').filter(':visible').val(gymName);
+		$('input#name').filter(':visible').val(htmlspecialchars_decode(gymName));
 
 		var gymLoader = function(pagination, stayOnPage) {
 			if (!gymHistoryLoaded || pagination) {
