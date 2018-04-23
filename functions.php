@@ -297,13 +297,11 @@ function printMenuitems($menu, $level, $locales)
 			<li>
 			<a class="menu-label"><i class="fa <?= $menu->icon ?>" aria-hidden="true"></i> <?= $text ?></a>
 			<ul class="dropdown">
-
 			<?php
 			foreach ($menu->members as $childmenu) {
 				printMenuitems($childmenu, $level + 1, $locales);
 			}
 			?>
-
 			</ul>
 			</li>
 
@@ -324,7 +322,7 @@ function printMenuitems($menu, $level, $locales)
 			?>
 
 			<li>
-				<a href="<?= $menu->href ?>" target="_blank" class="menu-label"><i class="fa <?= $menu->icon ?>" aria-hidden="true"></i> <?= $menu->text ?></a>
+				<a href="<?= $menu->href ?>" target="_blank" class="menu-label"><i class="fa <?= $menu->icon ?>" aria-hidden="true"></i> <?= $text ?></a>
 			</li>
 
 			<?php
@@ -333,7 +331,7 @@ function printMenuitems($menu, $level, $locales)
 		case 'html':
 			?>
 
-			<li> <?= $menu->value ?> </li>
+			<li><?= $menu->value ?></li>
 
 			<?php
 			break;
