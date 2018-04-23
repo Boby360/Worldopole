@@ -172,7 +172,9 @@ function printTrainer(trainer, trainerIndex, pokeimg_path, iv_numbers, locale) {
 function printPokemon(pokemon, pokeimg_path, iv_numbers, locale) {
 	var gymClass = pokemon.gym_id === null ? ' unseen' : '';
 	var trainerPokemon = $('<div>', { id: 'trainerPokemon_' + pokemon.pokemon_uid, class: 'col-md-1 col-xs-4 pokemon-single' + gymClass, style: 'text-align: center' });
-	if (gymClass) trainerPokemon.hide();
+	if (gymClass) {
+		trainerPokemon.hide();
+	}
 	trainerPokemon.append(
 		$('<a>', { href: 'pokemon/' + pokemon.pokemon_id }).append($('<img />', {
 			src: pokeimg_path.replace('{pokeid}', pokemon.pokemon_id),
