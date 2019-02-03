@@ -1,13 +1,13 @@
 <?php
-	# Send Javascript header
-	header("Cache-Control: max-age=21600");
-	header('Content-type: text/javascript');
+    // Send Javascript header
+    header('Cache-Control: max-age=21600');
+    header('Content-type: text/javascript');
 
-	# Load variables and locales
-	include_once('../../config.php');
-	$variables = SYS_PATH.'/core/json/variables.json';
-	$config = json_decode(file_get_contents($variables));
-	include_once('../process/locales.loader.php');
+    // Load variables and locales
+    include_once '../../config.php';
+    $variables = SYS_PATH.'/core/json/variables.json';
+    $config = json_decode(file_get_contents($variables));
+    include_once '../process/locales.loader.php';
 ?>
 
 /** global: google */
@@ -15,9 +15,9 @@
 
 var pokemon = {
 <?php
-	foreach ($pokemons->pokemon as $pokeid => $pokemon) {
-		echo $pokeid.':"'.$pokemon->name.'",';
-	}
+    foreach ($pokemons->pokemon as $pokeid => $pokemon) {
+        echo $pokeid.':"'.$pokemon->name.'",';
+    }
 ?>
 }
 
@@ -138,9 +138,9 @@ function getImage(data, pokeimg_path) {
 function getInfo(data) {
 	var info = '<div id="content">' +
 		'<div id="bodyContent">' +
-		'<p><b>' + pokemon[data.pid] + '</b>: ' + data.c + ' <?= $locales->NESTS_PER_DAY ?> </p>' +
-		'<p><?= $locales->NESTS_SPAWN_MINUTE ?>: ' + data.st + ' <?= $locales->NESTS_TO ?> ' + data.et + '<br>' +
-		'<?= $locales->NESTS_CHANCE ?>: ' + Math.round(data.c / 0.24 * 100) / 100 + '%</p>' +
+		'<p><b>' + pokemon[data.pid] + '</b>: ' + data.c + ' <?= $locales->NESTS_PER_DAY; ?> </p>' +
+		'<p><?= $locales->NESTS_SPAWN_MINUTE; ?>: ' + data.st + ' <?= $locales->NESTS_TO; ?> ' + data.et + '<br>' +
+		'<?= $locales->NESTS_CHANCE; ?>: ' + Math.round(data.c / 0.24 * 100) / 100 + '%</p>' +
 		'</div>' +
 		'</div>'
 	return info
@@ -156,6 +156,6 @@ $(function() {
 	var migration = new Date('2017-05-04T00:00:00Z');
 	while (migration < new Date()) migration = migration.addDays(14);
 	$('#migration').countdown(migration, { precision: 60000 }).on('update.countdown', function(event) {
-		$(this).html(event.strftime('%w %!w:<small><?= $locales->WEEK ?></small>,<small><?= $locales->WEEKS ?></small>; %d %!d:<small><?= $locales->DAY ?></small>,<small><?= $locales->DAYS ?></small>; %H %!H:<small><?= $locales->HOUR ?></small>,<small><?= $locales->HOURS ?></small>; %M %!M:<small><?= $locales->MINUTE ?></small>,<small><?= $locales->MINUTES ?></small>;'));
+		$(this).html(event.strftime('%w %!w:<small><?= $locales->WEEK; ?></small>,<small><?= $locales->WEEKS; ?></small>; %d %!d:<small><?= $locales->DAY; ?></small>,<small><?= $locales->DAYS; ?></small>; %H %!H:<small><?= $locales->HOUR; ?></small>,<small><?= $locales->HOURS; ?></small>; %M %!M:<small><?= $locales->MINUTE; ?></small>,<small><?= $locales->MINUTES; ?></small>;'));
 	}).countdown('start');
 });

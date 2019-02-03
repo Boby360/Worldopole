@@ -2,7 +2,7 @@
         <div class="row">
                 <div class="col-md-12 text-center">
                         <h1>
-                                <?= $locales->TERMS_TITLE ?>
+                                <?= $locales->TERMS_TITLE; ?>
                         </h1>
 
                 </div>
@@ -11,6 +11,6 @@
 
 <div class="row">
 
-        <?= $locales->TERMS_TEXT ?>
+        <?= $locales->TERMS_TEXT; ?>
 
 </div>

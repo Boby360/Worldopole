@@ -1,13 +1,12 @@
 <?php
 
-header("Cache-Control: max-age=900");
+header('Cache-Control: max-age=900');
 
-# Send Javascript header
+// Send Javascript header
 header('Content-type: text/javascript');
 
-# Load Config
-include_once('../../config.php');
-
+// Load Config
+include_once '../../config.php';
 
 // Include & load the variables
 // ############################
@@ -15,12 +14,10 @@ include_once('../../config.php');
 $variables = SYS_PATH.'/core/json/variables.json';
 $config = json_decode(file_get_contents($variables));
 
-
 // Include & load locales (because it's REALLY REALLY REALLY IMPORTANT TO HAVE A FULLY TRANSLATE DASHBOARD )
 // #########################################################################################################
 
-include_once(SYS_PATH.'/core/process/locales.loader.php');
-
+include_once SYS_PATH.'/core/process/locales.loader.php';
 
 // Check if there's a pokemon stat file
 // ####################################
@@ -28,12 +25,10 @@ include_once(SYS_PATH.'/core/process/locales.loader.php');
 $stats_file = SYS_PATH.'/core/json/pokemon.stats.json';
 $stats = json_decode(file_get_contents($stats_file));
 
-
 // Manage Time Interval
 // #####################
 
-include_once('../process/timezone.loader.php');
-
+include_once '../process/timezone.loader.php';
 
 $now = time();
 $yesterday = $now - 86400;
@@ -65,84 +60,78 @@ $labels_captcha = array();
 $captcha_accs = array();
 
 foreach ($stats as $data) {
-	if ($data->timestamp > $lastweek) {
-		$labels_global[] = '"'.date('D H:i', $data->timestamp).'"';
-		$total[] = $data->pokemon_now;
-	}
+    if ($data->timestamp > $lastweek) {
+        $labels_global[] = '"'.date('D H:i', $data->timestamp).'"';
+        $total[] = $data->pokemon_now;
+    }
 
-	if ($data->timestamp > $yesterday) {
-		$labels[] = '"'.date('H:i', $data->timestamp).'"';
+    if ($data->timestamp > $yesterday) {
+        $labels[] = '"'.date('H:i', $data->timestamp).'"';
 
-		if (isset($data->rarity_spawn->{'Very common'})) {
-			$veco[]		= $data->rarity_spawn->{'Very common'};
-		} else {
-			$veco[]		= 0;
-		}
+        if (isset($data->rarity_spawn->{'Very common'})) {
+            $veco[] = $data->rarity_spawn->{'Very common'};
+        } else {
+            $veco[] = 0;
+        }
 
-		if (isset($data->rarity_spawn->Common)) {
-			$commo[]	= $data->rarity_spawn->Common;
-		} else {
-			$commo[]	= 0;
-		}
+        if (isset($data->rarity_spawn->Common)) {
+            $commo[] = $data->rarity_spawn->Common;
+        } else {
+            $commo[] = 0;
+        }
 
-		if (isset($data->rarity_spawn->Rare)) {
-			$rare[]		= $data->rarity_spawn->Rare;
-		} else {
-			$rare[]		= 0;
-		}
+        if (isset($data->rarity_spawn->Rare)) {
+            $rare[] = $data->rarity_spawn->Rare;
+        } else {
+            $rare[] = 0;
+        }
 
-		if (isset($data->rarity_spawn->Mythic)) {
-			$myth[]		= $data->rarity_spawn->Mythic;
-		} else {
-			$myth[]		= 0;
-		}
-	}
+        if (isset($data->rarity_spawn->Mythic)) {
+            $myth[] = $data->rarity_spawn->Mythic;
+        } else {
+            $myth[] = 0;
+        }
+    }
 }
-
 
 $stats_file = SYS_PATH.'/core/json/gym.stats.json';
 $stats = json_decode(file_get_contents($stats_file));
 
-
 foreach ($stats as $data) {
-	if ($data->timestamp > $lastweek) {
-		$labels_gym[] = '"'.date('D H:i', $data->timestamp).'"';
+    if ($data->timestamp > $lastweek) {
+        $labels_gym[] = '"'.date('D H:i', $data->timestamp).'"';
 
-		$mystic_average[] = $data->team->mystic->average;
-		$mystic_owned[]			= $data->team->mystic->gym_owned;
+        $mystic_average[] = $data->team->mystic->average;
+        $mystic_owned[] = $data->team->mystic->gym_owned;
 
-		$valor_average[]		= $data->team->valor->average;
-		$valor_owned[] = $data->team->valor->gym_owned;
+        $valor_average[] = $data->team->valor->average;
+        $valor_owned[] = $data->team->valor->gym_owned;
 
-		$instinct_average[] = $data->team->instinct->average;
-		$instinct_owned[] = $data->team->instinct->gym_owned;
-	}
+        $instinct_average[] = $data->team->instinct->average;
+        $instinct_owned[] = $data->team->instinct->gym_owned;
+    }
 }
-
 
 $stats_file = SYS_PATH.'/core/json/pokestop.stats.json';
 $stats = json_decode(file_get_contents($stats_file));
 
-
 foreach ($stats as $data) {
-	if ($data->timestamp > $lastweek) {
-		$labels_stops[] = '"'.date('D H:i', $data->timestamp).'"';
-		$lure[] = $data->lured;
-	}
+    if ($data->timestamp > $lastweek) {
+        $labels_stops[] = '"'.date('D H:i', $data->timestamp).'"';
+        $lure[] = $data->lured;
+    }
 }
 
-
 if ($config->system->captcha_support) {
-	$stats_file = SYS_PATH.'/core/json/captcha.stats.json';
-	$stats = json_decode(file_get_contents($stats_file));
+    $stats_file = SYS_PATH.'/core/json/captcha.stats.json';
+    $stats = json_decode(file_get_contents($stats_file));
 
-
-	foreach ($stats as $data) {
-		if ($data->timestamp > $lastweek) {
-			$labels_captcha[] = '"'.date('D H:i', $data->timestamp).'"';
-			$captcha_accs[] = $data->captcha_accs;
-		}
-	}
+    foreach ($stats as $data) {
+        if ($data->timestamp > $lastweek) {
+            $labels_captcha[] = '"'.date('D H:i', $data->timestamp).'"';
+            $captcha_accs[] = $data->captcha_accs;
+        }
+    }
 }
 
 ?>
@@ -178,9 +167,9 @@ var options = {
 var ctx = $('#total_spawn');
 
 var data = {
-	labels: [<?= implode(',', $labels_global) ?>],
+	labels: [<?= implode(',', $labels_global); ?>],
 	datasets: [{
-		label: '<?= $locales->DASHBOARD_SPAWN_TOTAL ?>',
+		label: '<?= $locales->DASHBOARD_SPAWN_TOTAL; ?>',
 		fill: true,
 		lineTension: 0.1,
 		backgroundColor: 'rgba(75,192,192,0.4)',
@@ -198,7 +187,7 @@ var data = {
 		pointHoverBorderWidth: 2,
 		pointRadius: 0,
 		pointHitRadius: 10,
-		data: [<?= implode(',', $total)?>],
+		data: [<?= implode(',', $total); ?>],
 		spanGaps: false,
 	}]
 };
@@ -217,9 +206,9 @@ var myLineChart = new Chart(ctx, {
 var ctx_vc = $('#very_common');
 
 var data_vc = {
-	labels: [<?= implode(',', $labels) ?>],
+	labels: [<?= implode(',', $labels); ?>],
 	datasets: [{
-		label: '<?= $locales->VERYCOMMON ?>',
+		label: '<?= $locales->VERYCOMMON; ?>',
 		fill: false,
 		lineTension: 0.1,
 		backgroundColor: 'rgba(175,192,192,0.4)',
@@ -237,7 +226,7 @@ var data_vc = {
 		pointHoverBorderWidth: 2,
 		pointRadius: 0,
 		pointHitRadius: 10,
-		data: [<?= implode(',', $veco)?>],
+		data: [<?= implode(',', $veco); ?>],
 		spanGaps: false,
 	}]
 };
@@ -253,9 +242,9 @@ var myLineChart = new Chart(ctx_vc, {
 var ctx_comm = $('#common');
 
 var data_comm = {
-	labels: [<?= implode(',', $labels) ?>],
+	labels: [<?= implode(',', $labels); ?>],
 	datasets: [{
-		label: '<?= $locales->COMMON ?>',
+		label: '<?= $locales->COMMON; ?>',
 		fill: false,
 		lineTension: 0.1,
 		backgroundColor: 'rgba(175,192,192,0.4)',
@@ -273,7 +262,7 @@ var data_comm = {
 		pointHoverBorderWidth: 2,
 		pointRadius: 0,
 		pointHitRadius: 10,
-		data: [<?= implode(',', $commo)?>],
+		data: [<?= implode(',', $commo); ?>],
 		spanGaps: false,
 	}]
 };
@@ -288,9 +277,9 @@ var myLineChart = new Chart(ctx_comm, {
 var ctx_rare = $('#rare');
 
 var data_rare = {
-	labels: [<?= implode(',', $labels) ?>],
+	labels: [<?= implode(',', $labels); ?>],
 	datasets: [{
-		label: '<?= $locales->RARE ?>',
+		label: '<?= $locales->RARE; ?>',
 		fill: false,
 		lineTension: 0.1,
 		backgroundColor: 'rgba(175,192,192,0.4)',
@@ -308,7 +297,7 @@ var data_rare = {
 		pointHoverBorderWidth: 2,
 		pointRadius: 0,
 		pointHitRadius: 10,
-		data: [<?= implode(',', $rare)?>],
+		data: [<?= implode(',', $rare); ?>],
 		spanGaps: false,
 	}]
 };
@@ -325,9 +314,9 @@ var myLineChart = new Chart(ctx_rare, {
 var ctx_myth = $('#mythics');
 
 var data_myth = {
-	labels: [<?= implode(',', $labels) ?>],
+	labels: [<?= implode(',', $labels); ?>],
 	datasets: [{
-		label: '<?= $locales->MYTHIC ?>',
+		label: '<?= $locales->MYTHIC; ?>',
 		fill: false,
 		lineTension: 0.1,
 		backgroundColor: 'rgba(175,192,192,0.4)',
@@ -345,7 +334,7 @@ var data_myth = {
 		pointHoverBorderWidth: 2,
 		pointRadius: 0,
 		pointHitRadius: 10,
-		data: [<?= implode(',', $myth)?>],
+		data: [<?= implode(',', $myth); ?>],
 		spanGaps: false,
 	}]
 };
@@ -365,9 +354,9 @@ var myLineChart = new Chart(ctx_myth, {
 var team_av = $('#team_av');
 
 var data_av = {
-	labels: [<?= implode(',', $labels_gym) ?>],
+	labels: [<?= implode(',', $labels_gym); ?>],
 	datasets: [{
-			label: '<?= $locales->DASHBOARD_GRAPH_MYSTIC_PRESTIGE_AVERAGE ?>',
+			label: '<?= $locales->DASHBOARD_GRAPH_MYSTIC_PRESTIGE_AVERAGE; ?>',
 			fill: false,
 			lineTension: 0.1,
 			backgroundColor: 'rgba(59,129,255,0.4)',
@@ -385,11 +374,11 @@ var data_av = {
 			pointHoverBorderWidth: 2,
 			pointRadius: 0,
 			pointHitRadius: 10,
-			data: [<?= implode(',', $mystic_average)?>],
+			data: [<?= implode(',', $mystic_average); ?>],
 			spanGaps: false,
 		},
 		{
-			label: '<?= $locales->DASHBOARD_GRAPH_VALOR_PRESTIGE_AVERAGE ?>',
+			label: '<?= $locales->DASHBOARD_GRAPH_VALOR_PRESTIGE_AVERAGE; ?>',
 			fill: false,
 			lineTension: 0.1,
 			backgroundColor: 'rgba(247,10,20,0.4)',
@@ -407,11 +396,11 @@ var data_av = {
 			pointHoverBorderWidth: 2,
 			pointRadius: 0,
 			pointHitRadius: 10,
-			data: [<?= implode(',', $valor_average)?>],
+			data: [<?= implode(',', $valor_average); ?>],
 			spanGaps: false,
 		},
 		{
-			label: '<?= $locales->DASHBOARD_GRAPH_INSTINCT_PRESTIGE_AVERAGE ?>',
+			label: '<?= $locales->DASHBOARD_GRAPH_INSTINCT_PRESTIGE_AVERAGE; ?>',
 			fill: false,
 			lineTension: 0.1,
 			backgroundColor: 'rgba(248,153,0,0.4)',
@@ -429,7 +418,7 @@ var data_av = {
 			pointHoverBorderWidth: 2,
 			pointRadius: 0,
 			pointHitRadius: 10,
-			data: [<?= implode(',', $instinct_average)?>],
+			data: [<?= implode(',', $instinct_average); ?>],
 			spanGaps: false,
 		}
 	]
@@ -451,9 +440,9 @@ var myLineChart = new Chart(team_av, {
 var team_gym = $('#team_gym');
 
 var data_team_gym = {
-	labels: [<?= implode(',', $labels_gym) ?>],
+	labels: [<?= implode(',', $labels_gym); ?>],
 	datasets: [{
-			label: '<?= $locales->DASHBOARD_GRAPH_MYSTIC_GYM_OWNED ?>',
+			label: '<?= $locales->DASHBOARD_GRAPH_MYSTIC_GYM_OWNED; ?>',
 			fill: false,
 			lineTension: 0.1,
 			backgroundColor: 'rgba(59,129,255,0.4)',
@@ -471,11 +460,11 @@ var data_team_gym = {
 			pointHoverBorderWidth: 2,
 			pointRadius: 0,
 			pointHitRadius: 10,
-			data: [<?= implode(',', $mystic_owned)?>],
+			data: [<?= implode(',', $mystic_owned); ?>],
 			spanGaps: false,
 		},
 		{
-			label: '<?= $locales->DASHBOARD_GRAPH_VALOR_GYM_OWNED ?>',
+			label: '<?= $locales->DASHBOARD_GRAPH_VALOR_GYM_OWNED; ?>',
 			fill: false,
 			lineTension: 0.1,
 			backgroundColor: 'rgba(247,10,20,0.4)',
@@ -493,11 +482,11 @@ var data_team_gym = {
 			pointHoverBorderWidth: 2,
 			pointRadius: 0,
 			pointHitRadius: 10,
-			data: [<?= implode(',', $valor_owned)?>],
+			data: [<?= implode(',', $valor_owned); ?>],
 			spanGaps: false,
 		},
 		{
-			label: '<?= $locales->DASHBOARD_GRAPH_INSTINCT_GYM_OWNED ?>',
+			label: '<?= $locales->DASHBOARD_GRAPH_INSTINCT_GYM_OWNED; ?>',
 			fill: false,
 			lineTension: 0.1,
 			backgroundColor: 'rgba(248,153,0,0.4)',
@@ -515,7 +504,7 @@ var data_team_gym = {
 			pointHoverBorderWidth: 2,
 			pointRadius: 0,
 			pointHitRadius: 10,
-			data: [<?= implode(',', $instinct_owned)?>],
+			data: [<?= implode(',', $instinct_owned); ?>],
 			spanGaps: false,
 		}
 	]
@@ -539,9 +528,9 @@ var myLineChart = new Chart(team_gym, {
 var ctx_lure = $('#lures');
 
 var data_lure = {
-	labels: [<?= implode(',', $labels_stops) ?>],
+	labels: [<?= implode(',', $labels_stops); ?>],
 	datasets: [{
-		label: '<?= $locales->DASHBOARD_GRAPH_LURED_POKESTOPS ?>',
+		label: '<?= $locales->DASHBOARD_GRAPH_LURED_POKESTOPS; ?>',
 		fill: true,
 		lineTension: 0.1,
 		backgroundColor: 'rgba(124,0,210,0.4)',
@@ -559,7 +548,7 @@ var data_lure = {
 		pointHoverBorderWidth: 2,
 		pointRadius: 0,
 		pointHitRadius: 10,
-		data: [<?= implode(',', $lure)?>],
+		data: [<?= implode(',', $lure); ?>],
 		spanGaps: false,
 	}]
 };
@@ -575,13 +564,14 @@ var myLineChart = new Chart(ctx_lure, {
 // Captcha
 // -------------
 
-<?php if ($config->system->captcha_support) { ?>
+<?php if ($config->system->captcha_support) {
+    ?>
 var ctx_captcha_accs = $('#captcha');
 
 var data_captcha_accs = {
-	labels: [<?= implode(',', $labels_captcha) ?>],
+	labels: [<?= implode(',', $labels_captcha); ?>],
 	datasets: [{
-		label: '<?= $locales->DASHBOARD_CAPTCHA ?>',
+		label: '<?= $locales->DASHBOARD_CAPTCHA; ?>',
 		fill: true,
 		lineTension: 0.1,
 		backgroundColor: 'rgba(255,183,0,0.4)',
@@ -599,7 +589,7 @@ var data_captcha_accs = {
 		pointHoverBorderWidth: 2,
 		pointRadius: 0,
 		pointHitRadius: 10,
-		data: [<?= implode(',', $captcha_accs)?>],
+		data: [<?= implode(',', $captcha_accs); ?>],
 		spanGaps: false,
 	}]
 };
@@ -610,4 +600,5 @@ var myLineChart = new Chart(ctx_captcha_accs, {
 	data: data_captcha_accs,
 	options: options
 });
-<?php } ?>
+<?php
+} ?>
