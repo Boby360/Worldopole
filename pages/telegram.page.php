@@ -16,52 +16,72 @@
 <div class="row">
 
             <div class="col-md-6 col-sm-6 col-xs-12 big-data">
-                <a href="https://t.me/joinchat/AAAAAEJgykPimJ0T20yqnA" target="_blank">
+                <a href="https://t.me/PoGoChemnitzTalk" target="_blank">
                     <img src="/core/img/telegramicon.png" alt="Telegram Talk Gruppe" width="50" class="big-icon">
                     <p><big><strong>PoGo Chemnitz Talk</strong></big><br>Talk</p>
                 </a>
             </div>
 
             <div class="col-md-6 col-sm-6 col-xs-12 big-data" style="border-left:1px lightgray solid;">
-                <a href="https://t.me/joinchat/C0877UOy3DPmRDL98ouWVg" target="_blank">
+                <a href="https://t.me/PoGoChemnitzRaidTalk" target="_blank">
                     <img src="/core/img/telegramicon.png" alt="Telegram Raid Talk Gruppe" width="50" class="big-icon">
                     <p><big><strong>PoGo Chemnitz Raid Talk</strong></big><br>Raid Talk</p>
                 </a>
             </div>
+
 </div>
 
 <div class="row">
 
             <div class="col-md-6 col-sm-6 col-xs-12 big-data">
-                <a href="https://t.me/pogochemnitzalerts" target="_blank">
-                    <img src="/core/img/telegramicon.png" alt="Telegram Pokémon Alarm Channel" width="50" class="big-icon">
-                    <p><big><strong>@PoGoChemnitzAlerts</strong></big><br>Pokémon</p>
+                <a href="https://t.me/PoGoTausch" target="_blank">
+                    <img src="/core/img/telegramicon.png" alt="Telegram Tausch Talk Gruppe" width="50" class="big-icon">
+                    <p><big><strong>PoGo Chemnitz Tausch Talk</strong></big><br>Tausch Talk</p>
                 </a>
             </div>
 
             <div class="col-md-6 col-sm-6 col-xs-12 big-data" style="border-left:1px lightgray solid;">
-                <a href="https://t.me/joinchat/AAAAAEMvWIK6llgPkas5MA" target="_blank">
+                <a href="https://t.me/joinchat/GO2_mkYhfag0zsboR5sEug" target="_blank">
+                    <img src="/core/img/telegramicon.png" alt="Telegram Quest Talk Gruppe" width="50" class="big-icon">
+                    <p><big><strong>PoGo Chemnitz Quest Talk</strong></big><br>Quest Talk</p>
+                </a>
+            </div>
+
+</div>
+
+<div class="row">
+
+            <div class="col-md-6 col-sm-6 col-xs-12 big-data">
+                <a href="https://t.me/PoGoChemnitzAlerts" target="_blank">
+                    <img src="/core/img/telegramicon.png" alt="Telegram Pokémon Alarm Channel" width="50" class="big-icon">
+                    <p><big><strong>PoGo Chemnitz Alerts</strong></big><br>Pokémon</p>
+                </a>
+            </div>
+
+            <div class="col-md-6 col-sm-6 col-xs-12 big-data" style="border-left:1px lightgray solid;">
+		<a href="https://t.me/PoGoChemnitzRaids" target="_blank">
                     <img src="/core/img/telegramicon.png" alt="Telegram Raids Channel" width="50" class="big-icon">
                     <p><big><strong>PoGo Chemnitz Raids</strong></big><br>Raids</p>
                 </a>
-            </div>
+	    </div>
+
 </div>
 
 <div class="row">
 
-            <div class="col-md-6 col-sm-6 col-xs-12 big-data">
-                <a href="https://t.me/pogochemnitzgyms" target="_blank">
+            <div class="col-md-12 col-sm-12 col-xs-12 big-data">
+                <a href="https://t.me/PoGoChemnitzGyms" target="_blank">
                     <img src="/core/img/telegramicon.png" alt="Telegram Arenen Alarm Channel" width="50" class="big-icon">
-                    <p><big><strong>@PoGoChemnitzGyms</strong></big><br>Arenen</p>
+                    <p><big><strong>PoGo Chemnitz Gyms</strong></big><br>Arenen</p>
                 </a>
             </div>
 
-            <div class="col-md-6 col-sm-6 col-xs-12 big-data" style="border-left:1px lightgray solid;">
+            <!--<div class="col-md-6 col-sm-6 col-xs-12 big-data" style="border-left:1px lightgray solid;">
                 <a href="https://t.me/pogochemnitzlures" target="_blank">
                     <img src="/core/img/telegramicon.png" alt="Telegram Lockmodule Alarm Channel" width="50" class="big-icon">
                     <p><big><strong>@PoGoChemnitzLures</strong></big><br>Lockmodule</p>
                 </a>
-            </div>
+            </div>-->
 
 </div>
 
@@ -71,6 +91,7 @@
 
 <div class="row">
 
+<!--
             <div class="col-md-6 col-sm-6 col-xs-12 big-data">
                 <a href="https://t.me/pogochemnitzhighiv" target="_blank">
                     <img src="/core/img/telegramicon.png" alt="Telegram High IV Alarm Channel" width="50" class="big-icon">
@@ -84,6 +105,7 @@
                     <p><big><strong>@PoGoChemnitzPerfect</strong></big><br>Perfekte IV Werte</p>
                 </a>
             </div>
+-->
 
             <div class="col-md-6 col-sm-6 col-xs-12 big-data">
                 <a href="https://t.me/joinchat/AAAAAEGDicR1Rjm_mM2I8A" target="_blank">
@@ -100,7 +122,7 @@
             </div>
 
             <div class="col-md-6 col-sm-6 col-xs-12 big-data">
-                <a href="https://t.me/joinchat/AAAAAESFjhm6eRJzvZuaWg" target="_blank">
+		<a href="https://t.me/PoGoChemnitzLegendaries" target="_blank">
                     <img src="/core/img/telegramicon.png" alt="Telegram Legendary Alarm Channel" width="50" class="big-icon">
                     <p><big><strong>PoGo Chemnitz Legendaries</strong></big><br>Legendary Raid Bosses</p>
                 </a>
@@ -113,7 +135,9 @@
         <h2>Telegram? Bitte was?</h2>
 
         <p>Telegram ist ein wunderbarer, multifunktionaler Messenger - für das Smartphone als auch am Desktop. Hier geht's zum Download: <a href="https://telegram.org/">Telegram</a></p>
-        <br>
+
+<!--
+	<br>
 
         <h2>Über was kann ich mich benachrichtigen lassen?</h2>
 
@@ -279,5 +303,5 @@
 
         <h3><a href="https://t.me/joinchat/AAAAAESFjhm6eRJzvZuaWg">PoGo Chemnitz Legendaries</a></h3>
         <p>Im Legendary Channel werden dir ausschließlich Legendary Pokémon angezeigt.<br>Da diese aktuell nur als Raid-Bosse auftauchen, werden dir auch nur Raids dargestellt.</p>
-
+-->
 </div>

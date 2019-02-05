@@ -18,7 +18,7 @@
 
 <div class="flex-container row area">
 
-	<div class="flex-item-homepage big-data"> <!-- LIVEMON -->
+	<div class="flex-item-homepage big-data">
 		<a href="pokemon">
 			<img src="core/img/pokeball.png" alt="Visit the <?= $config->infos->site_name; ?> Pokedex" width=50 class="big-icon">
 			<p><big><strong class="total-pkm-js">0</strong> Pokémon</big><br>
@@ -35,10 +35,11 @@
 
 	</div>
 
+<!--
 	<?php
     if (true === !$config->system->no_lures) {
         ?>
-		<div class="flex-item-homepage big-data"> <!-- POKESTOPS -->
+		<div class="flex-item-homepage big-data">
 			<a href="pokestops">
 				<img src="core/img/lure-module.png" alt="Discover the <?= $config->infos->site_name; ?> Pokéstops" width=50 class="big-icon">
 				<p><big><strong class="total-lure-js">0</strong> <?= $locales->LURES; ?></big><br>
@@ -46,7 +47,9 @@
 			</a>
 		</div>
 		<?php
-    }
+    }?>
+-->
+	<?php
     if (true === $config->system->homepage_raids) {
         ?>
 		<div class="flex-item-homepage flex-item-homepage-homepage big-data"> <!-- RAIDS -->
@@ -181,7 +184,6 @@
 		</div>
 	</div>
 </div>
-
 
 <div class="row big padding">
 	<h2 class="text-center sub-title"><?= $locales->FIGHT_TITLE; ?></h2>

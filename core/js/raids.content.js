@@ -65,9 +65,15 @@ function printRaid(raid, pokeimg_path, location_url) {
 	var details = '';
 	var raidPokemon = $('<div>', { class: 'pokemon-single' });
 	if (raid.pokemon_id > 0) {
-		raidPokemon.append(
-			$('<a>', { href: 'pokemon/' + raid.pokemon_id }).append($('<img />', { src: pokeimg_path.replace('{pokeid}', raid.pokemon_id) }))
-		);
+		if (raid.pokemon_id < 493) {
+			raidPokemon.append(
+				$('<a>', { href: 'pokemon/' + raid.pokemon_id }).append($('<img />', { src: pokeimg_path.replace('{pokeid}', raid.pokemon_id) }))
+			);
+		} else {
+			raidPokemon.append(
+				$('<a>', { href: 'pokemon/' + raid.pokemon_id }).append($('<img />', { src: 'core/pokemons/missing.png' }))
+			);
+		}
 		details = raid.cp + ' CP<br>' + raid.quick_move + ' / ' + raid.charge_move;
 	} else {
 		raidPokemon.append(

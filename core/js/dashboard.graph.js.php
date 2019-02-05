@@ -425,11 +425,11 @@ var data_av = {
 };
 
 
-var myLineChart = new Chart(team_av, {
-	type: 'line',
-	data: data_av,
-	options: options
-});
+// var myLineChart = new Chart(team_av, {
+// 	type: 'line',
+// 	data: data_av,
+// 	options: options
+// });
 
 
 
@@ -554,11 +554,11 @@ var data_lure = {
 };
 
 
-var myLineChart = new Chart(ctx_lure, {
-	type: 'line',
-	data: data_lure,
-	options: options
-});
+// var myLineChart = new Chart(ctx_lure, {
+// 	type: 'line',
+// 	data: data_lure,
+// 	options: options
+// });
 
 
 // Captcha

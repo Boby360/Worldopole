@@ -143,13 +143,13 @@ include_once 'core/process/data.loader.php';
 					<script src="https://maps.googleapis.com/maps/api/js?key=<?= $config->system->GMaps_Key; ?>&libraries=visualization&callback=initMap&v=3"></script>
 					<style>
 						.pokedexCluster.cluster0 {
-							background-image: url("core/img/bubble.png"), url("core/pokemons/<?= $pokemon_id.$config->system->pokeimg_suffix; ?>"), url("core/img/m1.png");
+							background-image: url("core/img/bubble.png"), url("<?= str_replace('{pokeid}', $pokemon_id, $config->system->pokeimg_path); ?>"), url("core/img/m1.png");
 						}
 						.pokedexCluster.cluster1 {
-							background-image: url("core/img/bubble.png"), url("core/pokemons/<?= $pokemon_id.$config->system->pokeimg_suffix; ?>"), url("core/img/m2.png");
+							background-image: url("core/img/bubble.png"), url("<?= str_replace('{pokeid}', $pokemon_id, $config->system->pokeimg_path); ?>"), url("core/img/m2.png");
 						}
 						.pokedexCluster.cluster2 {
-							background-image: url("core/img/bubble.png"), url("core/pokemons/<?= $pokemon_id.$config->system->pokeimg_suffix; ?>"), url("core/img/m3.png");
+							background-image: url("core/img/bubble.png"), url("<?= str_replace('{pokeid}', $pokemon_id, $config->system->pokeimg_path); ?>"), url("core/img/m3.png");
 						}
 					</style>
 					<?php

@@ -9,9 +9,7 @@
 	</div>
 </header>
 
-
 <div class="row teams">
-
 
 	<?php
 
@@ -22,18 +20,18 @@
             $upper_team_name = strtoupper($team_name);
             $lower_team_name = strtolower($team_name); ?>
 
-	<div class="col-md-4 col-sm-4 col-xs-12 big-data"> <!-- <?= $team_name; ?> -->
+	<div class="col-md-4 col-sm-4 col-xs-12 big-data">
 
 		<h2 style="margin:0;"><img src="core/img/<?= $lower_team_name; ?>.png" alt="<?= $locales->TEAM; ?> <?= $team_name; ?> logo" width=50 style="display:inline-block;" class="team-logo" /> <?= $locales->TEAM; ?> <?= $locales->$upper_team_name; ?></h2>
 
 		<div class="row" style="margin-top:1em;">
-			<div class="col-xs-6">
+			<div class="col-xs-12">
 				<p><big><strong class="gym-<?= $team_name; ?>-js"><span>0</span></strong></big><br><?= $locales->GYMS_OWNED; ?></p>
 			</div>
 
-			<div class="col-xs-6">
+			<!--<div class="col-xs-6">
 				<p><big><strong><span class="average-<?= $team_name; ?>-js">0</span></strong></big><br><?= $locales->GYMS_AVERAGE; ?></p>
-			</div>
+			</div>-->
 		</div>
 
 		<div class="row">
@@ -62,6 +60,7 @@
 </div>
 
 <!-- auto hide buttons if no url is set in variables.json -->
+<!--
 <?php if ($config->urls->fb_mystic || $config->urls->fb_valor || $config->urls->fb_instinct) {
         ?>
 <div class="row hidden-xs hiddem-sm area">
@@ -79,6 +78,7 @@
 </div>
 <?php
     } ?>
+-->
 
 <div class="row">
 	<div class="col-md-12">
