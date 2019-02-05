@@ -24,22 +24,17 @@ $config->system->forced_lang = 'en';
 
 include_once SYS_PATH.'/core/process/timezone.loader.php';
 
-// MySQL
-$mysqli = new mysqli(SYS_DB_HOST, SYS_DB_USER, SYS_DB_PSWD, SYS_DB_NAME, SYS_DB_PORT);
+// Load Query Manager
+// ###################
 
-if ('' != $mysqli->connect_error) {
-    die('MySQL connect error');
-}
-
-$mysqli->set_charset('utf8mb4');
+include_once __DIR__.'/../process/queries/QueryManager.php';
+$manager = \Worldopole\QueryManager::current();
 
 // Update dashboard data
 // the following files are updated every run
 $gym_file = SYS_PATH.'/core/json/gym.stats.json';
 $pokestop_file = SYS_PATH.'/core/json/pokestop.stats.json';
 $pokemonstats_file = SYS_PATH.'/core/json/pokemon.stats.json';
-$pokedex_counts_file = SYS_PATH.'/core/json/pokedex.counts.json';
-$pokedex_raids_file = SYS_PATH.'/core/json/pokedex.raids.json';
 
 if (is_file($gym_file)) {
     $gymsdatas = json_decode(file_get_contents($gym_file), true);
@@ -49,12 +44,6 @@ if (is_file($pokestop_file)) {
 }
 if (is_file($pokemonstats_file)) {
     $pokedatas = json_decode(file_get_contents($pokemonstats_file), true);
-}
-if (is_file($pokedex_counts_file)) {
-    $pokecountdatas = json_decode(file_get_contents($pokedex_counts_file), true);
-}
-if (is_file($pokedex_raids_file)) {
-    $raiddatas = json_decode(file_get_contents($pokedex_raids_file), true);
 }
 
 $timestamp = time();
@@ -69,29 +58,62 @@ $pokedatas = trim_stats_json($pokedatas, $timestamp_lastweek);
 include_once SYS_PATH.'/core/cron/gym.cron.php';
 include_once SYS_PATH.'/core/cron/pokemon.cron.php';
 include_once SYS_PATH.'/core/cron/pokestop.cron.php';
-include_once SYS_PATH.'/core/cron/pokedex_counts.cron.php';
-include_once SYS_PATH.'/core/cron/pokedex_raids.cron.php';
 if ($config->system->captcha_support) {
     include_once SYS_PATH.'/core/cron/captcha.cron.php';
 }
 
 // The following files are updated every 24h only because the queries are quite expensive
 // and they don't need a fast update interval
-$update_delay = 86400;
 $pokedex_rarity_file = SYS_PATH.'/core/json/pokedex.rarity.json';
 $nests_file = SYS_PATH.'/core/json/nests.stats.json';
+$nests_parks_file = SYS_PATH.'/core/json/nests.parks.json';
+
+$migration = new DateTime();
+$migration->setTimezone(new DateTimeZone('UTC'));
+$migration->setTimestamp(1493856000);
+do {
+    $migrationPrev = clone $migration;
+    $migration->modify('+14 days');
+} while ($migration < new DateTime());
+$migration = $migrationPrev->getTimestamp();
+
+if (filemtime($nests_parks_file) - $migration <= 0) {
+    file_put_contents($nests_file, json_encode(array()));
+    file_put_contents($nests_parks_file, json_encode(array()));
+    touch($nests_parks_file, 1);
+}
 
 // Do not update both files at the same time to lower cpu load
-if (file_update_ago($pokedex_rarity_file) > $update_delay) {
+if (file_update_ago($pokedex_rarity_file) > 86400) {
     // set file mtime to now before executing long running queries
     // so we don't try to update the file twice
     touch($pokedex_rarity_file);
     // update pokedex rarity
     include_once SYS_PATH.'/core/cron/pokedex_rarity.cron.php';
-} elseif (file_update_ago($nests_file) > $update_delay) {
+} elseif ((file_update_ago($nests_parks_file) >= 43200) && (time() - $migration >= 43200) && (time() - $migration < 86400)) { // extra update 12h after migration
+    if (is_file($nests_parks_file)) {
+        $prevNestTime = filemtime($nests_parks_file);
+    } else {
+        $prevNestTime = 1;
+    }
+
     // set file mtime to now before executing long running queries
     // so we don't try to update the file twice
-    touch($nests_file);
+    touch($nests_parks_file);
     // update nests
+    $nestTime = 12;
+    include_once SYS_PATH.'/core/cron/nests.cron.php';
+} elseif ((file_update_ago($nests_parks_file) >= 86400) && (time() - $migration >= 86400)) {
+    if (is_file($nests_parks_file)) {
+        $prevNestTime = filemtime($nests_parks_file);
+    } else {
+        $prevNestTime = 1;
+    }
+
+    // set file mtime to now before executing long running queries
+    // so we don't try to update the file twice
+    touch($nests_parks_file);
+    // update nests
+    $nestTime = 24;
     include_once SYS_PATH.'/core/cron/nests.cron.php';
 }

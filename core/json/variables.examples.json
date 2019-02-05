@@ -24,7 +24,8 @@
 		"GMaps_Key"				:	"#GMAPS_KEY#",
 		"timezone"				:	"Europe/Paris",
 		"max_pokemon"			:	386,
-		"nest_exclude_pokemon"	:	[13,16,19,21,161,163,165,167,177,198],
+		"nest_exclude_pokemon"	:	[],
+		"nest_min_count"		:	1,
 		"pokeimg_path"			:	"core/pokemons/{pokeid}_flat.png",
 		"recents_encounter_details"	:	false,
 		"recents_filter"		:	true,
@@ -33,11 +34,11 @@
 		"only_lured_pokestops"  :	false,
 		"captcha_support"		:	false,
 		"iv_numbers"			:	false,
-		"cluster_stops"			:  	{
+		"cluster_stops"			:	{
 			"grid"		: 80,
 			"minCluster": 4
 		},
-		"cluster_pokemon"		:  	{
+		"cluster_pokemon"		:	{
 			"grid"		: 60,
 			"minCluster": 3
 		},
@@ -46,9 +47,9 @@
 		"location_url"			:	"/map/?lat={latitude}&lon={longitude}&zoom=17",
 		"trainer_blacklist"		:	["cheater1", "cheater2"],
 		"rm_pokemon_file"		:	null,
-		"gymhistory_hide_cp_changes"	: false,
 		"no_lures"				:	false,
-		"homepage_raids"			:	false
+		"homepage_raids"		:	false,
+		"gymhistory_hide_cp_changes"	: false
 	},
 	"menu":[
 		{

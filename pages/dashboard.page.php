@@ -21,7 +21,7 @@
 			</div>
 
 			<div class="col-md-12">
-
+			
 				<h4><?= $locales->DASHBOARD_SPAWN_TOTAL; ?> <small><?= $locales->DASHBOARD_LAST7DAYS; ?></small></h4>
 				<div style="height:30vh">
 					<canvas id="total_spawn"></canvas>
@@ -29,7 +29,7 @@
 			</div>
 
 			<div class="col-md-3">
-
+				
 				<h4><?= $locales->VERYCOMMON; ?> <small><?= $locales->DASHBOARD_LAST24HOURS; ?></small></h4>
 				<div style="height:15vh">
 					<canvas id="very_common"></canvas>
@@ -37,7 +37,7 @@
 			</div>
 
 			<div class="col-md-3">
-
+				
 				<h4><?= $locales->COMMON; ?> <small><?= $locales->DASHBOARD_LAST24HOURS; ?></small></h4>
 				<div style="height:15vh">
 					<canvas id="common"></canvas>
@@ -46,7 +46,7 @@
 			</div>
 
 			<div class="col-md-3">
-
+				
 				<h4><?= $locales->RARE; ?> <small><?= $locales->DASHBOARD_LAST24HOURS; ?></small></h4>
 				<div style="height:15vh">
 					<canvas id="rare"></canvas>
@@ -54,7 +54,7 @@
 			</div>
 
 			<div class="col-md-3">
-
+				
 				<h4><?= $locales->MYTHIC; ?> <small><?= $locales->DASHBOARD_LAST24HOURS; ?></small></h4>
 				<div style="height:15vh">
 					<canvas id="mythics"></canvas>
@@ -96,14 +96,14 @@
 <?php if (true === !$config->system->no_lures) {
     ?>
 
-	<?php if ($config->system->captcha_support) {
+    <?php if ($config->system->captcha_support) {
         ?>
-		<div class="row area">
-	<?php
+        <div class="row area">
+    <?php
     } else {
         ?>
-		<div class="row">
-	<?php
+        <div class="row">
+    <?php
     } ?>
 
 			<div class="col-md-12">
@@ -111,6 +111,7 @@
 			</div>
 
 			<div class="col-md-12">
+			
 				<h4><?= $locales->DASHBOARD_LURES; ?> <small><?= $locales->DASHBOARD_LAST7DAYS; ?></small></h4>
 				<div style="height:30vh">
 					<canvas id="lures"></canvas>
@@ -132,6 +133,7 @@
 			</div>
 
 			<div class="col-md-12">
+			
 				<h4><?= $locales->DASHBOARD_CAPTCHA; ?> <small><?= $locales->DASHBOARD_LAST7DAYS; ?></small></h4>
 				<div style="height:30vh">
 					<canvas id="captcha"></canvas>

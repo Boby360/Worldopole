@@ -1,5 +1,10 @@
 <?php
 
+// Load Query Manager
+// ###################
+
+include_once __DIR__.'/../core/process/queries/QueryManager.php';
+
 //#######################################################################
 // Test function
 // This happend once to be sure database is still full of datas
@@ -19,53 +24,35 @@ function php_test()
 
 function db_test()
 {
+    $manager = \Worldopole\QueryManager::current();
+
     $lock_msg = '';
 
-    $mysqli = new mysqli(SYS_DB_HOST, SYS_DB_USER, SYS_DB_PSWD, SYS_DB_NAME, SYS_DB_PORT);
-
     // Pokemon Test
-    $req = 'SELECT COUNT(*) as total FROM pokemon';
-    $result = $mysqli->query($req);
+    $result = $manager->testTotalPokemon();
 
-    if (!is_object($result)) {
+    if (1 === $result) {
         $lock_msg .= 'Error: No Pokémon database found<br>';
-    } else {
-        $data = $result->fetch_object();
-        $total = $data->total;
-
-        if (0 == $total) {
-            $lock_msg .= 'Error: No Pokémon found is your database<br>';
-        }
+    } elseif (2 === $result) {
+        $lock_msg .= 'Error: No Pokémon found is your database<br>';
     }
 
     // Gym Test
-    $req = 'SELECT COUNT(*) as total FROM gym';
-    $result = $mysqli->query($req);
+    $result = $manager->testTotalGyms();
 
-    if (!is_object($result)) {
+    if (1 === $result) {
         $lock_msg .= 'Error: No Gym database found<br>';
-    } else {
-        $data = $result->fetch_object();
-        $total = $data->total;
-
-        if (0 == $total) {
-            $lock_msg .= 'Error: No Gym found is your database<br>';
-        }
+    } elseif (2 === $result) {
+        $lock_msg .= 'Error: No Gym found is your database<br>';
     }
 
     // Pokéstop Test
-    $req = 'SELECT COUNT(*) as total FROM pokestop';
-    $result = $mysqli->query($req);
+    $result = $manager->testTotalPokestops();
 
-    if (!is_object($result)) {
+    if (1 === $result) {
         $lock_msg .= 'Error: No Pokestop database found<br>';
-    } else {
-        $data = $result->fetch_object();
-        $total = $data->total;
-
-        if (0 == $total) {
-            $lock_msg .= 'Error: No Pokestop found in your database<br>';
-        }
+    } elseif (2 === $result) {
+        $lock_msg .= 'Error: No Pokestop found in your database<br>';
     }
 
     return $lock_msg;

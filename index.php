@@ -1,7 +1,9 @@
 <?php
+
 include_once 'config.php';
 include_once 'functions.php';
 include_once 'core/process/data.loader.php';
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -9,7 +11,9 @@ include_once 'core/process/data.loader.php';
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+
 		<?php include_once 'core/inc/meta.inc.php'; ?>
+
 		<!-- Bootstrap -->
 		<link href="core/css/bootstrap.min.css" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Lato:400,300,700" rel="stylesheet" type="text/css">
@@ -226,7 +230,7 @@ include_once 'core/process/data.loader.php';
 
 					<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.min.js"></script>
 					<script src="core/js/nests.maps.js.php"></script>
-					<script src="https://maps.googleapis.com/maps/api/js?key=<?= $config->system->GMaps_Key; ?>&libraries=visualization&callback=initMap&v=3"></script>
+					<script src="https://maps.googleapis.com/maps/api/js?key=<?= $config->system->GMaps_Key; ?>&libraries=visualization,geometry&callback=initMap&v=3"></script>
 
 					<?php
                     break;

@@ -34,12 +34,12 @@ include_once 'locales.loader.php';
 //#################
 include_once SYS_PATH.'/functions.php';
 
-// MySQL
-$mysqli = new mysqli(SYS_DB_HOST, SYS_DB_USER, SYS_DB_PSWD, SYS_DB_NAME, SYS_DB_PORT);
-if ('' != $mysqli->connect_error) {
-    exit('Error MySQL Connect');
-}
-$mysqli->set_charset('utf8mb4');
+// Load Query Manager
+// ###################
+
+include_once __DIR__.'/queries/QueryManager.php';
+$manager = \Worldopole\QueryManager::current();
+
 $request = '';
 if (isset($_GET['type'])) {
     $request = $_GET['type'];
@@ -57,73 +57,41 @@ switch ($request) {
     //###########################
 
     case 'home_update':
+        $values = [];
         // Right now
         // ---------
-
-        $req = 'SELECT COUNT(*) AS total FROM pokemon WHERE disappear_time >= UTC_TIMESTAMP()';
-        $result = $mysqli->query($req);
-        $data = $result->fetch_object();
-
+        $data = $manager->getTotalPokemon();
         $values[] = $data->total;
 
         // Lured stops
         // -----------
-
-        $req = 'SELECT COUNT(*) AS total FROM pokestop WHERE lure_expiration >= UTC_TIMESTAMP()';
-        $result = $mysqli->query($req);
-        $data = $result->fetch_object();
-
+        $data = $manager->getTotalLures();
         $values[] = $data->total;
 
         // Active Raids
         // -----------
-
-        $req = 'SELECT COUNT(*) AS total FROM raid WHERE start <= UTC_TIMESTAMP() AND end >= UTC_TIMESTAMP()';
-        $result = $mysqli->query($req);
-        $data = $result->fetch_object();
-
+        $data = $manager->getTotalRaids();
         $values[] = $data->total;
 
         // Team battle
         // -----------
-
-        $req = 'SELECT COUNT(DISTINCT(gym_id)) AS total FROM gym';
-        $result = $mysqli->query($req);
-        $data = $result->fetch_object();
-
+        $data = $manager->getTotalGyms();
         $values[] = $data->total;
-
-        // Team
-        // 1 = bleu
-        // 2 = rouge
-        // 3 = jaune
-
-        $req = "SELECT COUNT(DISTINCT(gym_id)) AS total FROM gym WHERE team_id = '2'";
-        $result = $mysqli->query($req);
-        $data = $result->fetch_object();
 
         // Red
+        $data = $manager->getTotalGymsForTeam(2);
         $values[] = $data->total;
-
-        $req = "SELECT COUNT(DISTINCT(gym_id)) AS total FROM gym WHERE team_id = '1'";
-        $result = $mysqli->query($req);
-        $data = $result->fetch_object();
 
         // Blue
+        $data = $manager->getTotalGymsForTeam(1);
         $values[] = $data->total;
-
-        $req = "SELECT COUNT(DISTINCT(gym_id)) AS total FROM gym WHERE team_id = '3'";
-        $result = $mysqli->query($req);
-        $data = $result->fetch_object();
 
         // Yellow
+        $data = $manager->getTotalGymsForTeam(3);
         $values[] = $data->total;
 
-        $req = "SELECT COUNT(DISTINCT(gym_id)) AS total FROM gym WHERE team_id = '0'";
-        $result = $mysqli->query($req);
-        $data = $result->fetch_object();
-
         // Neutral
+        $data = $manager->getTotalGymsForTeam(0);
         $values[] = $data->total;
 
         header('Content-Type: application/json');
@@ -155,128 +123,124 @@ switch ($request) {
             }
 
             // get last mythic pokemon
-            $req = "SELECT pokemon_id, encounter_id, disappear_time, last_modified, (CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) AS disappear_time_real,
-					latitude, longitude, cp, individual_attack, individual_defense, individual_stamina, move_1, move_2
-					FROM pokemon
-					WHERE pokemon_id IN (".implode(',', $mythic_pokemons).')
-					ORDER BY last_modified DESC
-					LIMIT 0,12';
+            $result = $manager->getRecentMythic($mythic_pokemons);
         } else {
             // get last pokemon
-            $req = "SELECT pokemon_id, encounter_id, disappear_time, last_modified, (CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) AS disappear_time_real,
-					latitude, longitude, cp, individual_attack, individual_defense, individual_stamina, move_1, move_2
-					FROM pokemon
-					ORDER BY last_modified DESC
-					LIMIT 0,12";
+            $result = $manager->getRecentAll();
         }
-        $result = $mysqli->query($req);
-        while ($data = $result->fetch_object()) {
-            $new_spawn = array();
-            $pokeid = $data->pokemon_id;
-            $pokeuid = $data->encounter_id;
 
-            if ($last_uid_param != $pokeuid) {
-                $last_seen = strtotime($data->disappear_time_real);
+        if (count($result) > 0) {
+            foreach ($result as $data) {
+                $new_spawn = array();
+                $pokeid = $data->pokemon_id;
+                $pokeuid = $data->encounter_id;
 
-                $location_link = isset($config->system->location_url) ? $config->system->location_url : 'https://maps.google.com/?q={latitude},{longitude}&ll={latitude},{longitude}&z=16';
-                $location_link = str_replace('{latitude}', $data->latitude, $location_link);
-                $location_link = str_replace('{longitude}', $data->longitude, $location_link);
+                if ($last_uid_param != $pokeuid) {
+                    $last_seen = strtotime($data->disappear_time_real);
 
-                $encdetails = new stdClass();
-                $encdetails->available = false;
+                    $location_link = isset($config->system->location_url) ? $config->system->location_url : 'https://maps.google.com/?q={latitude},{longitude}&ll={latitude},{longitude}&z=16';
+                    $location_link = str_replace('{latitude}', $data->latitude, $location_link);
+                    $location_link = str_replace('{longitude}', $data->longitude, $location_link);
 
-                if ($config->system->recents_encounter_details) {
-                    $encdetails->cp = $data->cp;
-                    $encdetails->attack = $data->individual_attack;
-                    $encdetails->defense = $data->individual_defense;
-                    $encdetails->stamina = $data->individual_stamina;
-                    $encdetails->move1 = $data->move_1;
-                    $encdetails->move2 = $data->move_2;
-                    $encdetails->iv = number_format((100 / 45) * ($encdetails->attack + $encdetails->defense + $encdetails->stamina), 1);
-                    if (isset($encdetails->cp) && isset($encdetails->attack) && isset($encdetails->defense) && isset($encdetails->stamina)) {
-                        $encdetails->available = true;
+                    $encdetails = new stdClass();
+                    $encdetails->available = false;
+
+                    if ($config->system->recents_encounter_details) {
+                        $encdetails->cp = $data->cp;
+                        $encdetails->attack = $data->individual_attack;
+                        $encdetails->defense = $data->individual_defense;
+                        $encdetails->stamina = $data->individual_stamina;
+                        $encdetails->move1 = $data->move_1;
+                        $encdetails->move2 = $data->move_2;
+                        $encdetails->iv = number_format((100 / 45) * ($encdetails->attack + $encdetails->defense + $encdetails->stamina), 1);
+                        if (isset($encdetails->cp) && isset($encdetails->attack) && isset($encdetails->defense) && isset($encdetails->stamina)) {
+                            $encdetails->available = true;
+                        } else {
+                            $encdetails->available = false;
+                        }
                     }
-                }
 
-                if ($encdetails->available) {
-                    $move1 = $encdetails->move1;
-                    $move2 = $encdetails->move2;
-                    $html = '
-				<div class="col-md-1 col-xs-4 pokemon-single" data-pokeid="'.$pokeid.'" data-pokeuid="'.$pokeuid.'" title="'.$encdetails->iv.'% - '.$move->$move1->name.' / '.$move->$move2->name.'" style="display: none;">';
-                } else {
-                    $html = '
-				<div class="col-md-1 col-xs-4 pokemon-single" data-pokeid="'.$pokeid.'" data-pokeuid="'.$pokeuid.'" style="display: none;">';
-                }
-                $html .= '
-				<a href="pokemon/'.$pokeid.'"><img src="'.$pokemons->pokemon->$pokeid->img.'" alt="'.$pokemons->pokemon->$pokeid->name.'" class="img-responsive"></a>
-				<a href="pokemon/'.$pokeid.'"><p class="pkmn-name">'.$pokemons->pokemon->$pokeid->name.'</p></a>
-				<a href="'.$location_link.'" target="_blank">
-					<small class="pokemon-timer">00:00:00</small>
-				</a>';
-                if ($config->system->recents_encounter_details) {
                     if ($encdetails->available) {
-                        if ($config->system->iv_numbers) {
-                            $html .= '
-							<div class="progress" style="height: 15px; margin-bottom: 0">
-								<div title="'.$locales->IV_ATTACK.': '.$encdetails->attack.'" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="'.$encdetails->attack.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(100 / 3).'%; line-height: 16px">
-									<span class="sr-only">'.$locales->IV_ATTACK.': '.$encdetails->attack.'</span>'.$encdetails->attack.'
-								</div>
-								<div title="'.$locales->IV_DEFENSE.': '.$encdetails->defense.'" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="'.$encdetails->defense.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(100 / 3).'%; line-height: 16px">
-									<span class="sr-only">'.$locales->IV_DEFENSE.': '.$encdetails->defense.'</span>'.$encdetails->defense.'
-								</div>
-								<div title="'.$locales->IV_STAMINA.': '.$encdetails->stamina.'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="'.$encdetails->stamina.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(100 / 3).'%; line-height: 16px">
-									<span class="sr-only">'.$locales->IV_STAMINA.': '.$encdetails->stamina.'</span>'.$encdetails->stamina.'
-								</div>
-							</div>';
-                        } else {
-                            $html .= '
-							<div class="progress" style="height: 6px; width: 80%; margin: 5px auto 0 auto">
-							<div title="'.$locales->IV_ATTACK.': '.$encdetails->attack.'" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="'.$encdetails->attack.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(((100 / 15) * $encdetails->attack) / 3).'%">
-									<span class="sr-only">'.$locales->IV_ATTACK.': '.$encdetails->attack.'</span>
-							</div>
-							<div title="'.$locales->IV_DEFENSE.': '.$encdetails->defense.'" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="'.$encdetails->defense.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(((100 / 15) * $encdetails->defense) / 3).'%">
-									<span class="sr-only">'.$locales->IV_DEFENSE.': '.$encdetails->defense.'</span>
-							</div>
-							<div title="'.$locales->IV_STAMINA.': '.$encdetails->stamina.'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="'.$encdetails->stamina.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(((100 / 15) * $encdetails->stamina) / 3).'%">
-									<span class="sr-only">'.$locales->IV_STAMINA.': '.$encdetails->stamina.'</span>
-							</div>
-							</div>';
-                        }
-                        $html .= '<small>'.$encdetails->cp.'</small>';
+                        $move1 = $encdetails->move1;
+                        $move2 = $encdetails->move2;
+                        $html = '
+                    <div class="col-md-1 col-xs-4 pokemon-single" data-pokeid="'.$pokeid.'" data-pokeuid="'.$pokeuid.'" title="'.$encdetails->iv.'% - '.$move->$move1->name.' / '.$move->$move2->name.'" style="display: none;">';
                     } else {
-                        if ($config->system->iv_numbers) {
-                            $html .= '
-							<div class="progress" style="height: 15px; margin-bottom: 0">
-								<div title="'.$locales->IV_ATTACK.': not available" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="'.$encdetails->attack.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(100 / 3).'%; line-height: 16px">
-									<span class="sr-only">'.$locales->IV_ATTACK.': '.$locales->NOT_AVAILABLE.'</span>?
-								</div>
-								<div title="'.$locales->IV_DEFENSE.': not available" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="'.$encdetails->defense.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(100 / 3).'%; line-height: 16px">
-									<span class="sr-only">'.$locales->IV_DEFENSE.': '.$locales->NOT_AVAILABLE.'</span>?
-								</div>
-								<div title="'.$locales->IV_STAMINA.': not available" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="'.$encdetails->stamina.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(100 / 3).'%; line-height: 16px">
-									<span class="sr-only">'.$locales->IV_STAMINA.': '.$locales->NOT_AVAILABLE.'</span>?
-								</div>
-							</div>';
-                        } else {
-                            $html .= '
-						<div class="progress" style="height: 6px; width: 80%; margin: 5px auto 0 auto">
-							<div title="IV not available" class="progress-bar" role="progressbar" style="width: 100%; background-color: rgb(210,210,210)" aria-valuenow="1" aria-valuemin="0" aria-valuemax="1">
-								<span class="sr-only">IV '.$locales->NOT_AVAILABLE.'</span>
-							</div>
-						</div>';
-                        }
-                        $html .= '<small>???</small>';
+                        $html = '
+                    <div class="col-md-1 col-xs-4 pokemon-single" data-pokeid="'.$pokeid.'" data-pokeuid="'.$pokeuid.'" style="display: none;">';
                     }
+
+                    $html .= '
+                    <a href="pokemon/'.$pokeid.'"><img src="'.$pokemons->pokemon->$pokeid->img.'" alt="'.$pokemons->pokemon->$pokeid->name.'" class="img-responsive"></a>
+                    <a href="pokemon/'.$pokeid.'"><p class="pkmn-name">'.$pokemons->pokemon->$pokeid->name.'</p></a>
+                    <a href="'.$location_link.'" target="_blank">
+                        <small class="pokemon-timer">00:00:00</small>
+                    </a>';
+                    if ($config->system->recents_encounter_details) {
+                        if ($encdetails->available) {
+                            if ($config->system->iv_numbers) {
+                                $html .= '
+                                <div class="progress" style="height: 15px; margin-bottom: 0">
+                                    <div title="'.$locales->IV_ATTACK.': '.$encdetails->attack.'" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="'.$encdetails->attack.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(100 / 3).'%; line-height: 16px">
+                                        <span class="sr-only">'.$locales->IV_ATTACK.': '.$encdetails->attack.'</span>'.$encdetails->attack.'
+                                    </div>
+                                    <div title="'.$locales->IV_DEFENSE.': '.$encdetails->defense.'" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="'.$encdetails->defense.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(100 / 3).'%; line-height: 16px">
+                                        <span class="sr-only">'.$locales->IV_DEFENSE.': '.$encdetails->defense.'</span>'.$encdetails->defense.'
+                                    </div>
+                                    <div title="'.$locales->IV_STAMINA.': '.$encdetails->stamina.'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="'.$encdetails->stamina.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(100 / 3).'%; line-height: 16px">
+                                        <span class="sr-only">'.$locales->IV_STAMINA.': '.$encdetails->stamina.'</span>'.$encdetails->stamina.'
+                                    </div>
+                                </div>';
+                            } else {
+                                $html .= '
+                                <div class="progress" style="height: 6px; width: 80%; margin: 5px auto 0 auto">
+                                    <div title="'.$locales->IV_ATTACK.': '.$encdetails->attack.'" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="'.$encdetails->attack.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(((100 / 15) * $encdetails->attack) / 3).'%">
+                                        <span class="sr-only">'.$locales->IV_ATTACK.': '.$encdetails->attack.'</span>
+                                    </div>
+                                    <div title="'.$locales->IV_DEFENSE.': '.$encdetails->defense.'" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="'.$encdetails->defense.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(((100 / 15) * $encdetails->defense) / 3).'%">
+                                        <span class="sr-only">'.$locales->IV_DEFENSE.': '.$encdetails->defense.'</span>
+                                    </div>
+                                    <div title="'.$locales->IV_STAMINA.': '.$encdetails->stamina.'" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="'.$encdetails->stamina.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(((100 / 15) * $encdetails->stamina) / 3).'%">
+                                        <span class="sr-only">'.$locales->IV_STAMINA.': '.$encdetails->stamina.'</span>
+                                    </div>
+                                </div>';
+                            }
+                            $html .= '<small>'.$encdetails->cp.'</small>';
+                        } else {
+                            if ($config->system->iv_numbers) {
+                                $html .= '
+                                <div class="progress" style="height: 15px; margin-bottom: 0">
+                                    <div title="'.$locales->IV_ATTACK.': not available" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="'.$encdetails->attack.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(100 / 3).'%; line-height: 16px">
+                                        <span class="sr-only">'.$locales->IV_ATTACK.': '.$locales->NOT_AVAILABLE.'</span>?
+                                    </div>
+                                    <div title="'.$locales->IV_DEFENSE.': not available" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="'.$encdetails->defense.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(100 / 3).'%; line-height: 16px">
+                                        <span class="sr-only">'.$locales->IV_DEFENSE.': '.$locales->NOT_AVAILABLE.'</span>?
+                                    </div>
+                                    <div title="'.$locales->IV_STAMINA.': not available" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="'.$encdetails->stamina.'" aria-valuemin="0" aria-valuemax="45" style="width: '.(100 / 3).'%; line-height: 16px">
+                                        <span class="sr-only">'.$locales->IV_STAMINA.': '.$locales->NOT_AVAILABLE.'</span>?
+                                    </div>
+                                </div>';
+                            } else {
+                                $html .= '
+                                <div class="progress" style="height: 6px; width: 80%; margin: 5px auto 0 auto">
+                                    <div title="IV not available" class="progress-bar" role="progressbar" style="width: 100%; background-color: rgb(210,210,210)" aria-valuenow="1" aria-valuemin="0" aria-valuemax="1">
+                                        <span class="sr-only">IV '.$locales->NOT_AVAILABLE.'</span>
+                                    </div>
+                                </div>';
+                            }
+                            $html .= '<small>???</small>';
+                        }
+                    }
+                    $html .= '
+                    </div>';
+                    $new_spawn['html'] = $html;
+                    $countdown = $last_seen - time();
+                    $new_spawn['countdown'] = $countdown;
+                    $new_spawn['pokemon_uid'] = $pokeuid;
+                    $total_spawns[] = $new_spawn;
+                } else {
+                    break;
                 }
-                $html .= '
-				</div>';
-                $new_spawn['html'] = $html;
-                $countdown = $last_seen - time();
-                $new_spawn['countdown'] = $countdown;
-                $new_spawn['pokemon_uid'] = $pokeuid;
-                $total_spawns[] = $new_spawn;
-            } else {
-                break;
             }
         }
 
@@ -292,21 +256,10 @@ switch ($request) {
     //###################################
 
     case 'pokestop':
-        $where = '';
-        if ($config->system->only_lured_pokestops) {
-            $where = 'WHERE lure_expiration > UTC_TIMESTAMP() ORDER BY lure_expiration';
-        }
-        $req = "SELECT latitude, longitude, lure_expiration, UTC_TIMESTAMP() AS now, (CONVERT_TZ(lure_expiration, '+00:00', '".$time_offset."')) AS lure_expiration_real FROM pokestop ".$where.'';
-
-        //show all stops if no lure active
-        if (!$mysqli->query($req)->fetch_object()) {
-            $req = "SELECT latitude, longitude, lure_expiration, UTC_TIMESTAMP() AS now, (CONVERT_TZ(lure_expiration, '+00:00', '".$time_offset."')) AS lure_expiration_real FROM pokestop";
-        }
-        $result = $mysqli->query($req);
+        $datas = $manager->getAllPokestops($config->system->only_lured_pokestops);
 
         $pokestops = [];
-
-        while ($data = $result->fetch_object()) {
+        foreach ($datas as $data) {
             if ($data->lure_expiration >= $data->now) {
                 $icon = 'pokestap_lured.png';
                 $text = sprintf($locales->POKESTOPS_MAP_LURED, date('H:i:s', strtotime($data->lure_expiration_real)));
@@ -344,9 +297,7 @@ switch ($request) {
         $teams->instinct = 3;
 
         foreach ($teams as $team_name => $team_id) {
-            $req = "SELECT COUNT(DISTINCT(gym_id)) AS total, ROUND(AVG(total_cp),0) AS average_points FROM gym WHERE team_id = '".$team_id."'";
-            $result = $mysqli->query($req);
-            $data = $result->fetch_object();
+            $data = $manager->getOwnedAndPoints($team_id);
 
             $return[] = $data->total;
             $return[] = $data->average_points;
@@ -364,12 +315,10 @@ switch ($request) {
     //###################################
 
     case 'gym_map':
-        $req = "SELECT gym_id, team_id, latitude, longitude, (CONVERT_TZ(last_scanned, '+00:00', '".$time_offset."')) AS last_scanned, (6 - slots_available) AS level FROM gym";
-        $result = $mysqli->query($req);
+        $datas = $manager->getAllGyms();
 
         $gyms = [];
-
-        while ($data = $result->fetch_object()) {
+        foreach ($datas as $data) {
             // Team
             // 1 = bleu
             // 2 = rouge
@@ -425,49 +374,48 @@ switch ($request) {
     //###################################
 
     case 'gym_defenders':
-        $gym_id = $mysqli->real_escape_string($_GET['gym_id']);
-        $req = "SELECT gymdetails.name AS name, gymdetails.description AS description, gymdetails.url AS url, gym.team_id AS team,
-					(CONVERT_TZ(gym.last_scanned, '+00:00', '".$time_offset."')) AS last_scanned, gym.guard_pokemon_id AS guard_pokemon_id, gym.total_cp AS total_cp, (6 - gym.slots_available) AS level
-					FROM gymdetails
-					LEFT JOIN gym ON gym.gym_id = gymdetails.gym_id
-					WHERE gym.gym_id='".$gym_id."'";
-        $result = $mysqli->query($req);
+        $gym_id = $manager->getEcapedString($_GET['gym_id']);
 
+        $data = $manager->getGymData($gym_id);
         $gymData['gymDetails']['gymInfos'] = false;
 
-        while ($data = $result->fetch_object()) {
-            $gymData['gymDetails']['gymInfos']['name'] = $data->name;
+        if (!is_null($data)) {
+            if (null == $data->name) {
+                $gymData['gymDetails']['gymInfos']['name'] = '?';
+            } else {
+                $gymData['gymDetails']['gymInfos']['name'] = $data->name;
+            }
             $gymData['gymDetails']['gymInfos']['description'] = $data->description;
             if (null == $data->url) {
-                $gymData['gymDetails']['gymInfos']['url'] = '';
+                $gymData['gymDetails']['gymInfos']['url'] = 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Solid_grey.svg/200px-Solid_grey.svg.png';
             } else {
                 $gymData['gymDetails']['gymInfos']['url'] = $data->url;
             }
-            $gymData['gymDetails']['gymInfos']['points'] = $data->total_cp;
+            if (null == $data->url) {
+                $gymData['gymDetails']['gymInfos']['points'] = '?';
+            } else {
+                $gymData['gymDetails']['gymInfos']['points'] = $data->total_cp;
+            }
             $gymData['gymDetails']['gymInfos']['level'] = $data->level;
-            $gymData['gymDetails']['gymInfos']['last_scanned'] = $data->last_scanned;
+            if (null == $data->last_scanned) {
+                $gymData['gymDetails']['gymInfos']['last_scanned'] = '?';
+            } else {
+                $gymData['gymDetails']['gymInfos']['last_scanned'] = $data->last_scanned;
+            }
             $gymData['gymDetails']['gymInfos']['team'] = $data->team;
             $gymData['gymDetails']['gymInfos']['guardPokemonId'] = $data->guard_pokemon_id;
-        }
 
-        $req = "SELECT DISTINCT gympokemon.pokemon_uid, pokemon_id, iv_attack, iv_defense, iv_stamina, MAX(cp) AS cp, gymmember.gym_id
-					FROM gympokemon INNER JOIN gymmember ON gympokemon.pokemon_uid=gymmember.pokemon_uid
-					GROUP BY gympokemon.pokemon_uid, pokemon_id, iv_attack, iv_defense, iv_stamina, gym_id
-					HAVING gymmember.gym_id='".$gym_id."'
-					ORDER BY cp DESC";
-        $result = $mysqli->query($req);
-
-        $i = 0;
-
-        $gymData['infoWindow'] = '
-			<div class="gym_defenders">
-			';
-        while ($data = $result->fetch_object()) {
-            $gymData['gymDetails']['pokemons'][] = $data;
-            if (false != $data) {
-                $pokemon_id = $data->pokemon_id;
-                if ($config->system->iv_numbers) {
-                    $gymData['infoWindow'] .= '
+            // Skip Query if team is none
+            if ($data->team > 0) {
+                $datas = $manager->getGymDefenders($gym_id);
+                $gymData['infoWindow'] = '
+				<div class="gym_defenders">
+				';
+                foreach ($datas as $data) {
+                    $gymData['gymDetails']['pokemons'][] = $data;
+                    $pokemon_id = $data->pokemon_id;
+                    if ($config->system->iv_numbers) {
+                        $gymData['infoWindow'] .= '
 					<div style="text-align: center; width: 50px; display: inline-block; margin-right: 3px">
 						<a href="pokemon/'.$data->pokemon_id.'">
 						<img src="'.$pokemons->pokemon->$pokemon_id->img.'" height="50" style="display:inline-block" >
@@ -485,8 +433,8 @@ switch ($request) {
 								</div>
 							</div>
 						</div>';
-                } else {
-                    $gymData['infoWindow'] .= '
+                    } else {
+                        $gymData['infoWindow'] .= '
 					<div style="text-align: center; width: 50px; display: inline-block; margin-right: 3px">
 						<a href="pokemon/'.$data->pokemon_id.'">
 						<img src="'.$pokemons->pokemon->$pokemon_id->img.'" height="50" style="display:inline-block" >
@@ -503,49 +451,12 @@ switch ($request) {
 								<span class="sr-only">'.$locales->IV_STAMINA.': '.$data->iv_stamina.'</span>
 							</div>
 						</div>
-					</div>'
-                        ;
+					</div>';
+                    }
                 }
-            } else {
-                $pokemon_id = $gymData['gymDetails']['gymInfos']['guardPokemonId'];
-                $gymData['infoWindow'] .= '
-				<div style="text-align: center; width: 50px; display: inline-block; margin-right: 3px">
-					<a href="pokemon/'.$gymData['gymDetails']['gymInfos']['guardPokemonId'].'">
-					<img src="'.$pokemons->pokemon->$pokemon_id->img.'" height="50" style="display:inline-block" >
-					</a>
-					<p class="pkmn-name">???</p>
-				</div>'
-                ;
             }
-            ++$i;
+            $gymData['infoWindow'] = $gymData['infoWindow'].'</div>';
         }
-
-        // check whether we could retrieve gym infos, otherwise use basic gym info
-        if (!$gymData['gymDetails']['gymInfos']) {
-            $req = "SELECT gym_id, team_id, guard_pokemon_id, latitude, longitude, (CONVERT_TZ(last_scanned, '+00:00', '".$time_offset."')) AS last_scanned, total_cp, (6 - slots_available) AS level
-				FROM gym WHERE gym_id='".$gym_id."'";
-            $result = $mysqli->query($req);
-            $data = $result->fetch_object();
-
-            $gymData['gymDetails']['gymInfos']['name'] = $locales->NOT_AVAILABLE;
-            $gymData['gymDetails']['gymInfos']['description'] = $locales->NOT_AVAILABLE;
-            $gymData['gymDetails']['gymInfos']['url'] = 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Solid_grey.svg/200px-Solid_grey.svg.png';
-            $gymData['gymDetails']['gymInfos']['points'] = $data->total_cp;
-            $gymData['gymDetails']['gymInfos']['level'] = $data->level;
-            $gymData['gymDetails']['gymInfos']['last_scanned'] = $data->last_scanned;
-            $gymData['gymDetails']['gymInfos']['team'] = $data->team_id;
-            $gymData['gymDetails']['gymInfos']['guardPokemonId'] = $data->guard_pokemon_id;
-
-            $pokemon_id = $data->guard_pokemon_id;
-            $gymData['infoWindow'] .= '
-				<div style="text-align: center; width: 50px; display: inline-block; margin-right: 3px">
-					<a href="pokemon/'.$data->guard_pokemon_id.'">
-					<img src="'.$pokemons->pokemon->$pokemon_id->img.'" height="50" style="display:inline-block" >
-					</a>
-					<p class="pkmn-name">???</p>
-				</div>';
-        }
-        $gymData['infoWindow'] = $gymData['infoWindow'].'</div>';
 
         header('Content-Type: application/json');
         echo json_encode($gymData);
@@ -555,98 +466,22 @@ switch ($request) {
     case 'trainer':
         $name = '';
         $page = '0';
-        $where = ' HAVING DATEDIFF(UTC_TIMESTAMP(), last_seen) < 90';
-        $order = '';
         $team = 0;
         $ranking = 0;
-
         if (isset($_GET['name'])) {
-            $trainer_name = mysqli_real_escape_string($mysqli, $_GET['name']);
-            $where .= " AND name LIKE '%".$trainer_name."%'";
+            $trainer_name = $manager->getEcapedString($_GET['name']);
         }
-        if (isset($_GET['team']) && 0 != $_GET['team']) {
-            $team = mysqli_real_escape_string($mysqli, $_GET['team']);
-            $where .= ' AND team = '.$team;
-        }
-        if (!empty($config->system->trainer_blacklist)) {
-            $where .= " AND name NOT IN ('".implode("','", $config->system->trainer_blacklist)."')";
+        if (isset($_GET['team'])) {
+            $team = $manager->getEcapedString($_GET['team']);
         }
         if (isset($_GET['page'])) {
-            $page = mysqli_real_escape_string($mysqli, $_GET['page']);
+            $page = $manager->getEcapedString($_GET['page']);
         }
         if (isset($_GET['ranking'])) {
-            $ranking = mysqli_real_escape_string($mysqli, $_GET['ranking']);
+            $ranking = $manager->getEcapedString($_GET['ranking']);
         }
 
-        switch ($ranking) {
-            case 1:
-                $order = ' ORDER BY active DESC, level DESC';
-                break;
-            case 2:
-                $order = ' ORDER BY maxCp DESC, level DESC';
-                break;
-            default:
-                $order = ' ORDER BY level DESC, active DESC';
-        }
-
-        $order .= ', last_seen DESC, name ';
-
-        $limit = ' LIMIT '.($page * 10).',10 ';
-
-        $req = "SELECT trainer.*, COUNT(actives_pokemons.trainer_name) AS active, max(actives_pokemons.cp) AS maxCp
-				FROM trainer
-				LEFT JOIN (SELECT DISTINCT gympokemon.pokemon_id, gympokemon.pokemon_uid, gympokemon.trainer_name, gympokemon.cp, DATEDIFF(UTC_TIMESTAMP(), gympokemon.last_seen) AS last_scanned
-				FROM gympokemon
-				INNER JOIN (SELECT gymmember.pokemon_uid, gymmember.gym_id FROM gymmember GROUP BY gymmember.pokemon_uid, gymmember.gym_id HAVING gymmember.gym_id <> '') AS filtered_gymmember
-				ON gympokemon.pokemon_uid = filtered_gymmember.pokemon_uid) AS actives_pokemons ON actives_pokemons.trainer_name = trainer.name
-				GROUP BY trainer.name ".$where.$order.$limit;
-
-        $result = $mysqli->query($req);
-        $trainers = array();
-        while ($data = $result->fetch_object()) {
-            $data->last_seen = date('Y-m-d', strtotime($data->last_seen));
-            $trainers[$data->name] = $data;
-        }
-        foreach ($trainers as $trainer) {
-            $reqRanking = 'SELECT COUNT(1) AS rank FROM trainer WHERE level = '.$trainer->level;
-            if (!empty($config->system->trainer_blacklist)) {
-                $reqRanking .= " AND name NOT IN ('".implode("','", $config->system->trainer_blacklist)."')";
-            }
-            $resultRanking = $mysqli->query($reqRanking);
-            while ($data = $resultRanking->fetch_object()) {
-                $trainer->rank = $data->rank;
-            }
-            $req = "(SELECT DISTINCT gympokemon.pokemon_id, gympokemon.pokemon_uid, gympokemon.cp, DATEDIFF(UTC_TIMESTAMP(), gympokemon.last_seen) AS last_scanned, gympokemon.trainer_name, gympokemon.iv_defense, gympokemon.iv_stamina, gympokemon.iv_attack, TRUNCATE(gympokemon.cp_multiplier,6) as cp_multiplier, gympokemon.num_upgrades, filtered_gymmember.gym_id, CONVERT_TZ(filtered_gymmember.deployment_time, '+00:00', '".$time_offset."') as deployment_time, filtered_gymmember.name as gym_name, '1' AS active
-					FROM gympokemon INNER JOIN
-					(SELECT gymmember.pokemon_uid, gymmember.gym_id, gymdetails.name, gymmember.deployment_time FROM gymmember
-					LEFT JOIN gymdetails ON gymmember.gym_id = gymdetails.gym_id
-					GROUP BY gymmember.pokemon_uid, gymmember.gym_id, gymmember.deployment_time HAVING gymmember.gym_id <> '') AS filtered_gymmember
-					ON gympokemon.pokemon_uid = filtered_gymmember.pokemon_uid
-					WHERE gympokemon.trainer_name='".$trainer->name."'
-					ORDER BY gympokemon.cp DESC)";
-
-            $resultPkms = $mysqli->query($req);
-            $trainer->pokemons = array();
-            $active_gyms = 0;
-            $pkmCount = 0;
-            while ($resultPkms && $dataPkm = $resultPkms->fetch_object()) {
-                ++$active_gyms;
-                $trainer->pokemons[$pkmCount++] = $dataPkm;
-            }
-            $trainer->gyms = $active_gyms;
-
-            $req = "(SELECT DISTINCT gympokemon.pokemon_id, gympokemon.pokemon_uid, gympokemon.cp, DATEDIFF(UTC_TIMESTAMP(), gympokemon.last_seen) AS last_scanned, gympokemon.trainer_name, gympokemon.iv_defense, gympokemon.iv_stamina, gympokemon.iv_attack, TRUNCATE(gympokemon.cp_multiplier,6) as cp_multiplier, gympokemon.num_upgrades, null AS gym_id, CONVERT_TZ(filtered_gymmember.deployment_time, '+00:00', '".$time_offset."') as deployment_time, '0' AS active
-					FROM gympokemon LEFT JOIN
-					(SELECT * FROM gymmember HAVING gymmember.gym_id <> '') AS filtered_gymmember
-					ON gympokemon.pokemon_uid = filtered_gymmember.pokemon_uid
-					WHERE filtered_gymmember.pokemon_uid IS NULL AND gympokemon.trainer_name='".$trainer->name."'
-					ORDER BY gympokemon.cp DESC)";
-
-            $resultPkms = $mysqli->query($req);
-            while ($resultPkms && $dataPkm = $resultPkms->fetch_object()) {
-                $trainer->pokemons[$pkmCount++] = $dataPkm;
-            }
-        }
+        $trainers = $manager->getTrainers($trainer_name, $team, $page, $ranking);
         $json = array();
         $json['trainers'] = $trainers;
         $locale = array();
@@ -666,20 +501,13 @@ switch ($request) {
     case 'raids':
         $page = '0';
         if (isset($_GET['page'])) {
-            $page = mysqli_real_escape_string($mysqli, $_GET['page']);
+            $page = $manager->getEcapedString($_GET['page']);
         }
 
-        $limit = ' LIMIT '.($page * 10).',10';
-
-        $req = "SELECT raid.gym_id, raid.level, raid.pokemon_id, raid.cp, raid.move_1, raid.move_2, CONVERT_TZ(raid.spawn, '+00:00', '".$time_offset."') AS spawn, CONVERT_TZ(raid.start, '+00:00', '".$time_offset."') AS start, CONVERT_TZ(raid.end, '+00:00', '".$time_offset."') AS end, CONVERT_TZ(raid.last_scanned, '+00:00', '".$time_offset."') AS last_scanned, gymdetails.name, gym.latitude, gym.longitude FROM raid
-				JOIN gymdetails ON gymdetails.gym_id = raid.gym_id
-				JOIN gym ON gym.gym_id = raid.gym_id
-				WHERE raid.end > UTC_TIMESTAMP()
-				ORDER BY raid.level DESC, raid.start".$limit;
-
-        $result = $mysqli->query($req);
+        $datas = $manager->getAllRaids($page);
+        $i = 1;
         $raids = array();
-        while ($data = $result->fetch_object()) {
+        foreach ($datas as $data) {
             $data->starttime = date('H:i', strtotime($data->start));
             $data->endtime = date('H:i', strtotime($data->end));
             $data->gym_id = str_replace('.', '_', $data->gym_id);
@@ -695,7 +523,8 @@ switch ($request) {
             } else {
                 $data->charge_move = '?';
             }
-            $raids[$data->gym_id] = $data;
+            $raids[10 * $page + $i] = $data;
+            ++$i;
         }
         $json = array();
         $json['raids'] = $raids;
@@ -710,58 +539,28 @@ switch ($request) {
 
     case 'gyms':
         $page = '0';
-        $where = '';
-        $order = '';
         $ranking = 0;
+        $gym_name = '';
+        $team = '';
         if (isset($_GET['name']) && '' != $_GET['name']) {
-            $gym_name = mysqli_real_escape_string($mysqli, $_GET['name']);
-            $where = " WHERE name LIKE '%".$gym_name."%'";
+            $gym_name = $manager->getEcapedString($_GET['name']);
         }
         if (isset($_GET['team']) && '' != $_GET['team']) {
-            $team = mysqli_real_escape_string($mysqli, $_GET['team']);
-            $where .= ('' == $where ? ' WHERE' : ' AND').' team_id = '.$team;
+            $team = $manager->getEcapedString($_GET['team']);
         }
         if (isset($_GET['page'])) {
-            $page = mysqli_real_escape_string($mysqli, $_GET['page']);
+            $page = $manager->getEcapedString($_GET['page']);
         }
         if (isset($_GET['ranking'])) {
-            $ranking = mysqli_real_escape_string($mysqli, $_GET['ranking']);
+            $ranking = $manager->getEcapedString($_GET['ranking']);
         }
 
-        switch ($ranking) {
-            case 1:
-                $order = ' ORDER BY name, last_modified DESC';
-                break;
-            case 2:
-                $order = ' ORDER BY total_cp DESC, last_modified DESC';
-                break;
-            default:
-                $order = ' ORDER BY last_modified DESC, name';
-        }
-
-        $limit = ' LIMIT '.($page * 10).',10';
-
-        $req = "SELECT gymdetails.gym_id, name, team_id, total_cp, (6 - slots_available) as pokemon_count, (CONVERT_TZ(last_modified, '+00:00', '".$time_offset."')) as last_modified
-				FROM gymdetails
-				LEFT JOIN gym
-				ON gymdetails.gym_id = gym.gym_id
-				".$where.$order.$limit;
-
-        $result = $mysqli->query($req);
+        $datas = $manager->getGymHistories($gym_name, $team, $page, $ranking);
         $gyms = array();
-        while ($result && $data = $result->fetch_object()) {
+        foreach ($datas as $data) {
             $pkm = array();
             if ($data->total_cp > 0) {
-                $pkm_req = "SELECT DISTINCT gymmember.pokemon_uid, pokemon_id, cp, trainer_name
-							FROM gymmember
-							LEFT JOIN gympokemon
-							ON gymmember.pokemon_uid = gympokemon.pokemon_uid
-							WHERE gymmember.gym_id = '".$data->gym_id."'
-							ORDER BY deployment_time";
-                $pkm_result = $mysqli->query($pkm_req);
-                while ($pkm_result && $pkm_data = $pkm_result->fetch_object()) {
-                    $pkm[] = $pkm_data;
-                }
+                $pkm = $manager->getGymHistoriesPokemon($data->gym_id);
             }
             $data->pokemon = $pkm;
             unset($data->pokemon_uids);
@@ -782,43 +581,23 @@ switch ($request) {
         $gym_id = '';
         $page = '0';
         if (isset($_GET['gym_id'])) {
-            $gym_id = mysqli_real_escape_string($mysqli, $_GET['gym_id']);
+            $gym_id = $manager->getEcapedString($_GET['gym_id']);
             $gym_id = str_replace('_', '.', $gym_id);
         }
         if (isset($_GET['page'])) {
-            $page = mysqli_real_escape_string($mysqli, $_GET['page']);
+            $page = $manager->getEcapedString($_GET['page']);
         }
 
         $entries = array();
 
+        $last_page = true;
         if ('' != $gym_id) {
-            $req = "SELECT gym_id, team_id, total_cp, pokemon_uids, pokemon_count, (CONVERT_TZ(last_modified, '+00:00', '".$time_offset."')) as last_modified
-					FROM gymhistory
-					WHERE gym_id='".$gym_id."'
-					ORDER BY last_modified DESC
-					LIMIT ".($page * 10).',11';
-
-            $result = $mysqli->query($req);
-            while ($result && $data = $result->fetch_object()) {
-                $pkm = array();
-                if (0 == $data->total_cp) {
-                    $data->pokemon_uids = '';
-                }
-                if ('' != $data->pokemon_uids) {
-                    $pkm_uids = explode(',', $data->pokemon_uids);
-                    $pkm_req = "SELECT DISTINCT pokemon_uid, pokemon_id, cp, trainer_name
-								FROM gympokemon
-								WHERE pokemon_uid IN ('".implode("','", $pkm_uids)."')
-								ORDER BY FIND_IN_SET(pokemon_uid, '".implode(',', $pkm_uids)."')";
-                    $pkm_result = $mysqli->query($pkm_req);
-                    while ($pkm_result && $pkm_data = $pkm_result->fetch_object()) {
-                        $pkm[$pkm_data->pokemon_uid] = $pkm_data;
-                    }
-                }
-                $data->pokemon = $pkm;
+            $datas = $manager->getHistoryForGym($page, $gym_id);
+            foreach ($datas['data'] as $data) {
                 $data->gym_id = str_replace('.', '_', $data->gym_id);
                 $entries[] = $data;
             }
+            $last_page = $datas['last_page'];
 
             foreach ($entries as $idx => $entry) {
                 $entry->total_cp_diff = 0;
@@ -853,6 +632,7 @@ switch ($request) {
         $json['entries'] = $entries;
         $locale = array();
         $json['locale'] = $locale;
+        $json['last_page'] = $last_page;
 
         header('Content-Type: application/json');
         echo json_encode($json);
@@ -860,82 +640,27 @@ switch ($request) {
         break;
 
     case 'gymshaver':
-        $where = '';
-        $order = '';
         $page = '0';
-        $ranking = '0';
+        $ranking = 0;
+        $gym_name = '';
+        $team = '';
         if (isset($_GET['name']) && '' != $_GET['name']) {
-            $gym_name = mysqli_real_escape_string($mysqli, $_GET['name']);
-            $where = " WHERE name LIKE '%".$gym_name."%'";
+            $gym_name = $manager->getEcapedString($_GET['name']);
         }
         if (isset($_GET['team']) && '' != $_GET['team']) {
-            $team = mysqli_real_escape_string($mysqli, $_GET['team']);
-            $where .= ('' == $where ? ' WHERE' : ' AND').' team_id = '.$team;
+            $team = $manager->getEcapedString($_GET['team']);
         }
         if (isset($_GET['page'])) {
-            $page = mysqli_real_escape_string($mysqli, $_GET['page']);
+            $page = $manager->getEcapedString($_GET['page']);
         }
         if (isset($_GET['ranking'])) {
-            $ranking = mysqli_real_escape_string($mysqli, $_GET['ranking']);
+            $ranking = $manager->getEcapedString($_GET['ranking']);
         }
 
-        switch ($ranking) {
-            case 1:
-                $order = ' ORDER BY name, last_modified_end DESC';
-                break;
-            case 2:
-                $order = ' ORDER BY total_cp_end DESC, last_modified_end DESC';
-                break;
-            default:
-                $order = ' ORDER BY last_modified_end DESC, name';
-        }
-
-        $limit = ' LIMIT '.($page * 5).',5';
-
-        $entries = array();
-
-        $req = "SELECT gym_id, name, team_id, total_cp_end, total_cp_start, pokemon_count_end, pokemon_count_start, pokemon_uids_end, pokemon_uids_start, (CONVERT_TZ(last_modified_end, '+00:00', '".$time_offset."')) AS last_modified_end, (CONVERT_TZ(last_modified_start, '+00:00', '".$time_offset."')) AS last_modified_start FROM gymshaving".$where.$order.$limit;
-
-        $result = $mysqli->query($req);
-        while ($result && $data = $result->fetch_object()) {
-            $pokemon = array();
-            $pokemon_end = explode(',', $data->pokemon_uids_end);
-            $pokemon_start = explode(',', $data->pokemon_uids_start);
-            $new_pokemon = array_diff($pokemon_end, $pokemon_start);
-            $old_pokemon = array_diff($pokemon_start, $pokemon_end);
-            $all_pokemon = array_merge($pokemon_end, $old_pokemon);
-            foreach ($all_pokemon as $pkm) {
-                $pokemon[$pkm] = new stdClass();
-            }
-
-            $data->total_cp_diff = $data->total_cp_end - $data->total_cp_start;
-            $data->class = $data->total_cp_diff > 0 ? 'gain' : ($data->total_cp_diff < 0 ? 'loss' : '');
-
-            $pkm_req = "SELECT pokemon_uid, pokemon_id, cp, trainer_name
-						FROM gympokemon
-						WHERE pokemon_uid IN ('".implode("','", $all_pokemon)."')
-						ORDER BY FIND_IN_SET(pokemon_uid, '".implode(',', $all_pokemon)."')";
-
-            $pkm_result = $mysqli->query($pkm_req);
-            while ($pkm_result && $pkm_data = $pkm_result->fetch_object()) {
-                $pokemon[$pkm_data->pokemon_uid] = $pkm_data;
-            }
-            foreach ($new_pokemon as $pkm) {
-                $pokemon[$pkm]->class = 'new';
-            }
-            foreach ($old_pokemon as $pkm) {
-                $pokemon[$pkm]->class = 'old';
-            }
-
-            $data->pokemon = $pokemon;
-            unset($data->pokemon_uids_end);
-            unset($data->pokemon_uids_start);
-            $data->gym_id = str_replace('.', '_', $data->gym_id);
-            $entries[] = $data;
-        }
+        $datas = $manager->getGymShaver($gym_name, $team, $page, $ranking);
 
         $json = array();
-        $json['entries'] = $entries;
+        $json['entries'] = $datas;
         $locale = array();
         $json['locale'] = $locale;
 
@@ -945,77 +670,12 @@ switch ($request) {
         break;
 
     case 'gymshaver_count':
-        $req = 'SELECT * FROM gymshaving ORDER BY last_modified_end DESC';
-
-        $result = $mysqli->query($req);
-
-        $stats = new stdClass();
-        $stats->total = 0;
-        $stats->week = 0;
-        $stats->day = 0;
-        $nextDay = null;
-        $nextWeek = null;
-
-        $counts_shaver = array();
-        $counts_victim = array();
-        while ($result && $data = $result->fetch_object()) {
-            if (0 == $stats->total) {
-                $nextDay = strtotime('-1 day', strtotime($data->last_modified_end));
-                $nextWeek = strtotime('-1 week', strtotime($data->last_modified_end));
-            }
-            $current = strtotime($data->last_modified_end);
-            ++$stats->total;
-            if ($current > $nextDay) {
-                ++$stats->day;
-            }
-            if ($current > $nextWeek) {
-                ++$stats->week;
-            }
-            $pokemon_end = explode(',', $data->pokemon_uids_end);
-            $pokemon_start = explode(',', $data->pokemon_uids_start);
-            $new_pokemon = array_diff($pokemon_end, $pokemon_start);
-            $old_pokemon = array_diff($pokemon_start, $pokemon_end);
-            $pkm_req = "SELECT pokemon_uid, trainer_name
-						FROM gympokemon
-						WHERE pokemon_uid IN ('".implode("','", $new_pokemon)."')";
-            $pkm_result = $mysqli->query($pkm_req);
-            while ($pkm_result && $pkm_data = $pkm_result->fetch_object()) {
-                $counts_shaver[$pkm_data->trainer_name] = $counts_shaver[$pkm_data->trainer_name] ? $counts_shaver[$pkm_data->trainer_name] + 1 : 1;
-            }
-            $pkm_req = "SELECT pokemon_uid, trainer_name
-						FROM gympokemon
-						WHERE pokemon_uid IN ('".implode("','", $old_pokemon)."')";
-            $pkm_result = $mysqli->query($pkm_req);
-            while ($pkm_result && $pkm_data = $pkm_result->fetch_object()) {
-                $counts_victim[$pkm_data->trainer_name] = $counts_victim[$pkm_data->trainer_name] ? $counts_victim[$pkm_data->trainer_name] + 1 : 1;
-            }
-        }
-
-        $shavers = array();
-        $trainer_req = "SELECT * FROM trainer WHERE name IN ('".implode("','", array_keys($counts_shaver))."')";
-        $trainer_result = $mysqli->query($trainer_req);
-        while ($trainer_result && $trainer_data = $trainer_result->fetch_object()) {
-            $entry = $trainer_data;
-            $entry->count = $counts_shaver[$entry->name];
-            $shavers[] = $entry;
-        }
-
-        $victims = array();
-        $trainer_req = "SELECT * FROM trainer WHERE name IN ('".implode("','", array_keys($counts_victim))."')";
-        $trainer_result = $mysqli->query($trainer_req);
-        while ($trainer_result && $trainer_data = $trainer_result->fetch_object()) {
-            $entry = $trainer_data;
-            $entry->count = $counts_victim[$entry->name];
-            $victims[] = $entry;
-        }
-
-        usort($shavers, function ($a, $b) { return $a->count < $b->count; });
-        usort($victims, function ($a, $b) { return $a->count < $b->count; });
+        $datas = $manager->getGymShaverCount();
 
         $json = array();
-        $json['shavers'] = array_slice($shavers, 0, 20);
-        $json['victims'] = array_slice($victims, 0, 20);
-        $json['stats'] = $stats;
+        $json['shavers'] = array_slice($datas[0], 0, 20);
+        $json['victims'] = array_slice($datas[1], 0, 20);
+        $json['stats'] = $datas[3];
         $locale = array();
         $json['locale'] = $locale;
 
@@ -1025,9 +685,7 @@ switch ($request) {
         break;
 
     case 'pokemon_slider_init':
-        $req = 'SELECT MIN(disappear_time) AS min, MAX(disappear_time) AS max FROM pokemon';
-        $result = $mysqli->query($req);
-        $bounds = $result->fetch_object();
+        $bounds = $manager->getPokemonSliderMinMax();
 
         header('Content-Type: application/json');
         echo json_encode($bounds);
@@ -1039,15 +697,8 @@ switch ($request) {
         if (isset($_GET['start']) && isset($_GET['end']) && isset($_GET['pokemon_id'])) {
             $start = date('Y-m-d H:i', (int) $_GET['start']);
             $end = date('Y-m-d H:i', (int) $_GET['end']);
-            $pokemon_id = mysqli_real_escape_string($mysqli, $_GET['pokemon_id']);
-            $where = ' WHERE pokemon_id = '.$pokemon_id.' '
-                    ."AND disappear_time BETWEEN '".$start."' AND '".$end."'";
-            $req = 'SELECT latitude, longitude FROM pokemon'.$where.' ORDER BY disappear_time DESC LIMIT 10000';
-            $result = $mysqli->query($req);
-            $points = array();
-            while ($result && $data = $result->fetch_object()) {
-                $points[] = $data;
-            }
+            $pokemon_id = $manager->getEcapedString($_GET['pokemon_id']);
+            $points = $manager->getPokemonHeatmap($pokemon_id, $start, $end);
 
             $json = json_encode($points);
         }
@@ -1057,10 +708,7 @@ switch ($request) {
         break;
 
     case 'maps_localization_coordinates':
-        $json = '';
-        $req = 'SELECT MAX(latitude) AS max_latitude, MIN(latitude) AS min_latitude, MAX(longitude) AS max_longitude, MIN(longitude) as min_longitude FROM spawnpoint';
-        $result = $mysqli->query($req);
-        $coordinates = $result->fetch_object();
+        $coordinates = $manager->getMapsCoords();
 
         header('Content-Type: application/json');
         echo json_encode($coordinates);
@@ -1070,20 +718,8 @@ switch ($request) {
     case 'pokemon_graph_data':
         $json = '';
         if (isset($_GET['pokemon_id'])) {
-            $pokemon_id = mysqli_real_escape_string($mysqli, $_GET['pokemon_id']);
-            $req = "SELECT COUNT(*) AS total,
-					HOUR(CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) AS disappear_hour
-					FROM (SELECT disappear_time FROM pokemon WHERE pokemon_id = '".$pokemon_id."' ORDER BY disappear_time LIMIT 10000) AS pokemonFiltered
-					GROUP BY disappear_hour
-					ORDER BY disappear_hour";
-            $result = $mysqli->query($req);
-            $array = array_fill(0, 24, 0);
-            while ($result && $data = $result->fetch_object()) {
-                $array[$data->disappear_hour] = $data->total;
-            }
-            // shift array because AM/PM starts at 1AM not 0:00
-            $array[] = $array[0];
-            array_shift($array);
+            $pokemon_id = $manager->getEcapedString($_GET['pokemon_id']);
+            $array = $manager->getPokemonGraph($pokemon_id);
 
             $json = json_encode($array);
         }
@@ -1106,35 +742,17 @@ if ('' != $postRequest) {
         case 'pokemon_live':
             $json = '';
             if (isset($_POST['pokemon_id'])) {
-                $pokemon_id = mysqli_real_escape_string($mysqli, $_POST['pokemon_id']);
-                $inmap_pkms_filter = '';
-                $where = ' WHERE disappear_time >= UTC_TIMESTAMP() AND pokemon_id = '.$pokemon_id;
+                $pokemon_id = $manager->getEcapedString($_POST['pokemon_id']);
+                $ivMin = $manager->getEcapedString($_POST['ivMin']);
+                $ivMax = $manager->getEcapedString($_POST['ivMax']);
+                if (isset($_POST['inmap_pokemons'])) {
+                    $inmap_pokemons = $manager->getEcapedString($_POST['inmap_pokemons']);
+                } else {
+                    $inmap_pokemons = null;
+                }
 
-                $reqTestIv = 'SELECT MAX(individual_attack) AS iv FROM pokemon '.$where;
-                $resultTestIv = $mysqli->query($reqTestIv);
-                $testIv = $resultTestIv->fetch_object();
-                if (isset($_POST['inmap_pokemons']) && ('' != $_POST['inmap_pokemons'])) {
-                    foreach ($_POST['inmap_pokemons'] as $inmap) {
-                        $inmap_pkms_filter .= "'".$inmap."',";
-                    }
-                    $inmap_pkms_filter = rtrim($inmap_pkms_filter, ',');
-                    $where .= ' AND encounter_id NOT IN ('.$inmap_pkms_filter.') ';
-                }
-                if (null != $testIv->iv && isset($_POST['ivMin']) && ('' != $_POST['ivMin'])) {
-                    $ivMin = mysqli_real_escape_string($mysqli, $_POST['ivMin']);
-                    $where .= ' AND ((100/45)*(individual_attack+individual_defense+individual_stamina)) >= ('.$ivMin.') ';
-                }
-                if (null != $testIv->iv && isset($_POST['ivMax']) && ('' != $_POST['ivMax'])) {
-                    $ivMax = mysqli_real_escape_string($mysqli, $_POST['ivMax']);
-                    $where .= ' AND ((100/45)*(individual_attack+individual_defense+individual_stamina)) <=('.$ivMax.') ';
-                }
-                $req = "SELECT pokemon_id, encounter_id, latitude, longitude, disappear_time,
-						(CONVERT_TZ(disappear_time, '+00:00', '".$time_offset."')) AS disappear_time_real,
-						individual_attack, individual_defense, individual_stamina, move_1, move_2
-						FROM pokemon ".$where.'
-						ORDER BY disappear_time DESC
-						LIMIT 5000';
-                $result = $mysqli->query($req);
+                $datas = $manager->getPokemonLive($pokemon_id, $ivMin, $ivMax, $inmap_pokemons);
+
                 $json = array();
                 $json['points'] = array();
                 $locale = array();
@@ -1142,7 +760,7 @@ if ('' != $postRequest) {
                 $locale['ivDefense'] = $locales->IV_DEFENSE;
                 $locale['ivStamina'] = $locales->IV_STAMINA;
                 $json['locale'] = $locale;
-                while ($result && $data = $result->fetch_object()) {
+                foreach ($datas as $data) {
                     $pokeid = $data->pokemon_id;
                     $data->name = $pokemons->pokemon->$pokeid->name;
                     if (isset($data->move_1)) {
