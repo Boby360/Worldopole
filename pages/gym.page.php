@@ -91,10 +91,10 @@
 			<div id="gymInfos">
 				<div id="circleImage"></div>
 				<div id="gymName"></div>
-				<div id="gymHistoryLink"><a href="#">Show History</a></div>
-				<div id="gymPrestige">
+				<!-- <div id="gymHistory"><a href="#">Show History</a></div> -->
+				<!-- <div id="gymPrestige">
 					<?= $locales->PRESTIGE; ?>: <span id="gymPrestigeDisplay"></span>
-				</div>
+				</div>-->
 				<div id="gymLastScanned">
 					<?= $locales->LAST_SCANNED; ?>: <span id="gymLastScannedDisplay"></span>
 				</div>
