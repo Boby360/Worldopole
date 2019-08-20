@@ -105,7 +105,7 @@ final class QueryManagerMysqlRocketmap extends QueryManagerMysql
 
     public function getTotalRaids()
     {
-        $req = 'SELECT COUNT(*) AS total FROM raid WHERE start <= UTC_TIMESTAMP() AND  end >= UTC_TIMESTAMP()';
+        $req = 'SELECT COUNT(*) AS total FROM raid WHERE start <= UTC_TIMESTAMP() AND end >= UTC_TIMESTAMP()';
         $result = $this->mysqli->query($req);
         $data = $result->fetch_object();
 
@@ -233,9 +233,9 @@ final class QueryManagerMysqlRocketmap extends QueryManagerMysql
 
     public function getPokemonHeatmap($pokemon_id, $start, $end)
     {
-        $req = 'SELECT latitude, longitude
+		$req = "SELECT latitude, longitude
 				FROM pokemon
-				WHERE pokemon_id = '.$pokemon_id." AND disappear_time BETWEEN '".$start."' AND '".$end."'
+				WHERE pokemon_id = ".$pokemon_id." AND disappear_time BETWEEN '".$start."' AND '".$end."'
 				LIMIT 10000";
         $result = $this->mysqli->query($req);
         $points = array();
@@ -330,6 +330,20 @@ final class QueryManagerMysqlRocketmap extends QueryManagerMysql
         return $data;
     }
 
+    public function getPokemonCountAll()
+    {
+        $req = 'SELECT pid as pokemon_id, count, last_seen, latitude, longitude
+				FROM pokemon_stats
+				GROUP BY pid';
+        $result = $this->mysqli->query($req);
+        $array = array();
+        while ($data = $result->fetch_object()) {
+            $array[] = $data;
+        }
+
+        return $array;
+    }
+
     public function getRaidCount($pokemon_id)
     {
         $req = 'SELECT count, last_seen, latitude, longitude
@@ -339,6 +353,20 @@ final class QueryManagerMysqlRocketmap extends QueryManagerMysql
         $data = $result->fetch_object();
 
         return $data;
+    }
+
+    public function getRaidCountAll()
+    {
+        $req = 'SELECT pid as pokemon_id, count, last_seen, latitude, longitude
+				FROM raid_stats
+				GROUP BY pid';
+        $result = $this->mysqli->query($req);
+        $array = array();
+        while ($data = $result->fetch_object()) {
+            $array[] = $data;
+        }
+
+        return $array;
     }
 
     ///////////////
@@ -480,8 +508,8 @@ final class QueryManagerMysqlRocketmap extends QueryManagerMysql
 				FROM gymdetails
 				LEFT JOIN gym
 				ON gymdetails.gym_id = gym.gym_id
-				".$where.$order.'
-				LIMIT '.($page * 10).',10';
+				".$where.$order."
+				LIMIT ".($page * 10).",10";
         $result = $this->mysqli->query($req);
         $gym_history = array();
         while ($data = $result->fetch_object()) {
@@ -715,7 +743,7 @@ final class QueryManagerMysqlRocketmap extends QueryManagerMysql
 				JOIN gym ON gym.gym_id = raid.gym_id
 				WHERE raid.end > UTC_TIMESTAMP()
 				ORDER BY raid.level DESC, raid.start
-				LIMIT ".($page * 10).',10';
+				LIMIT ".($page * 10).",10";
         $result = $this->mysqli->query($req);
         $raids = array();
         while ($data = $result->fetch_object()) {
@@ -892,6 +920,18 @@ final class QueryManagerMysqlRocketmap extends QueryManagerMysql
         }
 
         return $counts;
+    }
+
+
+    public function getTotalPokemonIV()
+    {
+        $req = 'SELECT COUNT(*) as total
+				FROM pokemon
+				WHERE disappear_time >= UTC_TIMESTAMP() AND cp IS NOT NULL';
+        $result = $this->mysqli->query($req);
+        $data = $result->fetch_object();
+
+        return $data;
     }
 
     public function getPokemonCountsLastDay()

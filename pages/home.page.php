@@ -96,6 +96,7 @@
 		</h2>
 		<div class="last-mon-js">
 		<?php
+        $timers = array();
         foreach ($recents as $key => $pokemon) {
             $id = $pokemon->id;
             $uid = $pokemon->uid;
