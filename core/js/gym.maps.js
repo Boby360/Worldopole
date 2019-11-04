@@ -4,7 +4,7 @@
 function initMap() {
 	$('.gym_details').hide();
 	//ensure that gmaps is loaded before loading infobox (nasty but usefull trick)
-	$.getScript('//cdn.rawgit.com/googlemaps/v3-utility-library/master/infobox/src/infobox.js').done(function() {
+	$.getScript('core/js/infobox_packed.js').done(function() {
 		$.ajax({
 			'type': 'GET',
 			'global': false,
