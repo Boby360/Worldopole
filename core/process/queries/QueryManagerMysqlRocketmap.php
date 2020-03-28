@@ -734,7 +734,7 @@ final class QueryManagerMysqlRocketmap extends QueryManagerMysql
     {
         $lvl = "";
         if ($level > 0) {
-            $lvl = " AND r.level = '".$level."'";
+            $lvl = " AND raid.level = '".$level."'";
         }
         $req = "SELECT raid.gym_id, raid.level, raid.pokemon_id, raid.cp, raid.move_1, raid.move_2,
 				CONVERT_TZ(raid.spawn, '+00:00', '".self::$time_offset."') AS spawn,
