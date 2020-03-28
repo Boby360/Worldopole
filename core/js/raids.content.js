@@ -21,7 +21,7 @@ $(function() {
 
 function loadRaids(level, page, pokeimg_path, location_url) {
 	$('.raidsLoader').show();
-	$('#raidsContainer').empty();
+	if (page == 0) $('#raidsContainer').empty();
 	$.ajax({
 		'type': 'GET',
 		'dataType': 'json',
