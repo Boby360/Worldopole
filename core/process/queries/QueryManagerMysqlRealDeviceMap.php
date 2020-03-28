@@ -420,12 +420,16 @@ class QueryManagerMysqlRealDeviceMap extends QueryManagerMysql
     // Raids
     ///////////
 
-    public function getAllRaids($page)
+    public function getAllRaids($level, $page)
     {
+        $lvl = "";
+        if ($level > 0) {
+            $lvl = " AND raid_level = '".$level."'";
+        }
         $limit = ' LIMIT '.($page * 10).',10';
         $req = 'SELECT id AS gym_id, raid_level AS level, raid_pokemon_id AS pokemon_id, raid_pokemon_cp AS cp, raid_pokemon_move_1 AS move_1, raid_pokemon_move_2 AS move_2, FROM_UNIXTIME(raid_spawn_timestamp) AS spawn, FROM_UNIXTIME(raid_battle_timestamp) AS start, FROM_UNIXTIME(raid_end_timestamp) AS end, FROM_UNIXTIME(updated) AS last_scanned, name, lat AS latitude, lon as longitude
                 FROM gym
-                WHERE raid_end_timestamp > UNIX_TIMESTAMP()
+                WHERE raid_end_timestamp > UNIX_TIMESTAMP()'.$lvl.'
                 ORDER BY raid_level DESC, raid_battle_timestamp'.$limit;
         $result = $this->mysqli->query($req);
         $raids = array();

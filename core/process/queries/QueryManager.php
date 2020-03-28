@@ -125,7 +125,7 @@ abstract class QueryManager
     abstract public function getHistoryForGym($page, $gym_id);
 
     // Raids
-    abstract public function getAllRaids($page);
+    abstract public function getAllRaids($level, $page);
 
     // Trainers
     abstract public function getTrainers($trainer_name, $team, $page, $ranking);
