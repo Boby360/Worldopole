@@ -3,24 +3,32 @@ $(function() {
 		var pokeimg_path = variables['system']['pokeimg_path'];
 		var location_url = variables['system']['location_url'] || 'https://maps.google.com/?q={latitude},{longitude}&ll={latitude},{longitude}&z=16';
 		$('.raidsLoader').hide();
+		var level = 0;
 		var page = 0;
-		loadRaids(page, pokeimg_path, location_url);
-		page++;
+		loadRaids(level, page, pokeimg_path, location_url);
 		$('#loadMoreButton').click(function() {
-			loadRaids(page, pokeimg_path, location_url);
 			page++;
+			loadRaids(level, page, pokeimg_path, location_url);
+		});
+		$('.raidLevel').click(function() {
+			level = $(this).data('level');
+			$(this).parent().find('.active').removeClass('active');
+			$(this).addClass('active');
+			loadRaids(level, page, pokeimg_path, location_url);
 		});
 	});
 });
 
-function loadRaids(page, pokeimg_path, location_url) {
+function loadRaids(level, page, pokeimg_path, location_url) {
 	$('.raidsLoader').show();
+	$('#raidsContainer').empty();
 	$.ajax({
 		'type': 'GET',
 		'dataType': 'json',
 		'url': 'core/process/aru.php',
 		'data': {
 			'type': 'raids',
+			'level': level,
 			'page': page
 		}
 	}).done(function(data) {
