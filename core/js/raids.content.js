@@ -11,6 +11,7 @@ $(function() {
 			loadRaids(level, page, pokeimg_path, location_url);
 		});
 		$('.raidLevel').click(function() {
+			page = 0;
 			level = $(this).data('level');
 			$(this).parent().find('.active').removeClass('active');
 			$(this).addClass('active');
