@@ -499,12 +499,16 @@ switch ($request) {
         break;
 
     case 'raids':
+        $level = '0';
         $page = '0';
+        if (isset($_GET['level'])) {
+            $level = $manager->getEcapedString($_GET['level']);
+        }
         if (isset($_GET['page'])) {
             $page = $manager->getEcapedString($_GET['page']);
         }
 
-        $datas = $manager->getAllRaids($page);
+        $datas = $manager->getAllRaids($level, $page);
         $i = 1;
         $raids = array();
         foreach ($datas as $data) {

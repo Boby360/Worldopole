@@ -580,14 +580,18 @@ class QueryManagerPostgresqlMonocleAlternate extends QueryManagerPostgresql
     // Raids
     ///////////
 
-    public function getAllRaids($page)
+    public function getAllRaids($level, $page)
     {
+        $lvl = "";
+        if ($level > 0) {
+            $lvl = " AND r.level = '".$level."'";
+        }
         $limit = ' LIMIT 10 OFFSET '.($page * 10);
         $req = 'SELECT r.fort_id AS gym_id, r.level AS level, r.pokemon_id AS pokemon_id, r.cp AS cp, r.move_1 AS move_1, r.move_2 AS move_2, TO_TIMESTAMP(r.time_spawn) AS spawn, TO_TIMESTAMP(r.time_battle) AS start, TO_TIMESTAMP(r.time_end) AS end, TO_TIMESTAMP(fs.updated) AS last_scanned, f.name, f.lat AS latitude, f.lon as longitude
 					FROM forts f
 					LEFT JOIN fort_sightings fs ON (fs.fort_id = f.id AND fs.last_modified = (SELECT MAX(last_modified) FROM fort_sightings fs2 WHERE fs2.fort_id=f.id))
 				 	LEFT JOIN raids r ON (r.fort_id = f.id AND r.time_end >= UNIX_TIMESTAMP())
-					WHERE r.time_end > EXTRACT(EPOCH FROM NOW())
+					WHERE r.time_end > EXTRACT(EPOCH FROM NOW())'.$lvl.'
 					ORDER BY r.level DESC, r.time_battle'.$limit;
         $result = pg_query($this->db, $req);
         $raids = array();

@@ -730,8 +730,12 @@ final class QueryManagerMysqlRocketmap extends QueryManagerMysql
     // Raids
     ///////////
 
-    public function getAllRaids($page)
+    public function getAllRaids($level, $page)
     {
+        $lvl = "";
+        if ($level > 0) {
+            $lvl = " AND raid.level = '".$level."'";
+        }
         $req = "SELECT raid.gym_id, raid.level, raid.pokemon_id, raid.cp, raid.move_1, raid.move_2,
 				CONVERT_TZ(raid.spawn, '+00:00', '".self::$time_offset."') AS spawn,
 				CONVERT_TZ(raid.start, '+00:00', '".self::$time_offset."') AS start,
@@ -741,7 +745,7 @@ final class QueryManagerMysqlRocketmap extends QueryManagerMysql
 				FROM raid
 				JOIN gymdetails ON gymdetails.gym_id = raid.gym_id
 				JOIN gym ON gym.gym_id = raid.gym_id
-				WHERE raid.end > UTC_TIMESTAMP()
+				WHERE raid.end > UTC_TIMESTAMP()".$lvl."
 				ORDER BY raid.level DESC, raid.start
 				LIMIT ".($page * 10).",10";
         $result = $this->mysqli->query($req);
