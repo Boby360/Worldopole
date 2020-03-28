@@ -33,17 +33,15 @@ function loadRaids(level, page, pokeimg_path, location_url) {
 			'page': page
 		}
 	}).done(function(data) {
-		var internalIndex = 0;
 		if (data.raids.length === 0) {
 			var raidInfos = $('<tr>');
 			raidInfos.append($('<td>', { colspan: 6, text: data.locale.noraids })).css('text-align', 'center');
 			$('#raidsContainer').append(raidInfos);
 		}
 		$.each(data.raids, function(gym_id, raid) {
-			internalIndex++;
 			printRaid(raid, pokeimg_path, location_url);
 		});
-		if (internalIndex < 10) {
+		if (data.raids.length < 10) {
 			$('#loadMoreButton').hide();
 		} else {
 			$('#loadMoreButton').removeClass('hidden');
