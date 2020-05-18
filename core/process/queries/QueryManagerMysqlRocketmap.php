@@ -974,8 +974,8 @@ final class QueryManagerMysqlRocketmap extends QueryManagerMysql
 				FROM pokemon
 				WHERE disappear_time > (UTC_TIMESTAMP() - INTERVAL '.$time.' HOUR)
 				AND latitude >= '.$minLatitude.' AND latitude < '.$maxLatitude.' AND longitude >= '.$minLongitude.' AND longitude < '.$maxLongitude.'
-				'.$pokemon_exclude_sql.' 
-				GROUP BY spawnpoint_id, pokemon_id 
+				'.$pokemon_exclude_sql.'
+				GROUP BY spawnpoint_id, pokemon_id
 				HAVING COUNT(pokemon_id) >= '.($time / 4).'
 				ORDER BY pokemon_id';
         $result = $this->mysqli->query($req);
@@ -989,8 +989,8 @@ final class QueryManagerMysqlRocketmap extends QueryManagerMysql
 
     public function getSpawnpointCount($minLatitude, $maxLatitude, $minLongitude, $maxLongitude)
     {
-        $req = 'SELECT COUNT(*) as total 
-				FROM spawnpoint
+        $req = 'SELECT COUNT(*) as total
+				FROM trs_spawn
 				WHERE latitude >= '.$minLatitude.' AND latitude < '.$maxLatitude.' AND longitude >= '.$minLongitude.' AND longitude < '.$maxLongitude;
         $result = $this->mysqli->query($req);
         $data = $result->fetch_object();
