@@ -72,7 +72,7 @@ function printRaid(raid, pokeimg_path, location_url) {
 	var details = '';
 	var raidPokemon = $('<div>', { class: 'pokemon-single' });
 	if (raid.pokemon_id > 0) {
-		if (raid.pokemon_id < 493) {
+		if (raid.pokemon_id < 650) {
 			raidPokemon.append(
 				$('<a>', { href: 'pokemon/' + raid.pokemon_id }).append($('<img />', { src: pokeimg_path.replace('{pokeid}', raid.pokemon_id) }))
 			);
