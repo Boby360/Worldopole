@@ -7,11 +7,7 @@
 				<small><?= sprintf($locales->SITE_CLAIM, $config->infos->city); ?></small>
 			</h1>
 			<br>
-			<h4>Bei Fragen oder Anregungen schreib einfach eine Email an <a href="mailto:help@pogochemnitz.ovh">help@pogochemnitz.ovh</a><br>oder komme in unsere neue <a href="https://t.me/joinchat/AAAAAEJgykPimJ0T20yqnA" target="_blank">PoGo Chemnitz Talk</a> Telegram Gruppe</h4>
-			<br>
-			<h4>Zur Abstimmung von gemeinsamen Raids haben wir die <a href="https://t.me/joinchat/C0877UOy3DPmRDL98ouWVg" target="_blank">PoGo Chemnitz Raid Talk</a> Telegram Gruppe eingerichtet.</h4>
-			<br>
-			<h3>Probiere auch unsere <a href="/PoGoChemnitz.v1.0.3.apk">Android App</a></h3>
+			<h4>Bei Fragen oder Anregungen schreib einfach eine Email an <a href="mailto:help@pogochemnitz.ovh">help@pogochemnitz.ovh</a><br>oder komme in unsere <a href="https://t.me/PoGoChemnitzTalk" target="_blank">PoGo Chemnitz Talk</a> Telegram Gruppe</h4>
 		</div>
 	</div>
 </header>

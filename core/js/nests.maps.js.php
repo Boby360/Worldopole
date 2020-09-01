@@ -135,70 +135,73 @@ function initMap() {
 
 			for (var i = 0; i < nestData.length; i++) {
 
-                var markerPoly = new google.maps.Polygon({
-                    paths: nestData[i].geo,
-                    strokeColor: '#0000FF',
-                    strokeOpacity: 0.4,
-                    strokeWeight: 2,
-                    fillColor: '#0000FF',
-                    fillOpacity: 0.1,
-                    map: map,
-                    zIndex: 0
-                });
+                if (nestData[i].pid) {
+                    var markerPoly = new google.maps.Polygon({
+                        paths: nestData[i].geo,
+                        strokeColor: '#0000FF',
+                        strokeOpacity: 0.4,
+                        strokeWeight: 2,
+                        fillColor: '#0000FF',
+                        fillOpacity: 0.1,
+                        map: map,
+                        zIndex: 0
+                    });
 
-				var marker = new google.maps.Marker({
-					position: getCenter(nestData[i]),
-					map: map,
-					icon: getImage(nestData[i], pokeimg_path),
-                    zIndex: nestData[i].count
-				});
+                    google.maps.event.addListener(markerPoly, 'click', (function(marker, i) {
+                        return function() {
+                            infoWindow.setContent(getParkInfo(nestData[i]));
+                            infoWindow.open(map, marker);
+                            infoWindow.isClickOpen = true;
+                        }
+                    })(marker, i));
 
-				google.maps.event.addListener(markerPoly, 'click', (function(marker, i) {
-					return function() {
-						infoWindow.setContent(getParkInfo(nestData[i]));
-						infoWindow.open(map, marker);
-						infoWindow.isClickOpen = true;
+                    google.maps.event.addListener(markerPoly, 'mouseover', (function(marker, i) {
+                        return function() {
+                            infoWindow.setContent(getParkInfo(nestData[i]));
+                            infoWindow.open(map, marker);
+                            infoWindow.isClickOpen = false;
+                        }
+                    })(marker, i));
+
+                    markerPoly.addListener('mouseout', function() {
+                        if (infoWindow.isClickOpen === false) {
+                            infoWindow.close();
                     }
-				})(marker, i));
+                    });
 
-				google.maps.event.addListener(markerPoly, 'mouseover', (function(marker, i) {
-					return function() {
-						infoWindow.setContent(getParkInfo(nestData[i]));
-						infoWindow.open(map, marker);
-						infoWindow.isClickOpen = false;
-					}
-				})(marker, i));
+                    nestMarkers.push(markerPoly);
 
-                markerPoly.addListener('mouseout', function() {
-					if (infoWindow.isClickOpen === false) {
-						infoWindow.close();
-                  }
-				});
+                    var marker = new google.maps.Marker({
+                        position: getCenter(nestData[i]),
+                        map: map,
+                        icon: getImage(nestData[i], pokeimg_path),
+                        zIndex: nestData[i].count
+                    });
 
-                google.maps.event.addListener(marker, 'click', (function(marker, i) {
-                    return function() {
-                        infoWindow.setContent(getParkInfo(nestData[i]));
-                        infoWindow.open(map, marker);
-                        infoWindow.isClickOpen = true;
-                      }
-                })(marker, i));
+                    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                        return function() {
+                            infoWindow.setContent(getParkInfo(nestData[i]));
+                            infoWindow.open(map, marker);
+                            infoWindow.isClickOpen = true;
+                        }
+                    })(marker, i));
 
-                google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
-                    return function() {
-                        infoWindow.setContent(getParkInfo(nestData[i]));
-                        infoWindow.open(map, marker);
-                        infoWindow.isClickOpen = false;
-                    }
-                })(marker, i));
+                    google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
+                        return function() {
+                            infoWindow.setContent(getParkInfo(nestData[i]));
+                            infoWindow.open(map, marker);
+                            infoWindow.isClickOpen = false;
+                        }
+                    })(marker, i));
 
-                marker.addListener('mouseout', function() {
-                    if (infoWindow.isClickOpen === false) {
-                        infoWindow.close();
-                    }
-                });
+                    marker.addListener('mouseout', function() {
+                        if (infoWindow.isClickOpen === false) {
+                            infoWindow.close();
+                        }
+                    });
 
-				nestMarkers.push(markerPoly)
-                nestMarkers.push(marker);
+                    nestMarkers.push(marker);
+                }
 			}
 		});
 
