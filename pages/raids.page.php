@@ -16,6 +16,7 @@
 		<a class="btn btn-default raidLevel" data-level="3"><?= $locales->RAIDS_TABLE_LEVEL; ?> 3</a>
 		<a class="btn btn-default raidLevel" data-level="4"><?= $locales->RAIDS_TABLE_LEVEL; ?> 4</a>
 		<a class="btn btn-default raidLevel" data-level="5"><?= $locales->RAIDS_TABLE_LEVEL; ?> 5</a>
+		<a class="btn btn-default raidLevel" data-level="6"><?= $locales->RAIDS_TABLE_LEVEL; ?> 6</a>
 	</div>
 </div>
 

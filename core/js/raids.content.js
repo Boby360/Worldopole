@@ -61,7 +61,7 @@ function printRaid(raid, pokeimg_path, location_url) {
 	var raidStart = new Date(raid.start.replace(/-/g, '/'));
 	var raidEnd = new Date(raid.end.replace(/-/g, '/'));
 
-	var raidInfos = $('<tr>', { id: 'raidInfos_' + raid.gym_id }).css('border-bottom', '2px solid ' + (raid.level > 2 ? '#fad94c' : '#e872b7'));
+	var raidInfos = $('<tr>', { id: 'raidInfos_' + raid.gym_id }).css('border-bottom', '2px solid ' + (raid.level > 5 ? '#963434' : raid.level > 4 ? '#b8a5dd' : raid.level > 2 ? '#fad94c' : '#e872b7'));
 	raidInfos.append($('<td>', { id: 'raidLevel_' + raid.gym_id, class: 'level', text: '★'.repeat(raid.level) }));
 	raidInfos.append($('<td>', { id: 'raidTime_' + raid.gym_id, text: raid.starttime + ' - ' + raid.endtime }));
 	raidInfos.append($('<td>', { id: 'raidRemaining_' + raid.gym_id, class: 'pokemon-remaining' }).append($('<span>', { class: (raidStart < now ? 'current' : 'upcoming') })));
