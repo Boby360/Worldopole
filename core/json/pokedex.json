@@ -11632,6 +11632,1392 @@
                 "Fighting",
                 "Ghost"
             ]
+        },
+		        "803": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Poison"
+            ]
+        },
+		        "804": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Poison",
+                "Dragon"
+            ]
+        },
+		        "805": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Rock",
+                "Steel"
+            ]
+        },
+		        "806": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Fire",
+                "Ghost"
+            ]
+        },
+		        "807": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Electric"
+            ]
+        },
+		        "808": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Steel"
+            ]
+        },
+		        "809": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Steel"
+            ]
+        },
+		        "810": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Grass"
+            ]
+        },
+		        "811": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Grass"
+            ]
+        },
+		        "812": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Grass"
+            ]
+        },
+		        "813": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Fire"
+            ]
+        },
+		        "814": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Fire"
+            ]
+        },
+		        "815": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Fire"
+            ]
+        },
+		        "816": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Water",
+            ]
+        },
+		        "817": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Water"
+            ]
+        },
+		        "818": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Water"
+            ]
+        },
+		        "819": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Normal"
+            ]
+        },
+		        "820": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Normal"
+            ]
+        },
+		        "821": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Flying"
+            ]
+        },
+		        "822": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Flying"
+            ]
+        },
+		        "823": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Flying",
+                "Steel"
+            ]
+        },
+		        "824": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Bug"
+            ]
+        },
+		        "825": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Bug",
+                "Psychic"
+            ]
+        },
+		        "826": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Bug",
+                "Psychic"
+            ]
+        },
+		        "827": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Dark",
+            ]
+        },
+		        "828": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Dark"
+            ]
+        },
+		        "829": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Grass"
+            ]
+        },
+		        "830": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Grass"
+            ]
+        },
+		        "831": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Normal"
+            ]
+        },
+		        "832": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Normal"
+            ]
+        },
+		        "833": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Water"
+            ]
+        },
+		        "834": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Water",
+                "Rock"
+            ]
+        },
+		        "835": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Electric"
+            ]
+        },
+		        "836": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Electric"
+            ]
+        },
+		        "837": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Rock",
+            ]
+        },
+		        "838": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Rock",
+                "Fire"
+            ]
+        },
+		        "839": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Rock",
+                "Fire"
+            ]
+        },
+		        "840": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Grass",
+                "Dragon"
+            ]
+        },
+		        "841": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Grass",
+                "Dragon"
+            ]
+        },
+		        "842": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Grass",
+                "Dragon"
+            ]
+        },
+		        "843": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Ground"
+            ]
+        },
+		        "844": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Ground"
+            ]
+        },
+		        "845": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Flying",
+                "Water"
+            ]
+        },
+		        "846": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Water"
+            ]
+        },
+		        "847": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Water"
+            ]
+        },
+		        "848": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Electric",
+                "Poison"
+            ]
+        },
+		        "849": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Electric",
+                "Poison"
+            ]
+        },
+		        "850": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Fire",
+                "Bug"
+            ]
+        },
+		        "851": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Fire",
+                "Bug"
+            ]
+        },
+		        "852": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Fighting"
+            ]
+        },
+		        "853": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Fighting"
+            ]
+        },
+		        "854": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Ghost"
+            ]
+        },
+		        "855": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Ghost"
+            ]
+        },
+		        "856": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Psychic"
+            ]
+        },
+		        "857": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Psychic"
+            ]
+        },
+		        "858": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Psychic",
+                "Fairy"
+            ]
+        },
+		        "859": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Dark",
+                "Fairy"
+            ]
+        },
+		        "860": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Dark",
+                "Fairy"
+            ]
+        },
+		        "861": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Dark",
+                "Fairy"
+            ]
+        },
+		        "862": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Dark",
+                "Normal"
+            ]
+        },
+		        "863": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Steel"
+            ]
+        },
+		        "864": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Ghost"
+            ]
+        },
+		        "865": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Fighting"
+            ]
+        },
+		        "866": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Ice",
+                "Psychic"
+            ]
+        },
+		        "867": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Ground",
+                "Ghost"
+            ]
+        },
+		        "868": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Fairy"
+            ]
+        },
+		        "869": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Fairy"
+            ]
+        },
+		        "870": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Fighting"
+            ]
+        },
+		        "871": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Electric"
+            ]
+        },
+		        "872": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Ice",
+                "Bug"
+            ]
+        },
+		        "873": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Ice",
+                "Bug"
+            ]
+        },
+		        "874": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Rock"
+            ]
+        },
+		        "875": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Ice"
+            ]
+        },
+		        "876": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Psychic",
+                "Normal"
+            ]
+        },
+		        "877": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Electric",
+                "Dark"
+            ]
+        },
+		        "878": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Steel"
+            ]
+        },
+		        "879": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Steel"
+            ]
+        },
+		        "880": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Electric",
+                "Dragon"
+            ]
+        },
+		        "881": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Electric",
+                "Ice"
+            ]
+        },
+		        "882": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Water",
+                "Dragon"
+            ]
+        },
+		        "883": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Water",
+                "Ice"
+            ]
+        },
+		        "884": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Steel",
+                "Dragon"
+            ]
+        },
+		        "885": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Dragon",
+                "Ghost"
+            ]
+        },
+		        "886": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Dragon",
+                "Ghost"
+            ]
+        },
+		        "887": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Dragon",
+                "Ghost"
+            ]
+        },
+		        "888": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Fairy",
+                "Steel"
+            ]
+        },
+		        "889": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Fighting",
+                "Steel"
+            ]
+        },
+		        "890": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Poison",
+                "Dragon"
+            ]
+        },
+		        "891": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Fighting"
+            ]
+        },
+		        "892": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Fighting",
+                "Water"
+            ]
+        },
+		        "893": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Dark",
+                "Grass"
+            ]
+        },
+		        "894": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Electric"
+            ]
+        },
+		        "895": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Dragon"
+            ]
+        },
+		        "896": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Ice"
+            ]
+        },
+		        "897": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Ghost"
+            ]
+        },
+		        "898": {
+            "atk": 1,
+            "candy_id": 802,
+            "charge_move": "?",
+            "def": 1,
+            "max_cp": 1,
+            "max_hp": 1,
+            "quick_move": "?",
+            "rating": 1,
+            "sta": 1,
+            "types": [
+                "Psychic",
+                "Grass"
+            ]
         }
     },
     "typecolors": {
