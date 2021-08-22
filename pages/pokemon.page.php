@@ -29,8 +29,7 @@
 
 		<div class="col-sm-10 text-center">
 
-			<h1>#<?= sprintf('%03d <strong>%s</strong>', $pokemon->id, $pokemon->name); ?><br>
-			<small>[<?= $pokemon->rarity; ?>]</small></h1>
+			<h1>#<?= sprintf('%03d <strong>%s</strong>', $pokemon->id, $pokemon->name); ?></h1>
 
 			<p id="share">
 				<a href="https://www.facebook.com/sharer/sharer.php?u=<?= HOST_URL; ?>pokemon/<?= $pokemon->id; ?>" target="_blank" class="btn btn-primary" title="<?php printf($locales->SHARE, 'Facebook'); ?>" ><?php printf($locales->SHARE, ''); ?> <i class="fa fa-facebook" aria-hidden="true"></i></a>
@@ -186,14 +185,6 @@
 				<td class="col-md-8 col-xs-8"><strong><?= $locales->POKEMON_RAID_AMOUNT; ?></strong></td>
 				<td class="col-md-4 col-xs-4"><?= $pokemon->raid_count; ?> <?= $locales->SEEN; ?></td>
 			</tr>
-			<tr>
-				<td class="col-md-8 col-xs-8"><strong><?= $locales->POKEMON_QUICK; ?></strong></td>
-				<td class="col-md-4 col-xs-4"><?= $pokemon->quick_move; ?></td>
-			</tr>
-			<tr>
-				<td class="col-md-8 col-xs-8"><strong><?= $locales->POKEMON_SPECIAL; ?></strong> </td>
-				<td class="col-md-4 col-xs-4"><?= $pokemon->charge_move; ?></td>
-			</tr>
 
 		</table>
 		</div>
@@ -204,11 +195,8 @@
 <div class="row area text-center subnav">
 	<div class="btn-group" role="group">
 		<a class="btn btn-default page-scroll" href="pokemon/<?= $pokemon->id; ?>#where"><i class="fa fa-map-marker"></i> <?= $locales->POKEMON_MAP; ?></a>
-		<a class="btn btn-default page-scroll" href="pokemon/<?= $pokemon->id; ?>#stats"><i class="fa fa-pie-chart"></i> <?= $locales->POKEMON_STATS; ?></a>
 		<a class="btn btn-default page-scroll" href="pokemon/<?= $pokemon->id; ?>#evolve"><i class="fa fa-flash"></i> <?= $locales->POKEMON_EVOLUTIONS; ?></a>
-		<a class="btn btn-default page-scroll" href="pokemon/<?= $pokemon->id; ?>#family"><i class="fa fa-share-alt"></i> <?= $locales->POKEMON_FAMILY; ?></a>
-		<a class="btn btn-default page-scroll" href="pokemon/<?= $pokemon->id; ?>#top50"><i class="fa fa-list"></i> Top50</a>
-		<a class="btn btn-default page-scroll" href="pokemon/<?= $pokemon->id; ?>#trainer"><i class="fa fa-users"></i> <?= $locales->TRAINERS; ?></a>
+		<a class="btn btn-default page-scroll" href="pokemon/<?= $pokemon->id; ?>#top50"><i class="fa fa-list"></i> Top10</a>
 	</div>
 </div>
 
@@ -221,16 +209,11 @@
 <div class="row text-center subnav">
 	<div class="btn-group" role="group">
 		<a class="btn btn-default active" id="heatmapSelector"><i class="fa fa-thermometer-three-quarters"></i> <?= $locales->POKEMON_HEATMAP_BUTTON; ?></a>
-		<a class="btn btn-default " id="liveSelector"><i class="fa fa-eye"></i> <?= $locales->POKEMON_LIVE_BUTTON; ?></a>
 	</div>
 </div>
 <div class="row" style="margin-bottom:20px">
 	<div class="col-md-12" id="timeFilterContainer">
 		<div id="timeSelector">
-		</div>
-	</div>
-	<div class="col-md-12" id="liveFilterContainer">
-		<div id="liveFilterSelector">
 		</div>
 	</div>
 	<div class="col-md-12 text-center" id="loaderContainer">
@@ -245,54 +228,6 @@
 </div>
 
 
-
-
-<div class="row area" id="stats">
-
-	<h2 class="text-center sub-title"><strong><?= $pokemon->name; ?> </strong><?= $locales->POKEMON_BREAKDOWN; ?></h2>
-
-	<!-- Rating -->
-	<p class="text-center stats-data"><big><?= $pokemon->rating; ?> / 10</big><br><?= $locales->POKEMON_RATING; ?></p>
-
-	<!-- CP Datas -->
-	<div class="col-md-3 stats-data">
-
-		<p><big><?= $pokemon->max_cp; ?></big><br/><?= $locales->POKEMON_CP; ?></p>
-
-		<div class="progress" style="margin-bottom:0;">
-			<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="<?= $pokemon->max_cp_percent; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?= $pokemon->max_cp_percent; ?>%;min-width:30%;">
-				<?= $pokemon->max_cp_percent; ?> %
-			</div>
-		</div>
-
-		<?= $locales->POKEMON_COMPGAME; ?>
-
-	</div>
-
-	<!-- Chart -->
-	<div class="col-md-6">
-
-		<canvas id="polar_chart" width="100%" height="60"></canvas>
-
-	</div>
-	<!-- /Chart -->
-
-	<!-- PV Datas -->
-	<div class="col-md-3 stats-data">
-
-		<p><big><?= $pokemon->max_hp; ?></big><br/><?= $locales->POKEMON_HP; ?></p>
-
-		<div class="progress" style="margin-bottom:0;">
-			<div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="<?= $pokemon->max_hp_percent; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?= $pokemon->max_hp_percent; ?>%;min-width:30%;">
-				<?= $pokemon->max_hp_percent; ?> %
-			</div>
-		</div>
-
-		<?= $locales->POKEMON_COMPGAME; ?>
-
-	</div>
-
-</div>
 
 <div class="row area" id="evolve">
 
@@ -366,41 +301,6 @@
 	</div>
 </div>
 
-
-<div class="row area" id="family">
-
-	<div class="col-md-12">
-
-		<h2 class="text-center sub-title"><strong><?= $pokemon->name; ?></strong><?= $locales->POKEMON_FAMILYTITLE; ?></h2>
-
-		<div class="row">
-
-		<?php
-
-        foreach ($related as $related_mon) {
-            ?>
-
-			<div class="col-md-1 col-sm-2 col-xs-3 pokemon-single">
-
-				<a href="pokemon/<?= $related_mon; ?>">
-					<img src="<?= $pokemons->pokemon->$related_mon->img; ?>" alt="<?= $pokemons->pokemon->$related_mon->name; ?>" class="img-responsive">
-				</a>
-
-			</div>
-
-
-			<?php
-        }
-
-        ?>
-
-		</div>
-
-	</div>
-
-</div>
-
-
 <?php if (!empty($top)) {
             ?>
 	<div class="row area" id="top50">
@@ -464,48 +364,5 @@
 	</div>
 </div>
 
-<?php
-        } if ($toptrainer) {
-            ?>
-	<div class="row" id="trainer">
-		<div class="col-md-12">
-			<h2 class="text-center sub-title"><?= $locales->POKEMON_TOPTRAINER; ?> <strong><?= $pokemon->name; ?></strong></h2>
-			<div class="table-responsive">
-				<table class="table">
-					<thead>
-						<tr>
-							<th>#</th>
-							<th><a href="pokemon/<?= $pokemon->id; ?>?order=trainer_name<?php echo 'trainer_name' == $best_order && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#trainer"><?= $locales->NAME; ?> <i class="fa fa-sort" aria-hidden="true"></i></a></th>
-							<th><a href="pokemon/<?= $pokemon->id; ?>?order=cp<?php echo 'cp' == $best_order && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#trainer">CP <i class="fa fa-sort" aria-hidden="true"></i></a></th>
-							<th><a href="pokemon/<?= $pokemon->id; ?>?order=IV<?php echo 'IV' == $best_order && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#trainer">IV <i class="fa fa-sort" aria-hidden="true"></i></a></th>
-							<th><a href="pokemon/<?= $pokemon->id; ?>?order=move_1<?php echo 'move_1' == $best_order && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#trainer">1. <?= $locales->MOVE; ?> <i class="fa fa-sort" aria-hidden="true"></i></a></th>
-							<th><a href="pokemon/<?= $pokemon->id; ?>?order=move_2<?php echo 'move_2' == $best_order && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#trainer">2. <?= $locales->MOVE; ?> <i class="fa fa-sort" aria-hidden="true"></i></a></th>
-							<th><a href="pokemon/<?= $pokemon->id; ?>?order=last_seen<?php echo 'last_seen' == $best_order && !isset($_GET['direction']) ? '&direction=desc' : ''; ?>#trainer"><?= $locales->POKEMON_TABLE_SEEN; ?> <i class="fa fa-sort" aria-hidden="true"></i></a></th>
-						</tr>
-					</thead>
-					<tbody>
-						<?php
-                        $i = 0;
-            foreach ($toptrainer as $besttrainer) {
-                ++$i;
-                $move1 = $besttrainer->move_1;
-                $move2 = $besttrainer->move_2; ?>
-
-							<tr>
-								<td><?= $i; ?></td>
-								<td><a href="trainer?name=<?=$besttrainer->trainer_name; ?>"><?=$besttrainer->trainer_name; ?> </a></td>
-								<td><?= $besttrainer->cp; ?></td>
-								<td><?= $besttrainer->IV; ?> %</td>
-								<td><?php echo $move->$move1->name; ?></td>
-								<td><?php echo $move->$move2->name; ?></td>
-								<td><?=$besttrainer->lasttime; ?></td>
-							</tr>
-							<?php
-            } ?>
-				</tbody>
-			</table>
-		</div>
-	</div>
-</div>
 <?php
         } ?>
