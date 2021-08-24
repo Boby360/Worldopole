@@ -1532,11 +1532,11 @@
       "description": "Es heißt, Groudon sei die Personifizierung des Landes. Legenden zufolge hat es in seinem Bestreben, sich die Naturenergie anzueignen, viele Male gegen Kyogre gekämpft. ",
       "name": "Groudon"
     },
-	"384": {
+    "384": {
       "description": "Es heißt, Rayquaza lebe bereits seit mehreren hundert Millionen Jahren. Legenden zufolge hat es den einstigen Konflikt zwischen Groudon und Kyogre beendet. ",
       "name": "Rayquaza"
     },
-	"385": {
+    "385": {
       "description": "Einer Legende nach erfüllt Jirachi jeden Wunsch, der auf einen Notizzettel an seinem Kopf geschrieben wird. Wenn dieses Pokémon Gefahr wittert, kämpft es bereits, bevor es überhaupt aufgewacht ist. ",
       "name": "Jirachi"
     },
@@ -2014,7 +2014,7 @@
     },
     "504": {
       "description": "Hortet in seinen Backentaschen Futter, um tagelang Wache stehen zu können, und gibt Kameraden über seine Rute Signale. ",
-      "name": "Nagelotz "
+      "name": "Nagelotz"
     },
     "505": {
       "description": "Es kann mit einer körpereigenen Substanz seine Augen und seinen Torso aufleuchten lassen, um Gegner zu erschrecken. ",
@@ -2166,7 +2166,7 @@
     },
     "542": {
       "description": "Begegnet es einem jungen Pokémon, näht es ihm mit den klebrigen Fäden aus seinem Mund ein Kleid aus Blättern. ",
-      "name": "Matrifol "
+      "name": "Matrifol"
     },
     "543": {
       "description": "Mit seinen Ruten und den Fühlern an seinem Kopf tastet es die Umgebung ab. Ein überaus aggressiver Geselle. ",
@@ -3207,6 +3207,390 @@
     "802": {
       "description": "Da es sich im Schatten verbergen und so für menschliche Augen unsichtbar werden kann, war seine Existenz lange bezweifelt worden.",
       "name": "Marshadow"
+    },
+    "803": {
+      "description": "",
+      "name": "Venicro"
+    },
+    "804": {
+      "description": "",
+      "name": "Agoyon"
+    },
+    "805": {
+      "description": "",
+      "name": "Muramura"
+    },
+    "806": {
+      "description": "",
+      "name": "Kopplosio"
+    },
+    "807": {
+      "description": "",
+      "name": "Zeraora"
+    },
+    "808": {
+      "description": "",
+      "name": "Meltan"
+    },
+    "809": {
+      "description": "",
+      "name": "Melmetal"
+    },
+    "810": {
+      "description": "",
+      "name": "Chimpep"
+    },
+    "811": {
+      "description": "",
+      "name": "Chimstix"
+    },
+    "812": {
+      "description": "",
+      "name": "Gortrom"
+    },
+    "813": {
+      "description": "",
+      "name": "Hopplo"
+    },
+    "814": {
+      "description": "",
+      "name": "Kickerlo"
+    },
+    "815": {
+      "description": "",
+      "name": "Liberlo"
+    },
+    "816": {
+      "description": "",
+      "name": "Memmeon"
+    },
+    "817": {
+      "description": "",
+      "name": "Phlegleon"
+    },
+    "818": {
+      "description": "",
+      "name": "Intelleon"
+    },
+    "819": {
+      "description": "",
+      "name": "Raffel"
+    },
+    "820": {
+      "description": "",
+      "name": "Schlaraffel"
+    },
+    "821": {
+      "description": "",
+      "name": "Meikro"
+    },
+    "822": {
+      "description": "",
+      "name": "Kranoviz"
+    },
+    "823": {
+      "description": "",
+      "name": "Krarmor"
+    },
+    "824": {
+      "description": "",
+      "name": "Sensect"
+    },
+    "825": {
+      "description": "",
+      "name": "Keradar"
+    },
+    "826": {
+      "description": "",
+      "name": "Maritellit"
+    },
+    "827": {
+      "description": "",
+      "name": "Kleptifux"
+    },
+    "828": {
+      "description": "",
+      "name": "Gaunux"
+    },
+    "829": {
+      "description": "",
+      "name": "Cottini"
+    },
+    "830": {
+      "description": "",
+      "name": "Cottomi"
+    },
+    "831": {
+      "description": "",
+      "name": "Wolly"
+    },
+    "832": {
+      "description": "",
+      "name": "Zwollock"
+    },
+    "833": {
+      "description": "",
+      "name": "Kamehaps"
+    },
+    "834": {
+      "description": "",
+      "name": "Kamalm"
+    },
+    "835": {
+      "description": "",
+      "name": "Voldi"
+    },
+    "836": {
+      "description": "",
+      "name": "Bellektro"
+    },
+    "837": {
+      "description": "",
+      "name": "Klonkett"
+    },
+    "838": {
+      "description": "",
+      "name": "Wagong"
+    },
+    "839": {
+      "description": "",
+      "name": "Montecarbo"
+    },
+    "840": {
+      "description": "",
+      "name": "Knapfel"
+    },
+    "841": {
+      "description": "",
+      "name": "Drapfel"
+    },
+    "842": {
+      "description": "",
+      "name": "Schlapfel"
+    },
+    "843": {
+      "description": "",
+      "name": "Salanga"
+    },
+    "844": {
+      "description": "",
+      "name": "Sanaconda"
+    },
+    "845": {
+      "description": "",
+      "name": "Urgl"
+    },
+    "846": {
+      "description": "",
+      "name": "Pikuda"
+    },
+    "847": {
+      "description": "",
+      "name": "Barrakiefa"
+    },
+    "848": {
+      "description": "",
+      "name": "Toxel"
+    },
+    "849": {
+      "description": "",
+      "name": "Riffex"
+    },
+    "850": {
+      "description": "",
+      "name": "Thermopod"
+    },
+    "851": {
+      "description": "",
+      "name": "Infernopod"
+    },
+    "852": {
+      "description": "",
+      "name": "Klopptopus"
+    },
+    "853": {
+      "description": "",
+      "name": "Kaocto"
+    },
+    "854": {
+      "description": "",
+      "name": "Fatalitee"
+    },
+    "855": {
+      "description": "",
+      "name": "Mortipot"
+    },
+    "856": {
+      "description": "",
+      "name": "Brimova"
+    },
+    "857": {
+      "description": "",
+      "name": "Brimano"
+    },
+    "858": {
+      "description": "",
+      "name": "Silembrim"
+    },
+    "859": {
+      "description": "",
+      "name": "Bähmon"
+    },
+    "860": {
+      "description": "",
+      "name": "Pelzebub"
+    },
+    "861": {
+      "description": "",
+      "name": "Olangaar"
+    },
+    "862": {
+      "description": "",
+      "name": "Barrikadax"
+    },
+    "863": {
+      "description": "",
+      "name": "Mauzinger"
+    },
+    "864": {
+      "description": "",
+      "name": "Gorgasonn"
+    },
+    "865": {
+      "description": "",
+      "name": "Lauchzelot"
+    },
+    "866": {
+      "description": "",
+      "name": "Pantifrost"
+    },
+    "867": {
+      "description": "",
+      "name": "Oghnatoll"
+    },
+    "868": {
+      "description": "",
+      "name": "Hokumil"
+    },
+    "869": {
+      "description": "",
+      "name": "Pokusan"
+    },
+    "870": {
+      "description": "",
+      "name": "Legios"
+    },
+    "871": {
+      "description": "",
+      "name": "Britzigel"
+    },
+    "872": {
+      "description": "",
+      "name": "Snomnom"
+    },
+    "873": {
+      "description": "",
+      "name": "Mottineva"
+    },
+    "874": {
+      "description": "",
+      "name": "Humanolith"
+    },
+    "875": {
+      "description": "",
+      "name": "Kubuin"
+    },
+    "876": {
+      "description": "",
+      "name": "Servol"
+    },
+    "877": {
+      "description": "",
+      "name": "Morpeko"
+    },
+    "878": {
+      "description": "",
+      "name": "Kupfanti"
+    },
+    "879": {
+      "description": "",
+      "name": "Patinaraja"
+    },
+    "880": {
+      "description": "",
+      "name": "Lectragon"
+    },
+    "881": {
+      "description": "",
+      "name": "Lecryodon"
+    },
+    "882": {
+      "description": "",
+      "name": "Pescragon"
+    },
+    "883": {
+      "description": "",
+      "name": "Pescryodon"
+    },
+    "884": {
+      "description": "",
+      "name": "Duraludon"
+    },
+    "885": {
+      "description": "",
+      "name": "Grolldra"
+    },
+    "886": {
+      "description": "",
+      "name": "Phandra"
+    },
+    "887": {
+      "description": "",
+      "name": "Katapuldra"
+    },
+    "888": {
+      "description": "",
+      "name": "Zacian"
+    },
+    "889": {
+      "description": "",
+      "name": "Zamazenta"
+    },
+    "890": {
+      "description": "",
+      "name": "Endynalos"
+    },
+    "891": {
+      "description": "",
+      "name": "Dakuma"
+    },
+    "892": {
+      "description": "",
+      "name": "Wulaosu"
+    },
+    "893": {
+      "description": "",
+      "name": "Zarude"
+    },
+    "894": {
+      "description": "",
+      "name": "Regieleki"
+    },
+    "895": {
+      "description": "",
+      "name": "Regidrago"
+    },
+    "896": {
+      "description": "",
+      "name": "Polaross"
+    },
+    "897": {
+      "description": "",
+      "name": "Phantoross"
+    },
+    "898": {
+      "description": "",
+      "name": "Coronospa"
     }
   },
   "quick_moves": {

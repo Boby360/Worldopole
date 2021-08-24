@@ -1532,11 +1532,11 @@
       "description": "Groudon is said to be the personification of the land itself. Legends tell of its many clashes against Kyogre, as each sought to gain the power of nature.",
       "name": "Groudon"
     },
-	"384": {
+    "384": {
       "description": "Rayquaza is said to have lived for hundreds of millions of years. Legends remain of how it put to rest the clash between Kyogre and Groudon. ",
       "name": "Rayquaza"
     },
-	"385": {
+    "385": {
       "description": "A legend states that Jirachi will make true any wish that is written on notes attached to its head when it awakens. If this Pokémon senses danger, it will fight without awakening. ",
       "name": "Jirachi"
     },
@@ -2902,7 +2902,7 @@
     },
     "726": {
       "description": "At its throat, it bears a bell of fire. The bell rings brightly whenever this Pokémon spits fire. ",
-      "name": "Torracat "
+      "name": "Torracat"
     },
     "727": {
       "description": "This Pokémon has a violent, selfish disposition. If it's not in the mood to listen, it will ignore its Trainer's orders with complete nonchalance. ",
@@ -3207,6 +3207,390 @@
     "802": {
       "description": "Able to conceal itself in shadows, it never appears before humans, so its very existence was the stuff of myth.",
       "name": "Marshadow"
+    },
+    "803": {
+      "description": "",
+      "name": "Poipole"
+    },
+    "804": {
+      "description": "",
+      "name": "Naganadel"
+    },
+    "805": {
+      "description": "",
+      "name": "Stakataka"
+    },
+    "806": {
+      "description": "",
+      "name": "Blacephalon"
+    },
+    "807": {
+      "description": "",
+      "name": "Zeraora"
+    },
+    "808": {
+      "description": "",
+      "name": "Meltan"
+    },
+    "809": {
+      "description": "",
+      "name": "Melmetal"
+    },
+    "810": {
+      "description": "",
+      "name": "Grookey"
+    },
+    "811": {
+      "description": "",
+      "name": "Thwackey"
+    },
+    "812": {
+      "description": "",
+      "name": "Rillaboom"
+    },
+    "813": {
+      "description": "",
+      "name": "Scorbunny"
+    },
+    "814": {
+      "description": "",
+      "name": "Raboot"
+    },
+    "815": {
+      "description": "",
+      "name": "Cinderace"
+    },
+    "816": {
+      "description": "",
+      "name": "Sobble"
+    },
+    "817": {
+      "description": "",
+      "name": "Drizzile"
+    },
+    "818": {
+      "description": "",
+      "name": "Inteleon"
+    },
+    "819": {
+      "description": "",
+      "name": "Skwovet"
+    },
+    "820": {
+      "description": "",
+      "name": "Greedent"
+    },
+    "821": {
+      "description": "",
+      "name": "Rookidee"
+    },
+    "822": {
+      "description": "",
+      "name": "Corvisquire"
+    },
+    "823": {
+      "description": "",
+      "name": "Corviknight"
+    },
+    "824": {
+      "description": "",
+      "name": "Blipbug"
+    },
+    "825": {
+      "description": "",
+      "name": "Dottler"
+    },
+    "826": {
+      "description": "",
+      "name": "Orbeetle"
+    },
+    "827": {
+      "description": "",
+      "name": "Nickit"
+    },
+    "828": {
+      "description": "",
+      "name": "Thievul"
+    },
+    "829": {
+      "description": "",
+      "name": "Gossifleur"
+    },
+    "830": {
+      "description": "",
+      "name": "Eldegoss"
+    },
+    "831": {
+      "description": "",
+      "name": "Wooloo"
+    },
+    "832": {
+      "description": "",
+      "name": "Dubwool"
+    },
+    "833": {
+      "description": "",
+      "name": "Chewtle"
+    },
+    "834": {
+      "description": "",
+      "name": "Drednaw"
+    },
+    "835": {
+      "description": "",
+      "name": "Yamper"
+    },
+    "836": {
+      "description": "",
+      "name": "Boltund"
+    },
+    "837": {
+      "description": "",
+      "name": "Rolycoly"
+    },
+    "838": {
+      "description": "",
+      "name": "Carkol"
+    },
+    "839": {
+      "description": "",
+      "name": "Coalossal"
+    },
+    "840": {
+      "description": "",
+      "name": "Applin"
+    },
+    "841": {
+      "description": "",
+      "name": "Flapple"
+    },
+    "842": {
+      "description": "",
+      "name": "Appletun"
+    },
+    "843": {
+      "description": "",
+      "name": "Silicobra"
+    },
+    "844": {
+      "description": "",
+      "name": "Sandaconda"
+    },
+    "845": {
+      "description": "",
+      "name": "Cramorant"
+    },
+    "846": {
+      "description": "",
+      "name": "Arrokuda"
+    },
+    "847": {
+      "description": "",
+      "name": "Barraskewda"
+    },
+    "848": {
+      "description": "",
+      "name": "Toxel"
+    },
+    "849": {
+      "description": "",
+      "name": "Toxtricity"
+    },
+    "850": {
+      "description": "",
+      "name": "Sizzlipede"
+    },
+    "851": {
+      "description": "",
+      "name": "Centiskorch"
+    },
+    "852": {
+      "description": "",
+      "name": "Clobbopus"
+    },
+    "853": {
+      "description": "",
+      "name": "Grapploct"
+    },
+    "854": {
+      "description": "",
+      "name": "Sinistea"
+    },
+    "855": {
+      "description": "",
+      "name": "Polteageist"
+    },
+    "856": {
+      "description": "",
+      "name": "Hatenna"
+    },
+    "857": {
+      "description": "",
+      "name": "Hattrem"
+    },
+    "858": {
+      "description": "",
+      "name": "Hatterene"
+    },
+    "859": {
+      "description": "",
+      "name": "Impidimp"
+    },
+    "860": {
+      "description": "",
+      "name": "Morgrem"
+    },
+    "861": {
+      "description": "",
+      "name": "Grimmsnarl"
+    },
+    "862": {
+      "description": "",
+      "name": "Obstagoon"
+    },
+    "863": {
+      "description": "",
+      "name": "Perrserker"
+    },
+    "864": {
+      "description": "",
+      "name": "Cursola"
+    },
+    "865": {
+      "description": "",
+      "name": "Sirfetch’d"
+    },
+    "866": {
+      "description": "",
+      "name": "Mr.Rime"
+    },
+    "867": {
+      "description": "",
+      "name": "Runerigus"
+    },
+    "868": {
+      "description": "",
+      "name": "Milcery"
+    },
+    "869": {
+      "description": "",
+      "name": "Alcremie"
+    },
+    "870": {
+      "description": "",
+      "name": "Falinks"
+    },
+    "871": {
+      "description": "",
+      "name": "Pincurchin"
+    },
+    "872": {
+      "description": "",
+      "name": "Snom"
+    },
+    "873": {
+      "description": "",
+      "name": "Frosmoth"
+    },
+    "874": {
+      "description": "",
+      "name": "Stonjourner"
+    },
+    "875": {
+      "description": "",
+      "name": "Eiscue"
+    },
+    "876": {
+      "description": "",
+      "name": "Indeedee"
+    },
+    "877": {
+      "description": "",
+      "name": "Morpeko"
+    },
+    "878": {
+      "description": "",
+      "name": "Cufant"
+    },
+    "879": {
+      "description": "",
+      "name": "Copperajah"
+    },
+    "880": {
+      "description": "",
+      "name": "Dracozolt"
+    },
+    "881": {
+      "description": "",
+      "name": "Arctozolt"
+    },
+    "882": {
+      "description": "",
+      "name": "Dracovish"
+    },
+    "883": {
+      "description": "",
+      "name": "Arctovish"
+    },
+    "884": {
+      "description": "",
+      "name": "Duraludon"
+    },
+    "885": {
+      "description": "",
+      "name": "Dreepy"
+    },
+    "886": {
+      "description": "",
+      "name": "Drakloak"
+    },
+    "887": {
+      "description": "",
+      "name": "Dragapult"
+    },
+    "888": {
+      "description": "",
+      "name": "Zacian"
+    },
+    "889": {
+      "description": "",
+      "name": "Zamazenta"
+    },
+    "890": {
+      "description": "",
+      "name": "Eternatus"
+    },
+    "891": {
+      "description": "",
+      "name": "Kubfu"
+    },
+    "892": {
+      "description": "",
+      "name": "Urshifu"
+    },
+    "893": {
+      "description": "",
+      "name": "Zarude"
+    },
+    "894": {
+      "description": "",
+      "name": "Regieleki"
+    },
+    "895": {
+      "description": "",
+      "name": "Regidrago"
+    },
+    "896": {
+      "description": "",
+      "name": "Glastrier"
+    },
+    "897": {
+      "description": "",
+      "name": "Spectrier"
+    },
+    "898": {
+      "description": "",
+      "name": "Calyrex"
     }
   },
   "quick_moves": {
@@ -3257,15 +3641,15 @@
     "Splash": "Splash",
     "Steel Wing": "Steel Wing",
     "Tackle": "Tackle",
+    "Take Down": "Take Down",
     "Thunder Shock": "Thunder Shock",
     "Transform": "Transform",
     "Vine Whip": "Vine Whip",
     "Water Gun": "Water Gun",
+    "Waterfall": "Waterfall",
     "Wing Attack": "Wing Attack",
-    "Zen Headbutt": "Zen Headbutt",
-    "Take Down": "Take Down",
     "Yawn": "Yawn",
-    "Waterfall": "Waterfall"
+    "Zen Headbutt": "Zen Headbutt"
   },
   "charge_moves": {
     "?": "?",
@@ -3287,6 +3671,8 @@
     "Dazzling Gleam": "Dazzling Gleam",
     "Dig": "Dig",
     "Discharge": "Discharge",
+    "Doom Desire": "Doom Desire",
+    "Draco Meteor": "Draco Meteor",
     "Dragon Pulse": "Dragon Pulse",
     "Drill Peck": "Drill Peck",
     "Drill Run": "Drill Run",
@@ -3314,13 +3700,16 @@
     "Moonblast": "Moonblast",
     "Mud Bomb": "Mud Bomb",
     "Ominous Wind": "Ominous Wind",
+    "Origin Pulse": "Origin Pulse",
     "Outrage": "Outrage",
     "Overheat": "Overheat",
     "Petal Blizzard": "Petal Blizzard",
     "Play Rough": "Play Rough",
     "Poison Fang": "Poison Fang",
     "Power Gem": "Power Gem",
+    "Precipice Blades": "Precipice Blades",
     "Psychic": "Psychic",
+    "Psycho Boost": "Psycho Boost",
     "Psyshock": "Psyshock",
     "Rock Slide": "Rock Slide",
     "Scald": "Scald",
@@ -3334,19 +3723,14 @@
     "Stomp": "Stomp",
     "Stone Edge": "Stone Edge",
     "Struggle": "Struggle",
+    "Surf": "Surf",
     "Swift": "Swift",
     "Thunder": "Thunder",
     "Thunderbolt": "Thunderbolt",
     "Water Pulse": "Water Pulse",
     "Wild Charge": "Wild Charge",
     "X-Scissor": "X-Scissor",
-    "Zap Cannon": "Zap Cannon",
-    "Precipice Blades": "Precipice Blades",
-    "Origin Pulse": "Origin Pulse",
-    "Doom Desire": "Doom Desire",
-    "Draco Meteor": "Draco Meteor",
-    "Psycho Boost": "Psycho Boost",
-    "Surf": "Surf"
+    "Zap Cannon": "Zap Cannon"
   },
   "types": {
     "Bug": "Bug",
