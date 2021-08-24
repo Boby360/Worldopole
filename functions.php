@@ -294,8 +294,10 @@ function generation($id)
             return [5, 'Teselia'];
         case $id >= 650 && $id <= 721:
             return [6, 'Kalos'];
-        case $id >= 722 && $id <= 802:
+        case $id >= 722 && $id <= 809:
             return [7, 'Alola'];
+        case $id >= 810 && $id <= 898:
+            return [8, 'Galar'];
     }
 }
 
@@ -416,17 +418,17 @@ function printMenuitems($menu, $level, $locales)
     switch ($menu->type) {
         case 'group':
             ?>
-			
+
 			<li>
 			<a class="menu-label"><i class="fa <?= $menu->icon; ?>" aria-hidden="true"></i> <?= $text; ?></a>
 			<ul class="dropdown">
-			
+
 			<?php
             foreach ($menu->members as $childmenu) {
                 printMenuitems($childmenu, $level + 1, $locales);
             }
             ?>
-			
+
 			</ul>
 			</li>
 
