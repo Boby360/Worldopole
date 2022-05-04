@@ -75,7 +75,7 @@
 
 </div>
 
-
+<!--
 <div class="row area big-padding">
 	<div class="col-md-12 text-center">
 		<h2 class="text-center sub-title">
@@ -181,6 +181,7 @@
 		</div>
 	</div>
 </div>
+-->
 
 <div class="row big padding">
 	<h2 class="text-center sub-title"><?= $locales->FIGHT_TITLE; ?></h2>
@@ -214,35 +215,6 @@
 					</div>
 				<?php
             } ?>
-</div>
-
-<div class="row">
-	<div class="col-md-12 text-center">
-        <h3>Neues Pokémon hinzufügen</h3>
-        <input type="text" id="i_what1" placeholder="Pokémon Name">
-        <input type="text" id="i_lat1" placeholder="Latitude"> <input type="text" id="i_lon1" placeholder="Longitude">
-        <input type="text" id="i_end1" placeholder="Ca. Zeit">
-        <input type="button" id="i_submit1" value="Eintragen">
-        <br>
-        <h3>Neuen Raid hinzufügen</h3>
-        <input type="text" id="i_what2" placeholder="Raidboss Name">
-        <input type="text" id="i_lat2" placeholder="Latitude"> <input type="text" id="i_lon2" placeholder="Longitude">
-        <input type="text" id="i_end2" placeholder="Endzeit">
-        <input type="button" id="i_submit2" value="Eintragen">
-        <br>
-        <h3>Arena aktualisieren</h3>
-        <input type="text" id="i_what3" placeholder="Arena Name">
-        <input type="text" id="i_lat3" placeholder="Latitude"> <input type="text" id="i_lon3" placeholder="Longitude">
-        <input type="text" id="i_team3" placeholder="Team">
-        <input type="text" id="i_pkm3" placeholder="Trainer + Pokémon">
-        <input type="button" id="i_submit3" value="Eintragen">
-        <br>
-        <h3>Pokéstop aktualisieren</h3>
-        <input type="text" id="i_what4" placeholder="Pokéstop Name">
-        <input type="text" id="i_lat4" placeholder="Latitude"> <input type="text" id="i_lon4" placeholder="Longitude">
-        <input type="text" id="i_end4" placeholder="Endzeit Lockmodul?">
-        <input type="button" id="i_submit4" value="Eintragen">
-    </div>
 </div>
 
 <script>

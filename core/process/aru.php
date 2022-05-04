@@ -113,6 +113,7 @@ switch ($request) {
         if (isset($_GET['last_uid'])) {
             $last_uid_param = $_GET['last_uid'];
         }
+        /*
         if ($config->system->recents_filter) {
             // get all mythic pokemon ids
             $mythic_pokemons = array();
@@ -128,6 +129,8 @@ switch ($request) {
             // get last pokemon
             $result = $manager->getRecentAll();
         }
+        */
+        $result = array();
 
         if (count($result) > 0) {
             foreach ($result as $data) {
