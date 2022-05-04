@@ -190,6 +190,9 @@ final class QueryManagerMysqlRocketmap extends QueryManagerMysql
 
     public function getTop50Pokemon($pokemon_id, $top_order_by, $top_direction)
     {
+        return array();
+        /*
+        // Query too expensive
         $req = "SELECT CONVERT_TZ(disappear_time, '+00:00', '".self::$time_offset."') AS distime,
 				pokemon_id, disappear_time, latitude, longitude,
 				cp, individual_attack, individual_defense, individual_stamina,
@@ -206,10 +209,14 @@ final class QueryManagerMysqlRocketmap extends QueryManagerMysql
         }
 
         return $top;
+        */
     }
 
     public function getTop50Trainers($pokemon_id, $best_order_by, $best_direction)
     {
+        return array();
+        /*
+        // Query too expensive
         $trainer_blacklist = '';
         if (!empty(self::$config->system->trainer_blacklist)) {
             $trainer_blacklist = " AND trainer_name NOT IN ('".implode("','", self::$config->system->trainer_blacklist)."')";
@@ -229,6 +236,7 @@ final class QueryManagerMysqlRocketmap extends QueryManagerMysql
         }
 
         return $toptrainer;
+        */
     }
 
     public function getPokemonHeatmap($pokemon_id, $start, $end)
