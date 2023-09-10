@@ -2,23 +2,33 @@ import json
 
 isevo = []
 
+# "evolutions": {
+#     "6": {
+#         "pokemon": 6,
+#         "form": 178,
+#         "candyCost": 100
+#     }
+# }
+
 with open('core/json/pokedex.tree.json') as f:
     content = json.load(f)
 
-    with open('base_stats.json') as f2:
+    with open('pokemon_data.json') as f2:
         base_stats = json.load(f2)
         for entry in sorted(base_stats):
             evos = base_stats[entry].get('evolutions')
-            if len(evos) > 0:
-                isevo.append(int(evos[0]))
-            if len(evos) > 1:
-                isevo.append(int(evos[1]))
-            if content.get(int(entry)) is None and int(entry) not in isevo:
-                content[int(entry)] = {"id": int(entry)}
-                if len(evos) > 0:
-                    content[int(entry)]['evolutions'] = [{"id": int(evos[0]), "candies": (50 if len(evos) == 1 else 25)}]
-                if len(evos) > 1:
-                    content[int(entry)]['evolutions'][0]['evolutions'] = [{"id": int(evos[1]), "candies": 100}]
+            if evos:
+                evo_id = list(evos.keys())[0]
+                isevo.append(int(evo_id))
+                if content.get(int(entry)) is None and int(entry) not in isevo:
+                    content[int(entry)] = {"id": int(entry)}
+                    content[int(entry)]['evolutions'] = [{"id": int(evo_id), "candies": evos[evo_id].get('candyCost')}]
+                    evos2 = base_stats[evo_id].get('evolutions')
+                    if evos2:
+                        evo2_id = list(evos2.keys())[0]
+                        isevo.append(int(evo2_id))
+                        content[int(entry)]['evolutions'][0]['evolutions'] = [{"id": int(evo2_id), "candies": evos2[evo2_id].get('candyCost')}]
+
 
     with open('core/json/pokedex.tree.json', 'w') as outfile:
-        json.dump(content, outfile, indent = 2, sort_keys = True)
+        json.dump(content, outfile, indent = 2, sort_keys = False)

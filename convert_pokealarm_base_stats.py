@@ -129,23 +129,22 @@ multipliers = {
 with open('core/json/pokedexold.json') as f:
     content = json.load(f)
 
-    with open('base_stats.json') as f2:
+    with open('pokemon_data.json') as f2:
         base_stats = json.load(f2)
 
         pokedex = {}
         for entry in base_stats:
             key = int(entry)
-            stats = base_stats[entry]
+            bstats = base_stats[entry]
+            stats = bstats.get('stats')
             pkm = content.get('pokemon').get(str(key), {})
             pkm['atk'] = int(stats.get('attack'))
             pkm['def'] = int(stats.get('defense'))
             pkm['sta'] = int(stats.get('stamina'))
-            type1 = stats.get('type1')
-            type2 = stats.get('type2')
+            types = base_stats[entry].get('types')
             pkm['types'] = []
-            pkm['types'].append(types[type1])
-            if type2 != None:
-                pkm['types'].append(types[type2])
+            for type in types:   
+                pkm['types'].append(types[type].get('typeName'))
             if pkm.get('rating', 1) == 1:
                 ivsum = (pkm['atk'] + pkm['def'] + pkm['sta']) / 500
                 pkm['rating'] = int(5 * ivsum * ivsum) / 2
@@ -156,19 +155,12 @@ with open('core/json/pokedexold.json') as f:
             if pkm.get('charge_move') is None:
                 pkm['charge_move'] = '?'
             pkm['candy_id'] = key
-            pkm['weight'] = float(stats.get('weight'))
-            pkm['height'] = float(stats.get('height'))
-            pkm['generation'] = int(stats.get('generation'))
-            pkm['legendary'] = bool(stats.get('legendary'))
-
+            pkm['weight'] = float(bstats.get('weight', 0))
+            pkm['height'] = float(bstats.get('height', 0))
+            pkm['generation'] = int(bstats.get('genId'))
+            pkm['legendary'] = bool(bstats.get('legendary'))
+            pkm['candy_id'] = int(bstats.get('family', key))
             pokedex[key] = pkm
-
-    for entry in base_stats:
-        evos = base_stats[entry].get('evolutions')
-        for evo in evos:
-            pkm = pokedex[int(evo)]
-            if pkm['candy_id'] > int(entry):
-                pkm['candy_id'] = int(entry)
 
     content['pokemon'] = pokedex
 

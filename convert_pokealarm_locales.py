@@ -1,11 +1,11 @@
 import json
 
 
-with open('core/json/locales/EN/pokes.json') as f:
+with open('core/json/locales/DE/pokes.json') as f:
     content = json.load(f)
     pokemon = content.get('pokemon', {})
 
-    with open('en.json') as f2:
+    with open('de.json') as f2:
         locale = json.load(f2).get('pokemon', [])
         for entry in locale:
             pkm = pokemon.get(str(int(entry)))
@@ -17,5 +17,5 @@ with open('core/json/locales/EN/pokes.json') as f:
             else:
                 pkm['name'] = locale[entry]
 
-    with open('core/json/locales/EN/pokes.json', 'w') as outfile:
-        json.dump(content, outfile, indent=2, sort_keys=True)
+    with open('core/json/locales/DE/pokes.json', 'w') as outfile:
+        json.dump(content, outfile, indent=2, sort_keys=False)
