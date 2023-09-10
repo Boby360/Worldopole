@@ -1,4243 +1,3710 @@
 {
   "1": {
+    "id": 1,
     "evolutions": [
       {
+        "id": 2,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 3
+            "id": 3,
+            "candies": 100
           }
-        ],
-        "id": 2
+        ]
       }
-    ],
-    "id": 1
-  },
-  "4": {
-    "evolutions": [
-      {
-        "candies": 25,
-        "evolutions": [
-          {
-            "candies": 100,
-            "id": 6
-          }
-        ],
-        "id": 5
-      }
-    ],
-    "id": 4
-  },
-  "7": {
-    "evolutions": [
-      {
-        "candies": 25,
-        "evolutions": [
-          {
-            "candies": 100,
-            "id": 9
-          }
-        ],
-        "id": 8
-      }
-    ],
-    "id": 7
+    ]
   },
   "10": {
+    "id": 10,
     "evolutions": [
       {
+        "id": 11,
         "candies": 12,
         "evolutions": [
           {
-            "candies": 50,
-            "id": 12
+            "id": 12,
+            "candies": 50
           }
-        ],
-        "id": 11
+        ]
       }
-    ],
-    "id": 10
-  },
-  "13": {
-    "evolutions": [
-      {
-        "candies": 12,
-        "evolutions": [
-          {
-            "candies": 50,
-            "id": 15
-          }
-        ],
-        "id": 14
-      }
-    ],
-    "id": 13
-  },
-  "16": {
-    "evolutions": [
-      {
-        "candies": 12,
-        "evolutions": [
-          {
-            "candies": 50,
-            "id": 18
-          }
-        ],
-        "id": 17
-      }
-    ],
-    "id": 16
-  },
-  "19": {
-    "evolutions": [
-      {
-        "candies": 25,
-        "id": 20
-      }
-    ],
-    "id": 19
-  },
-  "21": {
-    "evolutions": [
-      {
-        "candies": 50,
-        "id": 22
-      }
-    ],
-    "id": 21
-  },
-  "23": {
-    "evolutions": [
-      {
-        "candies": 50,
-        "id": 24
-      }
-    ],
-    "id": 23
-  },
-  "25": {
-    "evolutions": [
-      {
-        "candies": 25,
-        "evolutions": [
-          {
-            "candies": 50,
-            "id": 26
-          }
-        ],
-        "id": 25
-      }
-    ],
-    "id": 172
-  },
-  "27": {
-    "evolutions": [
-      {
-        "candies": 50,
-        "id": 28
-      }
-    ],
-    "id": 27
-  },
-  "29": {
-    "evolutions": [
-      {
-        "candies": 25,
-        "evolutions": [
-          {
-            "candies": 100,
-            "id": 31
-          }
-        ],
-        "id": 30
-      }
-    ],
-    "id": 29
-  },
-  "32": {
-    "evolutions": [
-      {
-        "candies": 25,
-        "evolutions": [
-          {
-            "candies": 100,
-            "id": 34
-          }
-        ],
-        "id": 33
-      }
-    ],
-    "id": 32
-  },
-  "35": {
-    "evolutions": [
-      {
-        "candies": 25,
-        "evolutions": [
-          {
-            "candies": 50,
-            "id": 36
-          }
-        ],
-        "id": 35
-      }
-    ],
-    "id": 173
-  },
-  "37": {
-    "evolutions": [
-      {
-        "candies": 50,
-        "id": 38
-      }
-    ],
-    "id": 37
-  },
-  "39": {
-    "evolutions": [
-      {
-        "candies": 25,
-        "evolutions": [
-          {
-            "candies": 50,
-            "id": 40
-          }
-        ],
-        "id": 39
-      }
-    ],
-    "id": 174
-  },
-  "41": {
-    "evolutions": [
-      {
-        "candies": 25,
-        "evolutions": [
-          {
-            "candies": 100,
-            "id": 169
-          }
-        ],
-        "id": 42
-      }
-    ],
-    "id": 41
-  },
-  "43": {
-    "evolutions": [
-      {
-        "candies": 25,
-        "evolutions": [
-          {
-            "candies": 100,
-            "id": 45
-          },
-          {
-            "candies": 100,
-            "id": 182,
-            "item": "SUN_STONE"
-          }
-        ],
-        "id": 44
-      }
-    ],
-    "id": 43
-  },
-  "46": {
-    "evolutions": [
-      {
-        "candies": 50,
-        "id": 47
-      }
-    ],
-    "id": 46
-  },
-  "48": {
-    "evolutions": [
-      {
-        "candies": 50,
-        "id": 49
-      }
-    ],
-    "id": 48
-  },
-  "50": {
-    "evolutions": [
-      {
-        "candies": 50,
-        "id": 51
-      }
-    ],
-    "id": 50
-  },
-  "52": {
-    "evolutions": [
-      {
-        "candies": 50,
-        "id": 53
-      }
-    ],
-    "id": 52
-  },
-  "54": {
-    "evolutions": [
-      {
-        "candies": 50,
-        "id": 55
-      }
-    ],
-    "id": 54
-  },
-  "56": {
-    "evolutions": [
-      {
-        "candies": 50,
-        "id": 57
-      }
-    ],
-    "id": 56
-  },
-  "58": {
-    "evolutions": [
-      {
-        "candies": 50,
-        "id": 59
-      }
-    ],
-    "id": 58
-  },
-  "60": {
-    "evolutions": [
-      {
-        "candies": 25,
-        "evolutions": [
-          {
-            "candies": 100,
-            "id": 62
-          },
-          {
-            "candies": 100,
-            "id": 186,
-            "item": "KINGS_ROCK"
-          }
-        ],
-        "id": 61
-      }
-    ],
-    "id": 60
-  },
-  "63": {
-    "evolutions": [
-      {
-        "candies": 25,
-        "evolutions": [
-          {
-            "candies": 100,
-            "id": 65
-          }
-        ],
-        "id": 64
-      }
-    ],
-    "id": 63
-  },
-  "66": {
-    "evolutions": [
-      {
-        "candies": 25,
-        "evolutions": [
-          {
-            "candies": 100,
-            "id": 68
-          }
-        ],
-        "id": 67
-      }
-    ],
-    "id": 66
-  },
-  "69": {
-    "evolutions": [
-      {
-        "candies": 25,
-        "evolutions": [
-          {
-            "candies": 100,
-            "id": 71
-          }
-        ],
-        "id": 70
-      }
-    ],
-    "id": 69
-  },
-  "72": {
-    "evolutions": [
-      {
-        "candies": 50,
-        "id": 73
-      }
-    ],
-    "id": 72
-  },
-  "74": {
-    "evolutions": [
-      {
-        "candies": 25,
-        "evolutions": [
-          {
-            "candies": 100,
-            "id": 76
-          }
-        ],
-        "id": 75
-      }
-    ],
-    "id": 74
-  },
-  "77": {
-    "evolutions": [
-      {
-        "candies": 50,
-        "id": 78
-      }
-    ],
-    "id": 77
-  },
-  "79": {
-    "evolutions": [
-      {
-        "candies": 50,
-        "id": 80
-      },
-      {
-        "candies": 50,
-        "id": 199,
-        "item": "KINGS_ROCK"
-      }
-    ],
-    "id": 79
-  },
-  "81": {
-    "evolutions": [
-      {
-        "candies": 50,
-        "evolutions": [
-          {
-            "id": 462
-          }
-        ],
-        "id": 82
-      }
-    ],
-    "id": 81
-  },
-  "83": {
-    "id": 83
-  },
-  "84": {
-    "evolutions": [
-      {
-        "candies": 50,
-        "id": 85
-      }
-    ],
-    "id": 84
-  },
-  "86": {
-    "evolutions": [
-      {
-        "candies": 50,
-        "id": 87
-      }
-    ],
-    "id": 86
-  },
-  "88": {
-    "evolutions": [
-      {
-        "candies": 50,
-        "id": 89
-      }
-    ],
-    "id": 88
-  },
-  "90": {
-    "evolutions": [
-      {
-        "candies": 50,
-        "id": 91
-      }
-    ],
-    "id": 90
-  },
-  "92": {
-    "evolutions": [
-      {
-        "candies": 25,
-        "evolutions": [
-          {
-            "candies": 100,
-            "id": 94
-          }
-        ],
-        "id": 93
-      }
-    ],
-    "id": 92
-  },
-  "95": {
-    "evolutions": [
-      {
-        "candies": 50,
-        "id": 208,
-        "item": "METAL_COAT"
-      }
-    ],
-    "id": 95
-  },
-  "96": {
-    "evolutions": [
-      {
-        "candies": 50,
-        "id": 97
-      }
-    ],
-    "id": 96
-  },
-  "98": {
-    "evolutions": [
-      {
-        "candies": 50,
-        "id": 99
-      }
-    ],
-    "id": 98
+    ]
   },
   "100": {
+    "id": 100,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 101
+        "id": 101,
+        "candies": 50
       }
-    ],
-    "id": 100
+    ]
   },
   "102": {
+    "id": 102,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 103
+        "id": 103,
+        "candies": 50
       }
-    ],
-    "id": 102
+    ]
   },
   "104": {
+    "id": 104,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 105
+        "id": 105,
+        "candies": 50
       }
-    ],
-    "id": 104
-  },
-  "106": {
-    "id": 106
-  },
-  "107": {
-    "id": 107
+    ]
   },
   "108": {
+    "id": 108,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 463
+        "id": 463,
+        "candies": 100
       }
-    ],
-    "id": 108
+    ]
   },
   "109": {
+    "id": 109,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 110
+        "id": 110,
+        "candies": 50
       }
-    ],
-    "id": 109
+    ]
   },
   "111": {
+    "id": 111,
     "evolutions": [
       {
-        "candies": 50,
+        "id": 112,
+        "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 464
+            "id": 464,
+            "candies": 100
           }
-        ],
-        "id": 112
+        ]
       }
-    ],
-    "id": 111
+    ]
   },
   "113": {
+    "id": 113,
     "evolutions": [
       {
-        "candies": 25,
-        "evolutions": [
-          {
-            "candies": 50,
-            "id": 242
-          }
-        ],
-        "id": 113
+        "id": 242,
+        "candies": 50
       }
-    ],
-    "id": 440
+    ]
   },
   "114": {
+    "id": 114,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 465
+        "id": 465,
+        "candies": 100
       }
-    ],
-    "id": 114
-  },
-  "115": {
-    "id": 115
+    ]
   },
   "116": {
+    "id": 116,
     "evolutions": [
       {
+        "id": 117,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
             "id": 230,
-            "item": "DRAGON_SCALE"
+            "candies": 100
           }
-        ],
-        "id": 117
+        ]
       }
-    ],
-    "id": 116
+    ]
   },
   "118": {
+    "id": 118,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 119
+        "id": 119,
+        "candies": 50
       }
-    ],
-    "id": 118
+    ]
   },
   "120": {
+    "id": 120,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 121
+        "id": 121,
+        "candies": 50
       }
-    ],
-    "id": 120
-  },
-  "122": {
-    "evolutions": [
-      {
-        "candies": 25,
-        "id": 122
-      }
-    ],
-    "id": 439
+    ]
   },
   "123": {
+    "id": 123,
     "evolutions": [
       {
-        "candies": 50,
         "id": 212,
-        "item": "METAL_COAT"
+        "candies": 50
       }
-    ],
-    "id": 123
-  },
-  "124": {
-    "evolutions": [
-      {
-        "candies": 25,
-        "id": 124
-      }
-    ],
-    "id": 238
+    ]
   },
   "125": {
+    "id": 125,
     "evolutions": [
       {
-        "candies": 25,
-        "evolutions": [
-          {
-            "candies": 100,
-            "id": 466
-          }
-        ],
-        "id": 125
+        "id": 466,
+        "candies": 100
       }
-    ],
-    "id": 239
+    ]
   },
   "126": {
+    "id": 126,
     "evolutions": [
       {
-        "candies": 25,
-        "evolutions": [
-          {
-            "candies": 100,
-            "id": 467
-          }
-        ],
-        "id": 126
+        "id": 467,
+        "candies": 100
       }
-    ],
-    "id": 240
-  },
-  "127": {
-    "id": 127
-  },
-  "128": {
-    "id": 128
+    ]
   },
   "129": {
+    "id": 129,
     "evolutions": [
       {
-        "candies": 400,
-        "id": 130
+        "id": 130,
+        "candies": 400
       }
-    ],
-    "id": 129
+    ]
   },
-  "131": {
-    "id": 131
-  },
-  "132": {
-    "id": 132
+  "13": {
+    "id": 13,
+    "evolutions": [
+      {
+        "id": 14,
+        "candies": 12,
+        "evolutions": [
+          {
+            "id": 15,
+            "candies": 50
+          }
+        ]
+      }
+    ]
   },
   "133": {
+    "id": 133,
     "evolutions": [
       {
-        "candies": 25,
-        "id": 134
-      },
-      {
-        "candies": 25,
-        "id": 135
-      },
-      {
-        "candies": 25,
-        "id": 136
-      },
-      {
-        "candies": 25,
-        "id": 196
-      },
-      {
-        "candies": 25,
-        "id": 197
-      },
-      {
-        "candies": 25,
-        "id": 470
-      },
-      {
-        "candies": 25,
-        "id": 471
-      },
-      {
-        "candies": 25,
-        "id": 700
+        "id": 134,
+        "candies": 25
       }
-    ],
-    "id": 133
-  },
-  "134": {
-    "id": 134
-  },
-  "135": {
-    "id": 135
-  },
-  "136": {
-    "id": 136
+    ]
   },
   "137": {
+    "id": 137,
     "evolutions": [
       {
-        "candies": 50,
+        "id": 233,
+        "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 474
+            "id": 474,
+            "candies": 100
           }
-        ],
-        "id": 233,
-        "item": "UPGRADE"
+        ]
       }
-    ],
-    "id": 137
+    ]
   },
   "138": {
+    "id": 138,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 139
+        "id": 139,
+        "candies": 50
       }
-    ],
-    "id": 138
+    ]
   },
   "140": {
+    "id": 140,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 141
+        "id": 141,
+        "candies": 50
       }
-    ],
-    "id": 140
-  },
-  "142": {
-    "id": 142
-  },
-  "143": {
-    "evolutions": [
-      {
-        "candies": 25,
-        "id": 143
-      }
-    ],
-    "id": 446
-  },
-  "144": {
-    "id": 144
-  },
-  "145": {
-    "id": 145
-  },
-  "146": {
-    "id": 146
+    ]
   },
   "147": {
+    "id": 147,
     "evolutions": [
       {
+        "id": 148,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 149
+            "id": 149,
+            "candies": 100
           }
-        ],
-        "id": 148
+        ]
       }
-    ],
-    "id": 147
-  },
-  "150": {
-    "id": 150
-  },
-  "151": {
-    "id": 151
+    ]
   },
   "152": {
+    "id": 152,
     "evolutions": [
       {
+        "id": 153,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 154
+            "id": 154,
+            "candies": 100
           }
-        ],
-        "id": 153
+        ]
       }
-    ],
-    "id": 152
+    ]
   },
   "155": {
+    "id": 155,
     "evolutions": [
       {
+        "id": 156,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 157
+            "id": 157,
+            "candies": 100
           }
-        ],
-        "id": 156
+        ]
       }
-    ],
-    "id": 155
+    ]
   },
   "158": {
+    "id": 158,
     "evolutions": [
       {
+        "id": 159,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 160
+            "id": 160,
+            "candies": 100
           }
-        ],
-        "id": 159
+        ]
       }
-    ],
-    "id": 158
+    ]
+  },
+  "16": {
+    "id": 16,
+    "evolutions": [
+      {
+        "id": 17,
+        "candies": 12,
+        "evolutions": [
+          {
+            "id": 18,
+            "candies": 50
+          }
+        ]
+      }
+    ]
   },
   "161": {
+    "id": 161,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 162
+        "id": 162,
+        "candies": 25
       }
-    ],
-    "id": 161
+    ]
   },
   "163": {
+    "id": 163,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 164
+        "id": 164,
+        "candies": 50
       }
-    ],
-    "id": 163
+    ]
   },
   "165": {
+    "id": 165,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 166
+        "id": 166,
+        "candies": 25
       }
-    ],
-    "id": 165
+    ]
   },
   "167": {
+    "id": 167,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 168
+        "id": 168,
+        "candies": 50
       }
-    ],
-    "id": 167
+    ]
   },
   "170": {
+    "id": 170,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 171
+        "id": 171,
+        "candies": 50
       }
-    ],
-    "id": 170
+    ]
   },
   "172": {
+    "id": 172,
     "evolutions": [
       {
+        "id": 25,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 26
+            "id": 26,
+            "candies": 50
           }
-        ],
-        "id": 25
+        ]
       }
-    ],
-    "id": 172
+    ]
   },
   "173": {
+    "id": 173,
     "evolutions": [
       {
+        "id": 35,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 36
+            "id": 36,
+            "candies": 50
           }
-        ],
-        "id": 35
+        ]
       }
-    ],
-    "id": 173
+    ]
   },
   "174": {
+    "id": 174,
     "evolutions": [
       {
+        "id": 39,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 40
+            "id": 40,
+            "candies": 50
           }
-        ],
-        "id": 39
+        ]
       }
-    ],
-    "id": 174
+    ]
   },
   "175": {
+    "id": 175,
     "evolutions": [
       {
-        "candies": 50,
+        "id": 176,
+        "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 468
+            "id": 468,
+            "candies": 100
           }
-        ],
-        "id": 176
+        ]
       }
-    ],
-    "id": 175
+    ]
   },
   "177": {
+    "id": 177,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 178
+        "id": 178,
+        "candies": 50
       }
-    ],
-    "id": 177
+    ]
   },
   "179": {
+    "id": 179,
     "evolutions": [
       {
+        "id": 180,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 181
+            "id": 181,
+            "candies": 100
           }
-        ],
-        "id": 180
+        ]
       }
-    ],
-    "id": 179
+    ]
   },
   "183": {
+    "id": 183,
     "evolutions": [
       {
-        "candies": 25,
-        "evolutions": [
-          {
-            "candies": 100,
-            "id": 184
-          }
-        ],
-        "id": 183
+        "id": 184,
+        "candies": 25
       }
-    ],
-    "id": 298
-  },
-  "185": {
-    "evolutions": [
-      {
-        "candies": 25,
-        "id": 185
-      }
-    ],
-    "id": 438
+    ]
   },
   "187": {
+    "id": 187,
     "evolutions": [
       {
+        "id": 188,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 189
+            "id": 189,
+            "candies": 100
           }
-        ],
-        "id": 188
+        ]
       }
-    ],
-    "id": 187
+    ]
+  },
+  "19": {
+    "id": 19,
+    "evolutions": [
+      {
+        "id": 20,
+        "candies": 25
+      }
+    ]
   },
   "190": {
+    "id": 190,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 424
+        "id": 424,
+        "candies": 100
       }
-    ],
-    "id": 190
+    ]
   },
   "191": {
+    "id": 191,
     "evolutions": [
       {
-        "candies": 50,
         "id": 192,
-        "item": "SUN_STONE"
+        "candies": 50
       }
-    ],
-    "id": 191
+    ]
   },
   "193": {
+    "id": 193,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 469
+        "id": 469,
+        "candies": 100
       }
-    ],
-    "id": 193
+    ]
   },
   "194": {
+    "id": 194,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 195
+        "id": 195,
+        "candies": 50
       }
-    ],
-    "id": 194
-  },
-  "196": {
-    "id": 196
+    ]
   },
   "198": {
+    "id": 198,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 430
+        "id": 430,
+        "candies": 100
       }
-    ],
-    "id": 198
+    ]
   },
   "200": {
+    "id": 200,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 429
+        "id": 429,
+        "candies": 100
       }
-    ],
-    "id": 200
-  },
-  "201": {
-    "id": 201
-  },
-  "202": {
-    "evolutions": [
-      {
-        "candies": 50,
-        "id": 202
-      }
-    ],
-    "id": 360
-  },
-  "203": {
-    "id": 203
+    ]
   },
   "204": {
+    "id": 204,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 205
+        "id": 205,
+        "candies": 50
       }
-    ],
-    "id": 204
-  },
-  "206": {
-    "id": 206
+    ]
   },
   "207": {
+    "id": 207,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 472
+        "id": 472,
+        "candies": 100
       }
-    ],
-    "id": 207
+    ]
   },
   "209": {
+    "id": 209,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 210
+        "id": 210,
+        "candies": 50
       }
-    ],
-    "id": 209
+    ]
   },
-  "211": {
-    "id": 211
-  },
-  "213": {
-    "id": 213
-  },
-  "214": {
-    "id": 214
+  "21": {
+    "id": 21,
+    "evolutions": [
+      {
+        "id": 22,
+        "candies": 50
+      }
+    ]
   },
   "215": {
+    "id": 215,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 461
+        "id": 461,
+        "candies": 100
       }
-    ],
-    "id": 215
+    ]
   },
   "216": {
+    "id": 216,
     "evolutions": [
       {
+        "id": 217,
         "candies": 50,
-        "id": 217
+        "evolutions": [
+          {
+            "id": 901,
+            "candies": 100
+          }
+        ]
       }
-    ],
-    "id": 216
+    ]
   },
   "218": {
+    "id": 218,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 219
+        "id": 219,
+        "candies": 50
       }
-    ],
-    "id": 218
+    ]
   },
   "220": {
+    "id": 220,
     "evolutions": [
       {
-        "candies": 50,
+        "id": 221,
+        "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 473
+            "id": 473,
+            "candies": 100
           }
-        ],
-        "id": 221
+        ]
       }
-    ],
-    "id": 220
-  },
-  "222": {
-    "id": 222
+    ]
   },
   "223": {
+    "id": 223,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 224
+        "id": 224,
+        "candies": 50
       }
-    ],
-    "id": 223
-  },
-  "225": {
-    "id": 225
-  },
-  "226": {
-    "evolutions": [
-      {
-        "candies": 25,
-        "id": 226
-      }
-    ],
-    "id": 458
-  },
-  "227": {
-    "id": 227
+    ]
   },
   "228": {
+    "id": 228,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 229
+        "id": 229,
+        "candies": 50
       }
-    ],
-    "id": 228
+    ]
+  },
+  "23": {
+    "id": 23,
+    "evolutions": [
+      {
+        "id": 24,
+        "candies": 50
+      }
+    ]
   },
   "231": {
+    "id": 231,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 232
+        "id": 232,
+        "candies": 50
       }
-    ],
-    "id": 231
+    ]
   },
   "234": {
-    "id": 234
-  },
-  "235": {
-    "id": 235
+    "id": 234,
+    "evolutions": [
+      {
+        "id": 899,
+        "candies": null
+      }
+    ]
   },
   "236": {
+    "id": 236,
     "evolutions": [
       {
-        "candies": 25,
         "id": 106,
-        "info": "ATTACK"
-      },
-      {
-        "candies": 25,
-        "id": 107,
-        "info": "DEFENSE"
-      },
-      {
-        "candies": 25,
-        "id": 237,
-        "info": "STAMINA"
+        "candies": 25
       }
-    ],
-    "id": 236
+    ]
   },
   "238": {
+    "id": 238,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 124
+        "id": 124,
+        "candies": 25
       }
-    ],
-    "id": 238
+    ]
   },
   "239": {
+    "id": 239,
     "evolutions": [
       {
+        "id": 125,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 466
+            "id": 466,
+            "candies": 100
           }
-        ],
-        "id": 125
+        ]
       }
-    ],
-    "id": 239
+    ]
   },
   "240": {
+    "id": 240,
     "evolutions": [
       {
+        "id": 126,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 467
+            "id": 467,
+            "candies": 100
           }
-        ],
-        "id": 126
+        ]
       }
-    ],
-    "id": 240
-  },
-  "241": {
-    "id": 241
-  },
-  "243": {
-    "id": 243
-  },
-  "244": {
-    "id": 244
-  },
-  "245": {
-    "id": 245
+    ]
   },
   "246": {
+    "id": 246,
     "evolutions": [
       {
+        "id": 247,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 248
+            "id": 248,
+            "candies": 100
           }
-        ],
-        "id": 247
+        ]
       }
-    ],
-    "id": 246
-  },
-  "249": {
-    "id": 249
-  },
-  "250": {
-    "id": 250
-  },
-  "251": {
-    "id": 251
+    ]
   },
   "252": {
+    "id": 252,
     "evolutions": [
       {
+        "id": 253,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 254
+            "id": 254,
+            "candies": 100
           }
-        ],
-        "id": 253
+        ]
       }
-    ],
-    "id": 252
+    ]
   },
   "255": {
+    "id": 255,
     "evolutions": [
       {
+        "id": 256,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 257
+            "id": 257,
+            "candies": 100
           }
-        ],
-        "id": 256
+        ]
       }
-    ],
-    "id": 255
+    ]
   },
   "258": {
+    "id": 258,
     "evolutions": [
       {
+        "id": 259,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 260
+            "id": 260,
+            "candies": 100
           }
-        ],
-        "id": 259
+        ]
       }
-    ],
-    "id": 258
+    ]
   },
   "261": {
+    "id": 261,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 262
+        "id": 262,
+        "candies": 50
       }
-    ],
-    "id": 261
+    ]
   },
   "263": {
+    "id": 263,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 264
+        "id": 264,
+        "candies": 50
       }
-    ],
-    "id": 263
+    ]
   },
   "265": {
+    "id": 265,
     "evolutions": [
       {
+        "id": 266,
         "candies": 12,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 267
+            "id": 267,
+            "candies": 50
           }
-        ],
-        "id": 266
-      },
-      {
-        "candies": 12,
-        "evolutions": [
-          {
-            "candies": 100,
-            "id": 269
-          }
-        ],
-        "id": 268
+        ]
       }
-    ],
-    "id": 265
+    ]
   },
   "268": {
+    "id": 268,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 269
+        "id": 269,
+        "candies": 50
       }
-    ],
-    "id": 268
+    ]
+  },
+  "27": {
+    "id": 27,
+    "evolutions": [
+      {
+        "id": 28,
+        "candies": 50
+      }
+    ]
   },
   "270": {
+    "id": 270,
     "evolutions": [
       {
+        "id": 271,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 272
+            "id": 272,
+            "candies": 100
           }
-        ],
-        "id": 271
+        ]
       }
-    ],
-    "id": 270
+    ]
   },
   "273": {
+    "id": 273,
     "evolutions": [
       {
+        "id": 274,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
             "id": 275,
-            "item": "LEAF_STONE"
+            "candies": 100
           }
-        ],
-        "id": 274
+        ]
       }
-    ],
-    "id": 273
+    ]
   },
   "276": {
+    "id": 276,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 277
+        "id": 277,
+        "candies": 50
       }
-    ],
-    "id": 276
+    ]
   },
   "278": {
+    "id": 278,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 279
+        "id": 279,
+        "candies": 50
       }
-    ],
-    "id": 278
+    ]
   },
   "280": {
+    "id": 280,
     "evolutions": [
       {
+        "id": 281,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 282
-          },
-          {
-            "candies": 100,
-            "id": 475
+            "id": 282,
+            "candies": 100
           }
-        ],
-        "id": 281
+        ]
       }
-    ],
-    "id": 280
+    ]
   },
   "283": {
+    "id": 283,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 284
+        "id": 284,
+        "candies": 50
       }
-    ],
-    "id": 283
+    ]
   },
   "285": {
+    "id": 285,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 286
+        "id": 286,
+        "candies": 50
       }
-    ],
-    "id": 285
+    ]
   },
   "287": {
+    "id": 287,
     "evolutions": [
       {
+        "id": 288,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 289
+            "id": 289,
+            "candies": 100
           }
-        ],
-        "id": 288
+        ]
       }
-    ],
-    "id": 287
+    ]
+  },
+  "29": {
+    "id": 29,
+    "evolutions": [
+      {
+        "id": 30,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 31,
+            "candies": 100
+          }
+        ]
+      }
+    ]
   },
   "290": {
+    "id": 290,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 291
-      },
-      {
-        "candies": 50,
-        "id": 292
+        "id": 291,
+        "candies": 50
       }
-    ],
-    "id": 290
+    ]
   },
   "293": {
+    "id": 293,
     "evolutions": [
       {
+        "id": 294,
         "candies": 12,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 295
+            "id": 295,
+            "candies": 50
           }
-        ],
-        "id": 294
+        ]
       }
-    ],
-    "id": 293
+    ]
   },
   "296": {
+    "id": 296,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 297
+        "id": 297,
+        "candies": 50
       }
-    ],
-    "id": 296
+    ]
   },
   "298": {
+    "id": 298,
     "evolutions": [
       {
+        "id": 183,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 184
+            "id": 184,
+            "candies": 25
           }
-        ],
-        "id": 183
+        ]
       }
-    ],
-    "id": 298
+    ]
   },
   "299": {
+    "id": 299,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 476
+        "id": 476,
+        "candies": 50
       }
-    ],
-    "id": 299
+    ]
   },
   "300": {
+    "id": 300,
     "evolutions": [
       {
-        "candies": 50,
         "id": 301,
-        "item": "MOON_STONE"
+        "candies": 50
       }
-    ],
-    "id": 300
-  },
-  "302": {
-    "id": 302
-  },
-  "303": {
-    "id": 303
+    ]
   },
   "304": {
+    "id": 304,
     "evolutions": [
       {
+        "id": 305,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 306
+            "id": 306,
+            "candies": 100
           }
-        ],
-        "id": 305
+        ]
       }
-    ],
-    "id": 304
+    ]
   },
   "307": {
+    "id": 307,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 308
+        "id": 308,
+        "candies": 50
       }
-    ],
-    "id": 307
+    ]
   },
   "309": {
+    "id": 309,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 310
+        "id": 310,
+        "candies": 50
       }
-    ],
-    "id": 309
-  },
-  "311": {
-    "id": 311
-  },
-  "312": {
-    "id": 312
-  },
-  "313": {
-    "id": 313
-  },
-  "314": {
-    "id": 314
+    ]
   },
   "315": {
+    "id": 315,
     "evolutions": [
       {
-        "candies": 25,
-        "evolutions": [
-          {
-            "candies": 100,
-            "id": 407
-          }
-        ],
-        "id": 315
+        "id": 407,
+        "candies": 100
       }
-    ],
-    "id": 406
+    ]
   },
   "316": {
+    "id": 316,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 317
+        "id": 317,
+        "candies": 50
       }
-    ],
-    "id": 316
+    ]
   },
   "318": {
+    "id": 318,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 319
+        "id": 319,
+        "candies": 50
       }
-    ],
-    "id": 318
+    ]
+  },
+  "32": {
+    "id": 32,
+    "evolutions": [
+      {
+        "id": 33,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 34,
+            "candies": 100
+          }
+        ]
+      }
+    ]
   },
   "320": {
+    "id": 320,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 321
+        "id": 321,
+        "candies": 400
       }
-    ],
-    "id": 320
+    ]
   },
   "322": {
+    "id": 322,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 323
+        "id": 323,
+        "candies": 50
       }
-    ],
-    "id": 322
-  },
-  "324": {
-    "id": 324
+    ]
   },
   "325": {
+    "id": 325,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 326
+        "id": 326,
+        "candies": 50
       }
-    ],
-    "id": 325
-  },
-  "327": {
-    "id": 327
+    ]
   },
   "328": {
+    "id": 328,
     "evolutions": [
       {
+        "id": 329,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 330
+            "id": 330,
+            "candies": 100
           }
-        ],
-        "id": 329
+        ]
       }
-    ],
-    "id": 328
+    ]
   },
   "331": {
+    "id": 331,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 332
+        "id": 332,
+        "candies": 50
       }
-    ],
-    "id": 331
+    ]
   },
   "333": {
+    "id": 333,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 334
+        "id": 334,
+        "candies": 400
       }
-    ],
-    "id": 333
-  },
-  "335": {
-    "id": 335
-  },
-  "336": {
-    "id": 336
-  },
-  "337": {
-    "id": 337
-  },
-  "338": {
-    "id": 338
+    ]
   },
   "339": {
+    "id": 339,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 340
+        "id": 340,
+        "candies": 50
       }
-    ],
-    "id": 339
+    ]
   },
   "341": {
+    "id": 341,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 342
+        "id": 342,
+        "candies": 50
       }
-    ],
-    "id": 341
+    ]
   },
   "343": {
+    "id": 343,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 344
+        "id": 344,
+        "candies": 50
       }
-    ],
-    "id": 343
+    ]
   },
   "345": {
+    "id": 345,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 346
+        "id": 346,
+        "candies": 50
       }
-    ],
-    "id": 345
+    ]
   },
   "347": {
+    "id": 347,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 348
+        "id": 348,
+        "candies": 50
       }
-    ],
-    "id": 347
+    ]
   },
   "349": {
+    "id": 349,
     "evolutions": [
       {
-        "candies": 100,
-        "id": 350
+        "id": 350,
+        "candies": 100
       }
-    ],
-    "id": 349
-  },
-  "351": {
-    "id": 351
-  },
-  "352": {
-    "id": 352
+    ]
   },
   "353": {
+    "id": 353,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 354
+        "id": 354,
+        "candies": 50
       }
-    ],
-    "id": 353
+    ]
   },
   "355": {
+    "id": 355,
     "evolutions": [
       {
+        "id": 356,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 477
+            "id": 477,
+            "candies": 100
           }
-        ],
-        "id": 356
+        ]
       }
-    ],
-    "id": 355
-  },
-  "357": {
-    "id": 357
-  },
-  "358": {
-    "evolutions": [
-      {
-        "candies": 25,
-        "id": 358
-      }
-    ],
-    "id": 433
-  },
-  "359": {
-    "id": 359
+    ]
   },
   "360": {
+    "id": 360,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 202
+        "id": 202,
+        "candies": 25
       }
-    ],
-    "id": 360
+    ]
   },
   "361": {
+    "id": 361,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 362
-      },
-      {
-        "candies": 50,
-        "id": 478
+        "id": 362,
+        "candies": 100
       }
-    ],
-    "id": 361
+    ]
   },
   "363": {
+    "id": 363,
     "evolutions": [
       {
+        "id": 364,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 365
+            "id": 365,
+            "candies": 100
           }
-        ],
-        "id": 364
+        ]
       }
-    ],
-    "id": 363
+    ]
   },
   "366": {
+    "id": 366,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 367
-      },
-      {
-        "candies": 50,
-        "id": 368
+        "id": 367,
+        "candies": 50
       }
-    ],
-    "id": 366
+    ]
   },
-  "369": {
-    "id": 369
-  },
-  "370": {
-    "id": 370
+  "37": {
+    "id": 37,
+    "evolutions": [
+      {
+        "id": 38,
+        "candies": 50
+      }
+    ]
   },
   "371": {
+    "id": 371,
     "evolutions": [
       {
+        "id": 372,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 373
+            "id": 373,
+            "candies": 100
           }
-        ],
-        "id": 372
+        ]
       }
-    ],
-    "id": 371
+    ]
   },
   "374": {
+    "id": 374,
     "evolutions": [
       {
+        "id": 375,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 376
+            "id": 376,
+            "candies": 100
           }
-        ],
-        "id": 375
+        ]
       }
-    ],
-    "id": 374
-  },
-  "377": {
-    "id": 377
-  },
-  "378": {
-    "id": 378
-  },
-  "379": {
-    "id": 379
-  },
-  "380": {
-    "id": 380
-  },
-  "381": {
-    "id": 381
-  },
-  "382": {
-    "id": 382
-  },
-  "383": {
-    "id": 383
-  },
-  "384": {
-    "id": 384
-  },
-  "385": {
-    "id": 385
-  },
-  "386": {
-    "id": 386
+    ]
   },
   "387": {
+    "id": 387,
     "evolutions": [
       {
+        "id": 388,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 389
+            "id": 389,
+            "candies": 100
           }
-        ],
-        "id": 388
+        ]
       }
-    ],
-    "id": 387
+    ]
   },
   "390": {
+    "id": 390,
     "evolutions": [
       {
+        "id": 391,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 392
+            "id": 392,
+            "candies": 100
           }
-        ],
-        "id": 391
+        ]
       }
-    ],
-    "id": 390
+    ]
   },
   "393": {
+    "id": 393,
     "evolutions": [
       {
+        "id": 394,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 395
+            "id": 395,
+            "candies": 100
           }
-        ],
-        "id": 394
+        ]
       }
-    ],
-    "id": 393
+    ]
   },
   "396": {
+    "id": 396,
     "evolutions": [
       {
+        "id": 397,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 398
+            "id": 398,
+            "candies": 100
           }
-        ],
-        "id": 397
+        ]
       }
-    ],
-    "id": 396
+    ]
   },
   "399": {
+    "id": 399,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 400
+        "id": 400,
+        "candies": 50
       }
-    ],
-    "id": 399
+    ]
+  },
+  "4": {
+    "id": 4,
+    "evolutions": [
+      {
+        "id": 5,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 6,
+            "candies": 100
+          }
+        ]
+      }
+    ]
   },
   "401": {
+    "id": 401,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 402
+        "id": 402,
+        "candies": 50
       }
-    ],
-    "id": 401
+    ]
   },
   "403": {
+    "id": 403,
     "evolutions": [
       {
+        "id": 404,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 405
+            "id": 405,
+            "candies": 100
           }
-        ],
-        "id": 404
+        ]
       }
-    ],
-    "id": 403
+    ]
   },
   "406": {
+    "id": 406,
     "evolutions": [
       {
+        "id": 315,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 407
+            "id": 407,
+            "candies": 100
           }
-        ],
-        "id": 315
+        ]
       }
-    ],
-    "id": 406
+    ]
   },
   "408": {
+    "id": 408,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 409
+        "id": 409,
+        "candies": 50
       }
-    ],
-    "id": 408
+    ]
+  },
+  "41": {
+    "id": 41,
+    "evolutions": [
+      {
+        "id": 42,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 169,
+            "candies": 100
+          }
+        ]
+      }
+    ]
   },
   "410": {
+    "id": 410,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 411
+        "id": 411,
+        "candies": 50
       }
-    ],
-    "id": 410
+    ]
   },
   "412": {
+    "id": 412,
     "evolutions": [
       {
-        "candies": 25,
-        "evolutions": [
-          {
-            "candies": 100,
-            "id": 414
-          }
-        ],
-        "id": 413
+        "id": 413,
+        "candies": 50
       }
-    ],
-    "id": 412
-  },
-  "413": {
-    "id": 413
+    ]
   },
   "415": {
+    "id": 415,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 416
+        "id": 416,
+        "candies": 50
       }
-    ],
-    "id": 415
-  },
-  "417": {
-    "id": 417
+    ]
   },
   "418": {
+    "id": 418,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 419
+        "id": 419,
+        "candies": 50
       }
-    ],
-    "id": 418
+    ]
   },
   "420": {
+    "id": 420,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 421
+        "id": 421,
+        "candies": 50
       }
-    ],
-    "id": 420
+    ]
   },
   "422": {
+    "id": 422,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 423
+        "id": 423,
+        "candies": 50
       }
-    ],
-    "id": 422
+    ]
   },
   "425": {
+    "id": 425,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 426
+        "id": 426,
+        "candies": 50
       }
-    ],
-    "id": 425
+    ]
   },
   "427": {
+    "id": 427,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 428
+        "id": 428,
+        "candies": 50
       }
-    ],
-    "id": 427
+    ]
+  },
+  "43": {
+    "id": 43,
+    "evolutions": [
+      {
+        "id": 44,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 45,
+            "candies": 100
+          }
+        ]
+      }
+    ]
   },
   "431": {
+    "id": 431,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 432
+        "id": 432,
+        "candies": 50
       }
-    ],
-    "id": 431
+    ]
   },
   "433": {
+    "id": 433,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 358
+        "id": 358,
+        "candies": 50
       }
-    ],
-    "id": 433
+    ]
   },
   "434": {
+    "id": 434,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 435
+        "id": 435,
+        "candies": 50
       }
-    ],
-    "id": 434
+    ]
   },
   "436": {
+    "id": 436,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 437
+        "id": 437,
+        "candies": 50
       }
-    ],
-    "id": 436
+    ]
   },
   "438": {
+    "id": 438,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 185
+        "id": 185,
+        "candies": 50
       }
-    ],
-    "id": 438
+    ]
   },
   "439": {
+    "id": 439,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 122
+        "id": 122,
+        "candies": 50
       }
-    ],
-    "id": 439
+    ]
   },
   "440": {
+    "id": 440,
     "evolutions": [
       {
+        "id": 113,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 242
+            "id": 242,
+            "candies": 50
           }
-        ],
-        "id": 113
+        ]
       }
-    ],
-    "id": 440
-  },
-  "441": {
-    "evolutions": [
-      {
-        "id": 442
-      }
-    ],
-    "id": 441
-  },
-  "442": {
-    "id": 442
+    ]
   },
   "443": {
+    "id": 443,
     "evolutions": [
       {
+        "id": 444,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 445
+            "id": 445,
+            "candies": 100
           }
-        ],
-        "id": 444
+        ]
       }
-    ],
-    "id": 443
+    ]
   },
   "446": {
+    "id": 446,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 143
+        "id": 143,
+        "candies": 50
       }
-    ],
-    "id": 446
+    ]
   },
   "447": {
+    "id": 447,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 448
+        "id": 448,
+        "candies": 50
       }
-    ],
-    "id": 447
+    ]
   },
   "449": {
+    "id": 449,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 450
+        "id": 450,
+        "candies": 50
       }
-    ],
-    "id": 449
+    ]
   },
   "451": {
+    "id": 451,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 452
+        "id": 452,
+        "candies": 50
       }
-    ],
-    "id": 451
+    ]
   },
   "453": {
+    "id": 453,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 454
+        "id": 454,
+        "candies": 50
       }
-    ],
-    "id": 453
-  },
-  "455": {
-    "id": 455
+    ]
   },
   "456": {
+    "id": 456,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 457
+        "id": 457,
+        "candies": 50
       }
-    ],
-    "id": 456
+    ]
   },
   "458": {
+    "id": 458,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 226
+        "id": 226,
+        "candies": 50
       }
-    ],
-    "id": 458
+    ]
   },
   "459": {
+    "id": 459,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 460
+        "id": 460,
+        "candies": 50
       }
-    ],
-    "id": 459
+    ]
   },
-  "470": {
-    "id": 470
-  },
-  "471": {
-    "id": 471
-  },
-  "479": {
-    "id": 479
-  },
-  "480": {
-    "id": 480
-  },
-  "481": {
-    "id": 481
-  },
-  "482": {
-    "id": 482
-  },
-  "483": {
-    "id": 483
-  },
-  "484": {
-    "id": 484
-  },
-  "485": {
-    "id": 485
-  },
-  "486": {
-    "id": 486
-  },
-  "487": {
-    "id": 487
-  },
-  "488": {
-    "id": 488
-  },
-  "489": {
+  "46": {
+    "id": 46,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 490
+        "id": 47,
+        "candies": 50
       }
-    ],
-    "id": 489
+    ]
   },
-  "490": {
-    "id": 490
-  },
-  "491": {
-    "id": 491
-  },
-  "492": {
-    "id": 492
-  },
-  "493": {
-    "id": 493
-  },
-  "494": {
-    "id": 494
+  "48": {
+    "id": 48,
+    "evolutions": [
+      {
+        "id": 49,
+        "candies": 50
+      }
+    ]
   },
   "495": {
+    "id": 495,
     "evolutions": [
       {
+        "id": 496,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 497
+            "id": 497,
+            "candies": 100
           }
-        ],
-        "id": 496
+        ]
       }
-    ],
-    "id": 495
+    ]
   },
   "498": {
+    "id": 498,
     "evolutions": [
       {
+        "id": 499,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 500
+            "id": 500,
+            "candies": 100
           }
-        ],
-        "id": 499
+        ]
       }
-    ],
-    "id": 498
+    ]
+  },
+  "50": {
+    "id": 50,
+    "evolutions": [
+      {
+        "id": 51,
+        "candies": 50
+      }
+    ]
   },
   "501": {
+    "id": 501,
     "evolutions": [
       {
+        "id": 502,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 503
+            "id": 503,
+            "candies": 100
           }
-        ],
-        "id": 502
+        ]
       }
-    ],
-    "id": 501
+    ]
   },
   "504": {
+    "id": 504,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 505
+        "id": 505,
+        "candies": 50
       }
-    ],
-    "id": 504
+    ]
   },
   "506": {
+    "id": 506,
     "evolutions": [
       {
+        "id": 507,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 508
+            "id": 508,
+            "candies": 100
           }
-        ],
-        "id": 507
+        ]
       }
-    ],
-    "id": 506
+    ]
   },
   "509": {
+    "id": 509,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 510
+        "id": 510,
+        "candies": 50
       }
-    ],
-    "id": 509
+    ]
   },
   "511": {
+    "id": 511,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 512
+        "id": 512,
+        "candies": 50
       }
-    ],
-    "id": 511
+    ]
   },
   "513": {
+    "id": 513,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 514
+        "id": 514,
+        "candies": 50
       }
-    ],
-    "id": 513
+    ]
   },
   "515": {
+    "id": 515,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 516
+        "id": 516,
+        "candies": 50
       }
-    ],
-    "id": 515
+    ]
   },
   "517": {
+    "id": 517,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 518
+        "id": 518,
+        "candies": 50
       }
-    ],
-    "id": 517
+    ]
   },
   "519": {
+    "id": 519,
     "evolutions": [
       {
-        "candies": 25,
+        "id": 520,
+        "candies": 12,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 521
+            "id": 521,
+            "candies": 50
           }
-        ],
-        "id": 520
+        ]
       }
-    ],
-    "id": 519
+    ]
+  },
+  "52": {
+    "id": 52,
+    "evolutions": [
+      {
+        "id": 53,
+        "candies": 50
+      }
+    ]
   },
   "522": {
+    "id": 522,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 523
+        "id": 523,
+        "candies": 50
       }
-    ],
-    "id": 522
+    ]
   },
   "524": {
+    "id": 524,
     "evolutions": [
       {
-        "candies": 25,
+        "id": 525,
+        "candies": 50,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 526
+            "id": 526,
+            "candies": 200
           }
-        ],
-        "id": 525
+        ]
       }
-    ],
-    "id": 524
+    ]
   },
   "527": {
+    "id": 527,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 528
+        "id": 528,
+        "candies": 50
       }
-    ],
-    "id": 527
+    ]
   },
   "529": {
+    "id": 529,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 530
+        "id": 530,
+        "candies": 50
       }
-    ],
-    "id": 529
-  },
-  "531": {
-    "id": 531
+    ]
   },
   "532": {
+    "id": 532,
     "evolutions": [
       {
-        "candies": 25,
+        "id": 533,
+        "candies": 50,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 534
+            "id": 534,
+            "candies": 200
           }
-        ],
-        "id": 533
+        ]
       }
-    ],
-    "id": 532
+    ]
   },
   "535": {
+    "id": 535,
     "evolutions": [
       {
+        "id": 536,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 537
+            "id": 537,
+            "candies": 100
           }
-        ],
-        "id": 536
+        ]
       }
-    ],
-    "id": 535
+    ]
   },
-  "538": {
-    "id": 538
-  },
-  "539": {
-    "id": 539
+  "54": {
+    "id": 54,
+    "evolutions": [
+      {
+        "id": 55,
+        "candies": 50
+      }
+    ]
   },
   "540": {
+    "id": 540,
     "evolutions": [
       {
+        "id": 541,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 542
+            "id": 542,
+            "candies": 100
           }
-        ],
-        "id": 541
+        ]
       }
-    ],
-    "id": 540
+    ]
   },
   "543": {
+    "id": 543,
     "evolutions": [
       {
+        "id": 544,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 545
+            "id": 545,
+            "candies": 100
           }
-        ],
-        "id": 544
+        ]
       }
-    ],
-    "id": 543
+    ]
   },
   "546": {
+    "id": 546,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 547
+        "id": 547,
+        "candies": 50
       }
-    ],
-    "id": 546
+    ]
   },
   "548": {
+    "id": 548,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 549
+        "id": 549,
+        "candies": 50
       }
-    ],
-    "id": 548
+    ]
   },
   "550": {
-    "id": 550
+    "id": 550,
+    "evolutions": [
+      {
+        "id": 902,
+        "candies": null
+      }
+    ]
   },
   "551": {
+    "id": 551,
     "evolutions": [
       {
+        "id": 552,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 553
+            "id": 553,
+            "candies": 100
           }
-        ],
-        "id": 552
+        ]
       }
-    ],
-    "id": 551
+    ]
   },
   "554": {
+    "id": 554,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 555
+        "id": 555,
+        "candies": 50
       }
-    ],
-    "id": 554
-  },
-  "556": {
-    "id": 556
+    ]
   },
   "557": {
+    "id": 557,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 558
+        "id": 558,
+        "candies": 50
       }
-    ],
-    "id": 557
+    ]
   },
   "559": {
+    "id": 559,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 560
+        "id": 560,
+        "candies": 50
       }
-    ],
-    "id": 559
+    ]
   },
-  "561": {
-    "id": 561
+  "56": {
+    "id": 56,
+    "evolutions": [
+      {
+        "id": 57,
+        "candies": 50
+      }
+    ]
   },
   "562": {
+    "id": 562,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 563
+        "id": 563,
+        "candies": 50
       }
-    ],
-    "id": 562
+    ]
   },
   "564": {
+    "id": 564,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 565
+        "id": 565,
+        "candies": 50
       }
-    ],
-    "id": 564
+    ]
   },
   "566": {
+    "id": 566,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 567
+        "id": 567,
+        "candies": 50
       }
-    ],
-    "id": 566
+    ]
   },
   "568": {
+    "id": 568,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 569
+        "id": 569,
+        "candies": 50
       }
-    ],
-    "id": 568
+    ]
   },
   "570": {
+    "id": 570,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 571
+        "id": 571,
+        "candies": 50
       }
-    ],
-    "id": 570
+    ]
   },
   "572": {
+    "id": 572,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 573
+        "id": 573,
+        "candies": 50
       }
-    ],
-    "id": 572
+    ]
   },
   "574": {
+    "id": 574,
     "evolutions": [
       {
+        "id": 575,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 576
+            "id": 576,
+            "candies": 100
           }
-        ],
-        "id": 575
+        ]
       }
-    ],
-    "id": 574
+    ]
   },
   "577": {
+    "id": 577,
     "evolutions": [
       {
+        "id": 578,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 579
+            "id": 579,
+            "candies": 100
           }
-        ],
-        "id": 578
+        ]
       }
-    ],
-    "id": 577
+    ]
+  },
+  "58": {
+    "id": 58,
+    "evolutions": [
+      {
+        "id": 59,
+        "candies": 50
+      }
+    ]
   },
   "580": {
+    "id": 580,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 581
+        "id": 581,
+        "candies": 50
       }
-    ],
-    "id": 580
+    ]
   },
   "582": {
+    "id": 582,
     "evolutions": [
       {
+        "id": 583,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 584
+            "id": 584,
+            "candies": 100
           }
-        ],
-        "id": 583
+        ]
       }
-    ],
-    "id": 582
-  },
-  "585": {
-    "evolutions": [
-      {
-        "candies": 50,
-        "id": 586
-      }
-    ],
-    "id": 585
-  },
-  "587": {
-    "id": 587
+    ]
   },
   "588": {
+    "id": 588,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 589
+        "id": 589,
+        "candies": 200
       }
-    ],
-    "id": 588
+    ]
   },
   "590": {
+    "id": 590,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 591
+        "id": 591,
+        "candies": 50
       }
-    ],
-    "id": 590
+    ]
   },
   "592": {
+    "id": 592,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 593
+        "id": 593,
+        "candies": 50
       }
-    ],
-    "id": 592
-  },
-  "594": {
-    "id": 594
+    ]
   },
   "595": {
-    "id": 595
-  },
-  "596": {
-    "id": 596
+    "id": 595,
+    "evolutions": [
+      {
+        "id": 596,
+        "candies": 50
+      }
+    ]
   },
   "597": {
+    "id": 597,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 598
+        "id": 598,
+        "candies": 50
       }
-    ],
-    "id": 597
+    ]
   },
   "599": {
+    "id": 599,
     "evolutions": [
       {
+        "id": 600,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 601
+            "id": 601,
+            "candies": 100
           }
-        ],
-        "id": 600
+        ]
       }
-    ],
-    "id": 599
+    ]
+  },
+  "60": {
+    "id": 60,
+    "evolutions": [
+      {
+        "id": 61,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 62,
+            "candies": 100
+          }
+        ]
+      }
+    ]
   },
   "602": {
+    "id": 602,
     "evolutions": [
       {
+        "id": 603,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 604
+            "id": 604,
+            "candies": 100
           }
-        ],
-        "id": 603
+        ]
       }
-    ],
-    "id": 602
+    ]
   },
   "605": {
+    "id": 605,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 606
+        "id": 606,
+        "candies": 50
       }
-    ],
-    "id": 605
+    ]
   },
   "607": {
+    "id": 607,
     "evolutions": [
       {
+        "id": 608,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 609
+            "id": 609,
+            "candies": 100
           }
-        ],
-        "id": 608
+        ]
       }
-    ],
-    "id": 607
+    ]
   },
   "610": {
+    "id": 610,
     "evolutions": [
       {
+        "id": 611,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 612
+            "id": 612,
+            "candies": 100
           }
-        ],
-        "id": 611
+        ]
       }
-    ],
-    "id": 610
+    ]
   },
   "613": {
+    "id": 613,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 614
+        "id": 614,
+        "candies": 50
       }
-    ],
-    "id": 613
-  },
-  "615": {
-    "id": 615
+    ]
   },
   "616": {
+    "id": 616,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 617
+        "id": 617,
+        "candies": 200
       }
-    ],
-    "id": 616
-  },
-  "618": {
-    "id": 618
+    ]
   },
   "619": {
+    "id": 619,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 620
+        "id": 620,
+        "candies": 50
       }
-    ],
-    "id": 619
-  },
-  "621": {
-    "id": 621
+    ]
   },
   "622": {
+    "id": 622,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 623
+        "id": 623,
+        "candies": 50
       }
-    ],
-    "id": 622
+    ]
   },
   "624": {
-    "id": 624
-  },
-  "625": {
-    "id": 625
-  },
-  "626": {
-    "id": 626
+    "id": 624,
+    "evolutions": [
+      {
+        "id": 625,
+        "candies": 50
+      }
+    ]
   },
   "627": {
+    "id": 627,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 628
+        "id": 628,
+        "candies": 50
       }
-    ],
-    "id": 627
+    ]
   },
   "629": {
+    "id": 629,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 630
+        "id": 630,
+        "candies": 50
       }
-    ],
-    "id": 629
+    ]
   },
-  "631": {
-    "id": 631
-  },
-  "632": {
-    "id": 632
+  "63": {
+    "id": 63,
+    "evolutions": [
+      {
+        "id": 64,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 65,
+            "candies": 100
+          }
+        ]
+      }
+    ]
   },
   "633": {
+    "id": 633,
     "evolutions": [
       {
+        "id": 634,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 635
+            "id": 635,
+            "candies": 100
           }
-        ],
-        "id": 634
+        ]
       }
-    ],
-    "id": 633
+    ]
   },
   "636": {
+    "id": 636,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 637
+        "id": 637,
+        "candies": 400
       }
-    ],
-    "id": 636
-  },
-  "638": {
-    "id": 638
-  },
-  "639": {
-    "id": 639
-  },
-  "640": {
-    "id": 640
-  },
-  "641": {
-    "id": 641
-  },
-  "642": {
-    "id": 642
-  },
-  "643": {
-    "id": 643
-  },
-  "644": {
-    "id": 644
-  },
-  "645": {
-    "id": 645
-  },
-  "646": {
-    "id": 646
-  },
-  "647": {
-    "id": 647
-  },
-  "648": {
-    "id": 648
-  },
-  "649": {
-    "id": 649
+    ]
   },
   "650": {
+    "id": 650,
     "evolutions": [
       {
+        "id": 651,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 652
+            "id": 652,
+            "candies": 100
           }
-        ],
-        "id": 651
+        ]
       }
-    ],
-    "id": 650
+    ]
   },
   "653": {
+    "id": 653,
     "evolutions": [
       {
+        "id": 654,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 655
+            "id": 655,
+            "candies": 100
           }
-        ],
-        "id": 654
+        ]
       }
-    ],
-    "id": 653
+    ]
   },
   "656": {
+    "id": 656,
     "evolutions": [
       {
+        "id": 657,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 658
+            "id": 658,
+            "candies": 100
           }
-        ],
-        "id": 657
+        ]
       }
-    ],
-    "id": 656
+    ]
   },
   "659": {
+    "id": 659,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 660
+        "id": 660,
+        "candies": 50
       }
-    ],
-    "id": 659
+    ]
+  },
+  "66": {
+    "id": 66,
+    "evolutions": [
+      {
+        "id": 67,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 68,
+            "candies": 100
+          }
+        ]
+      }
+    ]
   },
   "661": {
+    "id": 661,
     "evolutions": [
       {
+        "id": 662,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 663
+            "id": 663,
+            "candies": 100
           }
-        ],
-        "id": 662
+        ]
       }
-    ],
-    "id": 661
+    ]
   },
   "664": {
+    "id": 664,
     "evolutions": [
       {
+        "id": 665,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 666
+            "id": 666,
+            "candies": 100
           }
-        ],
-        "id": 665
+        ]
       }
-    ],
-    "id": 664
+    ]
   },
   "667": {
+    "id": 667,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 668
+        "id": 668,
+        "candies": 50
       }
-    ],
-    "id": 667
+    ]
   },
   "669": {
+    "id": 669,
     "evolutions": [
       {
+        "id": 670,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 671
+            "id": 671,
+            "candies": 100
           }
-        ],
-        "id": 670
+        ]
       }
-    ],
-    "id": 669
+    ]
   },
   "672": {
+    "id": 672,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 673
+        "id": 673,
+        "candies": 50
       }
-    ],
-    "id": 672
+    ]
   },
   "674": {
+    "id": 674,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 675
+        "id": 675,
+        "candies": 50
       }
-    ],
-    "id": 674
-  },
-  "676": {
-    "id": 676
+    ]
   },
   "677": {
-    "id": 677
-  },
-  "678": {
-    "id": 678
+    "id": 677,
+    "evolutions": [
+      {
+        "id": 678,
+        "candies": 50
+      }
+    ]
   },
   "679": {
+    "id": 679,
     "evolutions": [
       {
+        "id": 680,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 681
+            "id": 681,
+            "candies": 100
           }
-        ],
-        "id": 680
+        ]
       }
-    ],
-    "id": 679
+    ]
   },
   "682": {
+    "id": 682,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 683
+        "id": 683,
+        "candies": 50
       }
-    ],
-    "id": 682
+    ]
   },
   "684": {
+    "id": 684,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 685
+        "id": 685,
+        "candies": 50
       }
-    ],
-    "id": 684
+    ]
   },
   "686": {
+    "id": 686,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 687
+        "id": 687,
+        "candies": 50
       }
-    ],
-    "id": 686
+    ]
   },
   "688": {
+    "id": 688,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 689
+        "id": 689,
+        "candies": 50
       }
-    ],
-    "id": 688
+    ]
+  },
+  "69": {
+    "id": 69,
+    "evolutions": [
+      {
+        "id": 70,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 71,
+            "candies": 100
+          }
+        ]
+      }
+    ]
   },
   "690": {
+    "id": 690,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 691
+        "id": 691,
+        "candies": 50
       }
-    ],
-    "id": 690
+    ]
   },
   "692": {
+    "id": 692,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 693
+        "id": 693,
+        "candies": 50
       }
-    ],
-    "id": 692
+    ]
   },
   "694": {
+    "id": 694,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 695
+        "id": 695,
+        "candies": 50
       }
-    ],
-    "id": 694
+    ]
   },
   "696": {
+    "id": 696,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 697
+        "id": 697,
+        "candies": 50
       }
-    ],
-    "id": 696
+    ]
   },
   "698": {
+    "id": 698,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 699
+        "id": 699,
+        "candies": 50
       }
-    ],
-    "id": 698
+    ]
   },
-  "701": {
-    "id": 701
-  },
-  "702": {
-    "id": 702
-  },
-  "703": {
-    "id": 703
+  "7": {
+    "id": 7,
+    "evolutions": [
+      {
+        "id": 8,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 9,
+            "candies": 100
+          }
+        ]
+      }
+    ]
   },
   "704": {
+    "id": 704,
     "evolutions": [
       {
+        "id": 705,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 706
+            "id": 706,
+            "candies": 100
           }
-        ],
-        "id": 705
+        ]
       }
-    ],
-    "id": 704
-  },
-  "707": {
-    "id": 707
+    ]
   },
   "708": {
+    "id": 708,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 709
+        "id": 709,
+        "candies": 200
       }
-    ],
-    "id": 708
+    ]
   },
   "710": {
+    "id": 710,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 711
+        "id": 711,
+        "candies": 200
       }
-    ],
-    "id": 710
-  },
-  "711": {
-    "id": 711
+    ]
   },
   "712": {
+    "id": 712,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 713
+        "id": 713,
+        "candies": 50
       }
-    ],
-    "id": 712
+    ]
   },
   "714": {
+    "id": 714,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 715
+        "id": 715,
+        "candies": 400
       }
-    ],
-    "id": 714
+    ]
   },
-  "716": {
-    "id": 716
-  },
-  "717": {
-    "id": 717
-  },
-  "718": {
-    "id": 718
-  },
-  "719": {
-    "id": 719
-  },
-  "720": {
-    "id": 720
-  },
-  "721": {
-    "id": 721
+  "72": {
+    "id": 72,
+    "evolutions": [
+      {
+        "id": 73,
+        "candies": 50
+      }
+    ]
   },
   "722": {
+    "id": 722,
     "evolutions": [
       {
+        "id": 723,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 724
+            "id": 724,
+            "candies": 100
           }
-        ],
-        "id": 723
+        ]
       }
-    ],
-    "id": 722
+    ]
   },
   "725": {
+    "id": 725,
     "evolutions": [
       {
+        "id": 726,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 727
+            "id": 727,
+            "candies": 100
           }
-        ],
-        "id": 726
+        ]
       }
-    ],
-    "id": 725
-  },
-  "726": {
-    "id": 726
-  },
-  "727": {
-    "id": 727
+    ]
   },
   "728": {
+    "id": 728,
     "evolutions": [
       {
+        "id": 729,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 730
+            "id": 730,
+            "candies": 100
           }
-        ],
-        "id": 729
+        ]
       }
-    ],
-    "id": 728
-  },
-  "729": {
-    "id": 729
-  },
-  "730": {
-    "id": 730
+    ]
   },
   "731": {
+    "id": 731,
     "evolutions": [
       {
+        "id": 732,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 733
+            "id": 733,
+            "candies": 100
           }
-        ],
-        "id": 732
+        ]
       }
-    ],
-    "id": 731
-  },
-  "732": {
-    "id": 732
-  },
-  "733": {
-    "id": 733
+    ]
   },
   "734": {
+    "id": 734,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 735
+        "id": 735,
+        "candies": 50
       }
-    ],
-    "id": 734
-  },
-  "735": {
-    "id": 735
+    ]
   },
   "736": {
+    "id": 736,
     "evolutions": [
       {
+        "id": 737,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 738
+            "id": 738,
+            "candies": 100
           }
-        ],
-        "id": 737
+        ]
       }
-    ],
-    "id": 736
-  },
-  "737": {
-    "id": 737
-  },
-  "738": {
-    "id": 738
+    ]
   },
   "739": {
+    "id": 739,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 740
+        "id": 740,
+        "candies": 50
       }
-    ],
-    "id": 739
+    ]
   },
-  "740": {
-    "id": 740
-  },
-  "741": {
-    "id": 741
+  "74": {
+    "id": 74,
+    "evolutions": [
+      {
+        "id": 75,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 76,
+            "candies": 100
+          }
+        ]
+      }
+    ]
   },
   "742": {
+    "id": 742,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 743
+        "id": 743,
+        "candies": 50
       }
-    ],
-    "id": 742
-  },
-  "743": {
-    "id": 743
+    ]
   },
   "744": {
+    "id": 744,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 745
+        "id": 745,
+        "candies": 50
       }
-    ],
-    "id": 744
-  },
-  "745": {
-    "id": 745
-  },
-  "746": {
-    "id": 746
+    ]
   },
   "747": {
+    "id": 747,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 748
+        "id": 748,
+        "candies": 50
       }
-    ],
-    "id": 747
-  },
-  "748": {
-    "id": 748
+    ]
   },
   "749": {
+    "id": 749,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 750
+        "id": 750,
+        "candies": 50
       }
-    ],
-    "id": 749
-  },
-  "750": {
-    "id": 750
+    ]
   },
   "751": {
+    "id": 751,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 752
+        "id": 752,
+        "candies": 50
       }
-    ],
-    "id": 751
-  },
-  "752": {
-    "id": 752
+    ]
   },
   "753": {
+    "id": 753,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 754
+        "id": 754,
+        "candies": 50
       }
-    ],
-    "id": 753
-  },
-  "754": {
-    "id": 754
+    ]
   },
   "755": {
+    "id": 755,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 756
+        "id": 756,
+        "candies": 50
       }
-    ],
-    "id": 755
-  },
-  "756": {
-    "id": 756
+    ]
   },
   "757": {
+    "id": 757,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 758
+        "id": 758,
+        "candies": 50
       }
-    ],
-    "id": 757
-  },
-  "758": {
-    "id": 758
+    ]
   },
   "759": {
+    "id": 759,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 760
+        "id": 760,
+        "candies": 400
       }
-    ],
-    "id": 759
-  },
-  "760": {
-    "id": 760
+    ]
   },
   "761": {
+    "id": 761,
     "evolutions": [
       {
+        "id": 762,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 763
+            "id": 763,
+            "candies": 100
           }
-        ],
-        "id": 762
+        ]
       }
-    ],
-    "id": 761
-  },
-  "762": {
-    "id": 762
-  },
-  "763": {
-    "id": 763
-  },
-  "764": {
-    "id": 764
-  },
-  "765": {
-    "id": 765
-  },
-  "766": {
-    "id": 766
+    ]
   },
   "767": {
+    "id": 767,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 768
+        "id": 768,
+        "candies": 400
       }
-    ],
-    "id": 767
-  },
-  "768": {
-    "id": 768
+    ]
   },
   "769": {
+    "id": 769,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 770
+        "id": 770,
+        "candies": 50
       }
-    ],
-    "id": 769
+    ]
   },
-  "770": {
-    "id": 770
-  },
-  "771": {
-    "id": 771
+  "77": {
+    "id": 77,
+    "evolutions": [
+      {
+        "id": 78,
+        "candies": 50
+      }
+    ]
   },
   "772": {
+    "id": 772,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 773
+        "id": 773,
+        "candies": 200
       }
-    ],
-    "id": 772
-  },
-  "773": {
-    "id": 773
-  },
-  "774": {
-    "id": 774
-  },
-  "775": {
-    "id": 775
-  },
-  "776": {
-    "id": 776
-  },
-  "777": {
-    "id": 777
-  },
-  "778": {
-    "id": 778
-  },
-  "779": {
-    "id": 779
-  },
-  "780": {
-    "id": 780
-  },
-  "781": {
-    "id": 781
+    ]
   },
   "782": {
+    "id": 782,
     "evolutions": [
       {
+        "id": 783,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 784
+            "id": 784,
+            "candies": 100
           }
-        ],
-        "id": 783
+        ]
       }
-    ],
-    "id": 782
-  },
-  "783": {
-    "id": 783
-  },
-  "784": {
-    "id": 784
-  },
-  "785": {
-    "id": 785
-  },
-  "786": {
-    "id": 786
-  },
-  "787": {
-    "id": 787
-  },
-  "788": {
-    "id": 788
+    ]
   },
   "789": {
+    "id": 789,
     "evolutions": [
       {
+        "id": 790,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 791
-          },
-          {
-            "candies": 100,
-            "id": 792
+            "id": 791,
+            "candies": 100
           }
-        ],
-        "id": 790
+        ]
       }
-    ],
-    "id": 789
+    ]
   },
-  "790": {
-    "id": 790
-  },
-  "791": {
-    "id": 791
-  },
-  "792": {
-    "id": 792
-  },
-  "793": {
-    "id": 793
-  },
-  "794": {
-    "id": 794
-  },
-  "795": {
-    "id": 795
-  },
-  "796": {
-    "id": 796
-  },
-  "797": {
-    "id": 797
-  },
-  "798": {
-    "id": 798
-  },
-  "799": {
-    "id": 799
-  },
-  "800": {
-    "id": 800
-  },
-  "801": {
-    "id": 801
-  },
-  "802": {
-    "id": 802
+  "79": {
+    "id": 79,
+    "evolutions": [
+      {
+        "id": 80,
+        "candies": 50
+      }
+    ]
   },
   "803": {
-    "id": 803
-  },
-  "804": {
-    "id": 804
-  },
-  "805": {
-    "id": 805
-  },
-  "806": {
-    "id": 806
-  },
-  "807": {
-    "id": 807
+    "id": 803,
+    "evolutions": [
+      {
+        "id": 804,
+        "candies": 200
+      }
+    ]
   },
   "808": {
-    "id": 808
+    "id": 808,
+    "evolutions": [
+      {
+        "id": 809,
+        "candies": 400
+      }
+    ]
   },
-  "809": {
-    "id": 809
+  "81": {
+    "id": 81,
+    "evolutions": [
+      {
+        "id": 82,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 462,
+            "candies": 100
+          }
+        ]
+      }
+    ]
   },
   "810": {
+    "id": 810,
     "evolutions": [
       {
+        "id": 811,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 812
+            "id": 812,
+            "candies": 100
           }
-        ],
-        "id": 811
+        ]
       }
-    ],
-    "id": 810
+    ]
   },
   "813": {
+    "id": 813,
     "evolutions": [
       {
+        "id": 814,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 815
+            "id": 815,
+            "candies": 100
           }
-        ],
-        "id": 814
+        ]
       }
-    ],
-    "id": 813
+    ]
   },
   "816": {
+    "id": 816,
     "evolutions": [
       {
+        "id": 817,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 818
+            "id": 818,
+            "candies": 100
           }
-        ],
-        "id": 817
+        ]
       }
-    ],
-    "id": 816
+    ]
   },
   "819": {
+    "id": 819,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 820
+        "id": 820,
+        "candies": 50
       }
-    ],
-    "id": 819
+    ]
   },
   "821": {
+    "id": 821,
     "evolutions": [
       {
+        "id": 822,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 823
+            "id": 823,
+            "candies": 100
           }
-        ],
-        "id": 822
+        ]
       }
-    ],
-    "id": 821
+    ]
   },
   "824": {
+    "id": 824,
     "evolutions": [
       {
+        "id": 825,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 826
+            "id": 826,
+            "candies": 100
           }
-        ],
-        "id": 825
+        ]
       }
-    ],
-    "id": 824
+    ]
   },
   "827": {
+    "id": 827,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 828
+        "id": 828,
+        "candies": 50
       }
-    ],
-    "id": 827
+    ]
   },
   "829": {
+    "id": 829,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 830
+        "id": 830,
+        "candies": 50
       }
-    ],
-    "id": 829
+    ]
   },
   "831": {
+    "id": 831,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 832
+        "id": 832,
+        "candies": 50
       }
-    ],
-    "id": 831
+    ]
   },
   "833": {
+    "id": 833,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 834
+        "id": 834,
+        "candies": 50
       }
-    ],
-    "id": 833
+    ]
   },
   "835": {
+    "id": 835,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 836
+        "id": 836,
+        "candies": 50
       }
-    ],
-    "id": 835
+    ]
   },
   "837": {
+    "id": 837,
     "evolutions": [
       {
+        "id": 838,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 839
+            "id": 839,
+            "candies": 100
           }
-        ],
-        "id": 838
+        ]
       }
-    ],
-    "id": 837
+    ]
+  },
+  "84": {
+    "id": 84,
+    "evolutions": [
+      {
+        "id": 85,
+        "candies": 50
+      }
+    ]
   },
   "840": {
+    "id": 840,
     "evolutions": [
       {
-        "candies": 25,
-        "evolutions": [
-          {
-            "candies": 100,
-            "id": 842
-          }
-        ],
-        "id": 841
+        "id": 841,
+        "candies": 400
       }
-    ],
-    "id": 840
+    ]
   },
   "843": {
+    "id": 843,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 844
+        "id": 844,
+        "candies": 50
       }
-    ],
-    "id": 843
-  },
-  "845": {
-    "id": 845
+    ]
   },
   "846": {
+    "id": 846,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 847
+        "id": 847,
+        "candies": 50
       }
-    ],
-    "id": 846
+    ]
   },
   "848": {
+    "id": 848,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 849
+        "id": 849,
+        "candies": 50
       }
-    ],
-    "id": 848
+    ]
   },
   "850": {
+    "id": 850,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 851
+        "id": 851,
+        "candies": 50
       }
-    ],
-    "id": 850
+    ]
   },
   "852": {
+    "id": 852,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 853
+        "id": 853,
+        "candies": 50
       }
-    ],
-    "id": 852
+    ]
   },
   "854": {
+    "id": 854,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 855
+        "id": 855,
+        "candies": 50
       }
-    ],
-    "id": 854
+    ]
   },
   "856": {
+    "id": 856,
     "evolutions": [
       {
+        "id": 857,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 858
+            "id": 858,
+            "candies": 100
           }
-        ],
-        "id": 857
+        ]
       }
-    ],
-    "id": 856
+    ]
   },
   "859": {
+    "id": 859,
     "evolutions": [
       {
+        "id": 860,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 861
+            "id": 861,
+            "candies": 100
           }
-        ],
-        "id": 860
+        ]
       }
-    ],
-    "id": 859
+    ]
   },
-  "862": {
-    "id": 862
-  },
-  "863": {
-    "id": 863
-  },
-  "864": {
-    "id": 864
-  },
-  "866": {
-    "id": 866
-  },
-  "867": {
-    "id": 867
+  "86": {
+    "id": 86,
+    "evolutions": [
+      {
+        "id": 87,
+        "candies": 50
+      }
+    ]
   },
   "868": {
+    "id": 868,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 869
+        "id": 869,
+        "candies": 50
       }
-    ],
-    "id": 868
-  },
-  "870": {
-    "id": 870
-  },
-  "871": {
-    "id": 871
+    ]
   },
   "872": {
+    "id": 872,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 873
+        "id": 873,
+        "candies": 50
       }
-    ],
-    "id": 872
-  },
-  "874": {
-    "id": 874
-  },
-  "875": {
-    "id": 875
-  },
-  "876": {
-    "id": 876
-  },
-  "877": {
-    "id": 877
+    ]
   },
   "878": {
+    "id": 878,
     "evolutions": [
       {
-        "candies": 50,
-        "id": 879
+        "id": 879,
+        "candies": 50
       }
-    ],
-    "id": 878
+    ]
   },
-  "880": {
-    "id": 880
-  },
-  "881": {
-    "id": 881
-  },
-  "882": {
-    "id": 882
-  },
-  "883": {
-    "id": 883
-  },
-  "884": {
-    "id": 884
+  "88": {
+    "id": 88,
+    "evolutions": [
+      {
+        "id": 89,
+        "candies": 50
+      }
+    ]
   },
   "885": {
+    "id": 885,
     "evolutions": [
       {
+        "id": 886,
         "candies": 25,
         "evolutions": [
           {
-            "candies": 100,
-            "id": 887
+            "id": 887,
+            "candies": 100
           }
-        ],
-        "id": 886
+        ]
       }
-    ],
-    "id": 885
-  },
-  "888": {
-    "id": 888
-  },
-  "889": {
-    "id": 889
-  },
-  "890": {
-    "id": 890
+    ]
   },
   "891": {
-    "id": 891
+    "id": 891,
+    "evolutions": [
+      {
+        "id": 892,
+        "candies": 400
+      }
+    ]
   },
-  "892": {
-    "id": 892
+  "90": {
+    "id": 90,
+    "evolutions": [
+      {
+        "id": 91,
+        "candies": 50
+      }
+    ]
   },
-  "893": {
-    "id": 893
+  "906": {
+    "id": 906,
+    "evolutions": [
+      {
+        "id": 907,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 908,
+            "candies": 100
+          }
+        ]
+      }
+    ]
   },
-  "894": {
-    "id": 894
+  "909": {
+    "id": 909,
+    "evolutions": [
+      {
+        "id": 910,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 911,
+            "candies": 100
+          }
+        ]
+      }
+    ]
   },
-  "895": {
-    "id": 895
+  "912": {
+    "id": 912,
+    "evolutions": [
+      {
+        "id": 913,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 914,
+            "candies": 100
+          }
+        ]
+      }
+    ]
   },
-  "896": {
-    "id": 896
+  "915": {
+    "id": 915,
+    "evolutions": [
+      {
+        "id": 916,
+        "candies": 50
+      }
+    ]
   },
-  "897": {
-    "id": 897
+  "917": {
+    "id": 917,
+    "evolutions": [
+      {
+        "id": 918,
+        "candies": 25
+      }
+    ]
   },
-  "898": {
-    "id": 898
+  "919": {
+    "id": 919,
+    "evolutions": [
+      {
+        "id": 920,
+        "candies": 50
+      }
+    ]
+  },
+  "92": {
+    "id": 92,
+    "evolutions": [
+      {
+        "id": 93,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 94,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "921": {
+    "id": 921,
+    "evolutions": [
+      {
+        "id": 922,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 923,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "924": {
+    "id": 924,
+    "evolutions": [
+      {
+        "id": 925,
+        "candies": 50
+      }
+    ]
+  },
+  "926": {
+    "id": 926,
+    "evolutions": [
+      {
+        "id": 927,
+        "candies": 50
+      }
+    ]
+  },
+  "928": {
+    "id": 928,
+    "evolutions": [
+      {
+        "id": 929,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 930,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "932": {
+    "id": 932,
+    "evolutions": [
+      {
+        "id": 933,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 934,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "935": {
+    "id": 935,
+    "evolutions": [
+      {
+        "id": 936,
+        "candies": 50
+      }
+    ]
+  },
+  "938": {
+    "id": 938,
+    "evolutions": [
+      {
+        "id": 939,
+        "candies": 50
+      }
+    ]
+  },
+  "940": {
+    "id": 940,
+    "evolutions": [
+      {
+        "id": 941,
+        "candies": 50
+      }
+    ]
+  },
+  "942": {
+    "id": 942,
+    "evolutions": [
+      {
+        "id": 943,
+        "candies": 50
+      }
+    ]
+  },
+  "944": {
+    "id": 944,
+    "evolutions": [
+      {
+        "id": 945,
+        "candies": 50
+      }
+    ]
+  },
+  "946": {
+    "id": 946,
+    "evolutions": [
+      {
+        "id": 947,
+        "candies": 50
+      }
+    ]
+  },
+  "948": {
+    "id": 948,
+    "evolutions": [
+      {
+        "id": 949,
+        "candies": 50
+      }
+    ]
+  },
+  "95": {
+    "id": 95,
+    "evolutions": [
+      {
+        "id": 208,
+        "candies": 50
+      }
+    ]
+  },
+  "951": {
+    "id": 951,
+    "evolutions": [
+      {
+        "id": 952,
+        "candies": 50
+      }
+    ]
+  },
+  "953": {
+    "id": 953,
+    "evolutions": [
+      {
+        "id": 954,
+        "candies": 50
+      }
+    ]
+  },
+  "955": {
+    "id": 955,
+    "evolutions": [
+      {
+        "id": 956,
+        "candies": 50
+      }
+    ]
+  },
+  "957": {
+    "id": 957,
+    "evolutions": [
+      {
+        "id": 958,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 959,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "96": {
+    "id": 96,
+    "evolutions": [
+      {
+        "id": 97,
+        "candies": 50
+      }
+    ]
+  },
+  "960": {
+    "id": 960,
+    "evolutions": [
+      {
+        "id": 961,
+        "candies": 50
+      }
+    ]
+  },
+  "963": {
+    "id": 963,
+    "evolutions": [
+      {
+        "id": 964,
+        "candies": 50
+      }
+    ]
+  },
+  "965": {
+    "id": 965,
+    "evolutions": [
+      {
+        "id": 966,
+        "candies": 50
+      }
+    ]
+  },
+  "969": {
+    "id": 969,
+    "evolutions": [
+      {
+        "id": 970,
+        "candies": 50
+      }
+    ]
+  },
+  "971": {
+    "id": 971,
+    "evolutions": [
+      {
+        "id": 972,
+        "candies": 50
+      }
+    ]
+  },
+  "974": {
+    "id": 974,
+    "evolutions": [
+      {
+        "id": 975,
+        "candies": 50
+      }
+    ]
+  },
+  "98": {
+    "id": 98,
+    "evolutions": [
+      {
+        "id": 99,
+        "candies": 50
+      }
+    ]
+  },
+  "996": {
+    "id": 996,
+    "evolutions": [
+      {
+        "id": 997,
+        "candies": 25,
+        "evolutions": [
+          {
+            "id": 998,
+            "candies": 100
+          }
+        ]
+      }
+    ]
+  },
+  "999": {
+    "id": 999,
+    "evolutions": [
+      {
+        "id": 1000,
+        "candies": null
+      }
+    ]
   }
 }
