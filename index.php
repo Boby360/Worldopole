@@ -99,6 +99,7 @@ include_once 'core/process/data.loader.php';
 						<p><?= $locales->FOOTER_MADE_BY; ?></p>
 						<h3>Pokémon™</h3>
 						<?= $locales->FOOTER_POKEMON_CONTENT; ?>
+						<p><strong><a href="javascript:googlefc.callbackQueue.push(googlefc.showRevocationMessage)">Click here to adjust your privacy settings</a></strong></p>
 					</div>
 				</div>
 			</div>
