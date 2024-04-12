@@ -342,6 +342,7 @@ else {
     }
     */
     $recents = array();
+    $result = array();
 
     if (count($result) > 0) {
         foreach ($result as $data) {
