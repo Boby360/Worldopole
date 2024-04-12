@@ -291,13 +291,17 @@ function generation($id)
         case $id >= 387 && $id <= 493:
             return [4, 'Sinnoh'];
         case $id >= 494 && $id <= 649:
-            return [5, 'Teselia'];
+            return [5, 'Unova'];
         case $id >= 650 && $id <= 721:
             return [6, 'Kalos'];
         case $id >= 722 && $id <= 809:
             return [7, 'Alola'];
         case $id >= 810 && $id <= 898:
             return [8, 'Galar'];
+        case $id >= 899 && $id <= 905:
+            return [9, 'Hisui'];
+        case $id >= 906 && $id <= 1008:
+            return [10, 'Paldea'];
     }
 }
 
