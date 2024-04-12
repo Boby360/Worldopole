@@ -1,5 +1,7 @@
 <?php
 
+error_reporting(E_ERROR | E_PARSE);
+
 include_once 'config.php';
 include_once 'functions.php';
 include_once 'core/process/data.loader.php';
